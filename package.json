@@ -29,7 +29,11 @@
       "wesbos"
     ]
   },
-  "eslintIgnore": ["node_modules/", "dist", ".cache"],
+  "eslintIgnore": [
+    "node_modules/",
+    "dist",
+    ".cache"
+  ],
   "devDependencies": {
     "babel-eslint": "^9.0.0",
     "eslint": "^5.16.0",
@@ -44,5 +48,9 @@
     "eslint-plugin-react-hooks": "^1.7.0",
     "parcel-bundler": "^1.12.4",
     "prettier": "^1.19.1"
+  },
+  "dependencies": {
+    "algoliasearch": "^3.35.1",
+    "instantsearch.js": "^4.2.0"
   }
 }
