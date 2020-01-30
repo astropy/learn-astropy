@@ -36,6 +36,7 @@
   ],
   "devDependencies": {
     "babel-eslint": "^9.0.0",
+    "css-loader": "^3.4.2",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^4.3.0",
@@ -47,10 +48,12 @@
     "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-react-hooks": "^1.7.0",
     "parcel-bundler": "^1.12.4",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "style-loader": "^1.1.3"
   },
   "dependencies": {
     "algoliasearch": "^3.35.1",
+    "instantsearch.css": "^7.4.1",
     "instantsearch.js": "^4.2.0"
   }
 }
