@@ -1,6 +1,6 @@
 import algoliasearch from 'algoliasearch/lite';
 import instantsearch from 'instantsearch.js';
-import { searchBox, hits } from 'instantsearch.js/es/widgets';
+import { searchBox, hits, poweredBy } from 'instantsearch.js/es/widgets';
 // Full Algolia theme
 import 'instantsearch.css/themes/algolia.css';
 
@@ -16,6 +16,10 @@ const search = instantsearch({
 });
 
 search.addWidgets([
+  poweredBy({
+    container: '#powered-by',
+    theme: 'light',
+  }),
   searchBox({
     container: '#searchbox',
   }),
