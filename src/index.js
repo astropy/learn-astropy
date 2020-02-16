@@ -22,6 +22,9 @@ search.addWidgets([
 
   hits({
     container: '#hits',
+    templates: {
+      empty: 'No results for <q>{{ query }}</q>',
+    },
   }),
 ]);
 
