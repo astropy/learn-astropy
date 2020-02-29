@@ -40,6 +40,7 @@
     "not dead"
   ],
   "devDependencies": {
+    "acorn": "^7.1.0",
     "autoprefixer": "^9.7.4",
     "babel-eslint": "^9.0.0",
     "css-loader": "^3.4.2",
@@ -48,10 +49,10 @@
     "eslint-config-prettier": "^4.3.0",
     "eslint-config-wesbos": "0.0.19",
     "eslint-plugin-html": "^5.0.5",
-    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^1.7.0",
     "parcel-bundler": "^1.12.4",
     "postcss-normalize": "^8.0.1",
@@ -60,8 +61,8 @@
   },
   "dependencies": {
     "algoliasearch": "^4.0.3",
-    "instantsearch.css": "^7.4.1",
-    "instantsearch.js": "^4.2.0",
+    "instantsearch.css": "^7.4.2",
+    "instantsearch.js": "^4.3.0",
     "normalize": "^0.3.1"
   }
 }
