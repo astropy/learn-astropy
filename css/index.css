@@ -1,2 +1,4 @@
 /* Full Algolia theme */
 @import '../node_modules/instantsearch.css/themes/algolia.css';
+
+@import 'sanitize.css';
