@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  - push
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        name: Use Node.js
+        with:
+          node-version: 13.x
+
+      - run: npm ci
+        name: Install
+
+      - run: npm run build
+        name: Build
+
+      - run: npm run lint
+        name: Lint
