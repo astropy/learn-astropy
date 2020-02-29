@@ -1,8 +1,6 @@
 import algoliasearch from 'algoliasearch/lite';
 import instantsearch from 'instantsearch.js';
 import { searchBox, hits, poweredBy } from 'instantsearch.js/es/widgets';
-// Full Algolia theme
-import 'instantsearch.css/themes/algolia.css';
 
 // This is the Search-only API key
 const searchClient = algoliasearch(
