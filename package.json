@@ -34,7 +34,13 @@
     "dist",
     ".cache"
   ],
+  "browserslist": [
+    "last 2 version",
+    "> 2%",
+    "not dead"
+  ],
   "devDependencies": {
+    "autoprefixer": "^9.7.4",
     "babel-eslint": "^9.0.0",
     "css-loader": "^3.4.2",
     "eslint": "^5.16.0",
