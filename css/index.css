@@ -51,3 +51,8 @@ body {
 .search-item img {
   width: 100%;
 }
+
+.ais-Highlight-highlighted {
+  color: inherit;
+  font-size: inherit;
+}
