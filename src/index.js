@@ -2,6 +2,8 @@ import algoliasearch from 'algoliasearch/lite';
 import instantsearch from 'instantsearch.js';
 import { searchBox, hits, poweredBy } from 'instantsearch.js/es/widgets';
 
+import { emptyTemplate, itemTemplate } from './templates';
+
 // This is the Search-only API key
 const searchClient = algoliasearch(
   'KSDFJKHCO2',
@@ -25,7 +27,8 @@ search.addWidgets([
   hits({
     container: '#hits',
     templates: {
-      empty: 'No results for <q>{{ query }}</q>',
+      empty: emptyTemplate,
+      item: itemTemplate,
     },
   }),
 ]);
