@@ -28,6 +28,22 @@ body {
   padding: 1em;
 }
 
-.ais-SearchBox {
-  margin: 1em 0;
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+#searchbox {
+  flex: 1 1 0;
+}
+
+#powered-by {
+  margin-left: 0.5em;
+}
+
+#pagination {
+  margin: 2em auto;
+  text-align: center;
 }
