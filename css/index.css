@@ -2,3 +2,32 @@
 @import '../node_modules/instantsearch.css/themes/algolia.css';
 
 @import 'sanitize.css';
+
+body {
+  font-family: sans-serif;
+}
+
+.header {
+  background: url(../images/starry_background.png) no-repeat center center;
+  background-size: cover;
+  height: 400px;
+  border-radius: 0;
+  display: flex; /* hack for centering the header */
+  justify-content: center;
+  align-items: center;
+}
+
+.header h1 {
+  color: #fff;
+  font-size: 3rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.ais-SearchBox {
+  margin: 1em 0;
+}
