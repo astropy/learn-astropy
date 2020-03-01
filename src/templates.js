@@ -5,7 +5,9 @@ export const emptyTemplate = `
 `;
 
 export const itemTemplate = `
-<article>
+<article class="search-item">
   <h2>{{ h1 }}</h2>
+  <img src={{ thumbnail }} alt="">
+  <p>{{ content }}</p>
 </article>
 `;

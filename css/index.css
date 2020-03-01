@@ -47,3 +47,7 @@ body {
   margin: 2em auto;
   text-align: center;
 }
+
+.search-item img {
+  width: 100%;
+}
