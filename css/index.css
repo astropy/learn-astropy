@@ -1,0 +1,106 @@
+/* Full Algolia theme */
+@import '../node_modules/instantsearch.css/themes/algolia.css';
+
+/* CSS reset via postcss-normalize */
+@import 'sanitize.css';
+
+body {
+  font-family: sans-serif;
+}
+
+/* Page header. */
+.header {
+  background: url(../images/starry_background.png) no-repeat center center;
+  background-size: cover;
+  height: 400px;
+  border-radius: 0;
+  display: flex; /* hack for centering the header */
+  justify-content: center;
+  align-items: center;
+}
+
+.header h1 {
+  color: #fff;
+  font-size: 3rem;
+}
+
+/* Main container for content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+/* Container for both the searchbox and powered-by widgets. */
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+/* The Algolia searchbox widget */
+#searchbox {
+  flex: 1 1 0;
+}
+
+/* The Algolia powered-by widget.
+ * This widget is required for community subscriptions.
+ */
+#powered-by {
+  margin-left: 0.5em;
+}
+
+/* The Algolia pagination widget. */
+#pagination {
+  margin: 2em auto;
+  text-align: center;
+}
+
+/* The result list item card (child of div.ais-Hits) */
+.ais-Hits-item {
+  width: 100%; /* to make multi-column: calc(50% - 1rem) for gutter */
+}
+
+/* Container within the list item .ais-Hits-item that contains our content.
+ *
+ * This sets up a grid container the header, and then a side-by-side thumbnail
+ * and description.
+ * */
+.search-item {
+  display: grid;
+  grid-template-columns: 20em 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'header header'
+    'thumbnail description';
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+}
+
+.search-item__header {
+  grid-area: header;
+  margin: 0;
+}
+
+.search-item__description {
+  grid-area: description;
+}
+
+.search-item__description p {
+  margin-top: 0;
+}
+
+.search-item__thumbnail {
+  grid-area: thumbnail;
+}
+
+img.search-item__thumbnail {
+  width: 100%;
+}
+
+/* Ensure that highlighted search text retains font properties. */
+.ais-Highlight-highlighted {
+  color: inherit;
+  font-size: inherit;
+}

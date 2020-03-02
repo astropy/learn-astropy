@@ -9,18 +9,26 @@
 </head>
 
 <body>
-  <div class="ais-InstantSearch">
-    <h1>Astropy Search Demo</h1>
+  <header class="header">
+    <a href="/">
+      <h1>Astropy Search Demo</h1>
+    </a>
+  </header>
 
+  <div class="container">
+    <div class="search-panel">
+      <div class="search-panel__results">
+        <div class="search-bar">
+          <div id="searchbox"></div>
+          <div id="powered-by"></div>
+        </div>
+        <div id="hits"></div>
+      </div>
 
-    <div class="right-panel">
-      <div id="searchbox"></div>
-      <div id="powered-by"></div>
-      <div id="hits"></div>
       <div id="pagination"></div>
     </div>
-
   </div>
+
   <script src="./src/index.js"></script>
 </body>
 
