@@ -57,8 +57,45 @@ body {
   text-align: center;
 }
 
-/* Container within the list item .ais-Hits-item that contains our content. */
-.search-item img {
+/* The result list item card (child of div.ais-Hits) */
+.ais-Hits-item {
+  width: 100%; /* to make multi-column: calc(50% - 1rem) for gutter */
+}
+
+/* Container within the list item .ais-Hits-item that contains our content.
+ *
+ * This sets up a grid container the header, and then a side-by-side thumbnail
+ * and description.
+ * */
+.search-item {
+  display: grid;
+  grid-template-columns: 20em 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'header header'
+    'thumbnail description';
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+}
+
+.search-item__header {
+  grid-area: header;
+  margin: 0;
+}
+
+.search-item__description {
+  grid-area: description;
+}
+
+.search-item__description p {
+  margin-top: 0;
+}
+
+.search-item__thumbnail {
+  grid-area: thumbnail;
+}
+
+img.search-item__thumbnail {
   width: 100%;
 }
 
