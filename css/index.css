@@ -1,12 +1,14 @@
 /* Full Algolia theme */
 @import '../node_modules/instantsearch.css/themes/algolia.css';
 
+/* CSS reset via postcss-normalize */
 @import 'sanitize.css';
 
 body {
   font-family: sans-serif;
 }
 
+/* Page header. */
 .header {
   background: url(../images/starry_background.png) no-repeat center center;
   background-size: cover;
@@ -22,12 +24,14 @@ body {
   font-size: 3rem;
 }
 
+/* Main container for content */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 1em;
 }
 
+/* Container for both the searchbox and powered-by widgets. */
 .search-bar {
   display: flex;
   flex-direction: row;
@@ -35,23 +39,30 @@ body {
   margin-bottom: 2em;
 }
 
+/* The Algolia searchbox widget */
 #searchbox {
   flex: 1 1 0;
 }
 
+/* The Algolia powered-by widget.
+ * This widget is required for community subscriptions.
+ */
 #powered-by {
   margin-left: 0.5em;
 }
 
+/* The Algolia pagination widget. */
 #pagination {
   margin: 2em auto;
   text-align: center;
 }
 
+/* Container within the list item .ais-Hits-item that contains our content. */
 .search-item img {
   width: 100%;
 }
 
+/* Ensure that highlighted search text retains font properties. */
 .ais-Highlight-highlighted {
   color: inherit;
   font-size: inherit;
