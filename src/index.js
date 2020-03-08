@@ -45,6 +45,7 @@ search.addWidgets([
   refinementList({
     container: '#keyword-facet',
     attribute: 'keywords',
+    sortBy: ['isRefined', 'name:asc'],
   }),
 ]);
 
