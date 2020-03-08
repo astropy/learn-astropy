@@ -140,3 +140,13 @@ img.search-item__thumbnail {
 .search-panel__facets > h2:first-of-type {
   margin-top: 0em;
 }
+
+/* Hide the count associated with refinements because counts don't match up
+ * well with the idea of breaking a document down into multiple records.
+ *
+ * It might be better to eventually customize the template for refinement
+ * labels so this never appears.
+ */
+.ais-RefinementList-count {
+  visibility: hidden;
+}
