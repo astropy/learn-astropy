@@ -31,6 +31,28 @@ body {
   padding: 1em;
 }
 
+/* Container for the search UI */
+.search-panel {
+  display: grid;
+  grid-template-columns: 15em 1fr;
+  grid-template-rows: auto;
+  grid-column-gap: 2em;
+  grid-template-areas: 'facets results';
+}
+
+/* Container nominally on the left side that contains facets
+ */
+.search-panel__facets {
+  grid-area: facets;
+}
+
+/* Container nominally on the right side that contains the search bar followed
+ * by the results.
+ */
+.search-panel__results {
+  grid-area: results;
+}
+
 /* Container for both the searchbox and powered-by widgets. */
 .search-bar {
   display: flex;
@@ -103,4 +125,28 @@ img.search-item__thumbnail {
 .ais-Highlight-highlighted {
   color: inherit;
   font-size: inherit;
+}
+
+/* If there are items in the refinement list, make sure we add a bottom margin
+ * otherwise there shouldn't be any extra margin.
+ */
+.ais-CurrentRefinements-list li:last-child {
+  margin-bottom: 1em;
+}
+
+/* Ensure that the first header doesn't have top margin so it lines up cleanly
+ * with the search bar
+ */
+.search-panel__facets > h2:first-of-type {
+  margin-top: 0em;
+}
+
+/* Hide the count associated with refinements because counts don't match up
+ * well with the idea of breaking a document down into multiple records.
+ *
+ * It might be better to eventually customize the template for refinement
+ * labels so this never appears.
+ */
+.ais-RefinementList-count {
+  visibility: hidden;
 }

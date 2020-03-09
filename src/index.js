@@ -1,6 +1,12 @@
 import algoliasearch from 'algoliasearch/lite';
 import instantsearch from 'instantsearch.js';
-import { searchBox, hits, poweredBy } from 'instantsearch.js/es/widgets';
+import {
+  searchBox,
+  hits,
+  poweredBy,
+  currentRefinements,
+  refinementList,
+} from 'instantsearch.js/es/widgets';
 
 import { emptyTemplate, itemTemplate } from './templates';
 
@@ -30,6 +36,16 @@ search.addWidgets([
       empty: emptyTemplate,
       item: itemTemplate,
     },
+  }),
+
+  currentRefinements({
+    container: '#current-refinements',
+  }),
+
+  refinementList({
+    container: '#keyword-facet',
+    attribute: 'keywords',
+    sortBy: ['isRefined', 'name:asc'],
   }),
 ]);
 
