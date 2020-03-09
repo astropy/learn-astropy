@@ -46,6 +46,12 @@ search.addWidgets([
     container: '#keyword-facet',
     attribute: 'keywords',
     sortBy: ['isRefined', 'name:asc'],
+    searchable: true,
+    searchablePlaceholder: 'Search keywords',
+    searchableIsAlwaysActive: false, // only add search if "showMore" also visible
+    showMore: true,
+    limit: 20,
+    showMoreLimit: 500,
   }),
 ]);
 
