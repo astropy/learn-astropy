@@ -43,11 +43,47 @@ search.addWidgets([
   }),
 
   refinementList({
-    container: '#keyword-facet',
-    attribute: 'keywords',
+    container: '#astropy-keywords-facet',
+    attribute: 'astropy_package_keywords',
     sortBy: ['isRefined', 'name:asc'],
     searchable: true,
-    searchablePlaceholder: 'Search keywords',
+    searchablePlaceholder: 'Search packages',
+    searchableIsAlwaysActive: false, // only add search if "showMore" also visible
+    showMore: true,
+    limit: 20,
+    showMoreLimit: 500,
+  }),
+
+  refinementList({
+    container: '#python-keywords-facet',
+    attribute: 'python_package_keywords',
+    sortBy: ['isRefined', 'name:asc'],
+    searchable: true,
+    searchablePlaceholder: 'Search packages',
+    searchableIsAlwaysActive: false, // only add search if "showMore" also visible
+    showMore: true,
+    limit: 20,
+    showMoreLimit: 500,
+  }),
+
+  refinementList({
+    container: '#task-keywords-facet',
+    attribute: 'task_keywords',
+    sortBy: ['isRefined', 'name:asc'],
+    searchable: true,
+    searchablePlaceholder: 'Search tasks',
+    searchableIsAlwaysActive: false, // only add search if "showMore" also visible
+    showMore: true,
+    limit: 20,
+    showMoreLimit: 500,
+  }),
+
+  refinementList({
+    container: '#science-keywords-facet',
+    attribute: 'science_keywords',
+    sortBy: ['isRefined', 'name:asc'],
+    searchable: true,
+    searchablePlaceholder: 'Search science areas',
     searchableIsAlwaysActive: false, // only add search if "showMore" also visible
     showMore: true,
     limit: 20,
