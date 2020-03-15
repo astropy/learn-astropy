@@ -8,7 +8,11 @@ import {
   refinementList,
 } from 'instantsearch.js/es/widgets';
 
-import { emptyTemplate, itemTemplate } from './templates';
+import {
+  emptyTemplate,
+  itemTemplate,
+  refinementListItemTemplate,
+} from './templates';
 
 // This is the Search-only API key
 const searchClient = algoliasearch(
@@ -52,6 +56,9 @@ search.addWidgets([
     showMore: true,
     limit: 20,
     showMoreLimit: 500,
+    templates: {
+      item: refinementListItemTemplate,
+    },
   }),
 
   refinementList({
@@ -64,6 +71,9 @@ search.addWidgets([
     showMore: true,
     limit: 20,
     showMoreLimit: 500,
+    templates: {
+      item: refinementListItemTemplate,
+    },
   }),
 
   refinementList({
@@ -76,6 +86,9 @@ search.addWidgets([
     showMore: true,
     limit: 20,
     showMoreLimit: 500,
+    templates: {
+      item: refinementListItemTemplate,
+    },
   }),
 
   refinementList({
@@ -88,6 +101,9 @@ search.addWidgets([
     showMore: true,
     limit: 20,
     showMoreLimit: 500,
+    templates: {
+      item: refinementListItemTemplate,
+    },
   }),
 ]);
 
