@@ -54,8 +54,7 @@ search.addWidgets([
     searchablePlaceholder: 'Search packages',
     searchableIsAlwaysActive: false, // only add search if "showMore" also visible
     showMore: true,
-    limit: 20,
-    showMoreLimit: 500,
+    limit: 15,
     templates: {
       item: refinementListItemTemplate,
     },
@@ -69,8 +68,7 @@ search.addWidgets([
     searchablePlaceholder: 'Search packages',
     searchableIsAlwaysActive: false, // only add search if "showMore" also visible
     showMore: true,
-    limit: 20,
-    showMoreLimit: 500,
+    limit: 15,
     templates: {
       item: refinementListItemTemplate,
     },
@@ -84,8 +82,7 @@ search.addWidgets([
     searchablePlaceholder: 'Search tasks',
     searchableIsAlwaysActive: false, // only add search if "showMore" also visible
     showMore: true,
-    limit: 20,
-    showMoreLimit: 500,
+    limit: 15,
     templates: {
       item: refinementListItemTemplate,
     },
@@ -99,8 +96,7 @@ search.addWidgets([
     searchablePlaceholder: 'Search science areas',
     searchableIsAlwaysActive: false, // only add search if "showMore" also visible
     showMore: true,
-    limit: 20,
-    showMoreLimit: 500,
+    limit: 15,
     templates: {
       item: refinementListItemTemplate,
     },
