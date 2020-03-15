@@ -27,3 +27,12 @@ export const itemTemplate = `
   </div>
 </article>
 `;
+
+// Refinement item template
+// https://www.algolia.com/doc/api-reference/widgets/refinement-list/js/#templates
+export const refinementListItemTemplate = `
+<label class="ais-RefinementList-label">
+  <input class="ais-RefinementList-checkbox" type="checkbox" value="{{ label }}" {{#isRefined}}checked=""{{/isRefined}}>
+  <span class="ais-RefinementList-labelText" style="{{#isRefined}}font-weight: bold{{/isRefined}}">{{ label }}</span>
+</label>
+`;
