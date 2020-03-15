@@ -127,11 +127,10 @@ img.search-item__thumbnail {
   font-size: inherit;
 }
 
-/* If there are items in the refinement list, make sure we add a bottom margin
- * otherwise there shouldn't be any extra margin.
- */
-.ais-CurrentRefinements-list li:last-child {
-  margin-bottom: 1em;
+/* div for the currentRefinements widget */
+.ais-CurrentRefinements {
+  margin-top: -1em; /* eat into bottom margin of .search-bar */
+  margin-bottom: 2em;
 }
 
 /* Ensure that the first header doesn't have top margin so it lines up cleanly
