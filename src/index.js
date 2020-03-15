@@ -25,6 +25,14 @@ const search = instantsearch({
   searchClient,
 });
 
+// Map record field names to readable labels for the currentRefinements widget
+const refinementLabelMap = {
+  astropy_package_keywords: 'Astropy package',
+  python_package_keywords: 'Python package',
+  task_keywords: 'Task',
+  science_keywords: 'Science area',
+};
+
 search.addWidgets([
   poweredBy({
     container: '#powered-by',
@@ -44,6 +52,13 @@ search.addWidgets([
 
   currentRefinements({
     container: '#current-refinements',
+    transformItems(items) {
+      // replace the label (the record field by default) with a readable label
+      return items.map(item => ({
+        ...item,
+        label: refinementLabelMap[item.label],
+      }));
+    },
   }),
 
   refinementList({
