@@ -38,6 +38,8 @@ npm run serve
 
 This app uses ESLint to lint JavaScript, which in turn runs Prettier to format JavaScript. The configuration is based on [wesbos/eslint-config-wesbos](https://github.com/wesbos/eslint-config-wesbos).
 
+A Git pre-commit hooks runs both ESLint and Prettier and automatically lints and reformats code before every commit. These hooks are run by [husky](https://typicode.github.io/husky/#/) and should already be installed when you ran `npm install`.
+
 To manually lint the code base:
 
 ```bash
