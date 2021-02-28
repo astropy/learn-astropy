@@ -1,5 +1,7 @@
-import * as React from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
+import SEO from '../components/seo';
 
 // styles
 const pageStyles = {
@@ -25,9 +27,9 @@ const codeStyles = {
 };
 
 // markup
-const NotFoundPage = () => (
+const NotFoundPage = ({ location }) => (
   <main style={pageStyles}>
-    <title>Not found</title>
+    <SEO location={location} title="Not found" />
     <h1 style={headingStyles}>Page not found</h1>
     <p style={paragraphStyles}>
       Sorry{' '}
@@ -50,3 +52,9 @@ const NotFoundPage = () => (
 );
 
 export default NotFoundPage;
+
+NotFoundPage.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }),
+};
