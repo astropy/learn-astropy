@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import styled from 'styled-components';
+import HeaderHeroSearch from './headerHeroSearch';
 
 const LogoContainer = styled.div`
   width: 35vw;
@@ -36,6 +37,7 @@ export default function Header() {
           <img src="/learn-astropy-logo.png" alt="Learn Astropy" />
         </Link>
       </LogoContainer>
+      <HeaderHeroSearch />
     </StyledHeader>
   );
 }
