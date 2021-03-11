@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 
 import styled from 'styled-components';
 import HeaderHeroSearch from './headerHeroSearch';
+import CategoryHero from './categoryHero';
 
 const LogoContainer = styled.div`
   width: 35vw;
@@ -31,13 +32,16 @@ const StyledHeader = styled.header`
  */
 export default function Header() {
   return (
-    <StyledHeader>
-      <LogoContainer>
-        <Link to="/">
-          <img src="/learn-astropy-logo.png" alt="Learn Astropy" />
-        </Link>
-      </LogoContainer>
-      <HeaderHeroSearch />
-    </StyledHeader>
+    <>
+      <StyledHeader>
+        <LogoContainer>
+          <Link to="/">
+            <img src="/learn-astropy-logo.png" alt="Learn Astropy" />
+          </Link>
+        </LogoContainer>
+        <HeaderHeroSearch />
+      </StyledHeader>
+      <CategoryHero />
+    </>
   );
 }
