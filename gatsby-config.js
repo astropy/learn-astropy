@@ -7,5 +7,16 @@ module.exports = {
     twitter: '@astropy',
     siteUrl: 'https://learn.astropy.org',
   },
-  plugins: ['gatsby-plugin-styled-components', 'gatsby-plugin-react-helmet'],
+  plugins: [
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-docs`,
+        path: `${__dirname}/src/contributing`,
+      },
+    },
+    `gatsby-transformer-remark`,
+  ],
 };
