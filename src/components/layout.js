@@ -2,6 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+// Fonts from fontsource
+// https://github.com/fontsource/fontsource
+import '@fontsource/source-sans-pro/400.css';
+import '@fontsource/source-sans-pro/400-italic.css';
+import '@fontsource/source-sans-pro/700.css';
+
 import GlobalStyles from '../styles/globalStyles';
 import Header from './header';
 import Footer from './footer';
