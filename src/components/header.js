@@ -23,7 +23,7 @@ const StyledHeader = styled.header`
   padding: 0 15px;
   margin: 0 auto;
   text-align: center;
-  background: url('starry_background.png') no-repeat center center;
+  background: url('/starry_background.png') no-repeat center center;
   background-size: cover;
 `;
 
