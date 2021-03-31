@@ -12,7 +12,7 @@ const StyledCategoryHeroContainer = styled.nav`
 `;
 
 const StyledCategoryCard = styled.div`
-  background-color: #fa743b;
+  background-color: var(--astropy-primary-color);
   flex: 1 1 auto;
   padding: 1.25rem;
   border: non;
@@ -20,6 +20,10 @@ const StyledCategoryCard = styled.div`
   box-shadow: 4px 4px 10px 1px rgba(0, 0, 0, 0.4);
   margin: 0 0.5rem;
   width: 5rem;
+
+  h2 {
+    margin: 0;
+  }
 `;
 
 /*
