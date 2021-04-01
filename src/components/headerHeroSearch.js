@@ -9,14 +9,21 @@ const StyledForm = styled.form`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  align-items: center;
+  font-size: 1.2rem;
 `;
 
 const SubmitInput = styled.button`
-  background-color: #f8f5f0;
-  color: #495057;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
+  border: none;
+  border-radius: 0.25rem 0 0 0.25rem;
   cursor: pointer;
+  margin: 0;
+  padding: 0.5rem;
+
+  &:hover {
+    color: #ffffff;
+    background-color: var(--astropy-primary-color);
+  }
 `;
 
 const SearchBox = styled.div`
@@ -24,6 +31,10 @@ const SearchBox = styled.div`
 
   input {
     width: 100%;
+    border: none;
+    border-radius: 0 0.25rem 0.25rem 0;
+    padding: 0.5rem;
+    margin: 0;
   }
 `;
 
