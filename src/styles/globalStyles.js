@@ -57,6 +57,16 @@ const GlobalStyles = createGlobalStyle`
     color: var(--astropy-text-color);
     background-color: var(--astropy-page-background-color);
   }
+
+  a {
+    color: var(--astropy-primary-color);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: solid underline var(--astropy-primary-color) 2px;
+  }
 `;
 
 export default GlobalStyles;
