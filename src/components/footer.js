@@ -19,16 +19,16 @@ export default function Footer() {
       </p>
       <ul>
         <li>
-          <Link to="/">Guides</Link>
+          <Link to="/guides">Guides</Link>
         </li>
         <li>
-          <Link to="/">Tutorials</Link>
+          <Link to="/tutorials">Tutorials</Link>
         </li>
         <li>
-          <Link to="/">Documentation</Link>
+          <Link to="/documentation">Documentation</Link>
         </li>
         <li>
-          <Link to="/">Examples</Link>
+          <Link to="/examples">Examples</Link>
         </li>
         <li>
           <Link to="/contributing/">Contribute to Learn Astropy</Link>

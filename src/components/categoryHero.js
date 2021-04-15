@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 
 import styled from 'styled-components';
 
@@ -30,6 +31,14 @@ const StyledCategoryCard = styled.div`
   .subtitle {
     text-align: center;
   }
+
+  a {
+    color: #ffffff;
+  }
+
+  a:hover {
+    opacity: 90%;
+  }
 `;
 
 /*
@@ -39,7 +48,9 @@ export default function CategoryHero() {
   return (
     <StyledCategoryHeroContainer>
       <StyledCategoryCard>
-        <h2>Guides</h2>
+        <h2>
+          <Link to="/guides">Guides</Link>
+        </h2>
         <p className="subtitle">
           Guides are comprehensive, conceptually-focused documents providing
           stand-alone introductions to core packages in addition to the
@@ -47,7 +58,9 @@ export default function CategoryHero() {
         </p>
       </StyledCategoryCard>
       <StyledCategoryCard>
-        <h2>Tutorials</h2>
+        <h2>
+          <Link to="/tutorials">Tutorials</Link>
+        </h2>
         <p className="subtitle">
           Tutorials are step-by-step cookbooks for common activities that
           incorporate several packages. They are more specific and less
@@ -55,14 +68,18 @@ export default function CategoryHero() {
         </p>
       </StyledCategoryCard>
       <StyledCategoryCard>
-        <h2>Documentation</h2>
+        <h2>
+          <Link to="/documentation">Documentation</Link>
+        </h2>
         <p className="subtitle">
           Documentation is the complete description of a package with all
           requisite details, including usage, dependencies, and examples.
         </p>
       </StyledCategoryCard>
       <StyledCategoryCard>
-        <h2>Examples</h2>
+        <h2>
+          <Link to="/examples">Examples</Link>
+        </h2>
         <p className="subtitle">
           Examples are stand-alone code snippets that live in the astropy
           documentation that demonstrate a specific functionality within a
