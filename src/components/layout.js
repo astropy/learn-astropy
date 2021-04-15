@@ -8,6 +8,9 @@ import '@fontsource/source-sans-pro/400.css';
 import '@fontsource/source-sans-pro/400-italic.css';
 import '@fontsource/source-sans-pro/700.css';
 
+// Full Algolia instantsearch theme includes its reset
+import 'instantsearch.css/themes/satellite.css';
+
 import GlobalStyles from '../styles/globalStyles';
 import Header from './header';
 import Footer from './footer';
