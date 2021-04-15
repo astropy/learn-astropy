@@ -1,17 +1,14 @@
-# Astropy Search Demo
+# Astropy Learn
 
-This repository is a demonstration of a documentation search service for the [Astropy Project](https://www.astropy.org).
-The site itself is built around [Algolia](https://www.algolia.com).
-Records for the Algolia database are curated and formatted by the [astropy-librarian](https://github.com/jonathansick/astropy-librarian) app.
-Ultimately this search functionality will be built into the [learn.astropy.org](https://learn.astropy.org) site; in the meantime this stripped-down site lets us explore the interplay between front-end search experience and back-end data preparation.
+This repository hosts the (future) homepage of the Astropy Learn project, https://learn.astropy.org. The site itself is built with [Gatsby](https://www.gatsbyjs.com/) and the [Algolia](https://www.algolia.com) search service. Records for the Algolia database are curated and formatted by the [learn-astropy-librarian](https://github.com/astropy/learn-astropy-librarian) app.
 
 ## Developer guide
 
 ### Initial set up
 
+Create a fork on https://github.com/astropy/learn.
+
 ```bash
-git clone https://github.com/jonathansick/astropy-search-demo
-cd astropy-search-demo
 npm install
 ```
 
@@ -20,10 +17,10 @@ npm install
 You can run a development server that will serve the site and reload as you develop the app:
 
 ```bash
-npm run dev
+npm run develop
 ```
 
-By default the app is hosted at `http://localhost:1234`.
+By default the app is hosted at http://localhost:8000. You can also interact with the GraphQL data layer by browsing
 
 ### Build for production
 
@@ -31,10 +28,17 @@ By default the app is hosted at `http://localhost:1234`.
 npm run build
 ```
 
+Preview the built site by running:
+
+```bash
+npm run serve
+```
+
 ### Linting and autoformatting
 
-This app uses ESLint to lint JavaScript, which in turn runs Prettier to format JavaScript.
-The configuration is based on [wesbos/eslint-config-wesbos](https://github.com/wesbos/eslint-config-wesbos).
+This app uses ESLint to lint JavaScript, which in turn runs Prettier to format JavaScript. The configuration is based on [wesbos/eslint-config-wesbos](https://github.com/wesbos/eslint-config-wesbos).
+
+A Git pre-commit hooks runs both ESLint and Prettier and automatically lints and reformats code before every commit. These hooks are run by [husky](https://typicode.github.io/husky/#/) and should already be installed when you ran `npm install`.
 
 To manually lint the code base:
 
@@ -49,3 +53,29 @@ npm run lint:fix
 ```
 
 Ideally your editor will also apply eslint/prettier on save, though these commands are handy as a fallback.
+
+### About the node version
+
+This project is intended to be built with a Node.js version that's encoded in the [`.nvmrc`](./.nvmrc) file. To adopt this Node version, we recommend installing and using the [node version manager](https://github.com/nvm-sh/nvm).
+
+Then you can use the preferred node version by running `nvm` from the project root:
+
+```sh
+nvm use
+```
+
+### Additional resources for developers
+
+Learn more about Gatsby:
+
+- [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+
+Learn more about Algolia:
+
+- [Documentation](https://www.algolia.com/doc/)
+- [React instantsearch](https://www.algolia.com/doc/guides/building-search-ui/what-is-instantsearch/react/)

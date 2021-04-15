@@ -1,28 +1,30 @@
 name: CI
 
-on:
+'on':
   - push
+  - pull_request
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v1
-        name: Use Node.js
+      - name: Read .nvmrc
+        id: node_version
+        run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+
+      - name: Set up node
+        uses: actions/setup-node@v2
         with:
-          # Update once parcel updates its babel dependency?
-          # https://github.com/parcel-bundler/parcel/issues/4276
-          node-version: 13.9.0
+          node-version: ${{ steps.node_version.outputs.NODE_VERSION }}
 
       - run: npm ci
         name: Install
 
+      - run: npm run lint
+        name: ESLint
+
       - run: npm run build
         name: Build
-
-      - run: npm run lint
-        name: Lint
