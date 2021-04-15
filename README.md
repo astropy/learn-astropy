@@ -1,6 +1,6 @@
 # Astropy Learn
 
-This repository the (future) homepage of the Astropy Learn project, https://learn.astropy.org. The site itself is built with [Gatsby](https://www.gatsbyjs.com/) and the [Algolia](https://www.algolia.com) search service. Records for the Algolia database are curated and formatted by the [astropy-librarian](https://github.com/jonathansick/astropy-librarian) app.
+This repository hosts the (future) homepage of the Astropy Learn project, https://learn.astropy.org. The site itself is built with [Gatsby](https://www.gatsbyjs.com/) and the [Algolia](https://www.algolia.com) search service. Records for the Algolia database are curated and formatted by the [learn-astropy-librarian](https://github.com/astropy/learn-astropy-librarian) app.
 
 ## Developer guide
 
