@@ -1,16 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InstantSearch, SearchBox, Hits } from 'react-instantsearch-dom';
+import { InstantSearch, SearchBox } from 'react-instantsearch-dom';
 
 import Layout from '../components/layout';
+import SEO from '../components/seo';
+import searchClient from '../searchClient';
 import {
   SearchLayout,
   SearchBoxArea,
   SearchResultsArea,
   SearchRefinementsArea,
 } from '../components/searchLayout';
-import SEO from '../components/seo';
-import searchClient from '../searchClient';
+import { StyledHits } from '../components/instantsearch/hits';
+import TutorialHit from '../components/tutorialHit';
 
 export default function TutorialsPage({ location }) {
   return (
@@ -33,7 +35,7 @@ export default function TutorialsPage({ location }) {
           </SearchBoxArea>
           <SearchRefinementsArea>Refinements</SearchRefinementsArea>
           <SearchResultsArea>
-            <Hits />
+            <StyledHits hitComponent={TutorialHit} />
           </SearchResultsArea>
         </SearchLayout>
       </InstantSearch>
