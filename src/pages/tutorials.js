@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import { InstantSearch, SearchBox, Hits } from 'react-instantsearch-dom';
 
 import Layout from '../components/layout';
+import {
+  SearchLayout,
+  SearchBoxArea,
+  SearchResultsArea,
+  SearchRefinementsArea,
+} from '../components/searchLayout';
 import SEO from '../components/seo';
 import searchClient from '../searchClient';
 
@@ -21,8 +27,15 @@ export default function TutorialsPage({ location }) {
         searchClient={searchClient}
         indexName="astropy_fulltext_dev"
       >
-        <SearchBox />
-        <Hits />
+        <SearchLayout>
+          <SearchBoxArea>
+            <SearchBox />
+          </SearchBoxArea>
+          <SearchRefinementsArea>Refinements</SearchRefinementsArea>
+          <SearchResultsArea>
+            <Hits />
+          </SearchResultsArea>
+        </SearchLayout>
       </InstantSearch>
     </Layout>
   );
