@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InstantSearch, SearchBox } from 'react-instantsearch-dom';
+import { InstantSearch, SearchBox, Configure } from 'react-instantsearch-dom';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -31,6 +31,7 @@ export default function TutorialsPage({ location }) {
         searchClient={searchClient}
         indexName="astropy_fulltext_dev"
       >
+        <Configure distinct facetingAfterDistinct />
         <SearchLayout>
           <SearchBoxArea>
             <SearchBox />
