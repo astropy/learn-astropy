@@ -13,6 +13,7 @@ import {
   SearchRefinementsSection,
 } from '../components/searchLayout';
 import { StyledHits } from '../components/instantsearch/hits';
+import RefinementList from '../components/instantsearch/refinementList';
 import TutorialHit from '../components/tutorialHit';
 
 export default function TutorialsPage({ location }) {
@@ -37,19 +38,19 @@ export default function TutorialsPage({ location }) {
           <SearchRefinementsArea>
             <SearchRefinementsSection>
               <h2>Astropy packages</h2>
-              <p>Filters...</p>
+              <RefinementList attribute="astropy_package_keywords" />
             </SearchRefinementsSection>
             <SearchRefinementsSection>
               <h2>Python packages</h2>
-              <p>Filters...</p>
+              <RefinementList attribute="python_package_keywords" />
             </SearchRefinementsSection>
             <SearchRefinementsSection>
               <h2>Tasks</h2>
-              <p>Filters...</p>
+              <RefinementList attribute="task_keywords" />
             </SearchRefinementsSection>
             <SearchRefinementsSection>
               <h2>Science domains</h2>
-              <p>Filters...</p>
+              <RefinementList attribute="science_keywords" />
             </SearchRefinementsSection>
           </SearchRefinementsArea>
           <SearchResultsArea>
