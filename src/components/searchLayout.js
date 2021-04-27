@@ -32,6 +32,18 @@ export const SearchRefinementsArea = styled.div`
   }
 `;
 
+/* Styled component div around a refinement widget.
+ *
+ * This styling controls spacing and the heading styling
+ */
+export const SearchRefinementsSection = styled.div`
+  margin-bottom: 2rem;
+  h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+  }
+`;
+
 export const SearchResultsArea = styled.div`
   grid-column: 2 / 3;
   grid-row: 2 / 3;

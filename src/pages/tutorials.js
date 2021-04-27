@@ -10,6 +10,7 @@ import {
   SearchBoxArea,
   SearchResultsArea,
   SearchRefinementsArea,
+  SearchRefinementsSection,
 } from '../components/searchLayout';
 import { StyledHits } from '../components/instantsearch/hits';
 import TutorialHit from '../components/tutorialHit';
@@ -33,7 +34,24 @@ export default function TutorialsPage({ location }) {
           <SearchBoxArea>
             <SearchBox />
           </SearchBoxArea>
-          <SearchRefinementsArea>Refinements</SearchRefinementsArea>
+          <SearchRefinementsArea>
+            <SearchRefinementsSection>
+              <h2>Astropy packages</h2>
+              <p>Filters...</p>
+            </SearchRefinementsSection>
+            <SearchRefinementsSection>
+              <h2>Python packages</h2>
+              <p>Filters...</p>
+            </SearchRefinementsSection>
+            <SearchRefinementsSection>
+              <h2>Tasks</h2>
+              <p>Filters...</p>
+            </SearchRefinementsSection>
+            <SearchRefinementsSection>
+              <h2>Science domains</h2>
+              <p>Filters...</p>
+            </SearchRefinementsSection>
+          </SearchRefinementsArea>
           <SearchResultsArea>
             <StyledHits hitComponent={TutorialHit} />
           </SearchResultsArea>
