@@ -39,19 +39,43 @@ export default function TutorialsPage({ location }) {
           <SearchRefinementsArea>
             <SearchRefinementsSection>
               <h2>Astropy packages</h2>
-              <RefinementList attribute="astropy_package_keywords" />
+              <RefinementList
+                attribute="astropy_package_keywords"
+                limit={10}
+                showMore
+                showMoreLimit={30}
+                searchable
+              />
             </SearchRefinementsSection>
             <SearchRefinementsSection>
               <h2>Python packages</h2>
-              <RefinementList attribute="python_package_keywords" />
+              <RefinementList
+                attribute="python_package_keywords"
+                limit={10}
+                showMore
+                showMoreLimit={30}
+                searchable
+              />
             </SearchRefinementsSection>
             <SearchRefinementsSection>
               <h2>Tasks</h2>
-              <RefinementList attribute="task_keywords" />
+              <RefinementList
+                attribute="task_keywords"
+                limit={10}
+                showMore
+                showMoreLimit={30}
+                searchable
+              />
             </SearchRefinementsSection>
             <SearchRefinementsSection>
               <h2>Science domains</h2>
-              <RefinementList attribute="science_keywords" />
+              <RefinementList
+                attribute="science_keywords"
+                limit={10}
+                showMore
+                showMoreLimit={30}
+                searchable
+              />
             </SearchRefinementsSection>
           </SearchRefinementsArea>
           <SearchResultsArea>
