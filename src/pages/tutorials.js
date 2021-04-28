@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InstantSearch, SearchBox, Configure } from 'react-instantsearch-dom';
+import {
+  InstantSearch,
+  SearchBox,
+  Configure,
+  ClearRefinements,
+} from 'react-instantsearch-dom';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
@@ -14,6 +19,7 @@ import {
 } from '../components/searchLayout';
 import { StyledHits } from '../components/instantsearch/hits';
 import RefinementList from '../components/instantsearch/refinementList';
+import CurrentRefinements from '../components/instantsearch/currentRefinements';
 import TutorialHit from '../components/tutorialHit';
 
 export default function TutorialsPage({ location }) {
@@ -35,6 +41,8 @@ export default function TutorialsPage({ location }) {
         <SearchLayout>
           <SearchBoxArea>
             <SearchBox />
+            <CurrentRefinements />
+            <ClearRefinements />
           </SearchBoxArea>
           <SearchRefinementsArea>
             <SearchRefinementsSection>
