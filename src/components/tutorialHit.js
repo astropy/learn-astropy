@@ -9,11 +9,44 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Snippet } from 'react-instantsearch-dom';
 
-const TutorialHitContainer = styled.div`
+const TutorialHitContainer = styled.article`
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 12rem auto;
+  column-gap: 1rem;
+  grid-column-gap: 1rem;
+  row-gap: 1rem;
+  grid-row-gap: 1rem;
+  font-size: 1rem;
+
+  p {
+    margin: 0;
+  }
+
+  .heading-area {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .thumbnail-area {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  .content-area {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+
   h2 {
     line-height: 1.1;
     margin: 0;
-    margin-bottom: 1rem;
+    // margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .thumbnail {
+    width: 100%;
   }
 
   a {
@@ -58,19 +91,27 @@ const StyledSnippet = styled(Snippet)`
 
 const TutorialHit = ({ hit }) => (
   <TutorialHitContainer>
-    <a href={hit.url}>
-      <h2>{hit.h1}</h2>
-    </a>
-    {hit._snippetResult.content.matchLevel !== 'none' && (
-      <StyledSnippetBlock>
-        <StyledSnippet
-          attribute="content"
-          hit={hit}
-          tagName="mark"
-          nonHighlightedTagName="span"
-        />{' '}
-      </StyledSnippetBlock>
-    )}
+    <header className="heading-area">
+      <a href={hit.url}>
+        <h2>{hit.h1}</h2>
+      </a>
+    </header>
+    <div className="thumbnail-area">
+      <img className="thumbnail" src={hit.thumbnail} alt="" />
+    </div>
+    <div className="content-area">
+      {hit._snippetResult.content.matchLevel !== 'none' && (
+        <StyledSnippetBlock>
+          <StyledSnippet
+            attribute="content"
+            hit={hit}
+            tagName="mark"
+            nonHighlightedTagName="span"
+          />{' '}
+        </StyledSnippetBlock>
+      )}
+      <p>{hit.content}</p>
+    </div>
   </TutorialHitContainer>
 );
 
