@@ -15,7 +15,7 @@
     "clean": "gatsby clean",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "postinstall": "husky install"
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
