@@ -1,24 +1,8 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
 import styled from 'styled-components';
-import HeaderHeroSearch from './headerHeroSearch';
-import CategoryHero from './categoryHero';
 
-const LogoContainer = styled.div`
-  width: 35vw;
-  padding-top: 100px;
-  margin: 0 auto;
-
-  img {
-    vertical-align: middle;
-    border-style: none;
-    max-width: 100%;
-  }
-`;
-
-const StyledHeader = styled.header`
-  height: 400px;
+const HeaderContainer = styled.header`
   width: 100%;
   padding: 0 15px;
   margin: 0 auto;
@@ -30,18 +14,12 @@ const StyledHeader = styled.header`
 /*
  * Header component that includes the logo, search bar, and navigation tabs.
  */
-export default function Header() {
+export default function NavHeader() {
   return (
     <>
-      <StyledHeader>
-        <LogoContainer>
-          <Link to="/">
-            <img src="/learn-astropy-logo.png" alt="Learn Astropy" />
-          </Link>
-        </LogoContainer>
-        <HeaderHeroSearch />
-      </StyledHeader>
-      <CategoryHero />
+      <HeaderContainer>
+        <p>Learn Astropy</p>
+      </HeaderContainer>
     </>
   );
 }
