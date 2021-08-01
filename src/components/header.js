@@ -4,11 +4,10 @@ import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
   width: 100%;
-  padding: 0 15px;
-  margin: 0 auto;
-  text-align: center;
-  background: url('/starry_background.png') no-repeat center center;
-  background-size: cover;
+  padding: var(--astropy-size-s) var(--astropy-size-m);
+  margin: 0;
+  background-color: var(--astropy-nav-header-color);
+  color: var(--astropy-nav-header-text-color);
 `;
 
 /*

@@ -3,9 +3,9 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
-  margin: 0 auto;
-  max-width: 60em;
-  padding: 0 10px 0 10px;
+  margin: var(--astropy-size-xl) auto 0;
+  max-width: var(--astropy-content-width);
+  padding: 0 var(--astropy-size-s);
 `;
 
 /*

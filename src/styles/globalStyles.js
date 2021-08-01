@@ -41,9 +41,31 @@ const GlobalStyles = createGlobalStyle`
     /*
      * Design tokens: Color palette
      */
-    --astropy-text-color: #111111;
-    --astropy-page-background-color: #ffffff;
     --astropy-primary-color: #fa743b;
+    --astropy-neutral-100: #111111;
+    --astropy-neutral-900: #ffffff;
+
+    /*
+     * Design tokens: Sizes
+     */
+    --astropy-size-xs: 0.25rem;
+    --astropy-size-s: 0.5rem;
+    --astropy-size-m: 1rem;
+    --astropy-size-l: 2rem;
+    --astropy-size-xl: 4rem;
+
+    /*
+     * Applied colors
+     */
+    --astropy-text-color: var(--astropy-neutral-100);
+    --astropy-page-background-color: var(--astropy-neutral-900);
+    --astropy-nav-header-color: var(--astropy-neutral-100);
+    --astropy-nav-header-text-color: var(--astropy-neutral-900);
+
+    /*
+     * Applied sizes
+     */
+    --astropy-content-width: 60em;
   }
   
   html,

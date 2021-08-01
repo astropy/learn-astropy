@@ -35,9 +35,9 @@ const StyledLayout = styled.div`
 `;
 
 const StyledMain = styled.main`
-  margin: 0 auto 5rem;
-  max-width: 60em;
-  padding: 0 10px 0 10px;
+  margin: 0 auto;
+  max-width: var(--astropy-content-width);
+  padding: 0 var(--astropy-size-s);
 `;
 
 /*
