@@ -4,12 +4,20 @@ import PropTypes from 'prop-types';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import CallToActionLink from '../components/callToAction';
+import PageCover from '../components/pageCover';
 
 export default function IndexPage({ location }) {
   return (
     <Layout>
       <SEO location={location} title="Home" />
-      <h1>Learn Astropy</h1>
+      <PageCover>
+        <h1>Learn Astropy</h1>
+        <p>
+          Learn how to use Python for astronomy through tutorials and guides
+          that cover Astropy and other packages in the astronomy Python
+          ecosystem.
+        </p>
+      </PageCover>
       <p>
         Astropy is a Python library for use in astronomy. Learn Astropy provides
         a portal to all of the Astropy educational material through a single

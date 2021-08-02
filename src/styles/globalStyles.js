@@ -51,8 +51,15 @@ const GlobalStyles = createGlobalStyle`
     --astropy-size-xs: 0.25rem;
     --astropy-size-s: 0.5rem;
     --astropy-size-m: 1rem;
+    --astropy-size-ml: 1.2rem;
     --astropy-size-l: 2rem;
     --astropy-size-xl: 4rem;
+
+    /*
+     * Design tokens: font sizes
+     */
+    --astropy-font-size-m: 1rem;
+    --astropy-font-size-ml: 1.2rem;
 
     /*
      * Applied colors
