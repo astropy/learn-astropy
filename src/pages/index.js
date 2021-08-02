@@ -1,9 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {
+  InstantSearch,
+  SearchBox,
+  Configure,
+  Hits,
+} from 'react-instantsearch-dom';
+
 import Layout from '../components/layout';
+import { SearchLayout } from '../components/searchLayout';
 import SEO from '../components/seo';
 import PageCover from '../components/pageCover';
+import searchClient from '../searchClient';
 
 export default function IndexPage({ location }) {
   return (
@@ -17,6 +26,24 @@ export default function IndexPage({ location }) {
           ecosystem.
         </p>
       </PageCover>
+
+      <InstantSearch
+        searchClient={searchClient}
+        indexName="astropy_fulltext_dev"
+      >
+        <Configure distinct facetingAfterDistinct />
+        <SearchLayout>
+          <div className="search-box-area">
+            <SearchBox />
+          </div>
+          <div className="search-refinements-area">
+            <p>Refinements</p>
+          </div>
+          <div className="search-results-area">
+            <Hits />
+          </div>
+        </SearchLayout>
+      </InstantSearch>
     </Layout>
   );
 }
