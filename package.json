@@ -25,12 +25,18 @@
       "prettier"
     ],
     "parser": "babel-eslint",
-    "plugins": ["html", "react-hooks"],
+    "plugins": [
+      "html",
+      "react-hooks"
+    ],
     "rules": {
       "no-debugger": 0,
       "no-alert": 0,
       "no-await-in-loop": 0,
-      "no-return-assign": ["error", "except-parens"],
+      "no-return-assign": [
+        "error",
+        "except-parens"
+      ],
       "no-restricted-syntax": [
         2,
         "ForInStatement",
@@ -50,7 +56,10 @@
           "destructuring": "all"
         }
       ],
-      "arrow-body-style": [2, "as-needed"],
+      "arrow-body-style": [
+        2,
+        "as-needed"
+      ],
       "no-unused-expressions": [
         2,
         {
@@ -90,7 +99,10 @@
       "react/jsx-filename-extension": [
         1,
         {
-          "extensions": [".js", ".jsx"]
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
         }
       ],
       "radix": 0,
@@ -98,7 +110,14 @@
         2,
         {
           "hoist": "all",
-          "allow": ["resolve", "reject", "done", "next", "err", "error"]
+          "allow": [
+            "resolve",
+            "reject",
+            "done",
+            "next",
+            "err",
+            "error"
+          ]
         }
       ],
       "quotes": [
@@ -113,7 +132,9 @@
       "jsx-a11y/anchor-is-valid": [
         "warn",
         {
-          "aspects": ["invalidHref"]
+          "aspects": [
+            "invalidHref"
+          ]
         }
       ],
       "react-hooks/rules-of-hooks": "error",
@@ -125,6 +146,7 @@
   },
   "dependencies": {
     "@fontsource/source-sans-pro": "^4.5.0",
+    "algoliasearch": "^4.10.3",
     "babel-plugin-styled-components": "^1.13.2",
     "gatsby": "^3.10.2",
     "gatsby-image": "^3.10.0",
@@ -137,6 +159,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
+    "react-instantsearch-dom": "^6.12.1",
     "styled-components": "^5.3.0"
   },
   "devDependencies": {
