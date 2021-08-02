@@ -1,18 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {
-  InstantSearch,
-  SearchBox,
-  Configure,
-  Hits,
-} from 'react-instantsearch-dom';
+import { InstantSearch, SearchBox, Configure } from 'react-instantsearch-dom';
 
 import Layout from '../components/layout';
 import { SearchLayout } from '../components/searchLayout';
 import SEO from '../components/seo';
 import PageCover from '../components/pageCover';
 import searchClient from '../searchClient';
+import { StyledHits } from '../components/instantsearch/hits';
+import ResultCard from '../components/resultCard';
 
 export default function IndexPage({ location }) {
   return (
@@ -40,7 +37,7 @@ export default function IndexPage({ location }) {
             <p>Refinements</p>
           </div>
           <div className="search-results-area">
-            <Hits />
+            <StyledHits hitComponent={ResultCard} />
           </div>
         </SearchLayout>
       </InstantSearch>

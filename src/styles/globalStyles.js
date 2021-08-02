@@ -58,8 +58,16 @@ const GlobalStyles = createGlobalStyle`
     /*
      * Design tokens: font sizes
      */
+    --astropy-font-size-s: 0.8rem;
     --astropy-font-size-m: 1rem;
     --astropy-font-size-ml: 1.2rem;
+
+    /*
+     * Design tokens: border radii
+     */
+    --astropy-border-radius-s: 0.125rem;
+    --astropy-border-radius-m: 0.25rem;
+    --astropy-border-radius-l: 0.5rem;
 
     /*
      * Applied colors
