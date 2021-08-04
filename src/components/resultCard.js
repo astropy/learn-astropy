@@ -24,6 +24,29 @@ const ResultCardContainer = styled.div`
       text-decoration: underline;
     }
   }
+
+  .sidebyside {
+    display: flex;
+  }
+
+  .sidebyside__image {
+    margin-right: 1rem;
+    flex: 0 0 8rem;
+  }
+
+  .sidebyside__image img {
+    width: 100%;
+  }
+
+  .sidebyside__content {
+    flex: 1 1 auto;
+
+    font-size: var(--astropy-font-size-s);
+  }
+
+  .sidebyside__content *:first-child {
+    margin-top: 0;
+  }
 `;
 
 const StyledSnippetBlock = styled.blockquote`
@@ -62,16 +85,26 @@ const ResultCard = ({ hit }) => (
     <a href={hit.url}>
       <h2>{hit.h1}</h2>
     </a>
-    {hit._snippetResult.content.matchLevel !== 'none' && (
-      <StyledSnippetBlock>
-        <StyledSnippet
-          attribute="content"
-          hit={hit}
-          tagName="mark"
-          nonHighlightedTagName="span"
-        />{' '}
-      </StyledSnippetBlock>
-    )}
+    <div className="sidebyside">
+      {hit.thumbnail_url && (
+        <div className="sidebyside__image">
+          <img src={hit.thumbnail_url} alt="" />
+        </div>
+      )}
+      <div className="sidebyside__content">
+        <p>{hit.root_summary}</p>
+        {hit._snippetResult.content.matchLevel !== 'none' && (
+          <StyledSnippetBlock>
+            <StyledSnippet
+              attribute="content"
+              hit={hit}
+              tagName="mark"
+              nonHighlightedTagName="span"
+            />{' '}
+          </StyledSnippetBlock>
+        )}
+      </div>
+    </div>
   </ResultCardContainer>
 );
 
