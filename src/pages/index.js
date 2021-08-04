@@ -24,10 +24,7 @@ export default function IndexPage({ location }) {
         </p>
       </PageCover>
 
-      <InstantSearch
-        searchClient={searchClient}
-        indexName="astropy_fulltext_dev"
-      >
+      <InstantSearch searchClient={searchClient} indexName="algolia_test">
         <Configure distinct facetingAfterDistinct />
         <SearchLayout>
           <div className="search-box-area">
