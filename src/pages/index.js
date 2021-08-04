@@ -4,11 +4,15 @@ import PropTypes from 'prop-types';
 import { InstantSearch, SearchBox, Configure } from 'react-instantsearch-dom';
 
 import Layout from '../components/layout';
-import { SearchLayout } from '../components/searchLayout';
+import {
+  SearchLayout,
+  SearchRefinementsSection,
+} from '../components/searchLayout';
 import SEO from '../components/seo';
 import PageCover from '../components/pageCover';
 import searchClient from '../searchClient';
 import { StyledHits } from '../components/instantsearch/hits';
+import RefinementList from '../components/instantsearch/refinementList';
 import ResultCard from '../components/resultCard';
 
 export default function IndexPage({ location }) {
@@ -31,7 +35,50 @@ export default function IndexPage({ location }) {
             <SearchBox />
           </div>
           <div className="search-refinements-area">
-            <p>Refinements</p>
+            <SearchRefinementsSection>
+              <h2>Format</h2>
+              <RefinementList attribute="content_type" />
+            </SearchRefinementsSection>
+            <SearchRefinementsSection>
+              <h2>Astropy packages</h2>
+              <RefinementList
+                attribute="astropy_package_keywords"
+                limit={10}
+                showMore
+                showMoreLimit={30}
+                searchable
+              />
+            </SearchRefinementsSection>
+            <SearchRefinementsSection>
+              <h2>Python packages</h2>
+              <RefinementList
+                attribute="python_package_keywords"
+                limit={10}
+                showMore
+                showMoreLimit={30}
+                searchable
+              />
+            </SearchRefinementsSection>
+            <SearchRefinementsSection>
+              <h2>Tasks</h2>
+              <RefinementList
+                attribute="task_keywords"
+                limit={10}
+                showMore
+                showMoreLimit={30}
+                searchable
+              />
+            </SearchRefinementsSection>
+            <SearchRefinementsSection>
+              <h2>Science domains</h2>
+              <RefinementList
+                attribute="science_keywords"
+                limit={10}
+                showMore
+                showMoreLimit={30}
+                searchable
+              />
+            </SearchRefinementsSection>
           </div>
           <div className="search-results-area">
             <StyledHits hitComponent={ResultCard} />

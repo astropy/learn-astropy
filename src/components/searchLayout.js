@@ -36,3 +36,16 @@ export const SearchLayout = styled.div`
     grid-row: 2 / 3;
   }
 `;
+
+/* Styled component div around a refinement widget.
+ *
+ * This styling controls spacing and the heading styling
+ */
+export const SearchRefinementsSection = styled.div`
+  margin-bottom: var(--astropy-size-l);
+
+  h2 {
+    margin-top: 0;
+    font-size: var(--astropy-font-size-ml);
+  }
+`;
