@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { InstantSearch, SearchBox, Configure } from 'react-instantsearch-dom';
+import { InstantSearch, Configure } from 'react-instantsearch-dom';
 
 import Layout from '../components/layout';
 import {
@@ -13,6 +13,7 @@ import PageCover from '../components/pageCover';
 import searchClient from '../searchClient';
 import { StyledHits } from '../components/instantsearch/hits';
 import RefinementList from '../components/instantsearch/refinementList';
+import SearchBox from '../components/instantsearch/searchBox';
 import ResultCard from '../components/resultCard';
 
 export default function IndexPage({ location }) {

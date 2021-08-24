@@ -36,6 +36,7 @@ const GlobalStyles = createGlobalStyle`
    --astropy-primary-color: #fa743b;
    --astropy-neutral-100: #111111;
    --astropy-neutral-900: #ffffff;
+   --algolia-primary-color: #182359;
 
    /*
     * Design tokens: Sizes
