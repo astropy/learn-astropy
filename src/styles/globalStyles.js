@@ -3,15 +3,15 @@ import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'polished';
 
 const GlobalStyles = createGlobalStyle`
-   /*
-    * CSS reset via normalize.
-    */
+  /*
+   * CSS reset via normalize.
+   */
   ${normalize()}
 
   html {
     box-sizing: border-box;
   }
-  
+
   /*
    * Inherit border-box sizing from html
    * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
@@ -21,70 +21,61 @@ const GlobalStyles = createGlobalStyle`
   *:after {
     box-sizing: inherit;
   }
-  
-  /*
-   * Disable artificial scaling, but let user zoom if needed.
-   * Flexible Typesetting, Tim Brown, ch 2.
-   */
-  @viewport {
-    width: device-width;
-  }
-  
-  :root {
-    /*
-     * Reinforce that we're respecting the user's ability to set a default
-     * font size. The rem unit now becomes relative to this.
-     * Flexible Typesetting, Tim Brown, ch 2 and 4
-     */
-    font-size: 1.1rem;
 
-    /*
-     * Design tokens: Color palette
-     */
-    --astropy-primary-color: #fa743b;
-    --astropy-neutral-100: #111111;
-    --astropy-neutral-900: #ffffff;
+ :root {
+   /*
+    * Reinforce that we're respecting the user's ability to set a default
+    * font size. The rem unit now becomes relative to this.
+    * Flexible Typesetting, Tim Brown, ch 2 and 4
+    */
+   font-size: 1.1rem;
 
-    /*
-     * Design tokens: Sizes
-     */
-    --astropy-size-xs: 0.25rem;
-    --astropy-size-s: 0.5rem;
-    --astropy-size-m: 1rem;
-    --astropy-size-ml: 1.2rem;
-    --astropy-size-l: 2rem;
-    --astropy-size-xl: 4rem;
+   /*
+    * Design tokens: Color palette
+    */
+   --astropy-primary-color: #fa743b;
+   --astropy-neutral-100: #111111;
+   --astropy-neutral-900: #ffffff;
 
-    /*
-     * Design tokens: font sizes
-     */
-    --astropy-font-size-s: 0.8rem;
-    --astropy-font-size-m: 1rem;
-    --astropy-font-size-ml: 1.2rem;
+   /*
+    * Design tokens: Sizes
+    */
+   --astropy-size-xs: 0.25rem;
+   --astropy-size-s: 0.5rem;
+   --astropy-size-m: 1rem;
+   --astropy-size-ml: 1.2rem;
+   --astropy-size-l: 2rem;
+   --astropy-size-xl: 4rem;
 
-    /*
-     * Design tokens: border radii
-     */
-    --astropy-border-radius-s: 0.125rem;
-    --astropy-border-radius-m: 0.25rem;
-    --astropy-border-radius-l: 0.5rem;
+   /*
+    * Design tokens: font sizes
+    */
+   --astropy-font-size-s: 0.8rem;
+   --astropy-font-size-m: 1rem;
+   --astropy-font-size-ml: 1.2rem;
 
-    /*
-     * Applied colors
-     */
-    --astropy-text-color: var(--astropy-neutral-100);
-    --astropy-page-background-color: var(--astropy-neutral-900);
-    --astropy-nav-header-color: var(--astropy-neutral-100);
-    --astropy-nav-header-text-color: var(--astropy-neutral-900);
+   /*
+    * Design tokens: border radii
+    */
+   --astropy-border-radius-s: 0.125rem;
+   --astropy-border-radius-m: 0.25rem;
+   --astropy-border-radius-l: 0.5rem;
 
-    /*
-     * Applied sizes
-     */
-    --astropy-content-width: 60em;
-  }
-  
-  html,
-  body {
+   /*
+    * Applied colors
+    */
+   --astropy-text-color: var(--astropy-neutral-100);
+   --astropy-page-background-color: var(--astropy-neutral-900);
+   --astropy-nav-header-color: var(--astropy-neutral-100);
+   --astropy-nav-header-text-color: var(--astropy-neutral-900);
+
+   /*
+    * Applied sizes
+    */
+   --astropy-content-width: 60em;
+}
+
+  html, body {
     padding: 0;
     margin: 0;
     font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, Segoe UI,

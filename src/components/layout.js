@@ -48,16 +48,18 @@ const StyledMain = styled.main`
  */
 export default function Layout({ children }) {
   return (
-    <StyledLayout>
+    <>
       <GlobalStyles />
-      <div className="upper-container">
-        <Header />
-        <StyledMain>{children}</StyledMain>
-      </div>
-      <div className="sticky-footer-container">
-        <Footer />
-      </div>
-    </StyledLayout>
+      <StyledLayout>
+        <div className="upper-container">
+          <Header />
+          <StyledMain>{children}</StyledMain>
+        </div>
+        <div className="sticky-footer-container">
+          <Footer />
+        </div>
+      </StyledLayout>
+    </>
   );
 }
 
