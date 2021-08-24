@@ -82,8 +82,8 @@ const StyledSnippet = styled(Snippet)`
 
 const ResultCard = ({ hit }) => (
   <ResultCardContainer>
-    <a href={hit.url}>
-      <h2>{hit.h1}</h2>
+    <a href={hit.root_url}>
+      <h2>{hit.root_title}</h2>
     </a>
     <div className="sidebyside">
       {hit.thumbnail_url && (
