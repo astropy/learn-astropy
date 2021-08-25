@@ -14,6 +14,7 @@ import searchClient from '../searchClient';
 import { StyledHits } from '../components/instantsearch/hits';
 import RefinementList from '../components/instantsearch/refinementList';
 import SearchBox from '../components/instantsearch/searchBox';
+import PrioritySort from '../components/instantsearch/virtualPrioritySort';
 import ResultCard from '../components/resultCard';
 
 export default function IndexPage({ location }) {
@@ -31,6 +32,10 @@ export default function IndexPage({ location }) {
 
       <InstantSearch searchClient={searchClient} indexName="algolia_test">
         <Configure distinct facetingAfterDistinct />
+        <PrioritySort
+          priorityRefinement="algolia_test_priority"
+          relevanceRefinement="algolia_test"
+        />
         <SearchLayout>
           <div className="search-box-area">
             <SearchBox />
