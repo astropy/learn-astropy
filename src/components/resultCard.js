@@ -43,6 +43,11 @@ const ResultCardContainer = styled.div`
     padding: 0.125rem var(--astropy-size-xs);
   }
 
+  .root-title {
+    font-size: var(--astropy-font-size-s);
+    margin: -0.5rem 0 1rem;
+  }
+
   .sidebyside {
     display: flex;
   }
@@ -102,10 +107,25 @@ const ResultCard = ({ hit }) => (
   <ResultCardContainer>
     <header className="result-title">
       <span className="content-type-tag">{hit.content_type}</span>
-      <a href={hit.root_url}>
-        <h2>{hit.root_title}</h2>
-      </a>
+      {hit.content_type === 'guide' && hit.importance > 1 ? (
+        <a href={hit.url}>
+          <h2>{hit.h1}</h2>
+        </a>
+      ) : (
+        <a href={hit.root_url}>
+          <h2>{hit.root_title}</h2>
+        </a>
+      )}
     </header>
+    {hit.content_type === 'guide' && hit.importance > 1 && (
+      <p className="root-title">
+        Inside{' '}
+        <a href="{hit.root_url}">
+          <em>{hit.root_title}</em>
+        </a>
+      </p>
+    )}
+
     <div className="sidebyside">
       {hit.thumbnail_url && (
         <div className="sidebyside__image">
