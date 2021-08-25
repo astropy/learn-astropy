@@ -41,6 +41,7 @@ const GlobalStyles = createGlobalStyle`
    /*
     * Design tokens: Sizes
     */
+   --astropy-size-xxs: 0.125rem;
    --astropy-size-xs: 0.25rem;
    --astropy-size-s: 0.5rem;
    --astropy-size-m: 1rem;

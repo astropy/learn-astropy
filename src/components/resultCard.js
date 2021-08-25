@@ -10,10 +10,16 @@ import styled from 'styled-components';
 import { Snippet } from 'react-instantsearch-dom';
 
 const ResultCardContainer = styled.div`
+  .result-title {
+    display: flex;
+    flex: 1 1 0;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
   h2 {
     line-height: 1.1;
     margin: 0;
-    margin-bottom: 1rem;
     font-size: var(--astropy-font-size-m);
   }
 
@@ -23,6 +29,18 @@ const ResultCardContainer = styled.div`
     &: hover {
       text-decoration: underline;
     }
+  }
+
+  .content-type-tag {
+    background-color: var(--astropy-primary-color);
+    border-radius: var(--astropy-border-radius-m);
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-right: var(--astropy-size-s);
+    padding: 0.125rem var(--astropy-size-xs);
   }
 
   .sidebyside {
@@ -82,9 +100,12 @@ const StyledSnippet = styled(Snippet)`
 
 const ResultCard = ({ hit }) => (
   <ResultCardContainer>
-    <a href={hit.root_url}>
-      <h2>{hit.root_title}</h2>
-    </a>
+    <header className="result-title">
+      <span className="content-type-tag">{hit.content_type}</span>
+      <a href={hit.root_url}>
+        <h2>{hit.root_title}</h2>
+      </a>
+    </header>
     <div className="sidebyside">
       {hit.thumbnail_url && (
         <div className="sidebyside__image">
