@@ -103,51 +103,60 @@ const StyledSnippet = styled(Snippet)`
   }
 `;
 
-const ResultCard = ({ hit }) => (
-  <ResultCardContainer>
-    <header className="result-title">
-      <span className="content-type-tag">{hit.content_type}</span>
-      {hit.content_type === 'guide' && hit.importance > 1 ? (
-        <a href={hit.url}>
-          <h2>{hit.h1}</h2>
-        </a>
-      ) : (
-        <a href={hit.root_url}>
-          <h2>{hit.root_title}</h2>
-        </a>
-      )}
-    </header>
-    {hit.content_type === 'guide' && hit.importance > 1 && (
-      <p className="root-title">
-        Inside{' '}
-        <a href="{hit.root_url}">
-          <em>{hit.root_title}</em>
-        </a>
-      </p>
-    )}
+const ResultCard = ({ hit }) => {
+  let linkUrl;
+  let title;
 
-    <div className="sidebyside">
-      {hit.thumbnail_url && (
-        <div className="sidebyside__image">
-          <img src={hit.thumbnail_url} alt="" />
-        </div>
+  if (hit.content_type === 'guide' && hit.importance > 1) {
+    linkUrl = hit.url;
+    title = hit.h1;
+  } else {
+    linkUrl = hit.root_url;
+    title = hit.root_title;
+  }
+
+  return (
+    <ResultCardContainer>
+      <header className="result-title">
+        <span className="content-type-tag">{hit.content_type}</span>
+        <a href={linkUrl}>
+          <h2>{title}</h2>
+        </a>
+      </header>
+      {hit.content_type === 'guide' && hit.importance > 1 && (
+        <p className="root-title">
+          Inside{' '}
+          <a href="{hit.root_url}">
+            <em>{hit.root_title}</em>
+          </a>
+        </p>
       )}
-      <div className="sidebyside__content">
-        <p>{hit.root_summary}</p>
-        {hit._snippetResult.content.matchLevel !== 'none' && (
-          <StyledSnippetBlock>
-            <StyledSnippet
-              attribute="content"
-              hit={hit}
-              tagName="mark"
-              nonHighlightedTagName="span"
-            />{' '}
-          </StyledSnippetBlock>
+
+      <div className="sidebyside">
+        {hit.thumbnail_url && (
+          <div className="sidebyside__image">
+            <a href={linkUrl}>
+              <img src={hit.thumbnail_url} alt="" />
+            </a>
+          </div>
         )}
+        <div className="sidebyside__content">
+          <p>{hit.root_summary}</p>
+          {hit._snippetResult.content.matchLevel !== 'none' && (
+            <StyledSnippetBlock>
+              <StyledSnippet
+                attribute="content"
+                hit={hit}
+                tagName="mark"
+                nonHighlightedTagName="span"
+              />{' '}
+            </StyledSnippetBlock>
+          )}
+        </div>
       </div>
-    </div>
-  </ResultCardContainer>
-);
+    </ResultCardContainer>
+  );
+};
 
 ResultCard.propTypes = {
   hit: PropTypes.object.isRequired,
