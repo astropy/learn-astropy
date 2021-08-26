@@ -11,9 +11,32 @@ const HeaderContainer = styled.header`
   background-color: var(--astropy-nav-header-color);
   color: var(--astropy-nav-header-text-color);
 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+
   .learn-astropy-logo {
     width: 12rem;
   }
+
+  .main-nav {
+    display: flex;
+    margin-left: 2rem;
+    flex-direction: row
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+
+  .astropy-link {
+    margin-left: auto;
+  }
+`;
+
+const NavItem = styled.div`
+  margin: 0 1em;
 `;
 
 /*
@@ -30,6 +53,14 @@ export default function NavHeader() {
             className="learn-astropy-logo"
           />
         </Link>
+        <nav className="main-nav">
+          <NavItem>
+            <Link to="/contributing">Contribute</Link>
+          </NavItem>
+        </nav>
+        <a className="astropy-link" href="https://astropy.org">
+          Astropy Project
+        </a>
       </HeaderContainer>
     </>
   );
