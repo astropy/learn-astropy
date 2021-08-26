@@ -2,10 +2,19 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
+const FullWidthContainer = styled.div`
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin: var(--astropy-size-xl) -50vw 0;
+  background-color: rgb(250, 250, 250);
+`;
+
 const StyledFooter = styled.footer`
-  margin: var(--astropy-size-xl) auto 0;
+  margin: 0 auto;
   max-width: var(--astropy-content-width);
-  padding: 0 var(--astropy-size-s);
+  padding: var(--astropy-size-m) var(--astropy-size-s);
 
   nav ul {
     list-style: none;
@@ -30,20 +39,22 @@ const StyledFooter = styled.footer`
  */
 export default function Footer() {
   return (
-    <StyledFooter>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Learn Astropy</Link>
-          </li>
-          <li>
-            <Link to="/contributing/">Contribute to Learn Astropy</Link>
-          </li>
-        </ul>
-      </nav>
-      <p className="copyright">
-        Copyright {new Date().getFullYear()} The Astropy Developers
-      </p>
-    </StyledFooter>
+    <FullWidthContainer>
+      <StyledFooter>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Learn Astropy</Link>
+            </li>
+            <li>
+              <Link to="/contributing/">Contribute to Learn Astropy</Link>
+            </li>
+          </ul>
+        </nav>
+        <p className="copyright">
+          Copyright {new Date().getFullYear()} The Astropy Developers
+        </p>
+      </StyledFooter>
+    </FullWidthContainer>
   );
 }
