@@ -33,10 +33,29 @@ const HeaderContainer = styled.header`
   .astropy-link {
     margin-left: auto;
   }
+
+  a {
+    color: var(--astropy-neutral-900);
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
 `;
 
 const NavItem = styled.div`
+  transition: all 0.2s ease-in-out;
   margin: 0 1em;
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+    border-bottom: 2px solid var(--astropy-primary-color);
+    color: var(--astropy-primary-color);
+  }
+
+  .astropy-link {
+    margin-left: auto;
+  }
 `;
 
 /*
@@ -58,9 +77,9 @@ export default function NavHeader() {
             <Link to="/contributing">Contribute</Link>
           </NavItem>
         </nav>
-        <a className="astropy-link" href="https://astropy.org">
-          Astropy Project
-        </a>
+        <NavItem className="astropy-link">
+          <a href="https://astropy.org">Astropy Project</a>
+        </NavItem>
       </HeaderContainer>
     </>
   );
