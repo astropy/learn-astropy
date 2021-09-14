@@ -8,6 +8,9 @@ import '@fontsource/source-sans-pro/400.css';
 import '@fontsource/source-sans-pro/400-italic.css';
 import '@fontsource/source-sans-pro/700.css';
 
+// Full Algolia instantsearch theme includes its reset
+import 'instantsearch.css/themes/satellite.css';
+
 import GlobalStyles from '../styles/globalStyles';
 import Header from './header';
 import Footer from './footer';
@@ -35,9 +38,9 @@ const StyledLayout = styled.div`
 `;
 
 const StyledMain = styled.main`
-  margin: 0 auto 5rem;
-  max-width: 60em;
-  padding: 0 10px 0 10px;
+  margin: 0 auto;
+  max-width: var(--astropy-content-width);
+  padding: 0 var(--astropy-size-s);
 `;
 
 /*
@@ -45,16 +48,18 @@ const StyledMain = styled.main`
  */
 export default function Layout({ children }) {
   return (
-    <StyledLayout>
+    <>
       <GlobalStyles />
-      <div className="upper-container">
-        <Header />
-        <StyledMain>{children}</StyledMain>
-      </div>
-      <div className="sticky-footer-container">
-        <Footer />
-      </div>
-    </StyledLayout>
+      <StyledLayout>
+        <div className="upper-container">
+          <Header />
+          <StyledMain>{children}</StyledMain>
+        </div>
+        <div className="sticky-footer-container">
+          <Footer />
+        </div>
+      </StyledLayout>
+    </>
   );
 }
 

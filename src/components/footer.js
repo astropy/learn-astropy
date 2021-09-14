@@ -2,10 +2,68 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
+import numfocusStamp from '../../static/Numfocus_stamp.png';
+
+const FullWidthContainer = styled.div`
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin: var(--astropy-size-xl) -50vw 0;
+  background-color: rgb(250, 250, 250);
+`;
+
 const StyledFooter = styled.footer`
   margin: 0 auto;
-  max-width: 60em;
-  padding: 0 10px 0 10px;
+  max-width: var(--astropy-content-width);
+  padding: var(--astropy-size-m) var(--astropy-size-s);
+
+  h2 {
+    font-size: var(--astropy-font-size-ml);
+    font-weight: 400;
+  }
+
+  nav ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  nav a {
+    font-weight: 500;
+  }
+
+  nav ul li:first-child a {
+    font-weight: 700;
+  }
+
+  .footer-content-layer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: var(--astropy-size-m) 0;
+  }
+
+  .sponsors,
+  .code-of-conduct {
+    width: 24rem;
+  }
+
+  .code-of-conduct p {
+    margin-bottom: 0;
+  }
+
+  .numfocusStamp {
+    margin-top: var(--astropy-size-l);
+  }
+
+  .sponsors .numfocusStamp__image {
+    width: 16rem;
+  }
+
+  .copyright {
+    margin-top: var(--astropy-size-xl);
+  }
 `;
 
 /*
@@ -13,28 +71,56 @@ const StyledFooter = styled.footer`
  */
 export default function Footer() {
   return (
-    <StyledFooter>
-      <p>
-        <Link to="/">Learn Astropy</Link>
-      </p>
-      <ul>
-        <li>
-          <Link to="/">Guides</Link>
-        </li>
-        <li>
-          <Link to="/">Tutorials</Link>
-        </li>
-        <li>
-          <Link to="/">Documentation</Link>
-        </li>
-        <li>
-          <Link to="/">Examples</Link>
-        </li>
-        <li>
-          <Link to="/contributing/">Contribute to Learn Astropy</Link>
-        </li>
-      </ul>
-      <p>Copyright {new Date().getFullYear()} The Astropy Developers</p>
-    </StyledFooter>
+    <FullWidthContainer>
+      <StyledFooter>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Learn Astropy</Link>
+            </li>
+            <li>
+              <Link to="/contributing/">Contribute to Learn Astropy</Link>
+            </li>
+          </ul>
+        </nav>
+        <div className="footer-content-layer">
+          <article className="code-of-conduct">
+            <h2>Code of Conduct</h2>
+            <p>
+              The Astropy project is committed to fostering an inclusive
+              community. The community of participants in open source Astronomy
+              projects is made up of members from around the globe with a
+              diverse set of skills, personalities, and experiences. It is
+              through these differences that our community experiences success
+              and continued growth.{' '}
+              <a href="https://www.astropy.org/code_of_conduct.html">
+                Learn more.
+              </a>
+            </p>
+          </article>
+          <article className="sponsors">
+            <h2>Sponsors</h2>
+            <p>
+              The Learn Astropy website was developed under a grant by the{' '}
+              <a href="http://www.dunlap.utoronto.ca">
+                University of Toronto Dunlap Institute for Astrophysics.
+              </a>{' '}
+            </p>
+            <div className="numfocusStamp">
+              <a href="https://numfocus.org">
+                <img
+                  className="numfocusStamp__image"
+                  src={numfocusStamp}
+                  alt="A fiscally sponsored project of NumFOCUS"
+                />
+              </a>
+            </div>
+          </article>
+        </div>
+        <p className="copyright">
+          Copyright {new Date().getFullYear()} The Astropy Developers
+        </p>
+      </StyledFooter>
+    </FullWidthContainer>
   );
 }
