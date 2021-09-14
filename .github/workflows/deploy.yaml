@@ -1,0 +1,34 @@
+name: Deploy
+
+'on':
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Read .nvmrc
+        id: node_version
+        run: echo ::set-output name=NODE_VERSION::$(cat .nvmrc)
+
+      - name: Set up node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ steps.node_version.outputs.NODE_VERSION }}
+
+      - run: npm ci
+        name: Install
+
+      - run: npm run build
+        name: Build
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
