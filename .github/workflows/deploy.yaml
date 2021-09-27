@@ -6,7 +6,7 @@ name: Deploy
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -34,6 +34,25 @@ jobs:
 
       - run: npm run build
         name: Build
+
+      - name: Upload gatsby artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: gatsby-build
+          path: ./public
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Download gatsby artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: gatsby-build
+          path: ./public
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v3
