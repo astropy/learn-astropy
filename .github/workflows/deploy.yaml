@@ -1,13 +1,12 @@
-name: CI
+name: Deploy
 
 'on':
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -33,11 +32,11 @@ jobs:
       - run: npm ci
         name: Install
 
-      - run: npm run lint
-        name: ESLint
-
-      - run: npm run prettier
-        name: Prettier
-
       - run: npm run build
         name: Build
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
