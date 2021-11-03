@@ -1,5 +1,4 @@
 module.exports = {
-  pathPrefix: `/learn-astropy`, // FIXME remove for deployment to learn.astropy.org/
   siteMetadata: {
     title: 'Learn Astropy',
     description:

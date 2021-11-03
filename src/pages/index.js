@@ -30,11 +30,11 @@ export default function IndexPage({ location }) {
         </p>
       </PageCover>
 
-      <InstantSearch searchClient={searchClient} indexName="algolia_test">
+      <InstantSearch searchClient={searchClient} indexName="prod_learn_astropy">
         <Configure distinct facetingAfterDistinct />
         <PrioritySort
-          priorityRefinement="algolia_test_priority"
-          relevanceRefinement="algolia_test"
+          priorityRefinement="prod_learn_astropy_priority"
+          relevanceRefinement="prod_learn_astropy"
         />
         <SearchLayout>
           <div className="search-box-area">
