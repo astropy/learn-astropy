@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 import numfocusStamp from '../../static/Numfocus_stamp.png';
+import dunlapLogo from '../../static/dunlap-logo.png';
 
 const FullWidthContainer = styled.div`
   width: 100vw;
@@ -61,6 +62,11 @@ const StyledFooter = styled.footer`
     width: 16rem;
   }
 
+  .sponsors .dunlapLogo__image {
+    margin-top: var(--astropy-size-m);
+    width: 20rem;
+  }
+
   .copyright {
     margin-top: var(--astropy-size-xl);
   }
@@ -100,6 +106,9 @@ export default function Footer() {
           </article>
           <article className="sponsors">
             <h2>Sponsors</h2>
+            <a href="http://www.dunlap.utoronto.ca">
+              <img className="dunlapLogo__image" src={dunlapLogo} alt="" />
+            </a>
             <p>
               The Learn Astropy website was developed under a grant by the{' '}
               <a href="http://www.dunlap.utoronto.ca">
