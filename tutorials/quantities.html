@@ -15000,7 +15000,7 @@ unit: pc
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;astropy.visualization.units.quantity_support.&lt;locals&gt;.MplQuantityConverter at 0x7f6db2ab2550&gt;</pre>
+<pre>&lt;astropy.visualization.units.quantity_support.&lt;locals&gt;.MplQuantityConverter at 0x7f4931f1c970&gt;</pre>
 </div>
 
 </div>
@@ -15398,59 +15398,80 @@ CGS units: 1.02e+39 g
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">UnitConversionError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity_helper/helpers.py</span> in <span class="ansi-cyan-fg">helper_dimensionless_to_dimensionless</span><span class="ansi-blue-fg">(f, unit)</span>
-<span class="ansi-green-intense-fg ansi-bold">    137</span>     <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 138</span><span class="ansi-red-fg">         return ([get_converter(unit, dimensionless_unscaled)],
-</span><span class="ansi-green-intense-fg ansi-bold">    139</span>                 dimensionless_unscaled)
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity_helper/helpers.py:138</span>, in <span class="ansi-cyan-fg">helper_dimensionless_to_dimensionless</span><span class="ansi-blue-fg">(f, unit)</span>
+<span class="ansi-green-intense-fg ansi-bold">    137</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">--&gt; 138</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> ([<span class="ansi-yellow-bg">get_converter</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">unit</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">dimensionless_unscaled</span><span class="ansi-yellow-bg">)</span>],
+<span class="ansi-green-intense-fg ansi-bold">    139</span>             dimensionless_unscaled)
+<span class="ansi-green-intense-fg ansi-bold">    140</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> UnitsError:
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity_helper/helpers.py</span> in <span class="ansi-cyan-fg">get_converter</span><span class="ansi-blue-fg">(from_unit, to_unit)</span>
-<span class="ansi-green-intense-fg ansi-bold">     31</span>     i.e., if the inferred scale is unity.&#34;&#34;&#34;
-<span class="ansi-green-fg">---&gt; 32</span><span class="ansi-red-fg">     </span>converter <span class="ansi-blue-fg">=</span> from_unit<span class="ansi-blue-fg">.</span>_get_converter<span class="ansi-blue-fg">(</span>to_unit<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">     33</span>     <span class="ansi-green-fg">return</span> <span class="ansi-green-fg">None</span> <span class="ansi-green-fg">if</span> converter <span class="ansi-green-fg">is</span> unit_scale_converter <span class="ansi-green-fg">else</span> converter
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity_helper/helpers.py:32</span>, in <span class="ansi-cyan-fg">get_converter</span><span class="ansi-blue-fg">(from_unit, to_unit)</span>
+<span class="ansi-green-intense-fg ansi-bold">     30</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;Like Unit._get_converter, except returns None if no scaling is needed,</span>
+<span class="ansi-green-intense-fg ansi-bold">     31</span> <span style="color: rgb(175,0,0)">i.e., if the inferred scale is unity.&#34;&#34;&#34;</span>
+<span class="ansi-green-fg">---&gt; 32</span> converter <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">from_unit</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_get_converter</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">to_unit</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     33</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> converter <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> unit_scale_converter <span class="ansi-bold" style="color: rgb(0,135,0)">else</span> converter
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py</span> in <span class="ansi-cyan-fg">_get_converter</span><span class="ansi-blue-fg">(self, other, equivalencies)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1065</span> 
-<span class="ansi-green-fg">-&gt; 1066</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> exc
-<span class="ansi-green-intense-fg ansi-bold">   1067</span> 
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py:1066</span>, in <span class="ansi-cyan-fg">UnitBase._get_converter</span><span class="ansi-blue-fg">(self, other, equivalencies)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1064</span>                 <span class="ansi-bold" style="color: rgb(0,135,0)">pass</span>
+<span class="ansi-green-fg">-&gt; 1066</span> <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> exc
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py</span> in <span class="ansi-cyan-fg">_get_converter</span><span class="ansi-blue-fg">(self, other, equivalencies)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1050</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 1051</span><span class="ansi-red-fg">             return self._apply_equivalencies(
-</span><span class="ansi-green-intense-fg ansi-bold">   1052</span>                 self, other, self._normalize_equivalencies(equivalencies))
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py:1051</span>, in <span class="ansi-cyan-fg">UnitBase._get_converter</span><span class="ansi-blue-fg">(self, other, equivalencies)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1050</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">-&gt; 1051</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_apply_equivalencies</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">   1052</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">other</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_normalize_equivalencies</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">equivalencies</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1053</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> UnitsError <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> exc:
+<span class="ansi-green-intense-fg ansi-bold">   1054</span>     <span style="color: rgb(95,135,135)"># Last hope: maybe other knows how to do it?</span>
+<span class="ansi-green-intense-fg ansi-bold">   1055</span>     <span style="color: rgb(95,135,135)"># We assume the equivalencies have the unit itself as first item.</span>
+<span class="ansi-green-intense-fg ansi-bold">   1056</span>     <span style="color: rgb(95,135,135)"># TODO: maybe better for other to have a `_back_converter` method?</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py</span> in <span class="ansi-cyan-fg">_apply_equivalencies</span><span class="ansi-blue-fg">(self, unit, other, equivalencies)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1026</span> 
-<span class="ansi-green-fg">-&gt; 1027</span><span class="ansi-red-fg">         raise UnitConversionError(
-</span><span class="ansi-green-intense-fg ansi-bold">   1028</span>             f&#34;{unit_str} and {other_str} are not convertible&#34;)
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py:1027</span>, in <span class="ansi-cyan-fg">UnitBase._apply_equivalencies</span><span class="ansi-blue-fg">(self, unit, other, equivalencies)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1025</span> other_str <span style="color: rgb(98,98,98)">=</span> get_err_str(other)
+<span class="ansi-green-fg">-&gt; 1027</span> <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> UnitConversionError(
+<span class="ansi-green-intense-fg ansi-bold">   1028</span>     <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>unit_str<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> and </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>other_str<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> are not convertible</span><span style="color: rgb(175,0,0)">&#34;</span>)
 
 <span class="ansi-red-fg">UnitConversionError</span>: &#39;kg km2 pc / m3&#39; (mass) and &#39;&#39; (dimensionless) are not convertible
 
 During handling of the above exception, another exception occurred:
 
 <span class="ansi-red-fg">UnitTypeError</span>                             Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2753/524704008.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>np<span class="ansi-blue-fg">.</span>log10<span class="ansi-blue-fg">(</span>M<span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [19]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">np</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">log10</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">M</span><span class="ansi-yellow-bg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity.py</span> in <span class="ansi-cyan-fg">__array_ufunc__</span><span class="ansi-blue-fg">(self, function, method, *inputs, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    592</span>         <span class="ansi-red-fg"># consistent units between two inputs (e.g., in np.add) --</span>
-<span class="ansi-green-intense-fg ansi-bold">    593</span>         <span class="ansi-red-fg"># and the unit of the result (or tuple of units for nout &gt; 1).</span>
-<span class="ansi-green-fg">--&gt; 594</span><span class="ansi-red-fg">         </span>converters<span class="ansi-blue-fg">,</span> unit <span class="ansi-blue-fg">=</span> converters_and_unit<span class="ansi-blue-fg">(</span>function<span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>inputs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    595</span> 
-<span class="ansi-green-intense-fg ansi-bold">    596</span>         out <span class="ansi-blue-fg">=</span> kwargs<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;out&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity.py:594</span>, in <span class="ansi-cyan-fg">Quantity.__array_ufunc__</span><span class="ansi-blue-fg">(self, function, method, *inputs, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    572</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;Wrap numpy ufuncs, taking care of units.</span>
+<span class="ansi-green-intense-fg ansi-bold">    573</span> 
+<span class="ansi-green-intense-fg ansi-bold">    574</span> <span style="color: rgb(175,0,0)">Parameters</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">    588</span> <span style="color: rgb(175,0,0)">    Results of the ufunc, with the unit set properly.</span>
+<span class="ansi-green-intense-fg ansi-bold">    589</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    590</span> <span style="color: rgb(95,135,135)"># Determine required conversion functions -- to bring the unit of the</span>
+<span class="ansi-green-intense-fg ansi-bold">    591</span> <span style="color: rgb(95,135,135)"># input to that expected (e.g., radian for np.sin), or to get</span>
+<span class="ansi-green-intense-fg ansi-bold">    592</span> <span style="color: rgb(95,135,135)"># consistent units between two inputs (e.g., in np.add) --</span>
+<span class="ansi-green-intense-fg ansi-bold">    593</span> <span style="color: rgb(95,135,135)"># and the unit of the result (or tuple of units for nout &gt; 1).</span>
+<span class="ansi-green-fg">--&gt; 594</span> converters, unit <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">converters_and_unit</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">function</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">method</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">inputs</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    596</span> out <span style="color: rgb(98,98,98)">=</span> kwargs<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">out</span><span style="color: rgb(175,0,0)">&#39;</span>, <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">    597</span> <span style="color: rgb(95,135,135)"># Avoid loop back by turning any Quantity output into array views.</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity_helper/converters.py</span> in <span class="ansi-cyan-fg">converters_and_unit</span><span class="ansi-blue-fg">(function, method, *args)</span>
-<span class="ansi-green-intense-fg ansi-bold">    172</span> 
-<span class="ansi-green-intense-fg ansi-bold">    173</span>         <span class="ansi-red-fg"># Determine possible conversion functions, and the result unit.</span>
-<span class="ansi-green-fg">--&gt; 174</span><span class="ansi-red-fg">         </span>converters<span class="ansi-blue-fg">,</span> result_unit <span class="ansi-blue-fg">=</span> ufunc_helper<span class="ansi-blue-fg">(</span>function<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>units<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    175</span> 
-<span class="ansi-green-intense-fg ansi-bold">    176</span>         <span class="ansi-green-fg">if</span> any<span class="ansi-blue-fg">(</span>converter <span class="ansi-green-fg">is</span> <span class="ansi-green-fg">False</span> <span class="ansi-green-fg">for</span> converter <span class="ansi-green-fg">in</span> converters<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity_helper/converters.py:174</span>, in <span class="ansi-cyan-fg">converters_and_unit</span><span class="ansi-blue-fg">(function, method, *args)</span>
+<span class="ansi-green-intense-fg ansi-bold">    171</span> units <span style="color: rgb(98,98,98)">=</span> [<span style="color: rgb(0,135,0)">getattr</span>(arg, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">unit</span><span style="color: rgb(175,0,0)">&#39;</span>, <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>) <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> arg <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> args]
+<span class="ansi-green-intense-fg ansi-bold">    173</span> <span style="color: rgb(95,135,135)"># Determine possible conversion functions, and the result unit.</span>
+<span class="ansi-green-fg">--&gt; 174</span> converters, result_unit <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">ufunc_helper</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">function</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">units</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    176</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">any</span>(converter <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">False</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> converter <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> converters):
+<span class="ansi-green-intense-fg ansi-bold">    177</span>     <span style="color: rgb(95,135,135)"># for multi-argument ufuncs with a quantity and a non-quantity,</span>
+<span class="ansi-green-intense-fg ansi-bold">    178</span>     <span style="color: rgb(95,135,135)"># the quantity normally needs to be dimensionless, *except*</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">    181</span>     <span style="color: rgb(95,135,135)"># can just have the unit of the quantity</span>
+<span class="ansi-green-intense-fg ansi-bold">    182</span>     <span style="color: rgb(95,135,135)"># (this allows, e.g., `q &gt; 0.` independent of unit)</span>
+<span class="ansi-green-intense-fg ansi-bold">    183</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-intense-fg ansi-bold">    184</span>         <span style="color: rgb(95,135,135)"># Don&#39;t fold this loop in the test above: this rare case</span>
+<span class="ansi-green-intense-fg ansi-bold">    185</span>         <span style="color: rgb(95,135,135)"># should not make the common case slower.</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity_helper/helpers.py</span> in <span class="ansi-cyan-fg">helper_dimensionless_to_dimensionless</span><span class="ansi-blue-fg">(f, unit)</span>
-<span class="ansi-green-intense-fg ansi-bold">    139</span>                 dimensionless_unscaled)
-<span class="ansi-green-intense-fg ansi-bold">    140</span>     <span class="ansi-green-fg">except</span> UnitsError<span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 141</span><span class="ansi-red-fg">         raise UnitTypeError(&#34;Can only apply &#39;{}&#39; function to &#34;
-</span><span class="ansi-green-intense-fg ansi-bold">    142</span>                             <span class="ansi-blue-fg">&#34;dimensionless quantities&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">    143</span>                             .format(f.__name__))
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity_helper/helpers.py:141</span>, in <span class="ansi-cyan-fg">helper_dimensionless_to_dimensionless</span><span class="ansi-blue-fg">(f, unit)</span>
+<span class="ansi-green-intense-fg ansi-bold">    138</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> ([get_converter(unit, dimensionless_unscaled)],
+<span class="ansi-green-intense-fg ansi-bold">    139</span>             dimensionless_unscaled)
+<span class="ansi-green-intense-fg ansi-bold">    140</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> UnitsError:
+<span class="ansi-green-fg">--&gt; 141</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> UnitTypeError(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Can only apply </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)"> function to </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    142</span>                         <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">dimensionless quantities</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    143</span>                         <span style="color: rgb(98,98,98)">.</span>format(f<span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,135)">__name__</span>))
 
 <span class="ansi-red-fg">UnitTypeError</span>: Can only apply &#39;log10&#39; function to dimensionless quantities</pre>
 </div>
@@ -15910,51 +15931,60 @@ $\mathrm{\frac{K\,km}{s}}$
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">UnitConversionError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2753/2893631808.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>nu13 <span class="ansi-blue-fg">=</span> lambda13<span class="ansi-blue-fg">.</span>to<span class="ansi-blue-fg">(</span>u<span class="ansi-blue-fg">.</span>Hz<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> nu18 <span class="ansi-blue-fg">=</span> lambda18<span class="ansi-blue-fg">.</span>to<span class="ansi-blue-fg">(</span>u<span class="ansi-blue-fg">.</span>Hz<span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [27]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> nu13 <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">lambda13</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">to</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">u</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">Hz</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> nu18 <span style="color: rgb(98,98,98)">=</span> lambda18<span style="color: rgb(98,98,98)">.</span>to(u<span style="color: rgb(98,98,98)">.</span>Hz)
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity.py</span> in <span class="ansi-cyan-fg">to</span><span class="ansi-blue-fg">(self, unit, equivalencies, copy)</span>
-<span class="ansi-green-intense-fg ansi-bold">    847</span>             <span class="ansi-red-fg"># Avoid using to_value to ensure that we make a copy. We also</span>
-<span class="ansi-green-intense-fg ansi-bold">    848</span>             <span class="ansi-red-fg"># don&#39;t want to slow down this method (esp. the scalar case).</span>
-<span class="ansi-green-fg">--&gt; 849</span><span class="ansi-red-fg">             </span>value <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_to_value<span class="ansi-blue-fg">(</span>unit<span class="ansi-blue-fg">,</span> equivalencies<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    850</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    851</span>             <span class="ansi-red-fg"># to_value only copies if necessary</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity.py:849</span>, in <span class="ansi-cyan-fg">Quantity.to</span><span class="ansi-blue-fg">(self, unit, equivalencies, copy)</span>
+<span class="ansi-green-intense-fg ansi-bold">    845</span> unit <span style="color: rgb(98,98,98)">=</span> Unit(unit)
+<span class="ansi-green-intense-fg ansi-bold">    846</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> copy:
+<span class="ansi-green-intense-fg ansi-bold">    847</span>     <span style="color: rgb(95,135,135)"># Avoid using to_value to ensure that we make a copy. We also</span>
+<span class="ansi-green-intense-fg ansi-bold">    848</span>     <span style="color: rgb(95,135,135)"># don&#39;t want to slow down this method (esp. the scalar case).</span>
+<span class="ansi-green-fg">--&gt; 849</span>     value <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_to_value</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">unit</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">equivalencies</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    850</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-intense-fg ansi-bold">    851</span>     <span style="color: rgb(95,135,135)"># to_value only copies if necessary</span>
+<span class="ansi-green-intense-fg ansi-bold">    852</span>     value <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>to_value(unit, equivalencies)
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity.py</span> in <span class="ansi-cyan-fg">_to_value</span><span class="ansi-blue-fg">(self, unit, equivalencies)</span>
-<span class="ansi-green-intense-fg ansi-bold">    801</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> self<span class="ansi-blue-fg">.</span>dtype<span class="ansi-blue-fg">.</span>names <span class="ansi-green-fg">or</span> isinstance<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>unit<span class="ansi-blue-fg">,</span> StructuredUnit<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    802</span>             <span class="ansi-red-fg"># Standard path, let unit to do work.</span>
-<span class="ansi-green-fg">--&gt; 803</span><span class="ansi-red-fg">             return self.unit.to(unit, self.view(np.ndarray),
-</span><span class="ansi-green-intense-fg ansi-bold">    804</span>                                 equivalencies=equivalencies)
-<span class="ansi-green-intense-fg ansi-bold">    805</span> 
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity.py:803</span>, in <span class="ansi-cyan-fg">Quantity._to_value</span><span class="ansi-blue-fg">(self, unit, equivalencies)</span>
+<span class="ansi-green-intense-fg ansi-bold">    800</span>     equivalencies <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_equivalencies
+<span class="ansi-green-intense-fg ansi-bold">    801</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>dtype<span style="color: rgb(98,98,98)">.</span>names <span class="ansi-bold" style="color: rgb(175,0,255)">or</span> <span style="color: rgb(0,135,0)">isinstance</span>(<span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>unit, StructuredUnit):
+<span class="ansi-green-intense-fg ansi-bold">    802</span>     <span style="color: rgb(95,135,135)"># Standard path, let unit to do work.</span>
+<span class="ansi-green-fg">--&gt; 803</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">unit</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">to</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">unit</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">view</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">np</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">ndarray</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    804</span> <span class="ansi-yellow-bg">                        </span><span class="ansi-yellow-bg">equivalencies</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">equivalencies</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    806</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-intense-fg ansi-bold">    807</span>     <span style="color: rgb(95,135,135)"># The .to() method of a simple unit cannot convert a structured</span>
+<span class="ansi-green-intense-fg ansi-bold">    808</span>     <span style="color: rgb(95,135,135)"># dtype, so we work around it, by recursing.</span>
+<span class="ansi-green-intense-fg ansi-bold">    809</span>     <span style="color: rgb(95,135,135)"># TODO: deprecate this?</span>
+<span class="ansi-green-intense-fg ansi-bold">    810</span>     <span style="color: rgb(95,135,135)"># Convert simple to Structured on initialization?</span>
+<span class="ansi-green-intense-fg ansi-bold">    811</span>     result <span style="color: rgb(98,98,98)">=</span> np<span style="color: rgb(98,98,98)">.</span>empty_like(<span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>view(np<span style="color: rgb(98,98,98)">.</span>ndarray))
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py</span> in <span class="ansi-cyan-fg">to</span><span class="ansi-blue-fg">(self, other, value, equivalencies)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1133</span>             <span class="ansi-green-fg">return</span> UNITY
-<span class="ansi-green-intense-fg ansi-bold">   1134</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 1135</span><span class="ansi-red-fg">             return self._get_converter(Unit(other),
-</span><span class="ansi-green-intense-fg ansi-bold">   1136</span>                                        equivalencies=equivalencies)(value)
-<span class="ansi-green-intense-fg ansi-bold">   1137</span> 
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py:1135</span>, in <span class="ansi-cyan-fg">UnitBase.to</span><span class="ansi-blue-fg">(self, other, value, equivalencies)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1133</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> UNITY
+<span class="ansi-green-intense-fg ansi-bold">   1134</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">-&gt; 1135</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_get_converter</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">Unit</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">other</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1136</span> <span class="ansi-yellow-bg">                               </span><span class="ansi-yellow-bg">equivalencies</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">equivalencies</span><span class="ansi-yellow-bg">)</span>(value)
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py</span> in <span class="ansi-cyan-fg">_get_converter</span><span class="ansi-blue-fg">(self, other, equivalencies)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1064</span>                             <span class="ansi-green-fg">pass</span>
-<span class="ansi-green-intense-fg ansi-bold">   1065</span> 
-<span class="ansi-green-fg">-&gt; 1066</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> exc
-<span class="ansi-green-intense-fg ansi-bold">   1067</span> 
-<span class="ansi-green-intense-fg ansi-bold">   1068</span>     <span class="ansi-green-fg">def</span> _to<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> other<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py:1066</span>, in <span class="ansi-cyan-fg">UnitBase._get_converter</span><span class="ansi-blue-fg">(self, other, equivalencies)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1063</span>             <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">Exception</span>:
+<span class="ansi-green-intense-fg ansi-bold">   1064</span>                 <span class="ansi-bold" style="color: rgb(0,135,0)">pass</span>
+<span class="ansi-green-fg">-&gt; 1066</span> <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> exc
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py</span> in <span class="ansi-cyan-fg">_get_converter</span><span class="ansi-blue-fg">(self, other, equivalencies)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1049</span>         <span class="ansi-red-fg"># if that doesn&#39;t work, maybe we can do it with equivalencies?</span>
-<span class="ansi-green-intense-fg ansi-bold">   1050</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 1051</span><span class="ansi-red-fg">             return self._apply_equivalencies(
-</span><span class="ansi-green-intense-fg ansi-bold">   1052</span>                 self, other, self._normalize_equivalencies(equivalencies))
-<span class="ansi-green-intense-fg ansi-bold">   1053</span>         <span class="ansi-green-fg">except</span> UnitsError <span class="ansi-green-fg">as</span> exc<span class="ansi-blue-fg">:</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py:1051</span>, in <span class="ansi-cyan-fg">UnitBase._get_converter</span><span class="ansi-blue-fg">(self, other, equivalencies)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1049</span> <span style="color: rgb(95,135,135)"># if that doesn&#39;t work, maybe we can do it with equivalencies?</span>
+<span class="ansi-green-intense-fg ansi-bold">   1050</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">-&gt; 1051</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_apply_equivalencies</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">   1052</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">other</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_normalize_equivalencies</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">equivalencies</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1053</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> UnitsError <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> exc:
+<span class="ansi-green-intense-fg ansi-bold">   1054</span>     <span style="color: rgb(95,135,135)"># Last hope: maybe other knows how to do it?</span>
+<span class="ansi-green-intense-fg ansi-bold">   1055</span>     <span style="color: rgb(95,135,135)"># We assume the equivalencies have the unit itself as first item.</span>
+<span class="ansi-green-intense-fg ansi-bold">   1056</span>     <span style="color: rgb(95,135,135)"># TODO: maybe better for other to have a `_back_converter` method?</span>
+<span class="ansi-green-intense-fg ansi-bold">   1057</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">hasattr</span>(other, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">equivalencies</span><span style="color: rgb(175,0,0)">&#39;</span>):
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py</span> in <span class="ansi-cyan-fg">_apply_equivalencies</span><span class="ansi-blue-fg">(self, unit, other, equivalencies)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1025</span>         other_str <span class="ansi-blue-fg">=</span> get_err_str<span class="ansi-blue-fg">(</span>other<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1026</span> 
-<span class="ansi-green-fg">-&gt; 1027</span><span class="ansi-red-fg">         raise UnitConversionError(
-</span><span class="ansi-green-intense-fg ansi-bold">   1028</span>             f&#34;{unit_str} and {other_str} are not convertible&#34;)
-<span class="ansi-green-intense-fg ansi-bold">   1029</span> 
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py:1027</span>, in <span class="ansi-cyan-fg">UnitBase._apply_equivalencies</span><span class="ansi-blue-fg">(self, unit, other, equivalencies)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1024</span> unit_str <span style="color: rgb(98,98,98)">=</span> get_err_str(unit)
+<span class="ansi-green-intense-fg ansi-bold">   1025</span> other_str <span style="color: rgb(98,98,98)">=</span> get_err_str(other)
+<span class="ansi-green-fg">-&gt; 1027</span> <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> UnitConversionError(
+<span class="ansi-green-intense-fg ansi-bold">   1028</span>     <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>unit_str<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> and </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>other_str<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> are not convertible</span><span style="color: rgb(175,0,0)">&#34;</span>)
 
 <span class="ansi-red-fg">UnitConversionError</span>: &#39;mm&#39; (length) and &#39;Hz&#39; (frequency) are not convertible</pre>
 </div>
@@ -16462,50 +16492,59 @@ $0.00047596472 \; \mathrm{pc^{2}}$
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">UnitConversionError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2753/3433421040.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>da<span class="ansi-blue-fg">.</span>to<span class="ansi-blue-fg">(</span>u<span class="ansi-blue-fg">.</span>cm<span class="ansi-blue-fg">**</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [38]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">da</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">to</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">u</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">cm</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">2</span><span class="ansi-yellow-bg">)</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity.py</span> in <span class="ansi-cyan-fg">to</span><span class="ansi-blue-fg">(self, unit, equivalencies, copy)</span>
-<span class="ansi-green-intense-fg ansi-bold">    847</span>             <span class="ansi-red-fg"># Avoid using to_value to ensure that we make a copy. We also</span>
-<span class="ansi-green-intense-fg ansi-bold">    848</span>             <span class="ansi-red-fg"># don&#39;t want to slow down this method (esp. the scalar case).</span>
-<span class="ansi-green-fg">--&gt; 849</span><span class="ansi-red-fg">             </span>value <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_to_value<span class="ansi-blue-fg">(</span>unit<span class="ansi-blue-fg">,</span> equivalencies<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    850</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    851</span>             <span class="ansi-red-fg"># to_value only copies if necessary</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity.py:849</span>, in <span class="ansi-cyan-fg">Quantity.to</span><span class="ansi-blue-fg">(self, unit, equivalencies, copy)</span>
+<span class="ansi-green-intense-fg ansi-bold">    845</span> unit <span style="color: rgb(98,98,98)">=</span> Unit(unit)
+<span class="ansi-green-intense-fg ansi-bold">    846</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> copy:
+<span class="ansi-green-intense-fg ansi-bold">    847</span>     <span style="color: rgb(95,135,135)"># Avoid using to_value to ensure that we make a copy. We also</span>
+<span class="ansi-green-intense-fg ansi-bold">    848</span>     <span style="color: rgb(95,135,135)"># don&#39;t want to slow down this method (esp. the scalar case).</span>
+<span class="ansi-green-fg">--&gt; 849</span>     value <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_to_value</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">unit</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">equivalencies</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    850</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-intense-fg ansi-bold">    851</span>     <span style="color: rgb(95,135,135)"># to_value only copies if necessary</span>
+<span class="ansi-green-intense-fg ansi-bold">    852</span>     value <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>to_value(unit, equivalencies)
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity.py</span> in <span class="ansi-cyan-fg">_to_value</span><span class="ansi-blue-fg">(self, unit, equivalencies)</span>
-<span class="ansi-green-intense-fg ansi-bold">    801</span>         <span class="ansi-green-fg">if</span> <span class="ansi-green-fg">not</span> self<span class="ansi-blue-fg">.</span>dtype<span class="ansi-blue-fg">.</span>names <span class="ansi-green-fg">or</span> isinstance<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">.</span>unit<span class="ansi-blue-fg">,</span> StructuredUnit<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-intense-fg ansi-bold">    802</span>             <span class="ansi-red-fg"># Standard path, let unit to do work.</span>
-<span class="ansi-green-fg">--&gt; 803</span><span class="ansi-red-fg">             return self.unit.to(unit, self.view(np.ndarray),
-</span><span class="ansi-green-intense-fg ansi-bold">    804</span>                                 equivalencies=equivalencies)
-<span class="ansi-green-intense-fg ansi-bold">    805</span> 
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity.py:803</span>, in <span class="ansi-cyan-fg">Quantity._to_value</span><span class="ansi-blue-fg">(self, unit, equivalencies)</span>
+<span class="ansi-green-intense-fg ansi-bold">    800</span>     equivalencies <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_equivalencies
+<span class="ansi-green-intense-fg ansi-bold">    801</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>dtype<span style="color: rgb(98,98,98)">.</span>names <span class="ansi-bold" style="color: rgb(175,0,255)">or</span> <span style="color: rgb(0,135,0)">isinstance</span>(<span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>unit, StructuredUnit):
+<span class="ansi-green-intense-fg ansi-bold">    802</span>     <span style="color: rgb(95,135,135)"># Standard path, let unit to do work.</span>
+<span class="ansi-green-fg">--&gt; 803</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">unit</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">to</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">unit</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">view</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">np</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">ndarray</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">    804</span> <span class="ansi-yellow-bg">                        </span><span class="ansi-yellow-bg">equivalencies</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">equivalencies</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    806</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-intense-fg ansi-bold">    807</span>     <span style="color: rgb(95,135,135)"># The .to() method of a simple unit cannot convert a structured</span>
+<span class="ansi-green-intense-fg ansi-bold">    808</span>     <span style="color: rgb(95,135,135)"># dtype, so we work around it, by recursing.</span>
+<span class="ansi-green-intense-fg ansi-bold">    809</span>     <span style="color: rgb(95,135,135)"># TODO: deprecate this?</span>
+<span class="ansi-green-intense-fg ansi-bold">    810</span>     <span style="color: rgb(95,135,135)"># Convert simple to Structured on initialization?</span>
+<span class="ansi-green-intense-fg ansi-bold">    811</span>     result <span style="color: rgb(98,98,98)">=</span> np<span style="color: rgb(98,98,98)">.</span>empty_like(<span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>view(np<span style="color: rgb(98,98,98)">.</span>ndarray))
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py</span> in <span class="ansi-cyan-fg">to</span><span class="ansi-blue-fg">(self, other, value, equivalencies)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1133</span>             <span class="ansi-green-fg">return</span> UNITY
-<span class="ansi-green-intense-fg ansi-bold">   1134</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 1135</span><span class="ansi-red-fg">             return self._get_converter(Unit(other),
-</span><span class="ansi-green-intense-fg ansi-bold">   1136</span>                                        equivalencies=equivalencies)(value)
-<span class="ansi-green-intense-fg ansi-bold">   1137</span> 
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py:1135</span>, in <span class="ansi-cyan-fg">UnitBase.to</span><span class="ansi-blue-fg">(self, other, value, equivalencies)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1133</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> UNITY
+<span class="ansi-green-intense-fg ansi-bold">   1134</span> <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">-&gt; 1135</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_get_converter</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">Unit</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">other</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">,</span>
+<span class="ansi-green-intense-fg ansi-bold">   1136</span> <span class="ansi-yellow-bg">                               </span><span class="ansi-yellow-bg">equivalencies</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">=</span><span class="ansi-yellow-bg">equivalencies</span><span class="ansi-yellow-bg">)</span>(value)
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py</span> in <span class="ansi-cyan-fg">_get_converter</span><span class="ansi-blue-fg">(self, other, equivalencies)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1064</span>                             <span class="ansi-green-fg">pass</span>
-<span class="ansi-green-intense-fg ansi-bold">   1065</span> 
-<span class="ansi-green-fg">-&gt; 1066</span><span class="ansi-red-fg">             </span><span class="ansi-green-fg">raise</span> exc
-<span class="ansi-green-intense-fg ansi-bold">   1067</span> 
-<span class="ansi-green-intense-fg ansi-bold">   1068</span>     <span class="ansi-green-fg">def</span> _to<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> other<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py:1066</span>, in <span class="ansi-cyan-fg">UnitBase._get_converter</span><span class="ansi-blue-fg">(self, other, equivalencies)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1063</span>             <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">Exception</span>:
+<span class="ansi-green-intense-fg ansi-bold">   1064</span>                 <span class="ansi-bold" style="color: rgb(0,135,0)">pass</span>
+<span class="ansi-green-fg">-&gt; 1066</span> <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> exc
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py</span> in <span class="ansi-cyan-fg">_get_converter</span><span class="ansi-blue-fg">(self, other, equivalencies)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1049</span>         <span class="ansi-red-fg"># if that doesn&#39;t work, maybe we can do it with equivalencies?</span>
-<span class="ansi-green-intense-fg ansi-bold">   1050</span>         <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">-&gt; 1051</span><span class="ansi-red-fg">             return self._apply_equivalencies(
-</span><span class="ansi-green-intense-fg ansi-bold">   1052</span>                 self, other, self._normalize_equivalencies(equivalencies))
-<span class="ansi-green-intense-fg ansi-bold">   1053</span>         <span class="ansi-green-fg">except</span> UnitsError <span class="ansi-green-fg">as</span> exc<span class="ansi-blue-fg">:</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py:1051</span>, in <span class="ansi-cyan-fg">UnitBase._get_converter</span><span class="ansi-blue-fg">(self, other, equivalencies)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1049</span> <span style="color: rgb(95,135,135)"># if that doesn&#39;t work, maybe we can do it with equivalencies?</span>
+<span class="ansi-green-intense-fg ansi-bold">   1050</span> <span class="ansi-bold" style="color: rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">-&gt; 1051</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_apply_equivalencies</span><span class="ansi-yellow-bg">(</span>
+<span class="ansi-green-intense-fg ansi-bold">   1052</span> <span class="ansi-yellow-bg">        </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">other</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_normalize_equivalencies</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">equivalencies</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1053</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> UnitsError <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> exc:
+<span class="ansi-green-intense-fg ansi-bold">   1054</span>     <span style="color: rgb(95,135,135)"># Last hope: maybe other knows how to do it?</span>
+<span class="ansi-green-intense-fg ansi-bold">   1055</span>     <span style="color: rgb(95,135,135)"># We assume the equivalencies have the unit itself as first item.</span>
+<span class="ansi-green-intense-fg ansi-bold">   1056</span>     <span style="color: rgb(95,135,135)"># TODO: maybe better for other to have a `_back_converter` method?</span>
+<span class="ansi-green-intense-fg ansi-bold">   1057</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">hasattr</span>(other, <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">equivalencies</span><span style="color: rgb(175,0,0)">&#39;</span>):
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py</span> in <span class="ansi-cyan-fg">_apply_equivalencies</span><span class="ansi-blue-fg">(self, unit, other, equivalencies)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1025</span>         other_str <span class="ansi-blue-fg">=</span> get_err_str<span class="ansi-blue-fg">(</span>other<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">   1026</span> 
-<span class="ansi-green-fg">-&gt; 1027</span><span class="ansi-red-fg">         raise UnitConversionError(
-</span><span class="ansi-green-intense-fg ansi-bold">   1028</span>             f&#34;{unit_str} and {other_str} are not convertible&#34;)
-<span class="ansi-green-intense-fg ansi-bold">   1029</span> 
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/core.py:1027</span>, in <span class="ansi-cyan-fg">UnitBase._apply_equivalencies</span><span class="ansi-blue-fg">(self, unit, other, equivalencies)</span>
+<span class="ansi-green-intense-fg ansi-bold">   1024</span> unit_str <span style="color: rgb(98,98,98)">=</span> get_err_str(unit)
+<span class="ansi-green-intense-fg ansi-bold">   1025</span> other_str <span style="color: rgb(98,98,98)">=</span> get_err_str(other)
+<span class="ansi-green-fg">-&gt; 1027</span> <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> UnitConversionError(
+<span class="ansi-green-intense-fg ansi-bold">   1028</span>     <span style="color: rgb(175,0,0)">f</span><span style="color: rgb(175,0,0)">&#34;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>unit_str<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> and </span><span class="ansi-bold" style="color: rgb(175,95,135)">{</span>other_str<span class="ansi-bold" style="color: rgb(175,95,135)">}</span><span style="color: rgb(175,0,0)"> are not convertible</span><span style="color: rgb(175,0,0)">&#34;</span>)
 
 <span class="ansi-red-fg">UnitConversionError</span>: &#39;deg2 pc2&#39; and &#39;cm2&#39; (area) are not convertible</pre>
 </div>
@@ -16876,29 +16915,47 @@ $317.64843 \; \mathrm{M_{\odot}}$
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">UnitConversionError</span>                       Traceback (most recent call last)
-<span class="ansi-green-fg">/tmp/ipykernel_2753/1075855630.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>response_func<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1.0</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">1.2</span><span class="ansi-blue-fg">)</span>
+Input <span class="ansi-green-fg">In [45]</span>, in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">response_func</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1.0</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1.2</span><span class="ansi-yellow-bg">)</span>
 
-<span class="ansi-green-fg">/tmp/ipykernel_2753/1718752458.py</span> in <span class="ansi-cyan-fg">response_func</span><span class="ansi-blue-fg">(x, y)</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span>     xscale <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">0.9</span> <span class="ansi-blue-fg">*</span> u<span class="ansi-blue-fg">.</span>arcsec
-<span class="ansi-green-intense-fg ansi-bold">      3</span>     yscale <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">0.85</span> <span class="ansi-blue-fg">*</span> u<span class="ansi-blue-fg">.</span>arcsec
-<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg">     </span>xfactor <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">1</span> <span class="ansi-blue-fg">/</span> <span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span> <span class="ansi-blue-fg">+</span> x<span class="ansi-blue-fg">/</span>xscale<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>     yfactor <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">1</span> <span class="ansi-blue-fg">/</span> <span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span> <span class="ansi-blue-fg">+</span> y<span class="ansi-blue-fg">/</span>yscale<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span> 
+Input <span class="ansi-green-fg">In [44]</span>, in <span class="ansi-cyan-fg">response_func</span><span class="ansi-blue-fg">(x, y)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> xscale <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">0.9</span> <span style="color: rgb(98,98,98)">*</span> u<span style="color: rgb(98,98,98)">.</span>arcsec
+<span class="ansi-green-intense-fg ansi-bold">      3</span> yscale <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">0.85</span> <span style="color: rgb(98,98,98)">*</span> u<span style="color: rgb(98,98,98)">.</span>arcsec
+<span class="ansi-green-fg">----&gt; 4</span> xfactor <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">1</span> <span style="color: rgb(98,98,98)">/</span> (<span class="ansi-yellow-bg" style="color: rgb(98,98,98)">1</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">+</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">x</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">/</span><span class="ansi-yellow-bg">xscale</span>)
+<span class="ansi-green-intense-fg ansi-bold">      5</span> yfactor <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(98,98,98)">1</span> <span style="color: rgb(98,98,98)">/</span> (<span style="color: rgb(98,98,98)">1</span> <span style="color: rgb(98,98,98)">+</span> y<span style="color: rgb(98,98,98)">/</span>yscale)
+<span class="ansi-green-intense-fg ansi-bold">      7</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> xfactor <span style="color: rgb(98,98,98)">*</span> yfactor
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity.py</span> in <span class="ansi-cyan-fg">__array_ufunc__</span><span class="ansi-blue-fg">(self, function, method, *inputs, **kwargs)</span>
-<span class="ansi-green-intense-fg ansi-bold">    592</span>         <span class="ansi-red-fg"># consistent units between two inputs (e.g., in np.add) --</span>
-<span class="ansi-green-intense-fg ansi-bold">    593</span>         <span class="ansi-red-fg"># and the unit of the result (or tuple of units for nout &gt; 1).</span>
-<span class="ansi-green-fg">--&gt; 594</span><span class="ansi-red-fg">         </span>converters<span class="ansi-blue-fg">,</span> unit <span class="ansi-blue-fg">=</span> converters_and_unit<span class="ansi-blue-fg">(</span>function<span class="ansi-blue-fg">,</span> method<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">*</span>inputs<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    595</span> 
-<span class="ansi-green-intense-fg ansi-bold">    596</span>         out <span class="ansi-blue-fg">=</span> kwargs<span class="ansi-blue-fg">.</span>get<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;out&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">None</span><span class="ansi-blue-fg">)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity.py:594</span>, in <span class="ansi-cyan-fg">Quantity.__array_ufunc__</span><span class="ansi-blue-fg">(self, function, method, *inputs, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    572</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;Wrap numpy ufuncs, taking care of units.</span>
+<span class="ansi-green-intense-fg ansi-bold">    573</span> 
+<span class="ansi-green-intense-fg ansi-bold">    574</span> <span style="color: rgb(175,0,0)">Parameters</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-intense-fg ansi-bold">    588</span> <span style="color: rgb(175,0,0)">    Results of the ufunc, with the unit set properly.</span>
+<span class="ansi-green-intense-fg ansi-bold">    589</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    590</span> <span style="color: rgb(95,135,135)"># Determine required conversion functions -- to bring the unit of the</span>
+<span class="ansi-green-intense-fg ansi-bold">    591</span> <span style="color: rgb(95,135,135)"># input to that expected (e.g., radian for np.sin), or to get</span>
+<span class="ansi-green-intense-fg ansi-bold">    592</span> <span style="color: rgb(95,135,135)"># consistent units between two inputs (e.g., in np.add) --</span>
+<span class="ansi-green-intense-fg ansi-bold">    593</span> <span style="color: rgb(95,135,135)"># and the unit of the result (or tuple of units for nout &gt; 1).</span>
+<span class="ansi-green-fg">--&gt; 594</span> converters, unit <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">converters_and_unit</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">function</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">method</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg">inputs</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    596</span> out <span style="color: rgb(98,98,98)">=</span> kwargs<span style="color: rgb(98,98,98)">.</span>get(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">out</span><span style="color: rgb(175,0,0)">&#39;</span>, <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>)
+<span class="ansi-green-intense-fg ansi-bold">    597</span> <span style="color: rgb(95,135,135)"># Avoid loop back by turning any Quantity output into array views.</span>
 
-<span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity_helper/converters.py</span> in <span class="ansi-cyan-fg">converters_and_unit</span><span class="ansi-blue-fg">(function, method, *args)</span>
-<span class="ansi-green-intense-fg ansi-bold">    190</span>                         converters<span class="ansi-blue-fg">[</span>i<span class="ansi-blue-fg">]</span> <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">None</span>
-<span class="ansi-green-intense-fg ansi-bold">    191</span>                     <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">--&gt; 192</span><span class="ansi-red-fg">                         raise UnitConversionError(
-</span><span class="ansi-green-intense-fg ansi-bold">    193</span>                             <span class="ansi-blue-fg">&#34;Can only apply &#39;{}&#39; function to &#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">    194</span>                             <span class="ansi-blue-fg">&#34;dimensionless quantities when other &#34;</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.9/x64/lib/python3.9/site-packages/astropy/units/quantity_helper/converters.py:192</span>, in <span class="ansi-cyan-fg">converters_and_unit</span><span class="ansi-blue-fg">(function, method, *args)</span>
+<span class="ansi-green-intense-fg ansi-bold">    190</span>             converters[i] <span style="color: rgb(98,98,98)">=</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>
+<span class="ansi-green-intense-fg ansi-bold">    191</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">--&gt; 192</span>             <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> UnitConversionError(
+<span class="ansi-green-intense-fg ansi-bold">    193</span>                 <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Can only apply </span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)"> function to </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    194</span>                 <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">dimensionless quantities when other </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    195</span>                 <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">argument is not a quantity (unless the </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    196</span>                 <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">latter is all zero/infinity/nan)</span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    197</span>                 <span style="color: rgb(98,98,98)">.</span>format(function<span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,135)">__name__</span>))
+<span class="ansi-green-intense-fg ansi-bold">    198</span> <span class="ansi-bold" style="color: rgb(0,135,0)">except</span> <span class="ansi-bold" style="color: rgb(215,95,95)">TypeError</span>:
+<span class="ansi-green-intense-fg ansi-bold">    199</span>     <span style="color: rgb(95,135,135)"># _can_have_arbitrary_unit failed: arg could not be compared</span>
+<span class="ansi-green-intense-fg ansi-bold">    200</span>     <span style="color: rgb(95,135,135)"># with zero or checked to be finite. Then, ufunc will fail too.</span>
+<span class="ansi-green-intense-fg ansi-bold">    201</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">TypeError</span>(<span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">Unsupported operand type(s) for ufunc </span><span class="ansi-bold" style="color: rgb(175,95,135)">{}</span><span style="color: rgb(175,0,0)">: </span><span style="color: rgb(175,0,0)">&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    202</span>                     <span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{}</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">&#34;</span><span style="color: rgb(98,98,98)">.</span>format(function<span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,135)">__name__</span>,
+<span class="ansi-green-intense-fg ansi-bold">    203</span>                                    <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">,</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(98,98,98)">.</span>join([arg<span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,135)">__class__</span><span style="color: rgb(98,98,98)">.</span><span style="color: rgb(0,0,135)">__name__</span>
+<span class="ansi-green-intense-fg ansi-bold">    204</span>                                              <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> arg <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> args])))
 
 <span class="ansi-red-fg">UnitConversionError</span>: Can only apply &#39;add&#39; function to dimensionless quantities when other argument is not a quantity (unless the latter is all zero/infinity/nan)</pre>
 </div>
