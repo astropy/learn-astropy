@@ -1,2 +1,3 @@
 requests
 uritemplate
+git+https://github.com/astropy/learn-astropy-librarian.git#egg=astropy-librarian
