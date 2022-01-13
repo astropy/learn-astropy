@@ -90,3 +90,13 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+
+      - name: Index tutorials
+        with:
+          - ALGOLIA_ID: ${{ ALGOLIA_ID }}
+          - ALGOLIA_KEY: ${{ ALGOLIA_KEY }}
+          - ALGOLIA_INDEX: ${{ALGOLIA_INDEX }}
+        run: |
+          astropylibrarian index tutorial-site \
+            public/tutorials \
+            https://learn.astropy.org/tutorials
