@@ -20,6 +20,10 @@ jobs:
           python -m pip install -U pip
           python -m pip install -r deployment/requirements.txt
 
+      - name: Check Astropy Librarian installation
+        run: |
+          astropylibrarian --help
+
       - name: Download latest tutorials
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
