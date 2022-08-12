@@ -14663,8 +14663,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.utils</span> <span class="kn">import</span> <span class="n">minversion</span>
 
-<span class="k">if</span> <span class="ow">not</span> <span class="n">minversion</span><span class="p">(</span><span class="n">astroquery</span><span class="p">,</span> <span class="s1">&#39;0.3.10&#39;</span><span class="p">):</span>
-    <span class="n">conf</span><span class="o">.</span><span class="n">vos_baseurl</span> <span class="o">=</span> <span class="s1">&#39;https://astroconda.org/aux/vo_databases/&#39;</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">minversion</span><span class="p">(</span><span class="n">astroquery</span><span class="p">,</span> <span class="s1">'0.3.10'</span><span class="p">):</span>
+    <span class="n">conf</span><span class="o">.</span><span class="n">vos_baseurl</span> <span class="o">=</span> <span class="s1">'https://astroconda.org/aux/vo_databases/'</span>
 </pre></div>
 
      </div>
@@ -14758,7 +14758,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">SkyCoord</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s1">&#39;M31&#39;</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="s1">&#39;icrs&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">SkyCoord</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s1">'M31'</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="s1">'icrs'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 
@@ -14782,7 +14782,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>&lt;SkyCoord (ICRS): (ra, dec) in deg
-    (10.68470833, 41.26875)&gt;
+    (10.6847083, 41.26875)&gt;
 </pre>
 </div>
 </div>
@@ -14846,7 +14846,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>WARNING: W50: http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=GSC23RA=10.68470833&amp;DEC=41.26875&amp;SR=0.1&amp;VERB=1:154:0: W50: Invalid unit string &#39;pixel&#39; [astropy.io.votable.tree]
+<pre>WARNING: W50: http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=GSC23RA=10.6847083&amp;DEC=41.26875&amp;SR=0.1&amp;VERB=1:154:0: W50: Invalid unit string &#39;pixel&#39; [astropy.io.votable.tree]
 </pre>
 </div>
 </div>
@@ -14863,8 +14863,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;First non-empty table returned by&#39;</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of rows is&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'First non-empty table returned by'</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Number of rows is'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -14979,7 +14979,7 @@ Length = 4028 rows
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;my_result.tex&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;ascii.latex&#39;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'my_result.tex'</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'ascii.latex'</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15008,7 +15008,7 @@ Length = 4028 rows
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result_tex</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;my_result.tex&#39;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;ascii.latex&#39;</span><span class="p">,</span> <span class="n">data_start</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result_tex</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">'my_result.tex'</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'ascii.latex'</span><span class="p">,</span> <span class="n">data_start</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result_tex</span><span class="p">)</span>
 </pre></div>
 
@@ -15092,8 +15092,8 @@ For example, you can query SIMBAD for the first entry in your result above.</p>
 <span class="c1"># CHANGE THESE VALUES to the appropriate RA and DEC</span>
 <span class="c1"># column names you see above, if necessary.</span>
 <span class="c1"># These are for http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=GSC23&amp;</span>
-<span class="n">ra_colname</span> <span class="o">=</span> <span class="s1">&#39;ra&#39;</span>
-<span class="n">dec_colname</span> <span class="o">=</span> <span class="s1">&#39;dec&#39;</span>
+<span class="n">ra_colname</span> <span class="o">=</span> <span class="s1">'ra'</span>
+<span class="n">dec_colname</span> <span class="o">=</span> <span class="s1">'dec'</span>
 </pre></div>
 
      </div>
@@ -15109,16 +15109,16 @@ For example, you can query SIMBAD for the first entry in your result above.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Don&#39;t run this cell if column names above are invalid.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Don't run this cell if column names above are invalid.</span>
 <span class="k">if</span> <span class="n">ra_colname</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">colnames</span> <span class="ow">and</span> <span class="n">dec_colname</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">colnames</span><span class="p">:</span>
     <span class="n">row</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">simbad_obj</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="n">ra_colname</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="n">dec_colname</span><span class="p">]</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Searching SIMBAD for</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">simbad_obj</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Searching SIMBAD for</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">simbad_obj</span><span class="p">))</span>
     <span class="n">simbad_result</span> <span class="o">=</span> <span class="n">Simbad</span><span class="o">.</span><span class="n">query_region</span><span class="p">(</span><span class="n">simbad_obj</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">arcsec</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">simbad_result</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> or </span><span class="si">{}</span><span class="s1"> not in search results. Choose from: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-        <span class="n">ra_colname</span><span class="p">,</span> <span class="n">dec_colname</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">colnames</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="si">{}</span><span class="s1"> or </span><span class="si">{}</span><span class="s1"> not in search results. Choose from: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">ra_colname</span><span class="p">,</span> <span class="n">dec_colname</span><span class="p">,</span> <span class="s1">' '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">colnames</span><span class="p">)))</span>
 </pre></div>
 
      </div>
@@ -15198,7 +15198,7 @@ Length = 24 rows
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_db</span> <span class="o">=</span> <span class="n">vos_catalog</span><span class="o">.</span><span class="n">get_remote_catalog_db</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">conesearch_dbname</span><span class="p">)</span>
-<span class="n">my_cat</span> <span class="o">=</span> <span class="n">my_db</span><span class="o">.</span><span class="n">get_catalog_by_url</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">url</span> <span class="o">+</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">)</span>
+<span class="n">my_cat</span> <span class="o">=</span> <span class="n">my_db</span><span class="o">.</span><span class="n">get_catalog_by_url</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">url</span> <span class="o">+</span> <span class="s1">'&amp;'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_cat</span><span class="o">.</span><span class="n">dumps</span><span class="p">())</span>
 </pre></div>
 
@@ -15265,11 +15265,11 @@ Length = 24 rows
         &#34;W50&#34;
     ],
     &#34;validate_warnings&#34;: [
-        &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220615/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml:154:0: W50: Invalid unit string &#39;pixel&#39;&#34;,
-        &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220615/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml:154:0: W50: Invalid unit string &#39;pixel&#39;&#34;
+        &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220812/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml:154:0: W50: Invalid unit string &#39;pixel&#39;&#34;,
+        &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220812/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml:154:0: W50: Invalid unit string &#39;pixel&#39;&#34;
     ],
     &#34;validate_xmllint&#34;: true,
-    &#34;validate_xmllint_content&#34;: &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220615/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml validates\n&#34;,
+    &#34;validate_xmllint_content&#34;: &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220812/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml validates\n&#34;,
     &#34;waveband&#34;: &#34;optical&#34;,
     &#34;wsdl_url&#34;: &#34;&#34;
 }
@@ -15303,12 +15303,12 @@ Length = 24 rows
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">conesearch</span><span class="o">.</span><span class="n">conesearch</span><span class="p">(</span>
-        <span class="n">c</span><span class="p">,</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="n">catalog_db</span><span class="o">=</span><span class="s1">&#39;The USNO-A2.0 Catalogue (Monet+ 1998) 1&#39;</span><span class="p">)</span>
+        <span class="n">c</span><span class="p">,</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="n">catalog_db</span><span class="o">=</span><span class="s1">'The USNO-A2.0 Catalogue (Monet+ 1998) 1'</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  
     <span class="c1"># We provide a cached version of the result table in case the query fails </span>
     <span class="c1"># due to an intermittent server-side issue, or if you do not have an </span>
     <span class="c1"># internet connection</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;usno-A2-result.fits&#39;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">'usno-A2-result.fits'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15324,7 +15324,7 @@ Length = 24 rows
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of rows is&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Number of rows is'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15468,7 +15468,7 @@ Length = 24 rows
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># After sort</span>
-<span class="n">result</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;_r&#39;</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">'_r'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 
@@ -15525,7 +15525,7 @@ Length = 24 rows
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;_r&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">arcsec</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span><span class="p">[</span><span class="s1">'_r'</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">arcsec</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15580,7 +15580,7 @@ $[227.808,~339.354,~352.944] \; \mathrm{{}^{\prime\prime}}$
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
-    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
     <span class="n">all_results</span> <span class="o">=</span> <span class="n">conesearch</span><span class="o">.</span><span class="n">search_all</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
@@ -15598,7 +15598,7 @@ $[227.808,~339.354,~352.944] \; \mathrm{{}^{\prime\prime}}$
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">url</span><span class="p">,</span> <span class="n">tab</span> <span class="ow">in</span> <span class="n">all_results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s1">&#39;returned&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tab</span><span class="p">),</span> <span class="s1">&#39;rows&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s1">'returned'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tab</span><span class="p">),</span> <span class="s1">'rows'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15644,8 +15644,8 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Pick out the first one with &quot;I/220&quot; in it.</span>
-<span class="n">i220keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">all_results</span> <span class="k">if</span> <span class="s1">&#39;I/220&#39;</span> <span class="ow">in</span> <span class="n">k</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Pick out the first one with "I/220" in it.</span>
+<span class="n">i220keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">all_results</span> <span class="k">if</span> <span class="s1">'I/220'</span> <span class="ow">in</span> <span class="n">k</span><span class="p">]</span>
 <span class="n">my_favorite_result</span> <span class="o">=</span> <span class="n">all_results</span><span class="p">[</span><span class="n">i220keys</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_favorite_result</span><span class="p">)</span>
 </pre></div>
@@ -15718,21 +15718,21 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
     <span class="n">async_search</span> <span class="o">=</span> <span class="n">conesearch</span><span class="o">.</span><span class="n">AsyncConeSearch</span><span class="p">(</span>
-        <span class="n">c</span><span class="p">,</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="n">catalog_db</span><span class="o">=</span><span class="s1">&#39;The USNO-A2.0 Catalogue (Monet+ 1998) 1&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Am I running?&#39;</span><span class="p">,</span> <span class="n">async_search</span><span class="o">.</span><span class="n">running</span><span class="p">())</span>
+        <span class="n">c</span><span class="p">,</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="n">catalog_db</span><span class="o">=</span><span class="s1">'The USNO-A2.0 Catalogue (Monet+ 1998) 1'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Am I running?'</span><span class="p">,</span> <span class="n">async_search</span><span class="o">.</span><span class="n">running</span><span class="p">())</span>
 
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After 3 seconds. Am I done?&#39;</span><span class="p">,</span> <span class="n">async_search</span><span class="o">.</span><span class="n">done</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'After 3 seconds. Am I done?'</span><span class="p">,</span> <span class="n">async_search</span><span class="o">.</span><span class="n">done</span><span class="p">())</span>
     <span class="nb">print</span><span class="p">()</span>
 
     <span class="n">result</span> <span class="o">=</span> <span class="n">async_search</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of rows returned is&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'Number of rows returned is'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
     
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>  
     <span class="c1"># We provide a cached version of the result table in case the query fails </span>
     <span class="c1"># due to an intermittent server-side issue, or if you do not have an </span>
     <span class="c1"># internet connection</span>
-    <span class="n">result</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;usno-A2-result.fits&#39;</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">'usno-A2-result.fits'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15754,7 +15754,7 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Am I running? True
+<pre>Am I running? False
 After 3 seconds. Am I done? True
 
 </pre>
@@ -15774,13 +15774,13 @@ After 3 seconds. Am I done? True
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">async_search_all</span> <span class="o">=</span> <span class="n">conesearch</span><span class="o">.</span><span class="n">AsyncSearchAll</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Am I running?&#39;</span><span class="p">,</span> <span class="n">async_search_all</span><span class="o">.</span><span class="n">running</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Am I done?&#39;</span><span class="p">,</span> <span class="n">async_search_all</span><span class="o">.</span><span class="n">done</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Am I running?'</span><span class="p">,</span> <span class="n">async_search_all</span><span class="o">.</span><span class="n">running</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Am I done?'</span><span class="p">,</span> <span class="n">async_search_all</span><span class="o">.</span><span class="n">done</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">()</span>
 
 <span class="n">all_results</span> <span class="o">=</span> <span class="n">async_search_all</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">url</span><span class="p">,</span> <span class="n">tab</span> <span class="ow">in</span> <span class="n">all_results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s1">&#39;returned&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tab</span><span class="p">),</span> <span class="s1">&#39;rows&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s1">'returned'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tab</span><span class="p">),</span> <span class="s1">'rows'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15816,8 +15816,8 @@ Am I done? False
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=PhotoObjAll&#39; returned 0 result [astroquery.vo_conesearch.core]
-WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=PhotoObj&#39; returned 0 result [astroquery.vo_conesearch.core]
+<pre>WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=PhotoObj&#39; returned 0 result [astroquery.vo_conesearch.core]
+WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=PhotoObjAll&#39; returned 0 result [astroquery.vo_conesearch.core]
 WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=Galaxy&#39; returned 0 result [astroquery.vo_conesearch.core]
 WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=Star&#39; returned 0 result [astroquery.vo_conesearch.core]
 WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr8-dsa/DirectCone?DSACAT=SDSS_DR8&amp;DSATAB=SpecObjAll&#39; returned 0 result [astroquery.vo_conesearch.core]
@@ -15882,9 +15882,9 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
-    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
     <span class="n">t_est</span><span class="p">,</span> <span class="n">n_est</span> <span class="o">=</span> <span class="n">conesearch</span><span class="o">.</span><span class="n">predict_search</span><span class="p">(</span>
-        <span class="s1">&#39;http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=GSC23&amp;&#39;</span><span class="p">,</span>
+        <span class="s1">'http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=GSC23&amp;'</span><span class="p">,</span>
         <span class="n">c</span><span class="p">,</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
@@ -15948,8 +15948,8 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Predicted run time is&#39;</span><span class="p">,</span> <span class="n">t_est</span><span class="p">,</span> <span class="s1">&#39;seconds&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Predicted number of rows is&#39;</span><span class="p">,</span> <span class="n">n_est</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Predicted run time is'</span><span class="p">,</span> <span class="n">t_est</span><span class="p">,</span> <span class="s1">'seconds'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Predicted number of rows is'</span><span class="p">,</span> <span class="n">n_est</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15971,7 +15971,7 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Predicted run time is 0.8975163549995272 seconds
+<pre>Predicted run time is 0.7566293968002096 seconds
 Predicted number of rows is 2617
 </pre>
 </div>
@@ -16004,7 +16004,7 @@ Predicted number of rows is 2617
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_real</span><span class="p">,</span> <span class="n">tab</span> <span class="o">=</span> <span class="n">conesearch</span><span class="o">.</span><span class="n">conesearch_timer</span><span class="p">(</span>
     <span class="n">c</span><span class="p">,</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span>
-    <span class="n">catalog_db</span><span class="o">=</span><span class="s1">&#39;http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=GSC23&amp;&#39;</span><span class="p">,</span>
+    <span class="n">catalog_db</span><span class="o">=</span><span class="s1">'http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=GSC23&amp;'</span><span class="p">,</span>
     <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
@@ -16027,7 +16027,7 @@ Predicted number of rows is 2617
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>INFO: conesearch_timer took 0.6884486675262451 s on AVERAGE for 1 call(s). [astroquery.utils.timer]
+<pre>INFO: conesearch_timer took 0.8227977752685547 s on AVERAGE for 1 call(s). [astroquery.utils.timer]
 </pre>
 </div>
 </div>
@@ -16044,8 +16044,8 @@ Predicted number of rows is 2617
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Actual run time is&#39;</span><span class="p">,</span> <span class="n">t_real</span><span class="p">,</span> <span class="s1">&#39;seconds&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Actual number of rows is&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tab</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Actual run time is'</span><span class="p">,</span> <span class="n">t_real</span><span class="p">,</span> <span class="s1">'seconds'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Actual number of rows is'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tab</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -16067,7 +16067,7 @@ Predicted number of rows is 2617
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Actual run time is 0.6884486675262451 seconds
+<pre>Actual run time is 0.8227977752685547 seconds
 Actual number of rows is 4028
 </pre>
 </div>

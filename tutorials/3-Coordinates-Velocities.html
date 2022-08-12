@@ -15211,7 +15211,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Skip this cell if you are not connected to the internet</span>
-<span class="n">gaia_tbl</span> <span class="o">=</span> <span class="n">Gaia</span><span class="o">.</span><span class="n">query_object</span><span class="p">(</span><span class="n">SkyCoord</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s1">&#39;HD 219829&#39;</span><span class="p">),</span> 
+<span class="n">gaia_tbl</span> <span class="o">=</span> <span class="n">Gaia</span><span class="o">.</span><span class="n">query_object</span><span class="p">(</span><span class="n">SkyCoord</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s1">'HD 219829'</span><span class="p">),</span> 
                              <span class="n">radius</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">arcmin</span><span class="p">)</span>
 </pre></div>
 
@@ -15230,9 +15230,9 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># the .read() below produces some warnings that we can safely ignore</span>
 <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span> 
-    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
     
-    <span class="n">gaia_tbl</span> <span class="o">=</span> <span class="n">QTable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;HD_219829_query_results.ecsv&#39;</span><span class="p">)</span>
+    <span class="n">gaia_tbl</span> <span class="o">=</span> <span class="n">QTable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">'HD_219829_query_results.ecsv'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15260,8 +15260,8 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd219829_row</span> <span class="o">=</span> <span class="n">gaia_tbl</span><span class="p">[</span><span class="n">gaia_tbl</span><span class="p">[</span><span class="s1">&#39;phot_g_mean_mag&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">argmin</span><span class="p">()]</span>
-<span class="n">hd219829_row</span><span class="p">[</span><span class="s1">&#39;source_id&#39;</span><span class="p">,</span> <span class="s1">&#39;pmra&#39;</span><span class="p">,</span> <span class="s1">&#39;pmdec&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd219829_row</span> <span class="o">=</span> <span class="n">gaia_tbl</span><span class="p">[</span><span class="n">gaia_tbl</span><span class="p">[</span><span class="s1">'phot_g_mean_mag'</span><span class="p">]</span><span class="o">.</span><span class="n">argmin</span><span class="p">()]</span>
+<span class="n">hd219829_row</span><span class="p">[</span><span class="s1">'source_id'</span><span class="p">,</span> <span class="s1">'pmra'</span><span class="p">,</span> <span class="s1">'pmdec'</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -15285,7 +15285,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <i>Row index=2</i>
-<table id="table139817491833712">
+<table id="table139629395824448">
 <thead><tr><th>source_id</th><th>pmra</th><th>pmdec</th></tr></thead>
 <thead><tr><th></th><th>mas / yr</th><th>mas / yr</th></tr></thead>
 <thead><tr><th>int64</th><th>float64</th><th>float64</th></tr></thead>
@@ -15321,12 +15321,12 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">hd219829_coord</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span>
-    <span class="n">ra</span><span class="o">=</span><span class="n">hd219829_row</span><span class="p">[</span><span class="s1">&#39;ra&#39;</span><span class="p">],</span> 
-    <span class="n">dec</span><span class="o">=</span><span class="n">hd219829_row</span><span class="p">[</span><span class="s1">&#39;dec&#39;</span><span class="p">],</span>
-    <span class="n">distance</span><span class="o">=</span><span class="n">Distance</span><span class="p">(</span><span class="n">parallax</span><span class="o">=</span><span class="n">hd219829_row</span><span class="p">[</span><span class="s1">&#39;parallax&#39;</span><span class="p">]),</span>
-    <span class="n">pm_ra_cosdec</span><span class="o">=</span><span class="n">hd219829_row</span><span class="p">[</span><span class="s1">&#39;pmra&#39;</span><span class="p">],</span>
-    <span class="n">pm_dec</span><span class="o">=</span><span class="n">hd219829_row</span><span class="p">[</span><span class="s1">&#39;pmdec&#39;</span><span class="p">],</span>
-    <span class="n">obstime</span><span class="o">=</span><span class="n">Time</span><span class="p">(</span><span class="n">hd219829_row</span><span class="p">[</span><span class="s1">&#39;ref_epoch&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;jyear&#39;</span><span class="p">))</span>
+    <span class="n">ra</span><span class="o">=</span><span class="n">hd219829_row</span><span class="p">[</span><span class="s1">'ra'</span><span class="p">],</span> 
+    <span class="n">dec</span><span class="o">=</span><span class="n">hd219829_row</span><span class="p">[</span><span class="s1">'dec'</span><span class="p">],</span>
+    <span class="n">distance</span><span class="o">=</span><span class="n">Distance</span><span class="p">(</span><span class="n">parallax</span><span class="o">=</span><span class="n">hd219829_row</span><span class="p">[</span><span class="s1">'parallax'</span><span class="p">]),</span>
+    <span class="n">pm_ra_cosdec</span><span class="o">=</span><span class="n">hd219829_row</span><span class="p">[</span><span class="s1">'pmra'</span><span class="p">],</span>
+    <span class="n">pm_dec</span><span class="o">=</span><span class="n">hd219829_row</span><span class="p">[</span><span class="s1">'pmdec'</span><span class="p">],</span>
+    <span class="n">obstime</span><span class="o">=</span><span class="n">Time</span><span class="p">(</span><span class="n">hd219829_row</span><span class="p">[</span><span class="s1">'ref_epoch'</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'jyear'</span><span class="p">))</span>
 
 <span class="n">hd219829_coord</span>
 </pre></div>
@@ -15387,9 +15387,9 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Skip this cell if you are not connected to the internet</span>
 <span class="n">dss_cutout_filename</span> <span class="o">=</span> <span class="n">download_file</span><span class="p">(</span>
-    <span class="sa">f</span><span class="s2">&quot;http://archive.stsci.edu/cgi-bin/dss_search?&quot;</span>
-    <span class="sa">f</span><span class="s2">&quot;f=FITS&amp;ra=</span><span class="si">{</span><span class="n">hd219829_coord</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">degree</span><span class="si">}</span><span class="s2">&amp;dec=</span><span class="si">{</span><span class="n">hd219829_coord</span><span class="o">.</span><span class="n">dec</span><span class="o">.</span><span class="n">degree</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="sa">f</span><span class="s2">&quot;&amp;width=4&amp;height=4&quot;</span><span class="p">)</span>  <span class="c1"># width/height in arcmin</span>
+    <span class="sa">f</span><span class="s2">"http://archive.stsci.edu/cgi-bin/dss_search?"</span>
+    <span class="sa">f</span><span class="s2">"f=FITS&amp;ra=</span><span class="si">{</span><span class="n">hd219829_coord</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">degree</span><span class="si">}</span><span class="s2">&amp;dec=</span><span class="si">{</span><span class="n">hd219829_coord</span><span class="o">.</span><span class="n">dec</span><span class="o">.</span><span class="n">degree</span><span class="si">}</span><span class="s2">"</span>
+    <span class="sa">f</span><span class="s2">"&amp;width=4&amp;height=4"</span><span class="p">)</span>  <span class="c1"># width/height in arcmin</span>
 </pre></div>
 
      </div>
@@ -15405,7 +15405,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dss_cutout_filename</span> <span class="o">=</span> <span class="s1">&#39;dss_hd219829.fits&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dss_cutout_filename</span> <span class="o">=</span> <span class="s1">'dss_hd219829.fits'</span>
 </pre></div>
 
      </div>
@@ -15438,16 +15438,16 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> 
                        <span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">wcs</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hdu</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greys_r&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;RA&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Dec&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hdu</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'Greys_r'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'RA'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Dec'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_autoscale_on</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">hd219829_coord</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span>
            <span class="n">hd219829_coord</span><span class="o">.</span><span class="n">dec</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span>
            <span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
-           <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_transform</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">),</span>
-           <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">)</span>
+           <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_transform</span><span class="p">(</span><span class="s1">'world'</span><span class="p">),</span>
+           <span class="n">facecolor</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'tab:red'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15483,7 +15483,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.collections.PathCollection at 0x7f29c9dd8ca0&gt;</pre>
+<pre>&lt;matplotlib.collections.PathCollection at 0x7efdcbd42a00&gt;</pre>
 </div>
 
 </div>
@@ -15586,10 +15586,10 @@ jp-needs-light-background
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this produces some warnings that we can safely ignore</span>
 <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span> 
-    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
     
     <span class="n">hd219829_coord_1950</span> <span class="o">=</span> <span class="n">hd219829_coord</span><span class="o">.</span><span class="n">apply_space_motion</span><span class="p">(</span>
-        <span class="n">new_obstime</span><span class="o">=</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;J1950&#39;</span><span class="p">))</span>
+        <span class="n">new_obstime</span><span class="o">=</span><span class="n">Time</span><span class="p">(</span><span class="s1">'J1950'</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15619,23 +15619,23 @@ jp-needs-light-background
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> 
                        <span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="n">wcs</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hdu</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Greys_r&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;RA&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Dec&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">hdu</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">'lower'</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">'Greys_r'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'RA'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Dec'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_autoscale_on</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">hd219829_coord</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span>
            <span class="n">hd219829_coord</span><span class="o">.</span><span class="n">dec</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span>
            <span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
-           <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_transform</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">),</span>
-           <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">)</span>
+           <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_transform</span><span class="p">(</span><span class="s1">'world'</span><span class="p">),</span>
+           <span class="n">facecolor</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'tab:red'</span><span class="p">)</span>
 
 <span class="c1"># Plot the predicted (past) position:</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">hd219829_coord_1950</span><span class="o">.</span><span class="n">ra</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span>
            <span class="n">hd219829_coord_1950</span><span class="o">.</span><span class="n">dec</span><span class="o">.</span><span class="n">degree</span><span class="p">,</span>
            <span class="n">s</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
-           <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_transform</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">),</span>
-           <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">)</span>
+           <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_transform</span><span class="p">(</span><span class="s1">'world'</span><span class="p">),</span>
+           <span class="n">facecolor</span><span class="o">=</span><span class="s1">'none'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'tab:blue'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15659,7 +15659,7 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.collections.PathCollection at 0x7f29c9a871c0&gt;</pre>
+<pre>&lt;matplotlib.collections.PathCollection at 0x7efdcb9e0b20&gt;</pre>
 </div>
 
 </div>

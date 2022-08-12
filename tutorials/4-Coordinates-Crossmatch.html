@@ -14657,8 +14657,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ngc188_table</span> <span class="o">=</span> <span class="n">QTable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;gaia_results.fits&#39;</span><span class="p">)</span>
-<span class="n">ngc188_table</span> <span class="o">=</span> <span class="n">ngc188_table</span><span class="p">[</span><span class="n">ngc188_table</span><span class="p">[</span><span class="s1">&#39;parallax&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.25</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">mas</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ngc188_table</span> <span class="o">=</span> <span class="n">QTable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">'gaia_results.fits'</span><span class="p">)</span>
+<span class="n">ngc188_table</span> <span class="o">=</span> <span class="n">ngc188_table</span><span class="p">[</span><span class="n">ngc188_table</span><span class="p">[</span><span class="s1">'parallax'</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.25</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">mas</span><span class="p">]</span>
 
 <span class="n">ngc188_center_3d</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="mf">12.11</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="mf">85.26</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span>
                             <span class="n">distance</span><span class="o">=</span><span class="mf">1.96</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">kpc</span><span class="p">,</span>
@@ -14666,32 +14666,32 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
                             <span class="n">pm_dec</span><span class="o">=-</span><span class="mf">0.9565</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">mas</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">yr</span><span class="p">)</span>
 
 <span class="c1"># Deal with masked quantity data in a backwards-compatible way:</span>
-<span class="n">parallax</span> <span class="o">=</span> <span class="n">ngc188_table</span><span class="p">[</span><span class="s1">&#39;parallax&#39;</span><span class="p">]</span>
-<span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">parallax</span><span class="p">,</span> <span class="s1">&#39;mask&#39;</span><span class="p">):</span>
+<span class="n">parallax</span> <span class="o">=</span> <span class="n">ngc188_table</span><span class="p">[</span><span class="s1">'parallax'</span><span class="p">]</span>
+<span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">parallax</span><span class="p">,</span> <span class="s1">'mask'</span><span class="p">):</span>
     <span class="n">parallax</span> <span class="o">=</span> <span class="n">parallax</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
     
 <span class="n">velocity_data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;pm_ra_cosdec&#39;</span><span class="p">:</span> <span class="n">ngc188_table</span><span class="p">[</span><span class="s1">&#39;pmra&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;pm_dec&#39;</span><span class="p">:</span> <span class="n">ngc188_table</span><span class="p">[</span><span class="s1">&#39;pmdec&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;radial_velocity&#39;</span><span class="p">:</span> <span class="n">ngc188_table</span><span class="p">[</span><span class="s1">&#39;radial_velocity&#39;</span><span class="p">]</span>
+    <span class="s1">'pm_ra_cosdec'</span><span class="p">:</span> <span class="n">ngc188_table</span><span class="p">[</span><span class="s1">'pmra'</span><span class="p">],</span>
+    <span class="s1">'pm_dec'</span><span class="p">:</span> <span class="n">ngc188_table</span><span class="p">[</span><span class="s1">'pmdec'</span><span class="p">],</span>
+    <span class="s1">'radial_velocity'</span><span class="p">:</span> <span class="n">ngc188_table</span><span class="p">[</span><span class="s1">'radial_velocity'</span><span class="p">]</span>
 <span class="p">}</span>
 <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">velocity_data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="s1">&#39;mask&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="s1">'mask'</span><span class="p">):</span>
         <span class="n">velocity_data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">filled</span><span class="p">(</span><span class="mf">0.</span><span class="p">)</span>
     <span class="n">velocity_data</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">velocity_data</span><span class="p">[</span><span class="n">k</span><span class="p">])]</span> <span class="o">=</span> <span class="mf">0.</span>
 
 <span class="n">ngc188_coords_3d</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span>
-    <span class="n">ra</span><span class="o">=</span><span class="n">ngc188_table</span><span class="p">[</span><span class="s1">&#39;ra&#39;</span><span class="p">],</span> 
-    <span class="n">dec</span><span class="o">=</span><span class="n">ngc188_table</span><span class="p">[</span><span class="s1">&#39;dec&#39;</span><span class="p">],</span>
+    <span class="n">ra</span><span class="o">=</span><span class="n">ngc188_table</span><span class="p">[</span><span class="s1">'ra'</span><span class="p">],</span> 
+    <span class="n">dec</span><span class="o">=</span><span class="n">ngc188_table</span><span class="p">[</span><span class="s1">'dec'</span><span class="p">],</span>
     <span class="n">distance</span><span class="o">=</span><span class="n">Distance</span><span class="p">(</span><span class="n">parallax</span><span class="o">=</span><span class="n">parallax</span><span class="p">),</span>
-    <span class="n">obstime</span><span class="o">=</span><span class="n">Time</span><span class="p">(</span><span class="s1">&#39;J2015.5&#39;</span><span class="p">),</span>
+    <span class="n">obstime</span><span class="o">=</span><span class="n">Time</span><span class="p">(</span><span class="s1">'J2015.5'</span><span class="p">),</span>
     <span class="o">**</span><span class="n">velocity_data</span>
 <span class="p">)</span>
 
 <span class="n">sep3d</span> <span class="o">=</span> <span class="n">ngc188_coords_3d</span><span class="o">.</span><span class="n">separation_3d</span><span class="p">(</span><span class="n">ngc188_center_3d</span><span class="p">)</span>
 <span class="n">pm_diff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">ngc188_table</span><span class="p">[</span><span class="s1">&#39;pmra&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">ngc188_center_3d</span><span class="o">.</span><span class="n">pm_ra_cosdec</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> 
-    <span class="p">(</span><span class="n">ngc188_table</span><span class="p">[</span><span class="s1">&#39;pmdec&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">ngc188_center_3d</span><span class="o">.</span><span class="n">pm_dec</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">ngc188_table</span><span class="p">[</span><span class="s1">'pmra'</span><span class="p">]</span> <span class="o">-</span> <span class="n">ngc188_center_3d</span><span class="o">.</span><span class="n">pm_ra_cosdec</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> 
+    <span class="p">(</span><span class="n">ngc188_table</span><span class="p">[</span><span class="s1">'pmdec'</span><span class="p">]</span> <span class="o">-</span> <span class="n">ngc188_center_3d</span><span class="o">.</span><span class="n">pm_dec</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">ngc188_members_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">sep3d</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">pc</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pm_diff</span> <span class="o">&lt;</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">mas</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">yr</span><span class="p">)</span>
 <span class="n">ngc188_members</span> <span class="o">=</span> <span class="n">ngc188_table</span><span class="p">[</span><span class="n">ngc188_members_mask</span><span class="p">]</span>
@@ -14766,7 +14766,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NOTE: skip this cell if you do not have an internet connection</span>
 
 <span class="c1"># II/246 is the catalog name for the main 2MASS photometric catalog</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">Vizier</span><span class="p">(</span><span class="n">catalog</span><span class="o">=</span><span class="s2">&quot;II/246&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;Date&#39;</span><span class="p">])</span>  
+<span class="n">v</span> <span class="o">=</span> <span class="n">Vizier</span><span class="p">(</span><span class="n">catalog</span><span class="o">=</span><span class="s2">"II/246"</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'*'</span><span class="p">,</span> <span class="s1">'Date'</span><span class="p">])</span>  
 <span class="n">v</span><span class="o">.</span><span class="n">ROW_LIMIT</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 
 <span class="n">result</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">query_region</span><span class="p">(</span><span class="n">ngc188_center_3d</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">0.5</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
@@ -14800,9 +14800,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># the .read() below produces some warnings that we can safely ignore</span>
 <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span> 
-    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
+    <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
     
-    <span class="n">tmass_table</span> <span class="o">=</span> <span class="n">QTable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;2MASS_results.ecsv&#39;</span><span class="p">)</span>
+    <span class="n">tmass_table</span> <span class="o">=</span> <span class="n">QTable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">'2MASS_results.ecsv'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14854,7 +14854,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <div><i>QTable length=3</i>
-<table id="table139974134865440" class="table-striped table-bordered table-condensed">
+<table id="table140156657650848" class="table-striped table-bordered table-condensed">
 <thead><tr><th>Date</th><th>RAJ2000</th><th>DEJ2000</th><th>_2MASS</th><th>Jmag</th><th>e_Jmag</th><th>Hmag</th><th>e_Hmag</th><th>Kmag</th><th>e_Kmag</th><th>Qflg</th><th>Rflg</th><th>Bflg</th><th>Cflg</th><th>Xflg</th><th>Aflg</th></tr></thead>
 <thead><tr><th></th><th>deg</th><th>deg</th><th></th><th>mag</th><th>mag</th><th>mag</th><th>mag</th><th>mag</th><th>mag</th><th></th><th></th><th></th><th></th><th></th><th></th></tr></thead>
 <thead><tr><th>str10</th><th>float64</th><th>float64</th><th>str16</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>str3</th><th>str3</th><th>str3</th><th>str3</th><th>uint8</th><th>uint8</th></tr></thead>
@@ -14890,8 +14890,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tmass_coords</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">tmass_table</span><span class="p">[</span><span class="s1">&#39;RAJ2000&#39;</span><span class="p">],</span> 
-                        <span class="n">tmass_table</span><span class="p">[</span><span class="s1">&#39;DEJ2000&#39;</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tmass_coords</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">tmass_table</span><span class="p">[</span><span class="s1">'RAJ2000'</span><span class="p">],</span> 
+                        <span class="n">tmass_table</span><span class="p">[</span><span class="s1">'DEJ2000'</span><span class="p">])</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">tmass_coords</span><span class="p">)</span>
 </pre></div>
 
@@ -14945,7 +14945,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">tmass_table</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">tmass_table</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -15000,7 +15000,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tmass_epoch</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">tmass_table</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tmass_epoch</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">tmass_table</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]))</span>
 </pre></div>
 
      </div>
@@ -15089,11 +15089,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sep2d_gaia</span><span class="o">.</span><span class="n">arcsec</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sep2d_gaia</span><span class="o">.</span><span class="n">arcsec</span><span class="p">,</span> <span class="n">histtype</span><span class="o">=</span><span class="s1">'step'</span><span class="p">,</span> 
          <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mi">64</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;separation [arcsec]&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'separation [arcsec]'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">'log'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">'log'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 
@@ -15204,9 +15204,9 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Jmag</span> <span class="o">=</span> <span class="n">tmass_table</span><span class="p">[</span><span class="s1">&#39;Jmag&#39;</span><span class="p">][</span><span class="n">idx_gaia</span><span class="p">]</span>  <span class="c1"># note that we use the index array returned above</span>
-<span class="n">Gmag</span> <span class="o">=</span> <span class="n">ngc188_members</span><span class="p">[</span><span class="s1">&#39;phot_g_mean_mag&#39;</span><span class="p">]</span>
-<span class="n">Bmag</span> <span class="o">=</span> <span class="n">ngc188_members</span><span class="p">[</span><span class="s1">&#39;phot_bp_mean_mag&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Jmag</span> <span class="o">=</span> <span class="n">tmass_table</span><span class="p">[</span><span class="s1">'Jmag'</span><span class="p">][</span><span class="n">idx_gaia</span><span class="p">]</span>  <span class="c1"># note that we use the index array returned above</span>
+<span class="n">Gmag</span> <span class="o">=</span> <span class="n">ngc188_members</span><span class="p">[</span><span class="s1">'phot_g_mean_mag'</span><span class="p">]</span>
+<span class="n">Bmag</span> <span class="o">=</span> <span class="n">ngc188_members</span><span class="p">[</span><span class="s1">'phot_bp_mean_mag'</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -15226,19 +15226,19 @@ jp-needs-light-background
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Gmag</span> <span class="o">-</span> <span class="n">Jmag</span><span class="p">,</span> <span class="n">Gmag</span><span class="p">,</span> 
-           <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> 
+           <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> 
            <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$G - J$&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$G$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'$G - J$'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'$G$'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c1"># backwards because magnitudes!</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Bmag</span> <span class="o">-</span> <span class="n">Gmag</span><span class="p">,</span> <span class="n">Jmag</span><span class="p">,</span> 
-           <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> 
+           <span class="n">marker</span><span class="o">=</span><span class="s1">'o'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> 
            <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;$G_</span><span class="si">{BP}</span><span class="s1"> - G$&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;$J$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'$G_</span><span class="si">{BP}</span><span class="s1"> - G$'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'$J$'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="c1"># backwards because magnitudes!</span>
 
