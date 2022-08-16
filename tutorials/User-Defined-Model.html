@@ -16117,9 +16117,9 @@ Inputs: (&#39;x&#39;,)
 Outputs: (&#39;y&#39;,)
 Model set size: 1
 Parameters:
-            a                  b                  c         
-    ----------------- ------------------- ------------------
-    1.121763079307583 -1.9490350330949007 0.9591359122990281
+            a                   b                   c         
+    ------------------ ------------------- -------------------
+    2.5620254580035864 -1.8388649000002972 0.14011761181600843
 </pre>
 </div>
 </div>
@@ -16195,7 +16195,7 @@ Parameters:
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>0.9621925550404049</pre>
+<pre>1.3198103852802097</pre>
 </div>
 
 </div>
@@ -16353,9 +16353,9 @@ jp-needs-light-background
     
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">fit_deriv</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
-        <span class="n">d_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">c</span><span class="p">)</span><span class="o">+</span><span class="n">d</span>
+        <span class="n">d_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">c</span><span class="p">)</span>
         <span class="n">d_b</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="n">x</span>
-        <span class="n">d_c</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">c</span><span class="p">)</span>
+        <span class="n">d_c</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">c</span><span class="p">)</span>
         <span class="n">d_d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">d_a</span><span class="p">,</span> <span class="n">d_b</span><span class="p">,</span> <span class="n">d_c</span><span class="p">,</span> <span class="n">d_d</span><span class="p">]</span>
 </pre></div>
@@ -16480,7 +16480,7 @@ Model set size: 1
 Parameters:
             a                  b                 c                  d         
     ------------------ ----------------- ------------------ ------------------
-    3.4068959435870774 2.010339917826284 3.7792904673135834 0.9456958209205755
+    2.9461494216441455 2.010092808410115 3.9263400060578517 1.0270488784337084
 </pre>
 </div>
 </div>
@@ -16521,7 +16521,7 @@ Parameters:
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>5.074200159338632</pre>
+<pre>3.021633553010704</pre>
 </div>
 
 </div>
