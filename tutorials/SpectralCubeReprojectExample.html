@@ -36,6 +36,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14904,7 +14905,7 @@ These are moderately large files, with sizes 18 MB and 337 MB.</p>
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <i>Table length=4</i>
-<table id="table139813297218512-846812" class="table-striped table-bordered table-condensed">
+<table id="table139658324870528-114051" class="table-striped table-bordered table-condensed">
 <thead><tr><th>idx</th><th>Species</th><th>Chemical Name</th><th>Freq-GHz(rest frame,redshifted)</th><th>Freq Err(rest frame,redshifted)</th><th>Meas Freq-GHz(rest frame,redshifted)</th><th>Meas Freq Err(rest frame,redshifted)</th><th>Resolved QNs</th><th>CDMS/JPL Intensity</th><th>S&lt;sub&gt;ij&lt;/sub&gt;&amp;#956;&lt;sup&gt;2&lt;/sup&gt; (D&lt;sup&gt;2&lt;/sup&gt;)</th><th>S&lt;sub&gt;ij&lt;/sub&gt;</th><th>Log&lt;sub&gt;10&lt;/sub&gt; (A&lt;sub&gt;ij&lt;/sub&gt;)</th><th>Lovas/AST Intensity</th><th>E_L (cm^-1)</th><th>E_L (K)</th><th>E_U (cm^-1)</th><th>E_U (K)</th><th>Linelist</th></tr></thead>
 <tr><td>0</td><td>H2CS</td><td>Thioformaldehyde</td><td>--</td><td>--</td><td>139.48341</td><td>0.00028</td><td>4(1,3)-3(1,2)</td><td>-3.2185</td><td>30.51674</td><td>11.223</td><td>-4.44732</td><td>0.17</td><td>16.1465</td><td>23.23108</td><td>20.79917</td><td>29.92519</td><td>JPL</td></tr>
 <tr><td>1</td><td>H2CS</td><td>Thioformaldehyde</td><td>--</td><td>--</td><td>139.4836816</td><td>5e-05</td><td>4(1,3)-3(1,2)</td><td>-3.2182</td><td>30.59661</td><td>11.251</td><td>-4.44619</td><td>--</td><td>16.1329</td><td>23.21151</td><td>20.78557</td><td>29.90563</td><td>CDMS</td></tr>
@@ -14933,14 +14934,14 @@ require.config({paths: {
     datatables: 'https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min'
 }});
 require(["datatables"], function(){
-    console.log("$('#table139813297218512-846812').dataTable()");
+    console.log("$('#table139658324870528-114051').dataTable()");
 
 jQuery.extend( jQuery.fn.dataTableExt.oSort, {
     "optionalnum-asc": astropy_sort_num,
     "optionalnum-desc": function (a,b) { return -astropy_sort_num(a, b); }
 });
 
-    $('#table139813297218512-846812').dataTable({
+    $('#table139658324870528-114051').dataTable({
         order: [],
         pageLength: 50,
         lengthMenu: [[10, 25, 50, 100, 500, 1000, -1], [10, 25, 50, 100, 500, 1000, 'All']],
@@ -15002,7 +15003,7 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <i>Table length=6</i>
-<table id="table139813296772432-153883" class="table-striped table-bordered table-condensed">
+<table id="table139658324686016-678777" class="table-striped table-bordered table-condensed">
 <thead><tr><th>idx</th><th>Species</th><th>Chemical Name</th><th>Freq-GHz(rest frame,redshifted)</th><th>Freq Err(rest frame,redshifted)</th><th>Meas Freq-GHz(rest frame,redshifted)</th><th>Meas Freq Err(rest frame,redshifted)</th><th>Resolved QNs</th><th>CDMS/JPL Intensity</th><th>S&lt;sub&gt;ij&lt;/sub&gt;&amp;#956;&lt;sup&gt;2&lt;/sup&gt; (D&lt;sup&gt;2&lt;/sup&gt;)</th><th>S&lt;sub&gt;ij&lt;/sub&gt;</th><th>Log&lt;sub&gt;10&lt;/sub&gt; (A&lt;sub&gt;ij&lt;/sub&gt;)</th><th>Lovas/AST Intensity</th><th>E_L (cm^-1)</th><th>E_L (K)</th><th>E_U (cm^-1)</th><th>E_U (K)</th><th>Linelist</th></tr></thead>
 <tr><td>0</td><td>SiO,v=0-10</td><td>Silicon monoxide (global fit)</td><td>--</td><td>--</td><td>217.104919</td><td>2e-06</td><td>J=5-4,v=0-0</td><td>-1.3211</td><td>47.9909</td><td>0.0</td><td>-3.28429</td><td>--</td><td>14.4843</td><td>20.83981</td><td>21.72614</td><td>31.25927</td><td>CDMS</td></tr>
 <tr><td>1</td><td>SiOv=0</td><td>Silicon Monoxide</td><td>--</td><td>--</td><td>217.10498</td><td>8e-05</td><td>5-4</td><td>-1.3211</td><td>47.99147</td><td>5.0</td><td>-3.28429</td><td>1.6</td><td>14.4843</td><td>20.83956</td><td>21.72614</td><td>31.25889</td><td>CDMS</td></tr>
@@ -15033,14 +15034,14 @@ require.config({paths: {
     datatables: 'https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min'
 }});
 require(["datatables"], function(){
-    console.log("$('#table139813296772432-153883').dataTable()");
+    console.log("$('#table139658324686016-678777').dataTable()");
 
 jQuery.extend( jQuery.fn.dataTableExt.oSort, {
     "optionalnum-asc": astropy_sort_num,
     "optionalnum-desc": function (a,b) { return -astropy_sort_num(a, b); }
 });
 
-    $('#table139813296772432-153883').dataTable({
+    $('#table139658324686016-678777').dataTable({
         order: [],
         pageLength: 50,
         lengthMenu: [[10, 25, 50, 100, 500, 1000, -1], [10, 25, 50, 100, 500, 1000, 'All']],
@@ -15231,7 +15232,7 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.max at 0x7f28e7541940&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
+<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.max at 0x7f04d24bee50&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
 /opt/hostedtoolcache/Python/3.9.13/x64/lib/python3.9/site-packages/spectral_cube/spectral_cube.py:439: RuntimeWarning: All-NaN slice encountered
   out = function(self._get_filled_data(fill=fill,
 </pre>
@@ -15302,7 +15303,7 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.max at 0x7f28e7541940&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
+<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.max at 0x7f04d24bee50&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
 /opt/hostedtoolcache/Python/3.9.13/x64/lib/python3.9/site-packages/spectral_cube/spectral_cube.py:439: RuntimeWarning: All-NaN slice encountered
   out = function(self._get_filled_data(fill=fill,
 </pre>
@@ -15893,7 +15894,7 @@ Beam: BMAJ=$1.29719604986604^{&#39;&#39;}$ BMIN=$1.04247149438736^{&#39;&#39;}$ 
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.convolve_to at 0x7f28e75473a0&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
+<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.convolve_to at 0x7f04d24c58b0&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
 </pre>
 </div>
 </div>
@@ -15962,7 +15963,7 @@ Beam: BMAJ=$1.29719604986604^{&#39;&#39;}$ BMIN=$1.04247149438736^{&#39;&#39;}$ 
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.reproject at 0x7f28e7545a60&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
+<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.reproject at 0x7f04d24c4f70&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
 </pre>
 </div>
 </div>
@@ -16192,7 +16193,7 @@ See <a href="https://spectral-cube.readthedocs.io/en/latest/dask.html">the spect
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[########################################] | 100% Completed | 197.68 s
+<pre>[########################################] | 100% Completed | 157.72 s
 </pre>
 </div>
 </div>

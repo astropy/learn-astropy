@@ -36,6 +36,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14782,7 +14783,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>&lt;SkyCoord (ICRS): (ra, dec) in deg
-    (10.684793, 41.269065)&gt;
+    (10.6847083, 41.26875)&gt;
 </pre>
 </div>
 </div>
@@ -14846,7 +14847,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>WARNING: W50: http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=GSC23RA=10.684793&amp;DEC=41.269065&amp;SR=0.1&amp;VERB=1:154:0: W50: Invalid unit string &#39;pixel&#39; [astropy.io.votable.tree]
+<pre>WARNING: W50: http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=GSC23RA=10.6847083&amp;DEC=41.26875&amp;SR=0.1&amp;VERB=1:154:0: W50: Invalid unit string &#39;pixel&#39; [astropy.io.votable.tree]
 </pre>
 </div>
 </div>
@@ -14887,7 +14888,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
 <pre>First non-empty table returned by http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=GSC23
-Number of rows is 4027
+Number of rows is 4028
 </pre>
 </div>
 </div>
@@ -14930,27 +14931,27 @@ Number of rows is 4027
                                        ...                              mag  
 -------------- ---------------- ------ ... ------------ ------------- -------
 23323175812944 00424433+4116085        ...            0 6453800072293   9.453
+23323175812948 00424403+4116069        ...            0 6453800072297   9.321
 23323175812933 00424455+4116103        ...            0 6453800072282  10.773
 23323175812939 00424464+4116092        ...            0 6453800072288   9.299
-23323175812931 00424464+4116106        ...            0 6453800072280   9.399
-23323175812948 00424403+4116069        ...            0 6453800072297   9.321
 23323175812930 00424403+4116108        ...            0 6453800072279  11.507
-23323175812909 00424460+4116141        ...            0 6453800072258    9.88
-23323175812923 00424386+4116123        ...            0 6453800072272   9.977
-23323175812899 00424416+4116152        ...            0 6453800072248  10.063
+23323175812931 00424464+4116106        ...            0 6453800072280   9.399
 23323175812973 00424446+4116016        ...            0 6453800072322   12.07
+23323175812966 00424398+4116028        ...            0 6453800072315  12.136
+23323175812979 00424420+4116009        ...            0 6453800072328  10.065
+23323175812958 00424377+4116045        ...            0 6453800072307  12.446
            ...              ...    ... ...          ...           ...     ...
- 1330012212014    N330012212014        ...            0 6453800012014 16.5079
+ 1330012229027    N330012229027        ...            0 6453800029027 20.3122
+ 1330012247547    N330012247547        ...            0 6453800047547 21.5449
+ 1330012244072    N330012244072        ...            0 6453800044072 20.9598
  1330012248107    N330012248107        ...            0 6453800048107 21.6947
- 1330012233236    N330012233236        ...            0 6453800033236   19.76
- 1330012228890    N330012228890        ...            0 6453800028890 20.1161
- 1330012210212    N330012210212        ...            0 6453800010212 20.2767
-23323175812087 00425926+4121267        ...            0 6453800071571  15.243
+  133001227000     N33001227000        ...            0 6453800007000 20.1382
+ 1330012244001    N330012244001        ...            0 6453800044001 21.8968
+ 1330012228861    N330012228861        ...            0 6453800028861 20.3572
+ 1330012212014    N330012212014        ...            0 6453800012014 16.5079
  1330012231849    N330012231849        ...            0 6453800031849 20.2869
- 1330012244053    N330012244053        ...            0 6453800044053 20.2639
- 1330012243728    N330012243728        ...            0 6453800043728 18.0828
-  133001228698     N33001228698        ...            0 6453800008698  20.564
-Length = 4027 rows
+ 1330012210212    N330012210212        ...            0 6453800010212 20.2767
+Length = 4028 rows
 </pre>
 </div>
 </div>
@@ -15034,28 +15035,28 @@ Length = 4027 rows
 <pre>    objID           gsc2ID      gsc1ID ... multipleFlag compassGSC2id   Mag  
 -------------- ---------------- ------ ... ------------ ------------- -------
 23323175812944 00424433+4116085     -- ...            0 6453800072293   9.453
+23323175812948 00424403+4116069     -- ...            0 6453800072297   9.321
 23323175812933 00424455+4116103     -- ...            0 6453800072282  10.773
 23323175812939 00424464+4116092     -- ...            0 6453800072288   9.299
-23323175812931 00424464+4116106     -- ...            0 6453800072280   9.399
-23323175812948 00424403+4116069     -- ...            0 6453800072297   9.321
 23323175812930 00424403+4116108     -- ...            0 6453800072279  11.507
-23323175812909 00424460+4116141     -- ...            0 6453800072258    9.88
-23323175812923 00424386+4116123     -- ...            0 6453800072272   9.977
-23323175812899 00424416+4116152     -- ...            0 6453800072248  10.063
+23323175812931 00424464+4116106     -- ...            0 6453800072280   9.399
 23323175812973 00424446+4116016     -- ...            0 6453800072322   12.07
+23323175812966 00424398+4116028     -- ...            0 6453800072315  12.136
+23323175812979 00424420+4116009     -- ...            0 6453800072328  10.065
+23323175812958 00424377+4116045     -- ...            0 6453800072307  12.446
            ...              ...    ... ...          ...           ...     ...
- 1330012250997    N330012250997     -- ...            0 6453800050997 18.9481
- 1330012212014    N330012212014     -- ...            0 6453800012014 16.5079
+  133001226993     N33001226993     -- ...            0 6453800006993 20.2829
+ 1330012229027    N330012229027     -- ...            0 6453800029027 20.3122
+ 1330012247547    N330012247547     -- ...            0 6453800047547 21.5449
+ 1330012244072    N330012244072     -- ...            0 6453800044072 20.9598
  1330012248107    N330012248107     -- ...            0 6453800048107 21.6947
- 1330012233236    N330012233236     -- ...            0 6453800033236   19.76
- 1330012228890    N330012228890     -- ...            0 6453800028890 20.1161
- 1330012210212    N330012210212     -- ...            0 6453800010212 20.2767
-23323175812087 00425926+4121267     -- ...            0 6453800071571  15.243
+  133001227000     N33001227000     -- ...            0 6453800007000 20.1382
+ 1330012244001    N330012244001     -- ...            0 6453800044001 21.8968
+ 1330012228861    N330012228861     -- ...            0 6453800028861 20.3572
+ 1330012212014    N330012212014     -- ...            0 6453800012014 16.5079
  1330012231849    N330012231849     -- ...            0 6453800031849 20.2869
- 1330012244053    N330012244053     -- ...            0 6453800044053 20.2639
- 1330012243728    N330012243728     -- ...            0 6453800043728 18.0828
-  133001228698     N33001228698     -- ...            0 6453800008698  20.564
-Length = 4027 rows
+ 1330012210212    N330012210212     -- ...            0 6453800010212 20.2767
+Length = 4028 rows
 </pre>
 </div>
 </div>
@@ -15265,11 +15266,11 @@ Length = 24 rows
         &#34;W50&#34;
     ],
     &#34;validate_warnings&#34;: [
-        &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220812/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml:154:0: W50: Invalid unit string &#39;pixel&#39;&#34;,
-        &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220812/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml:154:0: W50: Invalid unit string &#39;pixel&#39;&#34;
+        &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220816/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml:154:0: W50: Invalid unit string &#39;pixel&#39;&#34;,
+        &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220816/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml:154:0: W50: Invalid unit string &#39;pixel&#39;&#34;
     ],
     &#34;validate_xmllint&#34;: true,
-    &#34;validate_xmllint_content&#34;: &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220812/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml validates\n&#34;,
+    &#34;validate_xmllint_content&#34;: &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220816/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml validates\n&#34;,
     &#34;waveband&#34;: &#34;optical&#34;,
     &#34;wsdl_url&#34;: &#34;&#34;
 }
@@ -15620,14 +15621,14 @@ $[227.808,~339.354,~352.944] \; \mathrm{{}^{\prime\prime}}$
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=GSC23 returned 4027 rows
+<pre>http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=GSC23 returned 4028 rows
 http://vizier.unistra.fr/viz-bin/conesearch/I/220/out? returned 5 rows
 http://vizier.unistra.fr/viz-bin/conesearch/I/254/out? returned 5 rows
 http://vizier.unistra.fr/viz-bin/conesearch/I/255/out? returned 5 rows
 http://vizier.unistra.fr/viz-bin/conesearch/I/243/out? returned 3 rows
 http://vizier.unistra.fr/viz-bin/conesearch/I/252/out? returned 3 rows
-http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twomass_psc returned 2009 rows
 http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twomass_xsc returned 25 rows
+http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twomass_psc returned 2008 rows
 </pre>
 </div>
 </div>
@@ -15672,11 +15673,11 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
 <pre>   _r       GSC      RAJ2000   DEJ2000  PosErr ... Plate  Epoch   Mult Versions
   deg                  deg       deg    arcsec ...          yr                 
 -------- ---------- --------- --------- ------ ... ----- -------- ---- --------
-0.063726 0280102008  10.71207  41.20873    0.2 ...  0738 1985.877    F  GSC-all
-0.043764 0280102015  10.68782  41.22536    0.2 ...  0738 1985.877    F  GSC-all
-0.096213 0280102081  10.80558  41.23727    0.2 ...  0738 1985.877    F  GSC-all
-0.066789 0280102017  10.60025  41.24853    0.2 ...  0738 1985.877    F  GSC-all
-0.081826 0280502180  10.64539  41.34535    0.2 ...  0738 1985.877    F  GSC-all
+0.063449 0280102008  10.71207  41.20873    0.2 ...  0738 1985.877    F  GSC-all
+0.043453 0280102015  10.68782  41.22536    0.2 ...  0738 1985.877    F  GSC-all
+0.096170 0280102081  10.80558  41.23727    0.2 ...  0738 1985.877    F  GSC-all
+0.066633 0280102017  10.60025  41.24853    0.2 ...  0738 1985.877    F  GSC-all
+0.082097 0280502180  10.64539  41.34535    0.2 ...  0738 1985.877    F  GSC-all
 </pre>
 </div>
 </div>
@@ -15754,7 +15755,7 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Am I running? True
+<pre>Am I running? False
 After 3 seconds. Am I done? True
 
 </pre>
@@ -15820,6 +15821,7 @@ Am I done? False
 WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=PhotoObjAll&#39; returned 0 result [astroquery.vo_conesearch.core]
 WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=Galaxy&#39; returned 0 result [astroquery.vo_conesearch.core]
 WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=Star&#39; returned 0 result [astroquery.vo_conesearch.core]
+WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr8-dsa/DirectCone?DSACAT=SDSS_DR8&amp;DSATAB=SpecObjAll&#39; returned 0 result [astroquery.vo_conesearch.core]
 WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr8-dsa/DirectCone?DSACAT=SDSS_DR8&amp;DSATAB=PhotoObjAll&#39; returned 0 result [astroquery.vo_conesearch.core]
 </pre>
 </div>
@@ -15832,14 +15834,14 @@ WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr8
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=GSC23 returned 4027 rows
+<pre>http://gsss.stsci.edu/webservices/vo/ConeSearch.aspx?CAT=GSC23 returned 4028 rows
 http://vizier.unistra.fr/viz-bin/conesearch/I/220/out? returned 5 rows
 http://vizier.unistra.fr/viz-bin/conesearch/I/254/out? returned 5 rows
 http://vizier.unistra.fr/viz-bin/conesearch/I/255/out? returned 5 rows
 http://vizier.unistra.fr/viz-bin/conesearch/I/243/out? returned 3 rows
 http://vizier.unistra.fr/viz-bin/conesearch/I/252/out? returned 3 rows
-http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twomass_psc returned 2009 rows
 http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twomass_xsc returned 25 rows
+http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twomass_psc returned 2008 rows
 </pre>
 </div>
 </div>
@@ -15970,8 +15972,8 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Predicted run time is 0.8974215227592426 seconds
-Predicted number of rows is 2615
+<pre>Predicted run time is 0.7743902006349361 seconds
+Predicted number of rows is 2617
 </pre>
 </div>
 </div>
@@ -16026,7 +16028,7 @@ Predicted number of rows is 2615
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>INFO: conesearch_timer took 0.9759314060211182 s on AVERAGE for 1 call(s). [astroquery.utils.timer]
+<pre>INFO: conesearch_timer took 0.6656641960144043 s on AVERAGE for 1 call(s). [astroquery.utils.timer]
 </pre>
 </div>
 </div>
@@ -16066,8 +16068,8 @@ Predicted number of rows is 2615
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Actual run time is 0.9759314060211182 seconds
-Actual number of rows is 4027
+<pre>Actual run time is 0.6656641960144043 seconds
+Actual number of rows is 4028
 </pre>
 </div>
 </div>
