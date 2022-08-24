@@ -14465,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14478,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14582,22 +14595,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Using-scipy.integrate">Using <code>scipy.integrate</code><a class="anchor-link" href="#Using-scipy.integrate">&#182;</a></h1><h2 id="Authors">Authors<a class="anchor-link" href="#Authors">&#182;</a></h2><p>Zach Pace, Lia Corrales, Stephanie T. Douglas</p>
 <h2 id="Learning-Goals">Learning Goals<a class="anchor-link" href="#Learning-Goals">&#182;</a></h2><ul>
-<li>perform numerical integration in the <code>astropy</code> and scientific python context<ul>
+<li>perform numerical integration in the <code>astropy</code> and scientific python context</li>
 <li>trapezoidal approximation</li>
 <li>gaussian quadrature</li>
-</ul>
-</li>
 <li>use <code>astropy</code>'s built-in black-body curves</li>
 <li>understand how <code>astropy</code>'s units interact with one another</li>
-<li>define a Python class<ul>
+<li>define a Python class</li>
 <li>how the <code>__call__</code> method works</li>
-</ul>
-</li>
 <li>add $\LaTeX$ labels to <code>matplotlib</code> figures using the <code>latex_inline</code> formatter</li>
 </ul>
 <h2 id="Keywords">Keywords<a class="anchor-link" href="#Keywords">&#182;</a></h2><p>modeling, units, synphot, OOP, LaTeX, astrostatistics, matplotlib, units, physics</p>
 <h2 id="Companion-Content">Companion Content<a class="anchor-link" href="#Companion-Content">&#182;</a></h2><ul>
-<li><a href="http://synphot.readthedocs.io/en/latest/">http://synphot.readthedocs.io/en/latest/</a></li>
+<li>http://synphot.readthedocs.io/en/latest/</li>
 <li><a href="http://www.astropy.org/astropy-tutorials/rst-tutorials/quantities.html">Using Astropy Quantities for astrophysical calculations</a></li>
 </ul>
 <h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><p>In this tutorial, we will use the examples of the Planck function and the stellar initial mass function (IMF) to illustrate how to integrate numerically, using the trapezoidal approximation and Gaussian quadrature. We will also explore making a custom class, an instance of which is callable in the same way as a function. In addition, we will encounter <code>astropy</code>'s built-in units, and get a first taste of how to convert between them. Finally, we will use $\LaTeX$ to make our figure axis labels easy to read.</p>
@@ -14660,10 +14669,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-info">
-**Note on printing units**: 
-
-Quantities and units can be printed to strings using the [Format String Syntax](https://docs.python.org/3/library/string.html#format-string-syntax). This demonstration uses the `latex_inline` format that is built in to the `astropy.units` package. To see additional ways to format quantities, see the [Getting Started](http://docs.astropy.org/en/stable/units/#getting-started) section of the astropy.units documentation pages.
+**Note on printing units**:
+<p>Quantities and units can be printed to strings using the <a href="https://docs.python.org/3/library/string.html#format-string-syntax">Format String Syntax</a>. This demonstration uses the <code>latex_inline</code> format that is built in to the <code>astropy.units</code> package. To see additional ways to format quantities, see the <a href="http://docs.astropy.org/en/stable/units/#getting-started">Getting Started</a> section of the astropy.units documentation pages.</p>
 </div>
+
 </div>
 </div>
 </div>
@@ -14697,9 +14706,7 @@ Quantities and units can be printed to strings using the [Format String Syntax](
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14709,7 +14716,6 @@ Quantities and units can be printed to strings using the [Format String Syntax](
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/units-and-integration.ipynb_5_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -14727,7 +14733,7 @@ jp-needs-light-background
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Using-$LaTeX$-for-axis-labels">Using $LaTeX$ for axis labels<a class="anchor-link" href="#Using-$LaTeX$-for-axis-labels">&#182;</a></h3><p>Here, we've used $LaTeX$ markup to add nice-looking axis labels. To do that, we enclose $LaTeX$ markup text in dollar signs, within a string <code>r'\$ ... \$'</code>. The <code>r</code> before the open-quote denotes that the string is "raw," and backslashes are treated literally. This is the suggested format for axis label text that includes markup.</p>
+<h3 id="Using-$LaTeX$-for-axis-labels">Using $LaTeX$ for axis labels<a class="anchor-link" href="#Using-$LaTeX$-for-axis-labels">&#182;</a></h3><p>Here, we've used $LaTeX$ markup to add nice-looking axis labels. To do that, we enclose $LaTeX$ markup text in dollar signs, within a string <code>r'\$ ... \$'</code>. The <code>r</code> before the open-quote denotes that the string is &quot;raw,&quot; and backslashes are treated literally. This is the suggested format for axis label text that includes markup.</p>
 <p>Now we numerically integrate using the trapezoid rule.</p>
 
 </div>
@@ -14755,9 +14761,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
@@ -14818,9 +14822,7 @@ $1.1280849 \times 10^{10} \; \mathrm{\frac{erg}{s\,sr\,cm^{2}}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14830,7 +14832,6 @@ $1.1280849 \times 10^{10} \; \mathrm{\frac{erg}{s\,sr\,cm^{2}}}$
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/units-and-integration.ipynb_9_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -14863,9 +14864,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 
@@ -14997,9 +14996,7 @@ $1.146776 \times 10^{10} \; \mathrm{\frac{erg}{s\,sr\,cm^{2}}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15009,7 +15006,6 @@ $1.146776 \times 10^{10} \; \mathrm{\frac{erg}{s\,sr\,cm^{2}}}$
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/units-and-integration.ipynb_17_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15056,9 +15052,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15127,9 +15121,7 @@ $$ \rho(m)^M = \int_{.01 \, M_{\odot}}^{.6 \, M_{\odot}} \rho(m) \, {\rm IMF}(m)
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 

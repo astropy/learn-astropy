@@ -14465,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14478,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14582,7 +14595,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Modeling-2:-Create-a-User-Defined-Model-using-astropy.modeling">Modeling 2: Create a User Defined Model using astropy.modeling<a class="anchor-link" href="#Modeling-2:-Create-a-User-Defined-Model-using-astropy.modeling">&#182;</a></h1><h2 id="Authors">Authors<a class="anchor-link" href="#Authors">&#182;</a></h2><p>Rocio Kiman, Lia Corrales, Zé Vinícius, Stephanie T. Douglas</p>
 <h2 id="Learning-Goals">Learning Goals<a class="anchor-link" href="#Learning-Goals">&#182;</a></h2><ul>
-<li>Define a new model with <code>astropy</code> </li>
+<li>Define a new model with <code>astropy</code></li>
 <li>Identify cases were a user-defined model could be useful</li>
 <li>Define models in two different ways:<ul>
 <li>Compound models</li>
@@ -14605,13 +14618,11 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-info">
-
-**Note:** This tutorial assumes you have already gone through 
-    [Modeling 1](http://www.astropy.org/astropy-tutorials/rst-tutorials/Models-Quick-Fit.html),
-    which provides an introduction to `astropy.modeling`
-
-
+<p><strong>Note:</strong> This tutorial assumes you have already gone through 
+    <a href="http://www.astropy.org/astropy-tutorials/rst-tutorials/Models-Quick-Fit.html">Modeling 1</a>,
+    which provides an introduction to <code>astropy.modeling</code></p>
 </div>
+
 </div>
 </div>
 </div>
@@ -14751,9 +14762,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
@@ -14845,9 +14854,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14898,9 +14905,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14950,9 +14955,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15006,9 +15009,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15018,7 +15019,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/User-Defined-Model.ipynb_20_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15123,9 +15123,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15135,7 +15133,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/User-Defined-Model.ipynb_26_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15180,9 +15177,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15215,8 +15210,8 @@ Parameters:
 <ul>
 <li>Is it not working because of the model we chose to fit? You can find more models to use <a href="http://docs.astropy.org/en/stable/modeling/#module-astropy.modeling.functional_models">here</a>.</li>
 <li>Is it not working because of the fitter we chose?</li>
-<li>Is it not working because of the range of data we are fitting? </li>
-<li>Is it not working because how we are plotting the data? </li>
+<li>Is it not working because of the range of data we are fitting?</li>
+<li>Is it not working because how we are plotting the data?</li>
 </ul>
 
 </div>
@@ -15320,9 +15315,7 @@ Parameters:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15332,7 +15325,6 @@ Parameters:
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/User-Defined-Model.ipynb_35_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15377,9 +15369,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15441,9 +15431,7 @@ Parameters:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15496,9 +15484,7 @@ c1_1 0.003239952053201843
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 
@@ -15613,9 +15599,7 @@ c1_1 0.003239952053201843
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15625,7 +15609,6 @@ c1_1 0.003239952053201843
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/User-Defined-Model.ipynb_47_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15658,9 +15641,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15749,9 +15730,7 @@ Parameters:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15761,7 +15740,6 @@ Parameters:
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/User-Defined-Model.ipynb_51_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15794,9 +15772,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15872,7 +15848,7 @@ Parameters:
 <p>What should you do if you need a model that <code>astropy.modeling</code> doesn't provide? To solve that problem, Astropy has another tool called <a href="http://docs.astropy.org/en/stable/modeling/new.html">custom model</a>. Using this tool, we can create any model we want.</p>
 <p>We will describe two ways to create a custom model:</p>
 <ul>
-<li><a href="http://docs.astropy.org/en/stable/modeling/new.html#basic-custom-models">basic</a>  </li>
+<li><a href="http://docs.astropy.org/en/stable/modeling/new.html#basic-custom-models">basic</a></li>
 <li><a href="http://docs.astropy.org/en/stable/modeling/new.html#a-step-by-step-definition-of-a-1-d-gaussian-model">full</a></li>
 </ul>
 <p>We use the basic custom model when we need a simple function to fit and the full custom model when we need a more complex function. Let's use an example to understand each one of the custom models.</p>
@@ -15949,9 +15925,7 @@ Parameters:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15961,7 +15935,6 @@ Parameters:
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/User-Defined-Model.ipynb_60_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -16059,9 +16032,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16071,7 +16042,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/User-Defined-Model.ipynb_65_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -16104,9 +16074,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16117,9 +16085,9 @@ Inputs: (&#39;x&#39;,)
 Outputs: (&#39;y&#39;,)
 Model set size: 1
 Parameters:
-            a                   b                   c         
-    ------------------ ------------------- -------------------
-    2.5620254580035864 -1.8388649000002972 0.14011761181600843
+            a                   b                  c         
+    ------------------ ------------------- ------------------
+    2.1155244134986715 -1.9767286745167778 0.3806896598927675
 </pre>
 </div>
 </div>
@@ -16185,9 +16153,7 @@ Parameters:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
 
@@ -16195,7 +16161,7 @@ Parameters:
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>1.3198103852802097</pre>
+<pre>1.0938384811092974</pre>
 </div>
 
 </div>
@@ -16298,9 +16264,7 @@ Parameters:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16310,7 +16274,6 @@ Parameters:
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/User-Defined-Model.ipynb_75_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -16420,9 +16383,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16432,7 +16393,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/User-Defined-Model.ipynb_80_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -16465,9 +16425,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16478,9 +16436,9 @@ Inputs: (&#39;x&#39;,)
 Outputs: (&#39;y&#39;,)
 Model set size: 1
 Parameters:
-            a                  b                 c                  d         
-    ------------------ ----------------- ------------------ ------------------
-    2.9461494216441455 2.010092808410115 3.9263400060578517 1.0270488784337084
+            a                 b                  c                 d         
+    ----------------- ------------------ ----------------- ------------------
+    3.053687309156645 1.9883791594984335 4.069262505828497 0.9885679254931067
 </pre>
 </div>
 </div>
@@ -16511,9 +16469,7 @@ Parameters:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
 
@@ -16521,7 +16477,7 @@ Parameters:
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>3.021633553010704</pre>
+<pre>2.3949402441513437</pre>
 </div>
 
 </div>
@@ -16609,9 +16565,7 @@ Parameters:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16621,7 +16575,6 @@ Parameters:
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/User-Defined-Model.ipynb_87_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>

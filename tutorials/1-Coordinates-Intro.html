@@ -14465,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14478,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14589,7 +14602,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li>Demonstrate working with 3D sky coordinates (including distance information for objects)</li>
 </ul>
 <h2 id="Keywords">Keywords<a class="anchor-link" href="#Keywords">&#182;</a></h2><p>coordinates, OOP, astroquery, gaia</p>
-<h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><p>Astronomers use a wide variety of coordinate systems and formats to represent sky coordinates of celestial objects. For example, you may have seen terms like "right ascension" and "declination" or "galactic latitude and longitude," and you may have seen angular coordinate components represented as "0h39m15.9s," "00:39:15.9," or 9.81625º. The subpackage <code>astropy.coordinates</code> provides tools for representing the coordinates of objects and transforming them between different systems.</p>
+<h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><p>Astronomers use a wide variety of coordinate systems and formats to represent sky coordinates of celestial objects. For example, you may have seen terms like &quot;right ascension&quot; and &quot;declination&quot; or &quot;galactic latitude and longitude,&quot; and you may have seen angular coordinate components represented as &quot;0h39m15.9s,&quot; &quot;00:39:15.9,&quot; or 9.81625º. The subpackage <code>astropy.coordinates</code> provides tools for representing the coordinates of objects and transforming them between different systems.</p>
 <p>In this tutorial, we will explore how the <code>astropy.coordinates</code> package can be used to work with astronomical coordinates. You may find it helpful to keep <a href="http://docs.astropy.org/en/stable/coordinates/index.html">the Astropy documentation for the coordinates package</a> open alongside this tutorial for reference or additional reading. In the text below, you may also see some links that look like (<a href="http://docs.astropy.org/en/stable/coordinates/index.html">docs</a>). These links will take you to parts of the documentation that are directly relevant to the cells from which they link.</p>
 <p><em>Note: This is the 1st tutorial in a series of tutorials about astropy.coordinates.</em></p>
 <ul>
@@ -14646,7 +14659,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Representing-On-sky-Positions-with-astropy.coordinates">Representing On-sky Positions with <code>astropy.coordinates</code><a class="anchor-link" href="#Representing-On-sky-Positions-with-astropy.coordinates">&#182;</a></h2><p>In Astropy, the most common way of representing and working with sky coordinates is to use the <code>SkyCoord</code> object (<a href="https://docs.astropy.org/en/stable/coordinates/skycoord.html">docs</a>). A <code>SkyCoord</code> can be created directly from angles or arrays of angles with associated units, as demonstrated below.</p>
-<p>To get started, let's assume that we want to create a <code>SkyCoord</code> object for the center of the open star cluster NGC 188 so that later we can query and retrieve stars that might be members of the cluster. Let's also assume, for now, that we already know the sky coordinates of the cluster to be (12.11, 85.26) degrees in the ICRS coordinate frame. The ICRS — sometimes referred to as "equatorial" or "J2000" coordinates (<a href="https://arxiv.org/abs/astro-ph/0602086">more info about the ICRS</a>) — is currently the most common astronomical coordinate frame for stellar or extragalactic astronomy, and is the default coordinate frame for <code>SkyCoord</code>. Since we already know the ICRS position of NGC 188 (see above), we can create a <code>SkyCoord</code> object for the cluster by passing the data in to the <code>SkyCoord</code> initializer:</p>
+<p>To get started, let's assume that we want to create a <code>SkyCoord</code> object for the center of the open star cluster NGC 188 so that later we can query and retrieve stars that might be members of the cluster. Let's also assume, for now, that we already know the sky coordinates of the cluster to be (12.11, 85.26) degrees in the ICRS coordinate frame. The ICRS — sometimes referred to as &quot;equatorial&quot; or &quot;J2000&quot; coordinates (<a href="https://arxiv.org/abs/astro-ph/0602086">more info about the ICRS</a>) — is currently the most common astronomical coordinate frame for stellar or extragalactic astronomy, and is the default coordinate frame for <code>SkyCoord</code>. Since we already know the ICRS position of NGC 188 (see above), we can create a <code>SkyCoord</code> object for the cluster by passing the data in to the <code>SkyCoord</code> initializer:</p>
 
 </div>
 </div>
@@ -14674,9 +14687,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
 
@@ -14729,9 +14740,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
@@ -14757,7 +14766,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>As we will see later on in this series, there are many other supported coordinate frames, so it helps to get into the habit of passing in the name of a coordinate frame.</p>
-<p>In the above initializations, we passed in <code>astropy.units.Quantity</code> objects with angular units to specify the angular components of our sky coordinates. The <code>SkyCoord</code> initializer will also accept string-formatted coordinates either as separate strings for Right Ascension (RA) and Declination (Dec) or a single string. For example, if we have sexagesimal sky coordinate data: In this case, the representation of the data includes specifications of the units (the "hms" for "hour minute second", and the "dms" for "degrees minute second"</p>
+<p>In the above initializations, we passed in <code>astropy.units.Quantity</code> objects with angular units to specify the angular components of our sky coordinates. The <code>SkyCoord</code> initializer will also accept string-formatted coordinates either as separate strings for Right Ascension (RA) and Declination (Dec) or a single string. For example, if we have sexagesimal sky coordinate data: In this case, the representation of the data includes specifications of the units (the &quot;hms&quot; for &quot;hour minute second&quot;, and the &quot;dms&quot; for &quot;degrees minute second&quot;</p>
 
 </div>
 </div>
@@ -14784,9 +14793,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
@@ -14839,9 +14846,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 
@@ -14879,7 +14884,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>For the <code>SkyCoord</code> initializations demonstrated above, we assumed that we already had the coordinate component values ready. If you do not know the coordinate values and the object you are interested in is in <a href="http://cdsweb.u-strasbg.fr/cgi-bin/Sesame">SESAME</a>, you can also automatically look up and load coordinate values from the name of the object using the <code>SkyCoord.from_name()</code> class method<sup>1</sup> (<a href="http://docs.astropy.org/en/latest/coordinates/index.html#convenience-methods">docs</a>). Note, however, that this requires an internet connection. It is safe to skip this cell if you are not connected to the internet because we already defined the object <code>ngc188_center</code> in the cells above.</p>
-<p><sub> <sup>1</sup>If you do not know what a class method is, think of it like an alternative constructor for a `SkyCoord` object — calling `SkyCoord.from_name()` with a name gives you a new `SkyCoord` object. For more detailed background on what class methods are and when they're useful, see [this page](https://julien.danjou.info/blog/2013/guide-python-static-class-abstract-methods).</sub></p>
+<p><sub> <sup>1</sup>If you do not know what a class method is, think of it like an alternative constructor for a <code>SkyCoord</code> object — calling <code>SkyCoord.from_name()</code> with a name gives you a new <code>SkyCoord</code> object. For more detailed background on what class methods are and when they're useful, see <a href="https://julien.danjou.info/blog/2013/guide-python-static-class-abstract-methods">this page</a>.</sub></p>
 
 </div>
 </div>
@@ -14907,9 +14912,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 
@@ -14961,9 +14964,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 
@@ -15014,9 +15015,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 
@@ -15055,9 +15054,7 @@ $11^\circ47{}^\prime52.8{}^{\prime\prime}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 
@@ -15096,9 +15093,7 @@ $85^\circ14{}^\prime38.4{}^{\prime\prime}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
@@ -15151,9 +15146,7 @@ $85^\circ14{}^\prime38.4{}^{\prime\prime}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 
@@ -15208,9 +15201,7 @@ $85^\circ14{}^\prime38.4{}^{\prime\prime}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
@@ -15261,9 +15252,7 @@ $85^\circ14{}^\prime38.4{}^{\prime\prime}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 
@@ -15330,9 +15319,7 @@ $85^\circ14{}^\prime38.4{}^{\prime\prime}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15426,9 +15413,7 @@ $85^\circ14{}^\prime38.4{}^{\prime\prime}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 
@@ -15452,7 +15437,7 @@ $85^\circ14{}^\prime38.4{}^{\prime\prime}$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The returned <code>astropy.table</code> <code>Table</code> object now contains about 5000 stars from <em>Gaia</em> DR2 around the coordinate position of the center of NGC 188. Let's now construct a <code>SkyCoord</code> object with the results table. In the <em>Gaia</em> data archive, the ICRS coordinates of a source are given as column names <code>"ra"</code> and <code>"dec"</code>:</p>
+<p>The returned <code>astropy.table</code> <code>Table</code> object now contains about 5000 stars from <em>Gaia</em> DR2 around the coordinate position of the center of NGC 188. Let's now construct a <code>SkyCoord</code> object with the results table. In the <em>Gaia</em> data archive, the ICRS coordinates of a source are given as column names <code>&quot;ra&quot;</code> and <code>&quot;dec&quot;</code>:</p>
 
 </div>
 </div>
@@ -15479,9 +15464,7 @@ $85^\circ14{}^\prime38.4{}^{\prime\prime}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
@@ -15520,9 +15503,7 @@ $[11.830262,~11.775835,~11.781434,~\dots,~9.0073318,~6.283744,~16.037007] \; \ma
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 
@@ -15574,9 +15555,7 @@ $[85.243627,~85.241932,~85.247148,~\dots,~84.814444,~85.080026,~84.910801] \; \m
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 
@@ -15643,7 +15622,7 @@ $[85.243627,~85.241932,~85.247148,~\dots,~84.814444,~85.080026,~84.910801] \; \m
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Using only a single method/function call on the <code>SkyCoord</code> object representing the center of NGC 188, print a string with the RA/Dec in the form 'HH:MM:SS.S DD:MM:SS.S'. Check your answer against <a href="http://simbad.u-strasbg.fr/simbad/">SIMBAD</a>, which will show you sexagesimal coordinates for the object.</p>
-<p><sub>(Hint: `SkyCoord.to_string()` might be useful)</sub></p>
+<p><sub>(Hint: <code>SkyCoord.to_string()</code> might be useful)</sub></p>
 
 </div>
 </div>
@@ -15670,9 +15649,7 @@ $[85.243627,~85.241932,~85.247148,~\dots,~84.814444,~85.080026,~84.910801] \; \m
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
 
@@ -15697,7 +15674,7 @@ $[85.243627,~85.241932,~85.247148,~\dots,~84.814444,~85.080026,~84.910801] \; \m
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Using a single method/function call on the <code>SkyCoord</code> object containing the results of our <em>Gaia</em> query, compute the angular separation between each resulting star and the coordinates of the cluster center for NGC 188.</p>
-<p><sub>(Hint: `SkyCoord.separation()` might be useful)</sub></p>
+<p><sub>(Hint: <code>SkyCoord.separation()</code> might be useful)</sub></p>
 
 </div>
 </div>
@@ -15724,9 +15701,7 @@ $[85.243627,~85.241932,~85.247148,~\dots,~84.814444,~85.080026,~84.910801] \; \m
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 
@@ -15755,7 +15730,7 @@ $[85.243627,~85.241932,~85.247148,~\dots,~84.814444,~85.080026,~84.910801] \; \m
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="More-Than-Just-Sky-Positions:-Including-Distance-Information-in-SkyCoord">More Than Just Sky Positions: Including Distance Information in <code>SkyCoord</code><a class="anchor-link" href="#More-Than-Just-Sky-Positions:-Including-Distance-Information-in-SkyCoord">&#182;</a></h2><p>So far, we have used <code>SkyCoord</code> to represent angular sky positions (i.e., <code>ra</code> and <code>dec</code> only). It is sometimes useful to include distance information with the sky coordinates of a source, thereby specifying the full 3D position of an object. To pass in distance information, <code>SkyCoord</code> accepts the keyword argument "<code>distance</code>". So, if we knew that the distance to NGC 188 is 1.96 kpc, we could also pass in a distance (as a <code>Quantity</code> object) using this argument:</p>
+<h2 id="More-Than-Just-Sky-Positions:-Including-Distance-Information-in-SkyCoord">More Than Just Sky Positions: Including Distance Information in <code>SkyCoord</code><a class="anchor-link" href="#More-Than-Just-Sky-Positions:-Including-Distance-Information-in-SkyCoord">&#182;</a></h2><p>So far, we have used <code>SkyCoord</code> to represent angular sky positions (i.e., <code>ra</code> and <code>dec</code> only). It is sometimes useful to include distance information with the sky coordinates of a source, thereby specifying the full 3D position of an object. To pass in distance information, <code>SkyCoord</code> accepts the keyword argument &quot;<code>distance</code>&quot;. So, if we knew that the distance to NGC 188 is 1.96 kpc, we could also pass in a distance (as a <code>Quantity</code> object) using this argument:</p>
 
 </div>
 </div>
@@ -15813,9 +15788,7 @@ $[85.243627,~85.241932,~85.247148,~\dots,~84.814444,~85.080026,~84.910801] \; \m
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 
@@ -15867,9 +15840,7 @@ $[85.243627,~85.241932,~85.247148,~\dots,~84.814444,~85.080026,~84.910801] \; \m
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
 
@@ -15951,9 +15922,7 @@ $1000 \; \mathrm{pc}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[28]:</div>
 
@@ -16022,9 +15991,7 @@ $1000 \; \mathrm{pc}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
 
@@ -16036,9 +16003,7 @@ $1000 \; \mathrm{pc}$
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16048,7 +16013,6 @@ $1000 \; \mathrm{pc}$
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/1-Coordinates-Intro.ipynb_56_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -16094,9 +16058,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
 
@@ -16148,9 +16110,7 @@ $[227.66391,~152.12132,~7.5834815,~\dots,~827.32319,~1801.2175,~192.85899] \; \m
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
 

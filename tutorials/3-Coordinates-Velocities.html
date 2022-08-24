@@ -14465,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14478,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14648,7 +14661,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="More-Than-Sky-Positions:-Including-Velocity-Data-in-SkyCoord">More Than Sky Positions: Including Velocity Data in <code>SkyCoord</code><a class="anchor-link" href="#More-Than-Sky-Positions:-Including-Velocity-Data-in-SkyCoord">&#182;</a></h2><p>As we have seen in the previous tutorials, the <code>SkyCoord</code> object can be used to store scalars or arrays of positional coordinate information and supports transforming between different coordinate frames and representations. But  <code>astropy.coordinates</code> also supports representing and transforming <em>velocity</em> information along with positions (<a href="http://docs.astropy.org/en/latest/coordinates/velocities.html">docs</a>).</p>
-<h2 id="Passing-Velocity-Data-into-SkyCoord">Passing Velocity Data into <code>SkyCoord</code><a class="anchor-link" href="#Passing-Velocity-Data-into-SkyCoord">&#182;</a></h2><p>Velocity components are passed in to <code>SkyCoord</code> in the same way that positional components are specified: As arguments to the <code>SkyCoord</code> class. For example, to create a <code>SkyCoord</code> to represent a sky position and a proper motion in the (default) ICRS coordinate frame, in addition to the position components <code>ra</code>, <code>dec</code>, we can pass in values for the proper motion components <code>pm_ra_cosdec</code>, <code>pm_dec</code> ("pm" for "proper motion"):</p>
+<h2 id="Passing-Velocity-Data-into-SkyCoord">Passing Velocity Data into <code>SkyCoord</code><a class="anchor-link" href="#Passing-Velocity-Data-into-SkyCoord">&#182;</a></h2><p>Velocity components are passed in to <code>SkyCoord</code> in the same way that positional components are specified: As arguments to the <code>SkyCoord</code> class. For example, to create a <code>SkyCoord</code> to represent a sky position and a proper motion in the (default) ICRS coordinate frame, in addition to the position components <code>ra</code>, <code>dec</code>, we can pass in values for the proper motion components <code>pm_ra_cosdec</code>, <code>pm_dec</code> (&quot;pm&quot; for &quot;proper motion&quot;):</p>
 
 </div>
 </div>
@@ -14679,9 +14692,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
 
@@ -14708,7 +14719,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Here, you may notice that the proper motion in right ascension has "cosdec" in the name: This is to explicitly note that the input here is expected to be the proper motion scaled by the cosine of the declination, which accounts for the fact that a change in longitude (right ascension) has different physical length at different latitudes (declinations).</p>
+<p>Here, you may notice that the proper motion in right ascension has &quot;cosdec&quot; in the name: This is to explicitly note that the input here is expected to be the proper motion scaled by the cosine of the declination, which accounts for the fact that a change in longitude (right ascension) has different physical length at different latitudes (declinations).</p>
 <p>Like the examples in previous tutorials demonstrated for positional coordinates, we can also create an array-valued <code>SkyCoord</code> object by passing in arrays of data for all of the components:</p>
 
 </div>
@@ -14740,9 +14751,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
@@ -14804,9 +14813,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
@@ -14860,9 +14867,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 
@@ -14901,9 +14906,7 @@ $1 \; \mathrm{\frac{mas}{yr}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 
@@ -14955,9 +14958,7 @@ $100 \; \mathrm{\frac{km}{s}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 
@@ -15011,9 +15012,7 @@ $100 \; \mathrm{\frac{km}{s}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 
@@ -15052,9 +15051,7 @@ $1.1191706 \; \mathrm{\frac{mas}{yr}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 
@@ -15112,9 +15109,7 @@ $1.935835 \; \mathrm{\frac{mas}{yr}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15276,9 +15271,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 
@@ -15286,7 +15279,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <i>Row index=2</i>
-<table id="table140466579686784">
+<table id="table140539941359520">
 <thead><tr><th>source_id</th><th>pmra</th><th>pmdec</th></tr></thead>
 <thead><tr><th></th><th>mas / yr</th><th>mas / yr</th></tr></thead>
 <thead><tr><th>int64</th><th>float64</th><th>float64</th></tr></thead>
@@ -15308,7 +15301,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Indeed, it looks like this is our source! Let's construct a <code>SkyCoord</code> object for this source using the data from the <em>Gaia</em> archive:</p>
-<p><em>Note about the Gaia catalog proper motion column names: The names in the Gaia archive and other repositories containing Gaia data give Right Ascension proper motion values simply as "pmra". These components implicitly contain the <code>cos(dec)</code> term, so we do <strong>not</strong> have to modify these values in order to pass them in to <code>SkyCoord</code> as <code>pm_ra_cosdec</code></em></p>
+<p><em>Note about the Gaia catalog proper motion column names: The names in the Gaia archive and other repositories containing Gaia data give Right Ascension proper motion values simply as &quot;pmra&quot;. These components implicitly contain the <code>cos(dec)</code> term, so we do </em><em>not</em>* have to modify these values in order to pass them in to <code>SkyCoord</code> as <code>pm_ra_cosdec</code>*</p>
 
 </div>
 </div>
@@ -15343,9 +15336,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
@@ -15372,8 +15363,8 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We now have a <code>SkyCoord</code> representation of the position and proper motion of the star HD 219829 as measured by <em>Gaia</em> and reported at the epoch J2015.5. What does this mean exactly? <em>Gaia</em> actually measures the (time-dependent) position of a star every time it scans the part of the sky that contains the source, and this is how <em>Gaia</em> is able to measure proper motions of stars. However, if every star is moving and changing its sky positions, how do we ever talk about "the sky position" of a star as opposed to "the sky trajectory of a star"?! The key is that catalogs often only report the position of a source at some reference epoch. For a survey that only observes the sky once or a few times (e.g., SDSS or 2MASS), this reference epoch might be "the time that the star was observed." But for a mission like <em>Gaia</em>, which scans the sky many times, they perform astrometric fits to the individual position measurements, which allow them to measure the parallax, proper motion, and the reference position at a reference time for each source. For <em>Gaia</em> data release 2, the reference time is J2015.5, and the sky positions (and other quantities) reported in the catalog for each source are at this epoch.</p>
-<p>In <code>SkyCoord</code>, we specify the "epoch" of an observation using the <code>obstime</code> argument, as we did above. Now that we have a coordinate object for HD 219829, let's now compare the position of the star as measured by <em>Gaia</em> to its apparent position in an image from the DSS. Let's now query the DSS to retrieve a FITS image of the field around this star, using the STSCI DSS image cutout service. Skip the cell below if you do not have an internet connection (we have provided the image locally as well):</p>
+<p>We now have a <code>SkyCoord</code> representation of the position and proper motion of the star HD 219829 as measured by <em>Gaia</em> and reported at the epoch J2015.5. What does this mean exactly? <em>Gaia</em> actually measures the (time-dependent) position of a star every time it scans the part of the sky that contains the source, and this is how <em>Gaia</em> is able to measure proper motions of stars. However, if every star is moving and changing its sky positions, how do we ever talk about &quot;the sky position&quot; of a star as opposed to &quot;the sky trajectory of a star&quot;?! The key is that catalogs often only report the position of a source at some reference epoch. For a survey that only observes the sky once or a few times (e.g., SDSS or 2MASS), this reference epoch might be &quot;the time that the star was observed.&quot; But for a mission like <em>Gaia</em>, which scans the sky many times, they perform astrometric fits to the individual position measurements, which allow them to measure the parallax, proper motion, and the reference position at a reference time for each source. For <em>Gaia</em> data release 2, the reference time is J2015.5, and the sky positions (and other quantities) reported in the catalog for each source are at this epoch.</p>
+<p>In <code>SkyCoord</code>, we specify the &quot;epoch&quot; of an observation using the <code>obstime</code> argument, as we did above. Now that we have a coordinate object for HD 219829, let's now compare the position of the star as measured by <em>Gaia</em> to its apparent position in an image from the DSS. Let's now query the DSS to retrieve a FITS image of the field around this star, using the STSCI DSS image cutout service. Skip the cell below if you do not have an internet connection (we have provided the image locally as well):</p>
 
 </div>
 </div>
@@ -15462,9 +15453,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15474,9 +15463,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 </pre>
 </div>
 </div>
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 
@@ -15484,13 +15471,11 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.collections.PathCollection at 0x7fc0ea7e3580&gt;</pre>
+<pre>&lt;matplotlib.collections.PathCollection at 0x7fd1ff3067c0&gt;</pre>
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15500,7 +15485,6 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/3-Coordinates-Velocities.ipynb_30_2.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15546,9 +15530,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
@@ -15650,9 +15632,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 
@@ -15660,13 +15640,11 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.collections.PathCollection at 0x7fc0ea4806a0&gt;</pre>
+<pre>&lt;matplotlib.collections.PathCollection at 0x7fd1feed0d00&gt;</pre>
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15676,7 +15654,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/3-Coordinates-Velocities.ipynb_36_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>

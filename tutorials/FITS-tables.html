@@ -14465,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14478,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14582,7 +14595,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Viewing-and-manipulating-data-from-FITS-tables">Viewing and manipulating data from FITS tables<a class="anchor-link" href="#Viewing-and-manipulating-data-from-FITS-tables">&#182;</a></h1><h2 id="Authors">Authors<a class="anchor-link" href="#Authors">&#182;</a></h2><p>Lia Corrales, Kris Stern</p>
 <h2 id="Learning-Goals">Learning Goals<a class="anchor-link" href="#Learning-Goals">&#182;</a></h2><ul>
-<li>Download a FITS table file from a URL </li>
+<li>Download a FITS table file from a URL</li>
 <li>Open a FITS table file and view table contents</li>
 <li>Make a 2D histogram with the table data</li>
 <li>Close the FITS file after use</li>
@@ -14735,9 +14748,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14806,9 +14817,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14905,9 +14914,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 
@@ -14915,7 +14922,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <div><i>Table length=483964</i>
-<table id="table140310817188544" class="table-striped table-bordered table-condensed">
+<table id="table139831713391568" class="table-striped table-bordered table-condensed">
 <thead><tr><th>time</th><th>ccd_id</th><th>node_id</th><th>expno</th><th>chipx</th><th>chipy</th><th>tdetx</th><th>tdety</th><th>detx</th><th>dety</th><th>x</th><th>y</th><th>pha</th><th>pha_ro</th><th>energy</th><th>pi</th><th>fltgrade</th><th>grade</th><th>status</th></tr></thead>
 <thead><tr><th>float64</th><th>int16</th><th>int16</th><th>int32</th><th>int16</th><th>int16</th><th>int16</th><th>int16</th><th>float32</th><th>float32</th><th>float32</th><th>float32</th><th>int32</th><th>int32</th><th>float32</th><th>int32</th><th>int16</th><th>int16</th><th>bool[32]</th></tr></thead>
 <tr><td>238623220.9093583</td><td>3</td><td>3</td><td>68</td><td>920</td><td>8</td><td>5124</td><td>3981</td><td>5095.641</td><td>4138.995</td><td>4168.0723</td><td>5087.772</td><td>3548</td><td>3534</td><td>13874.715</td><td>951</td><td>16</td><td>4</td><td>False .. False</td></tr>
@@ -14982,9 +14989,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14994,7 +14999,6 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/FITS-tables.ipynb_18_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15063,9 +15067,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
@@ -15139,9 +15141,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 
@@ -15153,9 +15153,7 @@ jp-needs-light-background
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15165,7 +15163,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/FITS-tables.ipynb_25_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15217,9 +15214,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
@@ -15231,9 +15226,7 @@ jp-needs-light-background
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15243,7 +15236,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/FITS-tables.ipynb_27_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>

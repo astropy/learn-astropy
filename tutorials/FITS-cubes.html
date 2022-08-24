@@ -14465,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14478,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14604,10 +14617,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-
 <pre><code>conda install -c conda-forge astroquery
 conda install -c conda-forge spectral-cube
-conda install -c conda-forge reproject</code></pre>
+conda install -c conda-forge reproject
+</code></pre>
 
 </div>
 </div>
@@ -14732,12 +14745,10 @@ So let's open up our data file and read in the data as a SpectralCube!</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-info">
 If you happen to already have the FITS file on your system, you can also skip the fits.open step and just directly read a FITS file with SpectralCube like this:
-
-
-`
-#cube = SpectralCube.read('path_to_data_file/TAN_C14.fits') 
-`
-</div><p>So what does this SpectralCube object actually look like? Let's find out!  The first check is to print out the cube.</p>
+<p>`</p>
+<h1 id="cube-=-SpectralCube.read('path_to_data_file/TAN_C14.fits')">cube = SpectralCube.read('path_to_data_file/TAN_C14.fits')<a class="anchor-link" href="#cube-=-SpectralCube.read('path_to_data_file/TAN_C14.fits')">&#182;</a></h1><p>`</p>
+</div>
+<p>So what does this SpectralCube object actually look like? Let's find out!  The first check is to print out the cube.</p>
 
 </div>
 </div>
@@ -14764,9 +14775,7 @@ If you happen to already have the FITS file on your system, you can also skip th
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14824,9 +14833,7 @@ If you happen to already have the FITS file on your system, you can also skip th
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14836,7 +14843,6 @@ If you happen to already have the FITS file on your system, you can also skip th
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/FITS-cubes.ipynb_11_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -14869,9 +14875,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14881,7 +14885,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/FITS-cubes.ipynb_12_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -14947,7 +14950,8 @@ jp-needs-light-background
 <p>We can extract the world coordinates from the cube using the <code>.world()</code> method.</p>
 <div class="alert alert-warning">
 Warning: using .world() will extract coordinates from every position you ask for. This can be a TON of data if you don't slice through the cube.  One work around is to slice along two axes and extract coordinates just along a single dimension.
-</div><p>The output of <code>.world()</code> is an Astropy <code>Quantity</code> representing the pixel coordinates, which includes units. You can extract these Astropy <code>Quantity</code> objects by slicing the data.</p>
+</div>
+<p>The output of <code>.world()</code> is an Astropy <code>Quantity</code> representing the pixel coordinates, which includes units. You can extract these Astropy <code>Quantity</code> objects by slicing the data.</p>
 
 </div>
 </div>
@@ -15010,9 +15014,7 @@ Warning: using .world() will extract coordinates from every position you ask for
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15066,9 +15068,7 @@ Warning: using .world() will extract coordinates from every position you ask for
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15133,9 +15133,7 @@ We can convert to friendlier spectral units of km/s and these new 2D projections
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15187,9 +15185,7 @@ Moment_1 has units of:  km / s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15271,9 +15267,7 @@ NAXIS : 0  0
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
@@ -15281,13 +15275,11 @@ NAXIS : 0  0
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.contour.QuadContourSet at 0x7f1acffb12e0&gt;</pre>
+<pre>&lt;matplotlib.contour.QuadContourSet at 0x7fc220abb6a0&gt;</pre>
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15297,7 +15289,6 @@ NAXIS : 0  0
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/FITS-cubes.ipynb_27_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15376,9 +15367,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15389,9 +15378,7 @@ WARNING: WCSWarning: Slicing across a celestial axis results in an invalid WCS, 
 </pre>
 </div>
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15401,7 +15388,6 @@ WARNING: WCSWarning: Slicing across a celestial axis results in an invalid WCS, 
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/FITS-cubes.ipynb_30_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15512,9 +15498,7 @@ We can query for the data by mission, take a quick look at the table of results,
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15525,9 +15509,7 @@ We can query for the data by mission, take a quick look at the table of results,
 </pre>
 </div>
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15577,9 +15559,7 @@ WARNING: UnitsWarning: Unit &#39;microns&#39; not supported by the VOUnit standa
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
 
@@ -15644,9 +15624,7 @@ WARNING: UnitsWarning: Unit &#39;microns&#39; not supported by the VOUnit standa
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 
@@ -15711,6 +15689,7 @@ WARNING: UnitsWarning: Unit &#39;microns&#39; not supported by the VOUnit standa
 <div class="alert alert-info">
 Note that the below command requires an internet connection to download five quite large files. It could take several minutes to complete.
 </div>
+
 </div>
 </div>
 </div>
@@ -15745,9 +15724,7 @@ Note that the below command requires an internet connection to download five qui
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15766,7 +15743,7 @@ INFO: Downloading Observation ID: 1342205092 from http://archives.esac.esa.int/h
 INFO: [Done] [astroquery.esasky.core]
 INFO: Downloading of HERSCHEL data complete. [astroquery.esasky.core]
 INFO: Maps available at /home/runner/work/astropy-tutorials/astropy-tutorials/tutorials/FITS-cubes/Maps. [astroquery.esasky.core]
-Filename: Maps/HERSCHEL/anonymous1660651243/hspirepmw401_25pxmp_0110_m7303_1342198565_1342198566_1462476888800.fits.gz
+Filename: Maps/HERSCHEL/anonymous1661368214/hspirepmw401_25pxmp_0110_m7303_1342198565_1342198566_1462476888800.fits.gz
 No.    Name      Ver    Type      Cards   Dimensions   Format
   0  PRIMARY       1 PrimaryHDU     184   ()      
   1  image         1 ImageHDU        47   (2407, 2141)   float64   
@@ -15822,9 +15799,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15906,9 +15881,7 @@ NAXIS : 2407  2141
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15918,7 +15891,6 @@ NAXIS : 2407  2141
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/FITS-cubes.ipynb_47_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -16008,9 +15980,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 
@@ -16022,9 +15992,7 @@ jp-needs-light-background
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16034,7 +16002,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/FITS-cubes.ipynb_49_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -16083,9 +16050,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16110,7 +16075,8 @@ HI Resolution (dx,dy) =  -0.14944444438467 -0.14944444438467
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-info">
 Note: Different ways of accessing the header are shown above corresponding to the different object types (coming from SpectralCube vs astropy.io.fits)
-</div><p>As we can see, the IR data has over 10 times higher spatial resolution. In order to create a new projection of an image, all we need to specifiy is a new header containing WCS information to transform into.  These can be created manually if you wanted to completely change something about the projection type (i.e. going from a Mercator map projection to a Tangential map projection). For us, since we want to match our resolutions, we can just "steal" the WCS object from the HI data. Specifically, we will be using the <a href="https://reproject.readthedocs.io/en/stable/api/reproject.reproject_interp.html#reproject.reproject_interp">reproject_interp()</a> function. This takes two arguments: an HDU object that you want to reproject, and a header containing WCS information to reproject onto.</p>
+</div>
+<p>As we can see, the IR data has over 10 times higher spatial resolution. In order to create a new projection of an image, all we need to specifiy is a new header containing WCS information to transform into.  These can be created manually if you wanted to completely change something about the projection type (i.e. going from a Mercator map projection to a Tangential map projection). For us, since we want to match our resolutions, we can just &quot;steal&quot; the WCS object from the HI data. Specifically, we will be using the <a href="https://reproject.readthedocs.io/en/stable/api/reproject.reproject_interp.html#reproject.reproject_interp">reproject_interp()</a> function. This takes two arguments: an HDU object that you want to reproject, and a header containing WCS information to reproject onto.</p>
 
 </div>
 </div>
@@ -16222,9 +16188,7 @@ Note: Different ways of accessing the header are shown above corresponding to th
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 
@@ -16236,9 +16200,7 @@ Note: Different ways of accessing the header are shown above corresponding to th
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16248,7 +16210,6 @@ Note: Different ways of accessing the header are shown above corresponding to th
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/FITS-cubes.ipynb_55_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -16266,7 +16227,7 @@ jp-needs-light-background
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The real power of reproject is in actually changing the map projection used to display the data.  This is done by creating a WCS object that contains a different projection type such as <code>CTYPE : 'RA---CAR'  'DEC--CAR'</code> as opposed to <code>CTYPE : 'RA---TAN'  'DEC--TAN'</code>.</p>
+<p>The real power of reproject is in actually changing the map projection used to display the data.  This is done by creating a WCS object that contains a different projection type such as <code>CTYPE : 'RA---CAR' 'DEC--CAR'</code> as opposed to <code>CTYPE : 'RA---TAN' 'DEC--TAN'</code>.</p>
 <h2 id="Challenge:">Challenge:<a class="anchor-link" href="#Challenge:">&#182;</a></h2><p>Use <a href="https://reproject.readthedocs.io/en/stable/#">reproject</a> and WCS to create a new WCS object in a different map projection and see how distortions in the image can change.</p>
 
 </div>

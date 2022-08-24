@@ -14465,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14478,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14738,7 +14751,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Let's assume that we measured the half-light radius of the galaxy to be 29 pc projected on the sky at the distance of the galaxy. This radius is often called the "effective radius", so we'll store it as a <code>Quantity</code> object with the name <code>Reff</code>. The easiest way to create a <code>Quantity</code> object is by multiplying the value with its unit. Units are accessed as u."unit", in this case u.pc.</p>
+<p>Let's assume that we measured the half-light radius of the galaxy to be 29 pc projected on the sky at the distance of the galaxy. This radius is often called the &quot;effective radius&quot;, so we'll store it as a <code>Quantity</code> object with the name <code>Reff</code>. The easiest way to create a <code>Quantity</code> object is by multiplying the value with its unit. Units are accessed as u.&quot;unit&quot;, in this case u.pc.</p>
 
 </div>
 </div>
@@ -14823,9 +14836,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14878,9 +14889,7 @@ unit: pc
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14931,9 +14940,7 @@ unit: pc
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15002,9 +15009,7 @@ unit: pc
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15058,9 +15063,7 @@ unit: pc
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 
@@ -15068,7 +15071,7 @@ unit: pc
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;astropy.visualization.units.quantity_support.&lt;locals&gt;.MplQuantityConverter at 0x7fe3fb98da90&gt;</pre>
+<pre>&lt;astropy.visualization.units.quantity_support.&lt;locals&gt;.MplQuantityConverter at 0x7f14f4bf47c0&gt;</pre>
 </div>
 
 </div>
@@ -15113,9 +15116,7 @@ unit: pc
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
@@ -15127,9 +15128,7 @@ unit: pc
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15139,7 +15138,6 @@ unit: pc
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/quantities.ipynb_26_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15185,9 +15183,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15277,9 +15273,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
 
@@ -15330,9 +15324,7 @@ $3.3084841 \times 10^{13} \; \mathrm{\frac{km^{2}\,kg\,pc}{m^{3}}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 
@@ -15386,9 +15378,7 @@ $1.0208915 \times 10^{36} \; \mathrm{kg}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15440,9 +15430,7 @@ CGS units: 1.02e+39 g
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
@@ -15493,9 +15481,7 @@ CGS units: 1.02e+39 g
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15864,9 +15850,7 @@ $$v = \sqrt{\frac{G M_{\odot}}{r}}$$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15918,9 +15902,7 @@ dv = 0.1 km / s
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 
@@ -15980,9 +15962,7 @@ $\mathrm{\frac{K\,km}{s}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15992,7 +15972,6 @@ $\mathrm{\frac{K\,km}{s}}$
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/quantities.ipynb_63_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -16096,9 +16075,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16177,7 +16154,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Fortunately, <code>astropy</code> comes to the rescue by providing a feature called "unit equivalencies."  Equivalencies provide a way to convert between two physically different units that are not normally equivalent, but in a certain context have a one-to-one mapping.  For more on equivalencies, see the <a href="http://docs.astropy.org/en/stable/units/equivalencies.html">equivalencies section of astropy's documentation</a>.</p>
+<p>Fortunately, <code>astropy</code> comes to the rescue by providing a feature called &quot;unit equivalencies.&quot;  Equivalencies provide a way to convert between two physically different units that are not normally equivalent, but in a certain context have a one-to-one mapping.  For more on equivalencies, see the <a href="http://docs.astropy.org/en/stable/units/equivalencies.html">equivalencies section of astropy's documentation</a>.</p>
 <p>In this case, calling the <code>astropy.units.spectral()</code> function provides the equivalencies necessary to handle conversions between wavelength and frequency. To use it, provide the equivalencies to the <code>equivalencies</code> keyword of the <code>to()</code> call:</p>
 
 </div>
@@ -16240,9 +16217,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
 
@@ -16321,9 +16296,7 @@ $2.1792458 \times 10^{14} \; \mathrm{\frac{s}{K\,km\,cm^{2}}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16375,9 +16348,7 @@ $2.1792458 \times 10^{14} \; \mathrm{\frac{s}{K\,km\,cm^{2}}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16387,9 +16358,7 @@ $2.1792458 \times 10^{14} \; \mathrm{\frac{s}{K\,km\,cm^{2}}}$
 </pre>
 </div>
 </div>
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
 
@@ -16454,9 +16423,7 @@ $8.5782091 \times 10^{15} \; \mathrm{\frac{1}{cm^{2}}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16466,9 +16433,7 @@ $8.5782091 \times 10^{15} \; \mathrm{\frac{1}{cm^{2}}}$
 </pre>
 </div>
 </div>
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
 
@@ -16561,9 +16526,7 @@ $5.0611434 \times 10^{22} \; \mathrm{\frac{1}{cm^{2}}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16613,9 +16576,7 @@ $5.0611434 \times 10^{22} \; \mathrm{\frac{1}{cm^{2}}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16652,9 +16613,7 @@ $5.0611434 \times 10^{22} \; \mathrm{\frac{1}{cm^{2}}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[37]:</div>
 
@@ -16705,9 +16664,7 @@ $0.00047596472 \; \mathrm{pc^{2}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16813,9 +16770,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[39]:</div>
 
@@ -16854,9 +16809,7 @@ $0.00047596472 \; \mathrm{pc^{2}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
 
@@ -16908,9 +16861,7 @@ $4.5318534 \times 10^{33} \; \mathrm{cm^{2}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[41]:</div>
 
@@ -17085,9 +17036,7 @@ $317.64843 \; \mathrm{M_{\odot}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[43]:</div>
 
@@ -17172,9 +17121,7 @@ $317.64843 \; \mathrm{M_{\odot}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -17267,9 +17214,7 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.9.13/x64/lib/pyth
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[46]:</div>
 

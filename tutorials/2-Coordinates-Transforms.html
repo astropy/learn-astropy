@@ -14465,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14478,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14587,7 +14600,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li>Introduce coordinate frame transformations and demonstrate transforming from ICRS coordinates to Galactic and Altitude-Azimuth coordinates</li>
 </ul>
 <h2 id="Keywords">Keywords<a class="anchor-link" href="#Keywords">&#182;</a></h2><p>coordinates, OOP</p>
-<h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><p>In the previous tutorial in this series, we showed how astronomical coordinates in the ICRS or equatorial coordinate system can be represented in Python using the <code>SkyCoord</code> object (<a href="https://docs.astropy.org/en/stable/coordinates/skycoord.html">docs</a>). There are many other coordinate systems that are commonly used in astronomical research. For example, the Galactic coordinate system is often used in radio astronomy and Galactic science, the "horizontal" or altitude-azimuth frame is often used for observatory-specific observation planning, and Ecliptic coordinates are often used for solar system science or space mission footprints. All of these coordinate frames (and others!) are supported by <code>astropy.coordinates</code>. As we will see below, the <code>SkyCoord</code> object is designed to make transforming between these systems a straightforward task.</p>
+<h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><p>In the previous tutorial in this series, we showed how astronomical coordinates in the ICRS or equatorial coordinate system can be represented in Python using the <code>SkyCoord</code> object (<a href="https://docs.astropy.org/en/stable/coordinates/skycoord.html">docs</a>). There are many other coordinate systems that are commonly used in astronomical research. For example, the Galactic coordinate system is often used in radio astronomy and Galactic science, the &quot;horizontal&quot; or altitude-azimuth frame is often used for observatory-specific observation planning, and Ecliptic coordinates are often used for solar system science or space mission footprints. All of these coordinate frames (and others!) are supported by <code>astropy.coordinates</code>. As we will see below, the <code>SkyCoord</code> object is designed to make transforming between these systems a straightforward task.</p>
 <p>In this tutorial, we will explore how the <code>astropy.coordinates</code> package can be used to transform astronomical coordinates between different coordinate systems or frames. You may find it helpful to keep <a href="http://docs.astropy.org/en/stable/coordinates/index.html">the Astropy documentation for the coordinates package</a> open alongside this tutorial for reference or additional reading. In the text below, you may also see some links that look like (<a href="http://docs.astropy.org/en/stable/coordinates/index.html">docs</a>). These links will take you to parts of the documentation that are directly relevant to the cells from which they link.</p>
 <p><em>Note: This is the 2nd tutorial in a series of tutorials about astropy.coordinates. If you are new to astropy.coordinates, you may want to start from the beginning or an earlier tutorial.</em></p>
 <ul>
@@ -14645,7 +14658,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Key-astropy.coordinates-Concepts:-Component-Formats,-Representations,-and-Frames">Key <code>astropy.coordinates</code> Concepts: Component Formats, Representations, and Frames<a class="anchor-link" href="#Key-astropy.coordinates-Concepts:-Component-Formats,-Representations,-and-Frames">&#182;</a></h2><p>Usage of the term "coordinates" is overloaded in astronomy and is often used interchangeably when referring to data formats (e.g., sexagesimal vs. decimal), representations (e.g., Cartesian vs. spherical), and frames (e.g., equatorial vs. galactic). In <code>astropy.coordinates</code>, we have tried to formalize these three concepts and have made them a core part of the way we interact with objects in this subpackage (<a href="https://docs.astropy.org/en/stable/coordinates/index.html#overview-of-astropy-coordinates-concepts">docs</a>). Here we will give an overview of these different concepts as we build up to demonstrating how to transform between different astronomical reference frames or systems.</p>
+<h2 id="Key-astropy.coordinates-Concepts:-Component-Formats,-Representations,-and-Frames">Key <code>astropy.coordinates</code> Concepts: Component Formats, Representations, and Frames<a class="anchor-link" href="#Key-astropy.coordinates-Concepts:-Component-Formats,-Representations,-and-Frames">&#182;</a></h2><p>Usage of the term &quot;coordinates&quot; is overloaded in astronomy and is often used interchangeably when referring to data formats (e.g., sexagesimal vs. decimal), representations (e.g., Cartesian vs. spherical), and frames (e.g., equatorial vs. galactic). In <code>astropy.coordinates</code>, we have tried to formalize these three concepts and have made them a core part of the way we interact with objects in this subpackage (<a href="https://docs.astropy.org/en/stable/coordinates/index.html#overview-of-astropy-coordinates-concepts">docs</a>). Here we will give an overview of these different concepts as we build up to demonstrating how to transform between different astronomical reference frames or systems.</p>
 <h2 id="Coordinate-Component-Formats">Coordinate Component Formats<a class="anchor-link" href="#Coordinate-Component-Formats">&#182;</a></h2><p>In our previous tutorial, we showed that it is possible to pass in coordinate component data to the <code>SkyCoord</code> initializer as strings or as <code>Quantity</code> objects in a variety of formats and units. We also saw that the coordinate components of <code>SkyCoord</code> objects can be re-formatted. For example, we can change the coordinate <em>format</em> by changing the component units, or converting the data to a string:</p>
 
 </div>
@@ -14676,9 +14689,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14730,9 +14741,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
@@ -14784,9 +14793,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
@@ -14839,9 +14846,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14908,9 +14913,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 
@@ -14962,9 +14965,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 
@@ -15020,9 +15021,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15032,9 +15031,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </pre>
 </div>
 </div>
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 
@@ -15114,9 +15111,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 
@@ -15168,9 +15163,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
@@ -15194,7 +15187,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Transforming-Between-Coordinate-Frames">Transforming Between Coordinate Frames<a class="anchor-link" href="#Transforming-Between-Coordinate-Frames">&#182;</a></h2><p>The third key concept to keep in mind when thinking about astronomical coordinate data is the reference frame or coordinate system that the data are in. In the previous tutorial, and so far here, we have worked with the default frame assumed by <code>SkyCoord</code>: the International Celestial Reference System (ICRS; <a href="https://arxiv.org/abs/astro-ph/0602086">some important definitions and context about the ICRS is given here</a>). The ICRS is the fundamental coordinate system used in most modern astronomical contexts and is generally what people mean when they refer to "equatorial" or "J2000" or "RA/Dec" coordinates (but there are some important caveats if you are working with older data). As noted above, however, there are many other coordinate systems used in different astronomical, solar, or solar system contexts.</p>
+<h2 id="Transforming-Between-Coordinate-Frames">Transforming Between Coordinate Frames<a class="anchor-link" href="#Transforming-Between-Coordinate-Frames">&#182;</a></h2><p>The third key concept to keep in mind when thinking about astronomical coordinate data is the reference frame or coordinate system that the data are in. In the previous tutorial, and so far here, we have worked with the default frame assumed by <code>SkyCoord</code>: the International Celestial Reference System (ICRS; <a href="https://arxiv.org/abs/astro-ph/0602086">some important definitions and context about the ICRS is given here</a>). The ICRS is the fundamental coordinate system used in most modern astronomical contexts and is generally what people mean when they refer to &quot;equatorial&quot; or &quot;J2000&quot; or &quot;RA/Dec&quot; coordinates (but there are some important caveats if you are working with older data). As noted above, however, there are many other coordinate systems used in different astronomical, solar, or solar system contexts.</p>
 <p>Some other common coordinate systems are defined as a rotation away from the ICRS that is defined to make science applications easier to interpret. One example here is the Galactic coordinate system, which is rotated with respect to the ICRS to approximately align the Galactic plane with latitude=0. As an example of the <code>astropy.coordinates</code> frame transformation machinery, we will load in a subset of a catalog of positions and distances to a set of open clusters in the Milky Way from Cantat-Gaudin et al. 2018 (<a href="http://vizier.u-strasbg.fr/viz-bin/VizieR-3?-source=J/A%2bA/618/A93/table1">Table 1 in this catalog</a>). We have pre-selected the 474 clusters within 2 kpc of the sun and provide the catalog as a data file next to this notebook. This catalog provides sky position (columns <code>RAJ2000</code> and <code>DEJ2000</code> in the original catalog) and distance estimates (column <code>dmode</code> in the original catalog), which we have renamed in the table we provide to column names <code>'ra'</code>, <code>'dec'</code>, and <code>'distance'</code>. We will start by loading the catalog as a <code>QTable</code>  using <code>astropy.table</code> (<a href="https://docs.astropy.org/en/stable/table/">docs</a>):</p>
 
 </div>
@@ -15255,9 +15248,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
@@ -15281,7 +15272,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>To see the first few coordinate entries, we can "slice" the array-valued coordinate object like we would a Python list or numpy array:</p>
+<p>To see the first few coordinate entries, we can &quot;slice&quot; the array-valued coordinate object like we would a Python list or numpy array:</p>
 
 </div>
 </div>
@@ -15308,9 +15299,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
 
@@ -15414,9 +15403,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 
@@ -15428,9 +15415,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15440,7 +15425,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/2-Coordinates-Transforms.ipynb_33_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15458,7 +15442,7 @@ jp-needs-light-background
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>The majority of these open clusters are relatively close to the Galactic midplane, which is why they form a fairly narrow "band" on the sky in ICRS coordinates. If we transform these positions to Galactic coordinates, we would therefore expect the points to appear around the latitude $b=0$ line.</p>
+<p>The majority of these open clusters are relatively close to the Galactic midplane, which is why they form a fairly narrow &quot;band&quot; on the sky in ICRS coordinates. If we transform these positions to Galactic coordinates, we would therefore expect the points to appear around the latitude $b=0$ line.</p>
 <p>To transform our coordinates from ICRS to Galactic (or any other coordinate system), we can use the <code>SkyCoord.transform_to()</code> method and pass in the new coordinate frame instance (in this case, <code>Galactic()</code>):</p>
 
 </div>
@@ -15542,9 +15526,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 
@@ -15599,9 +15581,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
 
@@ -15642,9 +15622,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
 
@@ -15670,7 +15648,7 @@ jp-needs-light-background
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><em>Note: the ICRS coordinate component names (<code>.ra</code>, <code>.dec</code>) will therefore <strong>not</strong> work on this new, transformed <code>SkyCoord</code> instance, <code>open_cluster_gal</code></em></p>
+<p><em>Note: the ICRS coordinate component names (<code>.ra</code>, <code>.dec</code>) will therefore </em><em>not</em>* work on this new, transformed <code>SkyCoord</code> instance, <code>open_cluster_gal</code>*</p>
 
 </div>
 </div>
@@ -15711,9 +15689,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 
@@ -15725,9 +15701,7 @@ jp-needs-light-background
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15737,7 +15711,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/2-Coordinates-Transforms.ipynb_45_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15767,7 +15740,7 @@ jp-needs-light-background
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Transforming-to-More-Complex-Coordinate-Frames:-Computing-the-Altitude-of-a-Target-at-an-Observatory">Transforming to More Complex Coordinate Frames: Computing the Altitude of a Target at an Observatory<a class="anchor-link" href="#Transforming-to-More-Complex-Coordinate-Frames:-Computing-the-Altitude-of-a-Target-at-an-Observatory">&#182;</a></h2><p>To determine whether a target is observable from a given observatory on Earth or to find out what targets are observable from a city or place on Earth at some time, we sometimes need to convert a coordinate or set of coordinates to a frame that is local to an on-earth observer. The most common choice for such a frame is "horizontal" or "Altitude-Azimuth" coordinates. In this frame, the sky coordinates of a source can be specified as an altitude from the horizon and an azimuth angle at a specified time. This coordinate frame is supported in <code>astropy.coordinates</code> through the <code>AltAz</code> coordinate frame.</p>
+<h2 id="Transforming-to-More-Complex-Coordinate-Frames:-Computing-the-Altitude-of-a-Target-at-an-Observatory">Transforming to More Complex Coordinate Frames: Computing the Altitude of a Target at an Observatory<a class="anchor-link" href="#Transforming-to-More-Complex-Coordinate-Frames:-Computing-the-Altitude-of-a-Target-at-an-Observatory">&#182;</a></h2><p>To determine whether a target is observable from a given observatory on Earth or to find out what targets are observable from a city or place on Earth at some time, we sometimes need to convert a coordinate or set of coordinates to a frame that is local to an on-earth observer. The most common choice for such a frame is &quot;horizontal&quot; or &quot;Altitude-Azimuth&quot; coordinates. In this frame, the sky coordinates of a source can be specified as an altitude from the horizon and an azimuth angle at a specified time. This coordinate frame is supported in <code>astropy.coordinates</code> through the <code>AltAz</code> coordinate frame.</p>
 <p>The <code>AltAz</code> frame is different from the previously-demonstrated <code>Galactic</code> frame in that it requires additional metadata to define the frame instance. Since the <code>Galactic</code> frame is close to being a 3D rotation away from the ICRS frame, and that rotation matrix is fixed, we could transform to <code>Galactic</code> by instantiating the class with no arguments (see the example above where we used <code>.transform_to(Galactic())</code>). In order to specify an instance of the <code>AltAz</code> frame, we have to (at minimum) pass in (1) a location on Earth, and (2) the time (or times) we are requesting the frame at.</p>
 <p>In <code>astropy.coordinates</code>, we specify locations on Earth with the <code>EarthLocation</code> class (<a href="https://docs.astropy.org/en/stable/api/astropy.coordinates.EarthLocation.html">docs</a>). If we know the Earth longitude and latitude of our site, we can use these to create an instance of <code>EarthLocation</code> directly:</p>
 
@@ -15945,9 +15918,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
 
@@ -16387,9 +16358,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16399,7 +16368,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/2-Coordinates-Transforms.ipynb_60_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -16444,9 +16412,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
 
@@ -16533,9 +16499,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16545,7 +16509,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/2-Coordinates-Transforms.ipynb_66_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -16603,9 +16566,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
 
@@ -16658,9 +16619,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 

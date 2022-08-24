@@ -14465,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14478,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14776,9 +14789,7 @@ or the other two tutorials for more details:</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14828,9 +14839,7 @@ or the other two tutorials for more details:</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14945,14 +14954,14 @@ the <code>return</code> statement.</p>
 <p>If a function <code>func</code> is contained in a file called <code>spectra_utils.py</code> in
 the current directory, then this file can be imported into a python session in
 order to use the function <code>func</code> with the following command:</p>
-
 <pre><code>import spectra_utils
-a = spectra_utils.func(param1, param2, ...)</code></pre>
+a = spectra_utils.func(param1, param2, ...)
+</code></pre>
 <p>Alternatively, you can import just one (or a few) of many different functions
 that are defined in your file <code>spectra_utils.py</code>:</p>
-
 <pre><code>from spectra_utils import func
-a = func(param1, param2, ...)</code></pre>
+a = func(param1, param2, ...)
+</code></pre>
 <p>You'll recognize that python does not make a difference between modules that come
 with python (e.g. <code>glob</code>), external modules (e.g. <code>numpy</code> or <code>astropy</code>) and modules
 that you write yourself. The syntax to import those modules or functions
@@ -15076,9 +15085,7 @@ read_spec<span class="o">?</span>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15183,9 +15190,7 @@ setup.</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15399,9 +15404,7 @@ $$E_{kin}  =  E_{grav}$$$$\frac{1}{2} m v^2  =  G \frac{m M_*}{R_*}$$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15453,9 +15456,7 @@ $$E_{kin}  =  E_{grav}$$$$\frac{1}{2} m v^2  =  G \frac{m M_*}{R_*}$$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 
@@ -15507,9 +15508,7 @@ their different length units unless told otherwise.</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
@@ -15534,9 +15533,9 @@ $4.7803573 \; \mathrm{}$
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>The reason for this is that it's not uncommon to use different length units in
-a single constant, e.g. the Hubble constant is commonly given in "km/ (s Mpc)".
-"km" and "Mpc" are both units of length, but generally you do <em>not</em> want to
-shorten this to "1/s".</p>
+a single constant, e.g. the Hubble constant is commonly given in &quot;km/ (s Mpc)&quot;.
+&quot;km&quot; and &quot;Mpc&quot; are both units of length, but generally you do <em>not</em> want to
+shorten this to &quot;1/s&quot;.</p>
 <p>We can now use the <code>astropy.units</code> mechanism to correct the wavelength
 scale to the heliocentric velocity scale.</p>
 
@@ -15590,7 +15589,7 @@ scale to the heliocentric velocity scale.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>However, this fails, because <code>heliocentric/c</code> is in units of "km/m" and <code>1.</code>
+<p>However, this fails, because <code>heliocentric/c</code> is in units of &quot;km/m&quot; and <code>1.</code>
 is just a number. From the notation above, it is not clear what we actually want.
 Do we ask for the value of <code>heliocentric/c + 1.</code> or do we want to simplify the
 units of  <code>heliocentric/c</code> and after that add <code>1.</code>?
@@ -15657,9 +15656,7 @@ This is how it can be done:</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 
@@ -15742,9 +15739,7 @@ spectroscopically estimated surface gravity.</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15845,9 +15840,7 @@ of the following wavelengths relative to $H_\alpha$.</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16013,9 +16006,7 @@ Below are several examples, initialized from different header keywords.</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 
@@ -16066,9 +16057,7 @@ Below are several examples, initialized from different header keywords.</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
 
@@ -16292,9 +16281,7 @@ for the first spectrum.</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16483,9 +16470,7 @@ modulated will stick out between -1 and +1.</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16495,7 +16480,6 @@ modulated will stick out between -1 and +1.</p>
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/UVES.ipynb_89_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -16584,9 +16568,7 @@ way:</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16596,7 +16578,6 @@ way:</p>
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/UVES.ipynb_93_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -16675,9 +16656,7 @@ and there is no proper labeling.</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16687,7 +16666,6 @@ and there is no proper labeling.</p>
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/UVES.ipynb_97_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -16745,9 +16723,7 @@ of the axis.</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16757,7 +16733,6 @@ of the axis.</p>
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/UVES.ipynb_99_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -16779,9 +16754,11 @@ jp-needs-light-background
 improved:</p>
 <ul>
 <li>Introduce an offset on the y-axis to reduce the amount of white space.</li>
-<li>Strictly speaking, the image shown is not quite the right scale because the
-<code>extent</code> keyword gives the edges of the image shown, while <code>x</code> and
-<code>delta_p</code> contain the bin mid-points.</li>
+<li>Strictly speaking, the image shown is not quite the right scale because the</li>
+</ul>
+<p><code>extent</code> keyword gives the edges of the image shown, while <code>x</code> and
+<code>delta_p</code> contain the bin mid-points.</p>
+<ul>
 <li>Use a gray scale instead of color to save publication charges.</li>
 <li>Add labels to the axis.</li>
 </ul>
@@ -16849,9 +16826,7 @@ improved:</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16861,7 +16836,6 @@ improved:</p>
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/UVES.ipynb_101_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>

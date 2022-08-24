@@ -14465,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14478,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14735,9 +14748,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
@@ -14749,9 +14760,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14761,7 +14770,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/Models-Quick-Fit.ipynb_9_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -14981,9 +14989,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15043,9 +15049,7 @@ Parameters:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 
@@ -15057,9 +15061,7 @@ Parameters:
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15069,7 +15071,6 @@ Parameters:
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/Models-Quick-Fit.ipynb_26_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15088,9 +15089,14 @@ jp-needs-light-background
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><strong>Conclusion:</strong> Remember, you can fit data with three lines of code:</p>
-<p>1) Choose a <a href="http://docs.astropy.org/en/stable/modeling/#module-astropy.modeling.functional_models">model</a>.</p>
-<p>2) Choose a <a href="http://docs.astropy.org/en/stable/modeling/#id21">fitter</a>.</p>
-<p>3) Pass to the fitter the model and the data to perform fit.</p>
+<ol>
+<li><p>Choose a <a href="http://docs.astropy.org/en/stable/modeling/#module-astropy.modeling.functional_models">model</a>.</p>
+</li>
+<li><p>Choose a <a href="http://docs.astropy.org/en/stable/modeling/#id21">fitter</a>.</p>
+</li>
+<li><p>Pass to the fitter the model and the data to perform fit.</p>
+</li>
+</ol>
 
 </div>
 </div>
@@ -15215,9 +15221,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 
@@ -15229,9 +15233,7 @@ jp-needs-light-background
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15241,7 +15243,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/Models-Quick-Fit.ipynb_35_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15304,9 +15305,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15318,9 +15317,9 @@ Outputs: (&#39;y&#39;,)
 Model set size: 1
 Degree: 3
 Parameters:
-            c0               c1                c2                 c3        
-    ----------------- ---------------- ------------------ ------------------
-    -8.81112140194701 10.4969759906818 -4.809904257947315 0.7916397308249452
+            c0                 c1                 c2                 c3        
+    ------------------ ------------------ ------------------ ------------------
+    -8.482088041128424 11.217045248846075 -5.598921824321444 0.9384479487137048
 </pre>
 </div>
 </div>
@@ -15364,9 +15363,7 @@ Parameters:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15404,9 +15401,7 @@ WARNING: The fit may be unsuccessful; Maximum number of iterations reached. [ast
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15418,9 +15413,9 @@ Outputs: (&#39;y&#39;,)
 Model set size: 1
 Degree: 3
 Parameters:
-             c0                  c1                  c2                  c3        
-    ------------------- ------------------- ------------------- -------------------
-    -0.5817917331126795 -0.7780976610298099 -0.5998371412166019 0.32761853717351613
+             c0                   c1                  c2                 c3        
+    -------------------- ------------------- ------------------- ------------------
+    0.007284066786060774 -0.6453795311770334 -0.7213668750079945 0.3257421911520516
 </pre>
 </div>
 </div>
@@ -15514,15 +15509,13 @@ Parameters:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Reduced Chi Squared with LinearLSQFitter: 1.463692839847889
+<pre>Reduced Chi Squared with LinearLSQFitter: 1.9373568780355177
 </pre>
 </div>
 </div>
@@ -15554,15 +15547,13 @@ Parameters:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Reduced Chi Squared with SimplexLSQFitter: 4.086758712132157
+<pre>Reduced Chi Squared with SimplexLSQFitter: 4.579340949571053
 </pre>
 </div>
 </div>
@@ -15611,9 +15602,7 @@ Parameters:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
@@ -15621,13 +15610,11 @@ Parameters:
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.legend.Legend at 0x7f791fc845b0&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x7fd7272285b0&gt;</pre>
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15637,7 +15624,6 @@ Parameters:
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/Models-Quick-Fit.ipynb_49_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15730,9 +15716,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 
@@ -15744,9 +15728,7 @@ jp-needs-light-background
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15756,7 +15738,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/Models-Quick-Fit.ipynb_54_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15819,9 +15800,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15832,9 +15811,9 @@ Inputs: (&#39;x&#39;,)
 Outputs: (&#39;y&#39;,)
 Model set size: 1
 Parameters:
-        amplitude              mean              stddev     
-    ------------------ ------------------- -----------------
-    10.412781833033181 0.43605297106027385 9.058041468762717
+        amplitude              mean               stddev     
+    ------------------ -------------------- -----------------
+    10.115844157271932 -0.01868566042804702 9.979146899891962
 </pre>
 </div>
 </div>
@@ -15877,9 +15856,7 @@ Parameters:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 
@@ -15919,15 +15896,13 @@ Parameters:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[0.0613266  0.0618684  0.06190388]
+<pre>[0.04269865 0.05537555 0.05553925]
 </pre>
 </div>
 </div>
@@ -15972,17 +15947,15 @@ Parameters:
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Amplitude: 10.412781833033181 +\- 0.24764208133423565
-Mean: 0.43605297106027385 +\- 0.24873359616422028
-Standard Deviation: 9.058041468762717 +\- 0.24880491000543875
+<pre>Amplitude: 10.115844157271932 +\- 0.20663652458995213
+Mean: -0.01868566042804702 +\- 0.23532010692133684
+Standard Deviation: 9.979146899891962 +\- 0.23566766535234365
 </pre>
 </div>
 </div>
@@ -16060,15 +16033,13 @@ Standard Deviation: 9.058041468762717 +\- 0.24880491000543875
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[10.41278087  0.43605274  9.05804314]
+<pre>[10.11584358 -0.01868407  9.97914805]
 </pre>
 </div>
 </div>
@@ -16101,17 +16072,15 @@ Standard Deviation: 9.058041468762717 +\- 0.24880491000543875
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Amplitude: 10.412780871467199 +\- 0.24764258136610504
-Mean: 0.4360527427946114 +\- 0.24873260724232152
-Standard Deviation: 9.058043138726886 +\- 0.24880389458286314
+<pre>Amplitude: 10.115843576374411 +\- 0.20663722089475542
+Mean: -0.018684073412180292 +\- 0.2353180998110397
+Standard Deviation: 9.97914804795163 +\- 0.23566600680740504
 </pre>
 </div>
 </div>
@@ -16154,15 +16123,13 @@ Standard Deviation: 9.058043138726886 +\- 0.24880389458286314
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Reduced Chi Squared using astropy.modeling: 1.0828640160459582
+<pre>Reduced Chi Squared using astropy.modeling: 0.8300300060325226
 </pre>
 </div>
 </div>
@@ -16194,15 +16161,13 @@ Standard Deviation: 9.058043138726886 +\- 0.24880389458286314
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Reduced Chi Squared using scipy: 1.0828640160468912
+<pre>Reduced Chi Squared using scipy: 0.8300300060306395
 </pre>
 </div>
 </div>
@@ -16250,9 +16215,7 @@ Standard Deviation: 9.058043138726886 +\- 0.24880389458286314
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
 
@@ -16260,13 +16223,11 @@ Standard Deviation: 9.058043138726886 +\- 0.24880389458286314
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.legend.Legend at 0x7f791fc4ddf0&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x7fd7250e8fd0&gt;</pre>
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16276,7 +16237,6 @@ Standard Deviation: 9.058043138726886 +\- 0.24880389458286314
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/Models-Quick-Fit.ipynb_72_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -16308,14 +16268,13 @@ jp-needs-light-background
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Summary:">Summary:<a class="anchor-link" href="#Summary:">&#182;</a></h2><p>Let's review the conclusion we got in this tutorial:</p>
 <ol>
-<li>You can fit data with <strong>three lines of code</strong>:<ul>
+<li><p>You can fit data with <strong>three lines of code</strong>:</p>
+<ul>
 <li>model</li>
 <li>fitter</li>
 <li>perform fit to data</li>
 </ul>
 </li>
-</ol>
-<ol>
 <li><p><strong>Pay attention</strong> when you choose the <strong>fitter</strong>.</p>
 </li>
 <li><p>Choose the method most convenient for every case you need to fit. We recomend <code>astropy.modeling</code> to make <strong>quick fits of known functions</strong>.</p>
@@ -16397,9 +16356,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
 
@@ -16411,9 +16368,7 @@ jp-needs-light-background
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -16423,7 +16378,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/Models-Quick-Fit.ipynb_78_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>

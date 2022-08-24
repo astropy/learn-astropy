@@ -14465,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14478,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14707,9 +14720,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
@@ -14774,9 +14785,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14827,9 +14836,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14839,9 +14846,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </pre>
 </div>
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14879,9 +14884,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14919,9 +14922,7 @@ Number of rows is 4028
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15024,9 +15025,7 @@ Length = 4028 rows
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15133,9 +15132,7 @@ For example, you can query SIMBAD for the first entry in your result above.</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15214,9 +15211,7 @@ Length = 24 rows
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15266,11 +15261,11 @@ Length = 24 rows
         &#34;W50&#34;
     ],
     &#34;validate_warnings&#34;: [
-        &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220816/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml:154:0: W50: Invalid unit string &#39;pixel&#39;&#34;,
-        &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220816/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml:154:0: W50: Invalid unit string &#39;pixel&#39;&#34;
+        &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220824/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml:154:0: W50: Invalid unit string &#39;pixel&#39;&#34;,
+        &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220824/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml:154:0: W50: Invalid unit string &#39;pixel&#39;&#34;
     ],
     &#34;validate_xmllint&#34;: true,
-    &#34;validate_xmllint_content&#34;: &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220816/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml validates\n&#34;,
+    &#34;validate_xmllint_content&#34;: &#34;/var/www/astroconda.org/html/aux/vo_databases/daily_20220824/results/91/13/e0bb2f53e1be973136ff8afe5ae9/vo.xml validates\n&#34;,
     &#34;waveband&#34;: &#34;optical&#34;,
     &#34;wsdl_url&#34;: &#34;&#34;
 }
@@ -15339,9 +15334,7 @@ Length = 24 rows
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15398,9 +15391,7 @@ Length = 24 rows
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15438,9 +15429,7 @@ Length = 24 rows
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15484,9 +15473,7 @@ Length = 24 rows
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15540,9 +15527,7 @@ Length = 24 rows
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
@@ -15613,9 +15598,7 @@ $[227.808,~339.354,~352.944] \; \mathrm{{}^{\prime\prime}}$
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15627,8 +15610,8 @@ http://vizier.unistra.fr/viz-bin/conesearch/I/254/out? returned 5 rows
 http://vizier.unistra.fr/viz-bin/conesearch/I/255/out? returned 5 rows
 http://vizier.unistra.fr/viz-bin/conesearch/I/243/out? returned 3 rows
 http://vizier.unistra.fr/viz-bin/conesearch/I/252/out? returned 3 rows
-http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twomass_xsc returned 25 rows
 http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twomass_psc returned 2008 rows
+http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twomass_xsc returned 25 rows
 </pre>
 </div>
 </div>
@@ -15662,9 +15645,7 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15747,9 +15728,7 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15795,9 +15774,7 @@ After 3 seconds. Am I done? True
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15809,16 +15786,14 @@ Am I done? False
 </pre>
 </div>
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=PhotoObj&#39; returned 0 result [astroquery.vo_conesearch.core]
-WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=PhotoObjAll&#39; returned 0 result [astroquery.vo_conesearch.core]
+<pre>WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=PhotoObjAll&#39; returned 0 result [astroquery.vo_conesearch.core]
+WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=PhotoObj&#39; returned 0 result [astroquery.vo_conesearch.core]
 WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=Galaxy&#39; returned 0 result [astroquery.vo_conesearch.core]
 WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=Star&#39; returned 0 result [astroquery.vo_conesearch.core]
 WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr8-dsa/DirectCone?DSACAT=SDSS_DR8&amp;DSATAB=SpecObjAll&#39; returned 0 result [astroquery.vo_conesearch.core]
@@ -15826,9 +15801,7 @@ WARNING: NoResultsWarning: Catalog server &#39;http://wfaudata.roe.ac.uk/sdssdr8
 </pre>
 </div>
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15840,8 +15813,8 @@ http://vizier.unistra.fr/viz-bin/conesearch/I/254/out? returned 5 rows
 http://vizier.unistra.fr/viz-bin/conesearch/I/255/out? returned 5 rows
 http://vizier.unistra.fr/viz-bin/conesearch/I/243/out? returned 3 rows
 http://vizier.unistra.fr/viz-bin/conesearch/I/252/out? returned 3 rows
-http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twomass_xsc returned 25 rows
 http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twomass_psc returned 2008 rows
+http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twomass_xsc returned 25 rows
 </pre>
 </div>
 </div>
@@ -15900,9 +15873,7 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15912,15 +15883,12 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/conesearch.ipynb_41_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15930,7 +15898,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/conesearch.ipynb_41_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15964,15 +15931,13 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Predicted run time is 0.8339133000503515 seconds
+<pre>Predicted run time is 0.8002830831784097 seconds
 Predicted number of rows is 2617
 </pre>
 </div>
@@ -16020,15 +15985,13 @@ Predicted number of rows is 2617
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>INFO: conesearch_timer took 0.7551178932189941 s on AVERAGE for 1 call(s). [astroquery.utils.timer]
+<pre>INFO: conesearch_timer took 0.7886872291564941 s on AVERAGE for 1 call(s). [astroquery.utils.timer]
 </pre>
 </div>
 </div>
@@ -16060,15 +16023,13 @@ Predicted number of rows is 2617
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Actual run time is 0.7551178932189941 seconds
+<pre>Actual run time is 0.7886872291564941 seconds
 Actual number of rows is 4028
 </pre>
 </div>

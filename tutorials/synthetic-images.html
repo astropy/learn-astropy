@@ -14465,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14478,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14582,7 +14595,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Synthetic-Images-from-simulated-data">Synthetic Images from simulated data<a class="anchor-link" href="#Synthetic-Images-from-simulated-data">&#182;</a></h1><h2 id="Authors">Authors<a class="anchor-link" href="#Authors">&#182;</a></h2><p>Yi-Hao Chen, Sebastian Heinz, Kelle Cruz, Stephanie T. Douglas</p>
 <h2 id="Learning-Goals">Learning Goals<a class="anchor-link" href="#Learning-Goals">&#182;</a></h2><ul>
-<li>Assign WCS astrometry to an image using <code>astropy.wcs</code> </li>
+<li>Assign WCS astrometry to an image using <code>astropy.wcs</code></li>
 <li>Construct a PSF using <code>astropy.modeling.model</code></li>
 <li>Convolve raw data with PSF using <code>astropy.convolution</code></li>
 <li>Calculate polarization fraction and angle from Stokes I, Q, U data</li>
@@ -14592,8 +14605,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><p>In this tutorial, we will:</p>
 <p><a href="#1.-Load-and-examine-the-FITS-file">1. Load and examine the FITS file</a></p>
 <p><a href="#2.-Set-up-astrometry-coordinates">2. Set up astrometry coordinates</a></p>
-<p><a href="#3.-Prepare-a-Point-Spread-Function-(PSF">3. Prepare a Point Spread Function (PSF)</a>)</p>
-<blockquote><p><a href="#3.a-How-to-do-this-without-astropy-kernels">3.a How to do this without astropy kernels</a></p>
+<p><a href="#3.-Prepare-a-Point-Spread-Function-(PSF)">3. Prepare a Point Spread Function (PSF)</a></p>
+<blockquote>
+<p><a href="#3.a-How-to-do-this-without-astropy-kernels">3.a How to do this without astropy kernels</a></p>
 </blockquote>
 <p><a href="#4.-Convolve-image-with-PSF">4. Convolve image with PSF</a></p>
 <p><a href="#5.-Convolve-Stokes-Q-and-U-images">5. Convolve Stokes Q and U images</a></p>
@@ -14672,9 +14686,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14687,9 +14699,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 </pre>
 </div>
 </div>
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
 
@@ -14765,9 +14775,7 @@ WCSNAME = &#39;yt      &#39;                                                    
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14778,9 +14786,7 @@ WCSNAME = &#39;yt      &#39;                                                    
 </pre>
 </div>
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14790,7 +14796,6 @@ WCSNAME = &#39;yt      &#39;                                                    
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/synthetic-images.ipynb_5_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -14839,9 +14844,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
@@ -14849,13 +14852,11 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f6d0cc34490&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7fe6ab925880&gt;</pre>
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14865,7 +14866,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/synthetic-images.ipynb_7_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -14946,9 +14946,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15067,9 +15065,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 
@@ -15137,9 +15133,7 @@ MJDREF  =                  0.0 / [d] MJD of fiducial time                       
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15149,7 +15143,6 @@ MJDREF  =                  0.0 / [d] MJD of fiducial time                       
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/synthetic-images.ipynb_18_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15244,9 +15237,7 @@ First we need to set the telescope resolution. For a 2D Gaussian, we can calcula
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 
@@ -15254,13 +15245,11 @@ First we need to set the telescope resolution. For a 2D Gaussian, we can calcula
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f6ccca384f0&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7fe6a3f0efd0&gt;</pre>
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15270,7 +15259,6 @@ First we need to set the telescope resolution. For a 2D Gaussian, we can calcula
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/synthetic-images.ipynb_23_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15340,9 +15328,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 
@@ -15350,13 +15336,11 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f6ccc99cd00&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7fe6a3efb7c0&gt;</pre>
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15366,7 +15350,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/synthetic-images.ipynb_26_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15395,7 +15378,7 @@ jp-needs-light-background
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Here we use <code>astropy.convolution.convolve_fft</code> to convolve image. This routine uses fourier transform for faster calculation. Especially since our data is $2^n$ sized, which makes it particually fast. Using a fft, however, causes boundary effects. We'll need to specify how we want to handle the boundary. Here we choose to "wrap" the data, which means making the data periodic.</p>
+<p>Here we use <code>astropy.convolution.convolve_fft</code> to convolve image. This routine uses fourier transform for faster calculation. Especially since our data is $2^n$ sized, which makes it particually fast. Using a fft, however, causes boundary effects. We'll need to specify how we want to handle the boundary. Here we choose to &quot;wrap&quot; the data, which means making the data periodic.</p>
 
 </div>
 </div>
@@ -15476,9 +15459,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 
@@ -15486,13 +15467,11 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.colorbar.Colorbar at 0x7f6ccc8ca2e0&gt;</pre>
+<pre>&lt;matplotlib.colorbar.Colorbar at 0x7fe6a3e1fe20&gt;</pre>
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15502,7 +15481,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/synthetic-images.ipynb_32_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15546,9 +15524,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15647,9 +15623,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 
@@ -15657,13 +15631,11 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.colorbar.Colorbar at 0x7f6ccc7bb460&gt;</pre>
+<pre>&lt;matplotlib.colorbar.Colorbar at 0x7fe6a25d1820&gt;</pre>
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15673,7 +15645,6 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/synthetic-images.ipynb_37_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15771,9 +15742,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 
@@ -15781,13 +15750,11 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.quiver.Quiver at 0x7f6ccc6de2b0&gt;</pre>
+<pre>&lt;matplotlib.quiver.Quiver at 0x7fe6a25c1880&gt;</pre>
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15797,7 +15764,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/synthetic-images.ipynb_40_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>

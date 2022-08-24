@@ -14465,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14478,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14588,7 +14601,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <li>Write image data to a FITS file</li>
 </ol>
 <h2 id="Companion-Content">Companion Content<a class="anchor-link" href="#Companion-Content">&#182;</a></h2><ul>
-<li>This link provides a comprehensive description of FITS file usage in this tutorial: <a href="http://docs.astropy.org/en/stable/io/fits/index.html">astropy.io.fits</a> </li>
+<li>This link provides a comprehensive description of FITS file usage in this tutorial: <a href="http://docs.astropy.org/en/stable/io/fits/index.html">astropy.io.fits</a></li>
 </ul>
 <h2 id="Keywords">Keywords<a class="anchor-link" href="#Keywords">&#182;</a></h2><p>FITS, file input/output, image manipulation, numpy, matplotlib, histogram, colorbar</p>
 <h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><p>This tutorial demonstrates the use of <code>astropy.utils.data</code> to download a data file, then uses <code>astropy.io.fits</code> to open the file, and lastly uses <code>matplotlib</code> to view the image with different color scales and stretches and to make histograms. In this tutorial we've also included a demonstration of simple image stacking.</p>
@@ -14627,7 +14640,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Download the example FITS files (which contain the image data for the Horsehead Nebula) for this tutorial.</p>
 <p>First, we need to download the FITS file image for this tutorial. This is an astronomical image of the Horsehead Nebula taken with a photographic plate. The image has been digitized, that is, the image has been scanned by a computer and converted to a 2-D array. Each position in the array corresponds with the projected position on the sky, and bright areas of the image have high values and dark areas have low values in the array.</p>
-<p>Images taken with astronomical instruments called <a href="https://en.wikipedia.org/wiki/Charge-coupled_device">CCDs or "charge-coupled devices"</a> are organized similarly. When illuminated by light, CCDs accumulate electrons, converting brightness values to electron counts. A CCD image is essentially a 2-D array, where each position on the array represents a single CCD pixel, and the values in that array represent the number of counts registered in that pixel.</p>
+<p>Images taken with astronomical instruments called <a href="https://en.wikipedia.org/wiki/Charge-coupled_device">CCDs or &quot;charge-coupled devices&quot;</a> are organized similarly. When illuminated by light, CCDs accumulate electrons, converting brightness values to electron counts. A CCD image is essentially a 2-D array, where each position on the array represents a single CCD pixel, and the values in that array represent the number of counts registered in that pixel.</p>
 
 </div>
 </div>
@@ -14707,9 +14720,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14790,9 +14801,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14910,9 +14919,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14965,9 +14972,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 
@@ -14975,13 +14980,11 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.colorbar.Colorbar at 0x7f8d2c63a850&gt;</pre>
+<pre>&lt;matplotlib.colorbar.Colorbar at 0x7fb199747970&gt;</pre>
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14991,7 +14994,6 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/FITS-images.ipynb_20_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15039,9 +15041,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15089,7 +15089,7 @@ Stdev: 3032.3927542049046
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>In this case, let's use the <code>ndarray.flatten()</code> to return a 1D numpy array. Here we use the print statements to check that the "flattened" array is stilly a numpy array, and that the number of entries in the flattened array equals the total number of pixels in the image (that is, 893 x 891 = 795663 pixels total).</p>
+<p>In this case, let's use the <code>ndarray.flatten()</code> to return a 1D numpy array. Here we use the print statements to check that the &quot;flattened&quot; array is stilly a numpy array, and that the number of entries in the flattened array equals the total number of pixels in the image (that is, 893 x 891 = 795663 pixels total).</p>
 
 </div>
 </div>
@@ -15117,9 +15117,7 @@ Stdev: 3032.3927542049046
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15169,9 +15167,7 @@ Stdev: 3032.3927542049046
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15181,7 +15177,6 @@ Stdev: 3032.3927542049046
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/FITS-images.ipynb_28_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15257,9 +15252,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
@@ -15273,9 +15266,7 @@ jp-needs-light-background
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15285,7 +15276,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/FITS-images.ipynb_32_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15420,9 +15410,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15432,7 +15420,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/FITS-images.ipynb_40_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15478,9 +15465,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 
@@ -15488,13 +15473,11 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.colorbar.Colorbar at 0x7f8d22112fd0&gt;</pre>
+<pre>&lt;matplotlib.colorbar.Colorbar at 0x7fb18f25a0a0&gt;</pre>
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15504,7 +15487,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/FITS-images.ipynb_42_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>

@@ -14465,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14478,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14667,9 +14680,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
 
@@ -14724,9 +14735,7 @@ We use pixel units to start; we'll show celestial coordinates later</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
@@ -14734,13 +14743,11 @@ We use pixel units to start; we'll show celestial coordinates later</p>
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f2266982700&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7fa3340adca0&gt;</pre>
 </div>
 
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14750,7 +14757,6 @@ We use pixel units to start; we'll show celestial coordinates later</p>
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/PVDiagramPlotting.ipynb_6_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -14830,9 +14836,7 @@ It is drawn below.</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14842,7 +14846,6 @@ It is drawn below.</p>
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/PVDiagramPlotting.ipynb_10_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -14900,9 +14903,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 
@@ -14910,7 +14911,7 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;astropy.io.fits.hdu.image.PrimaryHDU at 0x7f22616e4e50&gt;</pre>
+<pre>&lt;astropy.io.fits.hdu.image.PrimaryHDU at 0x7fa33437af40&gt;</pre>
 </div>
 
 </div>
@@ -14959,9 +14960,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14971,7 +14970,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/PVDiagramPlotting.ipynb_15_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15029,9 +15027,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15041,7 +15037,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/PVDiagramPlotting.ipynb_17_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15089,15 +15084,13 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.max at 0x7f2267024dc0&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
+<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.max at 0x7fa334750820&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
 </pre>
 </div>
 </div>
@@ -15146,9 +15139,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15158,7 +15149,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/PVDiagramPlotting.ipynb_20_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15262,9 +15252,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15274,7 +15262,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/PVDiagramPlotting.ipynb_26_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15308,9 +15295,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
@@ -15318,7 +15303,7 @@ jp-needs-light-background
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>&lt;astropy.io.fits.hdu.image.PrimaryHDU at 0x7f22614b1940&gt;</pre>
+<pre>&lt;astropy.io.fits.hdu.image.PrimaryHDU at 0x7fa330c0e1c0&gt;</pre>
 </div>
 
 </div>
@@ -15367,9 +15352,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15379,7 +15362,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/PVDiagramPlotting.ipynb_28_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15444,9 +15426,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15456,7 +15436,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/PVDiagramPlotting.ipynb_30_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15529,9 +15508,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15606,9 +15583,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15618,7 +15593,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/PVDiagramPlotting.ipynb_36_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15689,9 +15663,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15701,9 +15673,7 @@ jp-needs-light-background
 </pre>
 </div>
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15713,7 +15683,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/PVDiagramPlotting.ipynb_38_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>

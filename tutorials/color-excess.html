@@ -14465,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14478,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14619,12 +14632,12 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><p>In this tutorial, we will look at some extinction curves from the literature, use one of those curves to deredden an observed spectrum, and practice invoking a background source flux in order to calculate magnitudes from an extinction model.</p>
 <p>The primary libraries we'll be using are <a href="https://dust-extinction.readthedocs.io/en/latest/">dust_extinction</a> and <a href="https://synphot.readthedocs.io/en/latest/">synphot</a>, which are <a href="https://www.astropy.org/affiliated/">Astropy affiliated packages</a>.</p>
 <p>We recommend installing the two packages in this fashion:</p>
-
 <pre><code>pip install synphot
-pip install dust_extinction</code></pre>
+pip install dust_extinction
+</code></pre>
 <p>This tutorial requires v0.7 or later of <code>dust_extinction</code>. To ensure that all commands work properly, make sure you have the correct version installed. If you have v0.6 or earlier installed, run the following command to upgrade</p>
-
-<pre><code>pip install dust_extinction --upgrade</code></pre>
+<pre><code>pip install dust_extinction --upgrade
+</code></pre>
 
 </div>
 </div>
@@ -14689,7 +14702,7 @@ $$</p>
 $$
 \tau_\lambda = -\ln\left(\frac{F_\lambda}{F_{\lambda,0}}\right).
 $$</p>
-<p>With an eye to how we define magnitudes, we usually change the base from $e$ to 10,<br>
+<p>With an eye to how we define magnitudes, we usually change the base from $e$ to 10,<br />
 $$
 \tau_\lambda = -2.303\log\left(\frac{F_\lambda}{F_{\lambda,0}}\right),
 $$</p>
@@ -14780,9 +14793,7 @@ $$</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14792,7 +14803,6 @@ $$</p>
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/color-excess.ipynb_9_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -14866,9 +14876,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
@@ -14876,7 +14884,7 @@ jp-needs-light-background
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
 <div><i>Table masked=True length=109</i>
-<table id="table140617580613696" class="table-striped table-bordered table-condensed">
+<table id="table140248388333376" class="table-striped table-bordered table-condensed">
 <thead><tr><th>intentType</th><th>obs_collection</th><th>provenance_name</th><th>instrument_name</th><th>project</th><th>filters</th><th>wavelength_region</th><th>target_name</th><th>target_classification</th><th>obs_id</th><th>s_ra</th><th>s_dec</th><th>dataproduct_type</th><th>proposal_pi</th><th>calib_level</th><th>t_min</th><th>t_max</th><th>t_exptime</th><th>em_min</th><th>em_max</th><th>obs_title</th><th>t_obs_release</th><th>proposal_id</th><th>proposal_type</th><th>sequence_number</th><th>s_region</th><th>jpegURL</th><th>dataURL</th><th>dataRights</th><th>mtFlag</th><th>srcDen</th><th>obsid</th><th>distance</th></tr></thead>
 <thead><tr><th>str7</th><th>str11</th><th>str12</th><th>str13</th><th>str6</th><th>str16</th><th>str16</th><th>str21</th><th>str32</th><th>str57</th><th>float64</th><th>float64</th><th>str8</th><th>str19</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>str117</th><th>float64</th><th>str25</th><th>str6</th><th>int64</th><th>str23309</th><th>str137</th><th>str137</th><th>str6</th><th>bool</th><th>float64</th><th>str8</th><th>float64</th></tr></thead>
 <tr><td>science</td><td>IUE</td><td>--</td><td>LWP</td><td>--</td><td>HIGH DISP</td><td>UV</td><td>HD 147933</td><td>--</td><td>lwp05490</td><td>246.396176503177</td><td>-23.4459596019354</td><td>spectrum</td><td>Theodore P. Snow</td><td>2</td><td>46135.7773264</td><td>46135.7787093</td><td>119.48</td><td>185000100000.0</td><td>334994200000.0</td><td>Interstellar Lines and Ultraviolet Extinction in Dark Clouds</td><td>nan</td><td>IMGTS</td><td>--</td><td>--</td><td>CIRCLE ICRS 246.396176503177 -23.4459596019354 0.00300694444444</td><td>http://archive.stsci.edu/browse/previews/iue/mx/lwp/05000/gif/lwp05490.gif</td><td>http://archive.stsci.edu/missions/iue/data/lwp/05000/lwp05490.mxhi.gz</td><td>PUBLIC</td><td>--</td><td>5885.0</td><td>349209</td><td>0.0</td></tr>
@@ -14934,9 +14942,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14994,9 +15000,7 @@ Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:IUE/url/p
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15009,9 +15013,7 @@ Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:IUE/url/p
 </pre>
 </div>
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15230,9 +15232,7 @@ $$</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15242,7 +15242,6 @@ $$</p>
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/color-excess.ipynb_28_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15331,9 +15330,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15343,7 +15340,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/color-excess.ipynb_32_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15362,7 +15358,7 @@ jp-needs-light-background
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Notice that, by dereddening the spectrum, the absorption feature at 2175 Angstrom is removed.  This feature can also be seen as the prominent bump in the extinction curves in Example 1.  That we have smoothly removed the 2175 Angstrom feature suggests that the values we chose, $R_V = 5$ and $E_{B-V} = 0.5$, are a reasonable model for the foreground dust.</p>
-<p>Those experienced with dereddening should notice that that <code>dust_extinction</code> returns $A_\lambda/A_V$, while other routines like the IDL fm<em>unred procedure often return $A</em>\lambda/E_{B-V}$ by default and need to be divided by $R_V$ in order to compare directly with <code>dust_extinction</code>.</p>
+<p>Those experienced with dereddening should notice that that <code>dust_extinction</code> returns $A_\lambda/A_V$, while other routines like the IDL fm_unred procedure often return $A_\lambda/E_{B-V}$ by default and need to be divided by $R_V$ in order to compare directly with <code>dust_extinction</code>.</p>
 
 </div>
 </div>
@@ -15503,9 +15499,7 @@ $$</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15515,7 +15509,6 @@ $$</p>
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/color-excess.ipynb_40_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15572,9 +15565,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15584,7 +15575,6 @@ jp-needs-light-background
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/color-excess.ipynb_42_0.png"
 class="
-jp-needs-light-background
 "
 >
 </div>
@@ -15668,9 +15658,7 @@ jp-needs-light-background
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15757,9 +15745,7 @@ $A_V$ =  2.0 VEGAMAG
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15776,9 +15762,7 @@ $A_V$ =  2.0 VEGAMAG
 </pre>
 </div>
 </div>
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -15788,7 +15772,6 @@ $A_V$ =  2.0 VEGAMAG
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="nboutput/color-excess.ipynb_49_1.png"
 class="
-jp-needs-light-background
 "
 >
 </div>

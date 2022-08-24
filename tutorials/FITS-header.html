@@ -14465,10 +14465,6 @@ a.anchor-link {
   display: none;
 }
 
-.highlight  {
-  margin: 0.4em;
-}
-
 /* Input area styling */
 .jp-InputArea {
   overflow: hidden;
@@ -14478,9 +14474,26 @@ a.anchor-link {
   overflow: hidden;
 }
 
-.CodeMirror pre {
+.CodeMirror.cm-s-jupyter .highlight pre {
+/* weird, but --jp-code-padding defined to be 5px but 4px horizontal padding is hardcoded for pre.CodeMirror-line */
+  padding: var(--jp-code-padding) 4px;
   margin: 0;
-  padding: 0;
+
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+
+}
+
+.jp-OutputArea-output pre {
+  line-height: inherit;
+  font-family: inherit;
+}
+
+.jp-RenderedText pre {
+  color: var(--jp-content-font-color1);
+  font-size: var(--jp-code-font-size);
 }
 
 /* Using table instead of flexbox so that we can use break-inside property */
@@ -14582,9 +14595,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Edit-a-FITS-header">Edit a FITS header<a class="anchor-link" href="#Edit-a-FITS-header">&#182;</a></h1><h2 id="Authors">Authors<a class="anchor-link" href="#Authors">&#182;</a></h2><p>Adrian Price-Whelan, Adam Ginsburg, Stephanie T. Douglas, Kelle Cruz</p>
 <h2 id="Learning-Goals">Learning Goals<a class="anchor-link" href="#Learning-Goals">&#182;</a></h2><ul>
-<li>Read a FITS file </li>
+<li>Read a FITS file</li>
 <li>Retrieve FITS header metadata</li>
-<li>Edit the FITS header </li>
+<li>Edit the FITS header</li>
 <li>Write the modified file as a FITS file</li>
 </ul>
 <h2 id="Keywords">Keywords<a class="anchor-link" href="#Keywords">&#182;</a></h2><p>FITS, file input/output</p>
@@ -14679,9 +14692,7 @@ header:</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
@@ -14744,9 +14755,7 @@ object that acts like a standard Python dictionary.</p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
@@ -14759,9 +14768,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 </pre>
 </div>
 </div>
-
-<div class="jp-OutputArea-child">
-
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 
@@ -14873,7 +14880,7 @@ function for this is the most useful command to remember:</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Two common and more complicated cases are worth mentioning (but if your needs 
-are much more complex, you should consult the full documentation <a href="http://docs.astropy.org/en/stable/io/fits/">http://docs.astropy.org/en/stable/io/fits/</a>).</p>
+are much more complex, you should consult the full documentation http://docs.astropy.org/en/stable/io/fits/).</p>
 <p>The first complication is that the FITS file you're examining and 
 editing might have multiple HDU's (extensions), in which case you can 
 specify the extension like this:</p>
