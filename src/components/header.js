@@ -75,8 +75,7 @@ const NavItem = styled.div`
     flex-direction: column;
     align-items: flex-start;
     padding-top: 10px;
-    padding-left: 3rem;
-    ${'' /* Or .5 rem for the left padding */}
+    padding-left: 0.5rem;
   }
 `;
 
