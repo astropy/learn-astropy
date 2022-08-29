@@ -27,7 +27,11 @@ const HeaderContainer = styled.header`
     flex-direction: row
     flex-wrap: nowrap;
     justify-content: flex-start;
-    align-items: flex-end;
+    align-items: flex-start;
+
+    @media screen and (max-width: 600px) {
+      margin-left: -1rem;
+    }
   }
 
   .astropy-link {
@@ -40,6 +44,14 @@ const HeaderContainer = styled.header`
 
   a:hover {
     text-decoration: none;
+  }
+
+  @media screen and (max-width: 600px) {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      align-items: flex-start;
   }
 `;
 
@@ -55,6 +67,15 @@ const NavItem = styled.div`
 
   .astropy-link {
     margin-left: auto;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 10px;
+    padding-left: 0.5rem;
   }
 `;
 

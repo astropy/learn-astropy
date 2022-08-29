@@ -10,6 +10,10 @@ const FullWidthContainer = styled.div`
   margin: 0 -50vw;
   background-color: var(--astropy-nav-header-color);
   color: var(--astropy-nav-header-text-color);
+
+  @media screen and (max-width: 600px) {
+    padding: 20px;
+  }
 `;
 
 const StyledPageCoverContent = styled.header`
@@ -19,6 +23,10 @@ const StyledPageCoverContent = styled.header`
 
   p {
     font-size: var(--astropy-font-size-ml);
+  }
+
+  @media screen and (max-width: 600px) {
+    margin: 0 auto;
   }
 `;
 

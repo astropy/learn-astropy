@@ -19,6 +19,10 @@ export const SearchLayout = styled.div`
   .search-box-area {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
+
+    @media screen and (max-width: 750px) {
+      grid-column: 1 / 3;
+    }
   }
 
   .search-refinements-area {
@@ -29,11 +33,18 @@ export const SearchLayout = styled.div`
     @media only screen and (min-width: ${bp.phone}) {
       margin-top: 0;
     }
+    @media screen and (max-width: 750px) {
+      display: none;
+    }
   }
 
   .search-results-area {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
+
+    @media screen and (max-width: 750px) {
+      grid-column: 1 / 3;
+    }
   }
 `;
 
