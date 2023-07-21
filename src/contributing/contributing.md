@@ -5,7 +5,7 @@ slug: '/contributing/how-to-contribute'
 
 ## Overview
 
-Each tutorial is a [Jupyter notebook](https://jupyter.org/) file. Each notebook is saved in a separate directory within the `tutorials/notebooks` subdirectory in this project. For an example, let's look at the source notebook of the [FITS-header](https://github.com/astropy/astropy-tutorials/tree/main/tutorials/FITS-header/) tutorial. Within `tutorials/notebooks/FITS-header`, there is a single Jupyter notebook file that contains the text and code for the tutorial, and any small data files used in the tutorial (in this case, a single FITS file). The notebook file is automatically run and converted into a static HTML page ([for example](https://learn.astropy.org/tutorials/FITS-header.html)), which is then displayed in the tutorial listing on the main tutorials webpage, http://tutorials.astropy.org. Each tutorial notebook file also contains information such as the author's name, month and year it was written, and any other metadata that should be associated with the tutorial.
+Each tutorial is a [Jupyter notebook](https://jupyter.org/) file. Each notebook is saved in a separate directory within the `tutorials` subdirectory in this project. For an example, let's look at the source notebook of the [FITS-header](https://github.com/astropy/astropy-tutorials/tree/main/tutorials/FITS-header/) tutorial. Within `tutorials/FITS-header`, there is a single Jupyter notebook file that contains the text and code for the tutorial, and any small data files used in the tutorial (in this case, a single FITS file). The notebook file is automatically run and converted into a static HTML page ([for example](https://learn.astropy.org/tutorials/FITS-header.html)), which is then displayed in the tutorial listing on the main tutorials webpage, http://tutorials.astropy.org. Each tutorial notebook file also contains information such as the author's name, month and year it was written, and any other metadata that should be associated with the tutorial.
 
 ## Content Guidelines
 
@@ -98,7 +98,7 @@ When the tutorial is ready to be incorporated, Learn Astropy maintainers will op
 
 ### Method Two: Submit a Pull Request
 
-The process for contributing a tutorial involves the [GitHub fork](https://help.github.com/articles/working-with-forks/) and `git` workflow concepts [branch, push, pull request](https://help.github.com/articles/proposing -changes-to-your-work-with-pull-requests/).
+The process for contributing a tutorial involves the [GitHub fork](https://help.github.com/articles/working-with-forks/) and `git` workflow concepts [branch, push, pull request](https://help.github.com/articles/proposing-changes-to-your-work-with-pull-requests/).
 
 To contribute a new tutorial, first fork the `astropy-tutorials` repository. Then, clone your fork locally to your machine (replace `<GITHUB USERNAME>` with your GitHub username):
 
@@ -112,10 +112,10 @@ Next, create a branch in your local repository with the name of the tutorial you
 git checkout -b Spectral-Line-Fitting
 ```
 
-The notebook files must be written as a single Jupyter notebook in a directory within the `tutorials/notebooks` directory. The name of the notebook must be the same as the subdirectory name. We'll create a new directory in `tutorials/notebooks` with the same name as the branch:
+The notebook files must be written as a single Jupyter notebook in a directory within the `tutorials` directory. The name of the notebook must be the same as the subdirectory name. We'll create a new directory in `tutorials` with the same name as the branch:
 
 ```
-mkdir tutorials/notebooks/Spectral-Line-Fitting
+mkdir tutorials/Spectral-Line-Fitting
 ```
 
 All files used by the tutorial -- e.g., example data files, the Jupyter notebook file itself -- should go in this directory.
@@ -127,7 +127,19 @@ scipy==1.0
 numpy>=1.13
 ```
 
-To see an example, have a look at the FITS-header [requirements.txt file](https: //github.com/astropy/astropy-tutorials/blob/master/tutorials/notebooks/FITS-head er/requirements.txt).
+To see an example, have a look at the FITS-header [requirements.txt file](https://github.com/astropy/astropy-tutorials/blob/main/tutorials/FITS-header/requirements.txt).
+
+When you commit your notebook to the git repository five tests will automatically run:
+
+```
+trim trailing whitespace
+fix end of files
+check yaml
+check for added large files
+nbstripout
+```
+
+If any of them fail, your files will be automatically modified in accordance with the issues, and the commit will not proceed. If you run `git status` you will see there are unstages changes. Now `git add` the changed files and rerun the commit command. All the test should now pass and the commit complete. 
 
 Push the notebook and other files from your local branch up to your fork of the repository on GitHub (by default, named 'origin'):
 
