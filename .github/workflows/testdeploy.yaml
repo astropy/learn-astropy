@@ -17,7 +17,7 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          python -m pip install pip==23.3.2
+          python -m pip install -U pip
           python -m pip install -r deployment/requirements.txt
 
       - name: Check Astropy Librarian installation
