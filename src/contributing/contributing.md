@@ -20,7 +20,7 @@ Each tutorial is a [Jupyter notebook](https://jupyter.org/) file. Each notebook 
 
 ### Template intro
 
-The first cell in every tutorial notebook is a markdown cell used for the title, author list, keywords, and summary. It should adhere to the following format:
+The first cell in every tutorial notebook is a markdown cell used for the title, author list, keywords, and summary. All of this information should be contained in a single cell and should adhere to the following format:
 
 ```
 # Title name
@@ -44,7 +44,7 @@ In this tutorial, we will download a data file, do something to it, and then
 visualize it.
 ```
 
-The second cell in every tutorial notebook is a code cell used to display required packages for users, and should be the following lines (this expects the `requirements.txt` file in the notebook's directory with a list of required packages to be present):
+The second cell in every tutorial notebook is a code cell used to display required packages for users, and should be the following lines (this expects the `requirements.txt` file to be present in the notebook's directory):
 
 ```
 with open('requirements.txt') as f:
