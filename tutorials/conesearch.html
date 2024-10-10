@@ -7543,6 +7543,39 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'requirements.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Required packages for this notebook:</span><span class="se">\n</span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Required packages for this notebook:
+astropy
+astroquery&gt;=0.4.8.dev9474  # 2024-09-24 pinned for Gaia column capitalization issue
+matplotlib
+numpy
+
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -7559,7 +7592,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Python standard library</span>
@@ -7603,7 +7636,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.utils</span> <span class="kn">import</span> <span class="n">minversion</span>
@@ -7631,7 +7664,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">conesearch</span><span class="o">.</span><span class="n">list_catalogs</span><span class="p">()</span>
@@ -7645,7 +7678,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>['2MASS All-Sky Catalog of Point Sources 1',
  'Gaia DR2 5',
@@ -7682,7 +7715,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">SkyCoord</span><span class="o">.</span><span class="n">from_name</span><span class="p">(</span><span class="s1">'M31'</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="s1">'icrs'</span><span class="p">)</span>
@@ -7723,7 +7756,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">conesearch</span><span class="o">.</span><span class="n">conesearch</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">)</span>
@@ -7763,7 +7796,7 @@ WARNING: W06: http://vizier.unistra.fr/viz-bin/conesearch/II/246/out?RA=10.68470
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'First non-empty table returned by'</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
@@ -7792,7 +7825,7 @@ Number of rows is 2008
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
@@ -7853,7 +7886,7 @@ Length = 2008 rows
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'my_result.tex'</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'ascii.latex'</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -7879,7 +7912,7 @@ Length = 2008 rows
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">result_tex</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">'my_result.tex'</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'ascii.latex'</span><span class="p">,</span> <span class="n">data_start</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -7942,7 +7975,7 @@ For example, you can query SIMBAD for the first entry in your result above.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Due to the unpredictability of external services,</span>
@@ -7964,7 +7997,7 @@ For example, you can query SIMBAD for the first entry in your result above.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Don't run this cell if column names above are invalid.</span>
@@ -8011,7 +8044,7 @@ For example, you can query SIMBAD for the first entry in your result above.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">my_db</span> <span class="o">=</span> <span class="n">vos_catalog</span><span class="o">.</span><span class="n">get_remote_catalog_db</span><span class="p">(</span><span class="n">conf</span><span class="o">.</span><span class="n">conesearch_dbname</span><span class="p">)</span>
@@ -8077,23 +8110,23 @@ For example, you can query SIMBAD for the first entry in your result above.</p>
         "W03"
     ],
     "validate_warnings": [
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241009/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:46:4: W06: Invalid UCD 'POS_EQ_RA_MAIN': Unknown word 'POS_EQ_RA_MAIN'",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241009/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:49:4: W06: Invalid UCD 'POS_EQ_DEC_MAIN': Unknown word 'POS_EQ_DEC_MAIN'",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241009/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:61:4: W03: Implicitly generating an ID from a name '2MASS' -&gt; '_2MASS'",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241009/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:61:4: W06: Invalid UCD 'ID_MAIN': Unknown word 'ID_MAIN'",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241009/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:152:4: W06: Invalid UCD 'obs.field': Secondary word 'obs.field' is not valid as a primary word",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241009/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:161:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241009/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:209:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241009/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:46:4: W06: Invalid UCD 'POS_EQ_RA_MAIN': Unknown word 'POS_EQ_RA_MAIN'",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241009/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:49:4: W06: Invalid UCD 'POS_EQ_DEC_MAIN': Unknown word 'POS_EQ_DEC_MAIN'",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241009/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:61:4: W03: Implicitly generating an ID from a name '2MASS' -&gt; '_2MASS'",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241009/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:61:4: W06: Invalid UCD 'ID_MAIN': Unknown word 'ID_MAIN'",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241009/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:152:4: W06: Invalid UCD 'obs.field': Secondary word 'obs.field' is not valid as a primary word",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241009/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:161:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241009/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:209:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word"
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241010/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:46:4: W06: Invalid UCD 'POS_EQ_RA_MAIN': Unknown word 'POS_EQ_RA_MAIN'",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241010/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:49:4: W06: Invalid UCD 'POS_EQ_DEC_MAIN': Unknown word 'POS_EQ_DEC_MAIN'",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241010/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:61:4: W03: Implicitly generating an ID from a name '2MASS' -&gt; '_2MASS'",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241010/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:61:4: W06: Invalid UCD 'ID_MAIN': Unknown word 'ID_MAIN'",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241010/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:152:4: W06: Invalid UCD 'obs.field': Secondary word 'obs.field' is not valid as a primary word",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241010/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:161:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241010/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:209:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241010/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:46:4: W06: Invalid UCD 'POS_EQ_RA_MAIN': Unknown word 'POS_EQ_RA_MAIN'",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241010/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:49:4: W06: Invalid UCD 'POS_EQ_DEC_MAIN': Unknown word 'POS_EQ_DEC_MAIN'",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241010/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:61:4: W03: Implicitly generating an ID from a name '2MASS' -&gt; '_2MASS'",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241010/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:61:4: W06: Invalid UCD 'ID_MAIN': Unknown word 'ID_MAIN'",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241010/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:152:4: W06: Invalid UCD 'obs.field': Secondary word 'obs.field' is not valid as a primary word",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241010/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:161:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241010/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:209:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word"
     ],
     "validate_xmllint": false,
-    "validate_xmllint_content": "/var/www/astroconda.org/html/aux/vo_databases/daily_20241009/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:4: element VOTABLE: Schemas validity error : Element '{http://www.ivoa.net/xml/VOTable/v1.3}VOTABLE': No matching global declaration available for the validation root.\n/var/www/astroconda.org/html/aux/vo_databases/daily_20241009/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml fails to validate\n",
+    "validate_xmllint_content": "/var/www/astroconda.org/html/aux/vo_databases/daily_20241010/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:4: element VOTABLE: Schemas validity error : Element '{http://www.ivoa.net/xml/VOTable/v1.3}VOTABLE': No matching global declaration available for the validation root.\n/var/www/astroconda.org/html/aux/vo_databases/daily_20241010/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml fails to validate\n",
     "waveband": "infrared",
     "wsdl_url": ""
 }
@@ -8118,7 +8151,7 @@ For example, you can query SIMBAD for the first entry in your result above.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -8139,7 +8172,7 @@ For example, you can query SIMBAD for the first entry in your result above.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Number of rows is'</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
@@ -8184,7 +8217,7 @@ For example, you can query SIMBAD for the first entry in your result above.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">col_names</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">colnames</span>
@@ -8212,7 +8245,7 @@ For example, you can query SIMBAD for the first entry in your result above.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Before sort</span>
@@ -8245,7 +8278,7 @@ For example, you can query SIMBAD for the first entry in your result above.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># After sort</span>
@@ -8290,7 +8323,7 @@ For example, you can query SIMBAD for the first entry in your result above.</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">result</span><span class="p">[</span><span class="s1">'_r'</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">arcsec</span><span class="p">)</span>
@@ -8304,7 +8337,7 @@ For example, you can query SIMBAD for the first entry in your result above.</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 <div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
 $[227.808,~339.354,~352.944]\mathrm{{}^{\prime\prime}}$
 </div>
@@ -8328,7 +8361,7 @@ $[227.808,~339.354,~352.944]\mathrm{{}^{\prime\prime}}$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
@@ -8344,7 +8377,7 @@ $[227.808,~339.354,~352.944]\mathrm{{}^{\prime\prime}}$
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">url</span><span class="p">,</span> <span class="n">tab</span> <span class="ow">in</span> <span class="n">all_results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -8382,7 +8415,7 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Pick out the first one with "I/220" in it.</span>
@@ -8441,7 +8474,7 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -8492,7 +8525,7 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">async_search_all</span> <span class="o">=</span> <span class="n">conesearch</span><span class="o">.</span><span class="n">AsyncSearchAll</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">degree</span><span class="p">)</span>
@@ -8584,7 +8617,7 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
@@ -8604,13 +8637,13 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/conesearch.ipynb_41_0.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/conesearch.ipynb_42_0.png"/>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/conesearch.ipynb_41_1.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/conesearch.ipynb_42_1.png"/>
 </div>
 </div>
 </div>
@@ -8620,7 +8653,7 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Predicted run time is'</span><span class="p">,</span> <span class="n">t_est</span><span class="p">,</span> <span class="s1">'seconds'</span><span class="p">)</span>
@@ -8637,7 +8670,7 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Predicted run time is 0.6481378650887585 seconds
+<pre>Predicted run time is 0.40950596304762327 seconds
 Predicted number of rows is 2617
 </pre>
 </div>
@@ -8661,7 +8694,7 @@ Predicted number of rows is 2617
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">t_real</span><span class="p">,</span> <span class="n">tab</span> <span class="o">=</span> <span class="n">conesearch</span><span class="o">.</span><span class="n">conesearch_timer</span><span class="p">(</span>
@@ -8680,7 +8713,7 @@ Predicted number of rows is 2617
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>INFO: conesearch_timer took 0.5622835159301758 s on AVERAGE for 1 call(s). [astroquery.utils.timer]
+<pre>INFO: conesearch_timer took 0.6439862251281738 s on AVERAGE for 1 call(s). [astroquery.utils.timer]
 </pre>
 </div>
 </div>
@@ -8691,7 +8724,7 @@ Predicted number of rows is 2617
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'Actual run time is'</span><span class="p">,</span> <span class="n">t_real</span><span class="p">,</span> <span class="s1">'seconds'</span><span class="p">)</span>
@@ -8708,7 +8741,7 @@ Predicted number of rows is 2617
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Actual run time is 0.5622835159301758 seconds
+<pre>Actual run time is 0.6439862251281738 seconds
 Actual number of rows is 4028
 </pre>
 </div>

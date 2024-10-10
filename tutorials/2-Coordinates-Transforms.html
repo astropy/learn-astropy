@@ -7553,6 +7553,39 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'requirements.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Required packages for this notebook:</span><span class="se">\n</span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Required packages for this notebook:
+astropy
+astroquery&gt;=0.4.8.dev9474  # 2024-09-24 pinned for Gaia column capitalization issue
+matplotlib
+numpy
+
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -7569,7 +7602,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
@@ -7607,7 +7640,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="mf">15.9932</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="n">dec</span><span class="o">=-</span><span class="mf">10.52351344</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
@@ -7651,48 +7684,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">represent_as</span><span class="p">(</span><span class="s1">'cartesian'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;CartesianRepresentation (x, y, z) [dimensionless]
-    (0.94512547, 0.27088898, -0.18263903)&gt;</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>or it accepts an <code>astropy.coordinates</code> <code>Representation</code> class, such as:</p>
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">represent_as</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">CartesianRepresentation</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">represent_as</span><span class="p">(</span><span class="s1">'cartesian'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7718,7 +7713,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>A list of all supported representations is given in the documentation (<a href="https://docs.astropy.org/en/stable/coordinates/representations.html#astropy-coordinates-representations">docs</a>), or can be identified as class names that end in <code>Representaton</code>:</p>
+<p>or it accepts an <code>astropy.coordinates</code> <code>Representation</code> class, such as:</p>
 </div>
 </div>
 </div>
@@ -7728,6 +7723,44 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">represent_as</span><span class="p">(</span><span class="n">coord</span><span class="o">.</span><span class="n">CartesianRepresentation</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>&lt;CartesianRepresentation (x, y, z) [dimensionless]
+    (0.94512547, 0.27088898, -0.18263903)&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>A list of all supported representations is given in the documentation (<a href="https://docs.astropy.org/en/stable/coordinates/representations.html#astropy-coordinates-representations">docs</a>), or can be identified as class names that end in <code>Representaton</code>:</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">coord</span><span class="p">)</span> 
@@ -7766,7 +7799,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">c2</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="mf">15.9932</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> 
@@ -7782,7 +7815,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">c2</span><span class="o">.</span><span class="n">represent_as</span><span class="p">(</span><span class="s1">'cartesian'</span><span class="p">)</span>
@@ -7796,7 +7829,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>&lt;CartesianRepresentation (x, y, z) in pc
     (120.40898448, 34.5112558, -23.2682118)&gt;</pre>
@@ -7820,7 +7853,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">c2</span><span class="o">.</span><span class="n">represent_as</span><span class="p">(</span><span class="s1">'cylindrical'</span><span class="p">)</span>
@@ -7834,7 +7867,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>&lt;CylindricalRepresentation (rho, phi, z) in (pc, rad, pc)
     (125.2571368, 0.279134, -23.2682118)&gt;</pre>
@@ -7858,7 +7891,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">c3</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="mf">15.9932</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> 
@@ -7883,7 +7916,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>&lt;SkyCoord (ICRS): (ra, dec, distance) in (deg, deg, pc)
     (15.9932, -10.52351344, 127.4)&gt;</pre>
@@ -7907,7 +7940,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">c3</span><span class="o">.</span><span class="n">representation_type</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">CylindricalRepresentation</span>
@@ -7932,7 +7965,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">c3</span>
@@ -7946,7 +7979,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>&lt;SkyCoord (ICRS): (rho, phi, z) in (pc, deg, pc)
     (125.2571368, 15.9932, -23.2682118)&gt;</pre>
@@ -7970,7 +8003,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">c3</span><span class="o">.</span><span class="n">rho</span><span class="p">,</span> <span class="n">c3</span><span class="o">.</span><span class="n">phi</span><span class="p">,</span> <span class="n">c3</span><span class="o">.</span><span class="n">z</span>
@@ -7984,7 +8017,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>(&lt;Quantity 125.2571368 pc&gt;, &lt;Angle 15.9932 deg&gt;, &lt;Quantity -23.2682118 pc&gt;)</pre>
 </div>
@@ -8008,7 +8041,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">tbl</span> <span class="o">=</span> <span class="n">QTable</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">'Cantat-Gaudin-open-clusters.ecsv'</span><span class="p">)</span>
@@ -8033,7 +8066,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">open_cluster_c</span> <span class="o">=</span> <span class="n">SkyCoord</span><span class="p">(</span>
@@ -8052,7 +8085,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>474</pre>
 </div>
@@ -8075,7 +8108,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">open_cluster_c</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
@@ -8089,7 +8122,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>&lt;SkyCoord (ICRS): (ra, dec, distance) in (deg, deg, pc)
     [( 51.87 , 34.981,  629.6), (288.399, 36.369,  382.2),
@@ -8114,7 +8147,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">coordinates_aitoff_plot</span><span class="p">(</span><span class="n">coords</span><span class="p">):</span>
@@ -8160,7 +8193,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">coordinates_aitoff_plot</span><span class="p">(</span><span class="n">open_cluster_c</span><span class="p">)</span>
@@ -8176,7 +8209,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>Text(0, 0.5, 'Dec [deg]')</pre>
 </div>
@@ -8184,7 +8217,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/2-Coordinates-Transforms.ipynb_33_1.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/2-Coordinates-Transforms.ipynb_34_1.png"/>
 </div>
 </div>
 </div>
@@ -8206,7 +8239,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">open_cluster_gal</span> <span class="o">=</span> <span class="n">open_cluster_c</span><span class="o">.</span><span class="n">transform_to</span><span class="p">(</span><span class="n">Galactic</span><span class="p">())</span>
@@ -8231,7 +8264,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">open_cluster_gal</span> <span class="o">=</span> <span class="n">open_cluster_c</span><span class="o">.</span><span class="n">galactic</span>
@@ -8256,7 +8289,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">open_cluster_gal</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
@@ -8270,7 +8303,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>&lt;SkyCoord (Galactic): (l, b, distance) in (deg, deg, pc)
     [(155.72353157, -17.76999215,  629.59997559),
@@ -8297,7 +8330,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">open_cluster_gal</span><span class="o">.</span><span class="n">l</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
@@ -8311,7 +8344,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
 <div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
 [$155^\circ43{}^\prime24.71365331{}^{\prime\prime}$
  $68^\circ01{}^\prime41.08568525{}^{\prime\prime}$
@@ -8325,7 +8358,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">open_cluster_gal</span><span class="o">.</span><span class="n">b</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
@@ -8339,7 +8372,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 <div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
 [$-17^\circ46{}^\prime11.97173095{}^{\prime\prime}$
  $11^\circ36{}^\prime28.44242147{}^{\prime\prime}$
@@ -8375,7 +8408,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">coordinates_aitoff_plot</span><span class="p">(</span><span class="n">open_cluster_gal</span><span class="p">);</span>
@@ -8391,7 +8424,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>Text(0, 0.5, 'Galactic latitude, $b$ [deg]')</pre>
 </div>
@@ -8399,7 +8432,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/2-Coordinates-Transforms.ipynb_45_1.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/2-Coordinates-Transforms.ipynb_46_1.png"/>
 </div>
 </div>
 </div>
@@ -8433,7 +8466,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">demo_loc</span> <span class="o">=</span> <span class="n">EarthLocation</span><span class="o">.</span><span class="n">from_geodetic</span><span class="p">(</span>
@@ -8459,7 +8492,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">demo_loc</span> <span class="o">=</span> <span class="n">EarthLocation</span><span class="o">.</span><span class="n">of_address</span><span class="p">(</span><span class="s1">'162 Fifth Ave, New York, NY 10010'</span><span class="p">)</span>
@@ -8484,7 +8517,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [26]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">observing_location</span> <span class="o">=</span> <span class="n">EarthLocation</span><span class="o">.</span><span class="n">of_site</span><span class="p">(</span><span class="s1">'Kitt Peak'</span><span class="p">)</span>
@@ -8510,7 +8543,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># 1AM UTC = 6PM local time (AZ mountain time), roughly the start of a night</span>
@@ -8541,7 +8574,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">altaz</span> <span class="o">=</span> <span class="n">AltAz</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="n">observing_location</span><span class="p">,</span> <span class="n">obstime</span><span class="o">=</span><span class="n">time_grid</span><span class="p">)</span>
@@ -8566,7 +8599,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">oc_altaz</span> <span class="o">=</span> <span class="n">open_cluster_c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transform_to</span><span class="p">(</span><span class="n">altaz</span><span class="p">)</span>
@@ -8581,7 +8614,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[29]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[30]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>&lt;SkyCoord (AltAz: obstime=['2020-12-18 01:00:00.000' '2020-12-18 01:03:17.647'
  '2020-12-18 01:06:35.294' '2020-12-18 01:09:52.941'
@@ -8710,263 +8743,263 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
  '2020-12-18 14:36:56.471' '2020-12-18 14:40:14.118'
  '2020-12-18 14:43:31.765' '2020-12-18 14:46:49.412'
  '2020-12-18 14:50:07.059' '2020-12-18 14:53:24.706'
- '2020-12-18 14:56:42.353' '2020-12-18 15:00:00.000'], location=(-1994502.60430614, -5037538.54232911, 3358104.99690298) m, pressure=0.0 hPa, temperature=0.0 deg_C, relative_humidity=0.0, obswl=1.0 micron): (az, alt, distance) in (deg, deg, pc)
-    [( 68.64531191,  3.92957976e+01, 629.59997152),
-     ( 68.87232252,  3.99487861e+01, 629.59997152),
-     ( 69.0965877 ,  4.06027690e+01, 629.59997152),
-     ( 69.3180817 ,  4.12577244e+01, 629.59997152),
-     ( 69.53677548,  4.19136303e+01, 629.59997152),
-     ( 69.75263649,  4.25704651e+01, 629.59997152),
-     ( 69.96562843,  4.32282073e+01, 629.59997152),
-     ( 70.17571104,  4.38868357e+01, 629.59997152),
-     ( 70.38283981,  4.45463292e+01, 629.59997152),
-     ( 70.58696568,  4.52066668e+01, 629.59997152),
-     ( 70.78803475,  4.58678280e+01, 629.59997152),
-     ( 70.9859879 ,  4.65297919e+01, 629.59997152),
-     ( 71.18076041,  4.71925381e+01, 629.59997152),
-     ( 71.37228154,  4.78560463e+01, 629.59997152),
-     ( 71.5604741 ,  4.85202960e+01, 629.59997152),
-     ( 71.74525389,  4.91852671e+01, 629.59997152),
-     ( 71.92652917,  4.98509393e+01, 629.59997152),
-     ( 72.10420002,  5.05172923e+01, 629.59997152),
-     ( 72.27815769,  5.11843061e+01, 629.59997152),
-     ( 72.44828379,  5.18519602e+01, 629.59997152),
-     ( 72.61444952,  5.25202345e+01, 629.59997152),
-     ( 72.77651466,  5.31891085e+01, 629.59997152),
-     ( 72.93432658,  5.38585616e+01, 629.59997152),
-     ( 73.08771909,  5.45285731e+01, 629.59997152),
-     ( 73.23651109,  5.51991223e+01, 629.59997152),
-     ( 73.38050521,  5.58701878e+01, 629.59997152),
-     ( 73.51948611,  5.65417482e+01, 629.59997152),
-     ( 73.6532187 ,  5.72137818e+01, 629.59997152),
-     ( 73.78144607,  5.78862662e+01, 629.59997152),
-     ( 73.90388719,  5.85591788e+01, 629.59997152),
-     ( 74.02023427,  5.92324963e+01, 629.59997152),
-     ( 74.13014981,  5.99061948e+01, 629.59997152),
-     ( 74.23326319,  6.05802495e+01, 629.59997152),
-     ( 74.32916685,  6.12546351e+01, 629.59997152),
-     ( 74.41741184,  6.19293249e+01, 629.59997152),
-     ( 74.4975028 ,  6.26042914e+01, 629.59997152),
-     ( 74.56889209,  6.32795056e+01, 629.59997152),
-     ( 74.63097313,  6.39549371e+01, 629.59997152),
-     ( 74.68307258,  6.46305539e+01, 629.59997152),
-     ( 74.7244413 ,  6.53063219e+01, 629.59997152),
-     ( 74.7542438 ,  6.59822047e+01, 629.59997152),
-     ( 74.77154587,  6.66581636e+01, 629.59997152),
-     ( 74.77530006,  6.73341567e+01, 629.59997152),
-     ( 74.76432848,  6.80101385e+01, 629.59997152),
-     ( 74.73730243,  6.86860596e+01, 629.59997152),
-     ( 74.69271813,  6.93618658e+01, 629.59997152),
-     ( 74.62886757,  7.00374975e+01, 629.59997152),
-     ( 74.54380345,  7.07128884e+01, 629.59997152),
-     ( 74.43529672,  7.13879644e+01, 629.59997152),
-     ( 74.30078481,  7.20626423e+01, 629.59997152),
-     ( 74.13730812,  7.27368279e+01, 629.59997152),
-     ( 73.9414317 ,  7.34104138e+01, 629.59997152),
-     ( 73.70914783,  7.40832764e+01, 629.59997153),
-     ( 73.43575405,  7.47552726e+01, 629.59997153),
-     ( 73.1156992 ,  7.54262356e+01, 629.59997153),
-     ( 72.74238747,  7.60959686e+01, 629.59997153),
-     ( 72.30792682,  7.67642378e+01, 629.59997153),
-     ( 71.80280288,  7.74307628e+01, 629.59997153),
-     ( 71.21545236,  7.80952039e+01, 629.59997153),
-     ( 70.53169902,  7.87571446e+01, 629.59997153),
-     ( 69.73400023,  7.94160691e+01, 629.59997153),
-     ( 68.80042985,  8.00713302e+01, 629.59997153),
-     ( 67.70329057,  8.07221050e+01, 629.59997153),
-     ( 66.40720235,  8.13673326e+01, 629.59997153),
-     ( 64.86644796,  8.20056231e+01, 629.59997153),
-     ( 63.02126974,  8.26351268e+01, 629.59997153),
-     ( 60.79271467,  8.32533379e+01, 629.59997153),
-     ( 58.07556831,  8.38568007e+01, 629.59997153),
-     ( 54.72908248,  8.44406661e+01, 629.59997153),
-     ( 50.56610681,  8.49980229e+01, 629.59997153),
-     ( 45.34423748,  8.55189271e+01, 629.59997153),
-     ( 38.77061819,  8.59891116e+01, 629.59997153),
-     ( 30.54876282,  8.63886759e+01, 629.59997153),
-     ( 20.51469314,  8.66919013e+01, 629.59997153),
-     (  8.87921729,  8.68706354e+01, 629.59997153),
-     (356.42130452,  8.69032349e+01, 629.59997153),
-     (344.30564565,  8.67852493e+01, 629.59997153),
-     (333.52846537,  8.65320207e+01, 629.59997153),
-     (324.53491354,  8.61702974e+01, 629.59997153),
-     (317.28825248,  8.57275676e+01, 629.59997153),
-     (311.5252181 ,  8.52263406e+01, 629.59997153),
-     (306.94165696,  8.46831617e+01, 629.59997153),
-     (303.2714135 ,  8.41096547e+01, 629.59997153),
-     (300.30436104,  8.35138910e+01, 629.59997153),
-     (297.88122602,  8.29015054e+01, 629.59997153),
-     (295.88283336,  8.22764848e+01, 629.59997153),
-     (294.2199721 ,  8.16416987e+01, 629.59997153),
-     (292.82539402,  8.09992492e+01, 629.59997153),
-     (291.6478952 ,  8.03507037e+01, 629.59997153),
-     (290.64804551,  7.96972512e+01, 629.59997153),
-     (289.7951281 ,  7.90398074e+01, 629.59997153),
-     (289.06494093,  7.83790884e+01, 629.59997153),
-     (288.43820686,  7.77156619e+01, 629.59997153),
-     (287.89941323,  7.70499836e+01, 629.59997153),
-     (287.43595612,  7.63824237e+01, 629.59997153),
-     (287.03750274,  7.57132863e+01, 629.59997153),
-     (286.69551118,  7.50428238e+01, 629.59997153),
-     (286.40286502,  7.43712477e+01, 629.59997153),
-     (286.15359247,  7.36987369e+01, 629.59997153),
-     (285.94264855,  7.30254443e+01, 629.59997153),
-     (285.76574455,  7.23515011e+01, 629.59997153),
-     (285.61921336,  7.16770213e+01, 629.59997153),
-     (285.49990236,  7.10021045e+01, 629.59997153),
-     (285.40508747,  7.03268384e+01, 629.59997153),
-     (285.33240372,  6.96513008e+01, 629.59997153),
-     (285.27978881,  6.89755611e+01, 629.59997153),
-     (285.24543692,  6.82996817e+01, 629.59997153),
-     (285.22776066,  6.76237190e+01, 629.59997153),
-     (285.22535958,  6.69477244e+01, 629.59997153),
-     (285.23699387,  6.62717449e+01, 629.59997153),
-     (285.2615625 ,  6.55958239e+01, 629.59997153),
-     (285.29808466,  6.49200014e+01, 629.59997153),
-     (285.3456842 ,  6.42443149e+01, 629.59997153),
-     (285.4035764 ,  6.35687993e+01, 629.59997153),
-     (285.47105662,  6.28934874e+01, 629.59997153),
-     (285.54749071,  6.22184105e+01, 629.59997153),
-     (285.63230666,  6.15435980e+01, 629.59997153),
-     (285.72498749,  6.08690780e+01, 629.59997153),
-     (285.82506502,  6.01948776e+01, 629.59997153),
-     (285.93211453,  5.95210227e+01, 629.59997153),
-     (286.04575009,  5.88475382e+01, 629.59997153),
-     (286.16562044,  5.81744485e+01, 629.59997153),
-     (286.29140546,  5.75017770e+01, 629.59997153),
-     (286.42281299,  5.68295467e+01, 629.59997153),
-     (286.55957609,  5.61577800e+01, 629.59997153),
-     (286.7014506 ,  5.54864990e+01, 629.59997153),
-     (286.84821295,  5.48157252e+01, 629.59997153),
-     (286.99965827,  5.41454799e+01, 629.59997153),
-     (287.15559869,  5.34757841e+01, 629.59997153),
-     (287.3158618 ,  5.28066586e+01, 629.59997153),
-     (287.4802893 ,  5.21381241e+01, 629.59997153),
-     (287.64873579,  5.14702008e+01, 629.59997153),
-     (287.82106771,  5.08029094e+01, 629.59997153),
-     (287.99716231,  5.01362699e+01, 629.59997153),
-     (288.17690681,  4.94703026e+01, 629.59997153),
-     (288.36019759,  4.88050278e+01, 629.59997153),
-     (288.54693949,  4.81404656e+01, 629.59997153),
-     (288.73704516,  4.74766363e+01, 629.59997153),
-     (288.93043446,  4.68135602e+01, 629.59997153),
-     (289.12703395,  4.61512576e+01, 629.59997153),
-     (289.32677639,  4.54897491e+01, 629.59997153),
-     (289.52960031,  4.48290551e+01, 629.59997153),
-     (289.73544961,  4.41691965e+01, 629.59997153),
-     (289.94427321,  4.35101939e+01, 629.59997153),
-     (290.15602467,  4.28520685e+01, 629.59997153),
-     (290.37066196,  4.21948413e+01, 629.59997153),
-     (290.58814711,  4.15385339e+01, 629.59997153),
-     (290.808446  ,  4.08831676e+01, 629.59997153),
-     (291.0315281 ,  4.02287643e+01, 629.59997153),
-     (291.25736628,  3.95753461e+01, 629.59997153),
-     (291.4859366 ,  3.89229351e+01, 629.59997153),
-     (291.7172181 ,  3.82715539e+01, 629.59997153),
-     (291.95119271,  3.76212252e+01, 629.59997153),
-     (292.18784499,  3.69719722e+01, 629.59997153),
-     (292.4271621 ,  3.63238181e+01, 629.59997153),
-     (292.66913355,  3.56767866e+01, 629.59997153),
-     (292.9137512 ,  3.50309017e+01, 629.59997153),
-     (293.16100905,  3.43861876e+01, 629.59997153),
-     (293.41090318,  3.37426690e+01, 629.59997153),
-     (293.66343165,  3.31003710e+01, 629.59997153),
-     (293.91859442,  3.24593187e+01, 629.59997153),
-     (294.17639323,  3.18195379e+01, 629.59997153),
-     (294.43683157,  3.11810548e+01, 629.59997153),
-     (294.69991455,  3.05438958e+01, 629.59997153),
-     (294.9656489 ,  2.99080878e+01, 629.59997154),
-     (295.23404286,  2.92736581e+01, 629.59997154),
-     (295.50510613,  2.86406344e+01, 629.59997154),
-     (295.77884983,  2.80090450e+01, 629.59997154),
-     (296.05528645,  2.73789185e+01, 629.59997154),
-     (296.33442976,  2.67502840e+01, 629.59997154),
-     (296.61629482,  2.61231710e+01, 629.59997154),
-     (296.9008979 ,  2.54976096e+01, 629.59997154),
-     (297.18825647,  2.48736303e+01, 629.59997154),
-     (297.47838913,  2.42512643e+01, 629.59997154),
-     (297.7713156 ,  2.36305431e+01, 629.59997154),
-     (298.06705667,  2.30114988e+01, 629.59997154),
-     (298.36563418,  2.23941641e+01, 629.59997154),
-     (298.66707098,  2.17785723e+01, 629.59997154),
-     (298.97139089,  2.11647571e+01, 629.59997154),
-     (299.27861872,  2.05527529e+01, 629.59997154),
-     (299.58878016,  1.99425947e+01, 629.59997154),
-     (299.90190186,  1.93343181e+01, 629.59997154),
-     (300.21801129,  1.87279593e+01, 629.59997154),
-     (300.53713681,  1.81235551e+01, 629.59997154),
-     (300.85930759,  1.75211430e+01, 629.59997154),
-     (301.18455361,  1.69207613e+01, 629.59997154),
-     (301.51290564,  1.63224486e+01, 629.59997154),
-     (301.84439519,  1.57262445e+01, 629.59997154),
-     (302.17905452,  1.51321893e+01, 629.59997154),
-     (302.51691658,  1.45403238e+01, 629.59997154),
-     (302.85801503,  1.39506897e+01, 629.59997154),
-     (303.20238419,  1.33633293e+01, 629.59997154),
-     (303.55005901,  1.27782859e+01, 629.59997154),
-     (303.90107508,  1.21956032e+01, 629.59997154),
-     (304.25546855,  1.16153260e+01, 629.59997154),
-     (304.61327618,  1.10374998e+01, 629.59997154),
-     (304.97453524,  1.04621707e+01, 629.59997154),
-     (305.33928353,  9.88938602e+00, 629.59997154),
-     (305.70755933,  9.31919350e+00, 629.59997154),
-     (306.0794014 ,  8.75164195e+00, 629.59997154),
-     (306.45484893,  8.18678099e+00, 629.59997154),
-     (306.83394148,  7.62466108e+00, 629.59997154),
-     (307.21671903,  7.06533359e+00, 629.59997154),
-     (307.60322188,  6.50885075e+00, 629.59997154),
-     (307.99349061,  5.95526573e+00, 629.59997154),
-     (308.38756611,  5.40463257e+00, 629.59997154),
-     (308.78548949,  4.85700626e+00, 629.59997154),
-     (309.18730203,  4.31244272e+00, 629.59997154),
-     (309.59304522,  3.77099881e+00, 629.59997154),
-     (310.0027606 ,  3.23273234e+00, 629.59997154),
-     (310.41648984,  2.69770208e+00, 629.59997154),
-     (310.83427458,  2.16596780e+00, 629.59997154),
-     (311.25615648,  1.63759020e+00, 629.59997154),
-     (311.68217711,  1.11263102e+00, 629.59997154),
-     (312.1123779 ,  5.91152934e-01, 629.59997154),
-     (312.54680013,  7.32196622e-02, 629.59997154),
-     (312.98548481, -4.41104098e-01, 629.59997154),
-     (313.42847269, -9.51752636e-01, 629.59997154),
-     (313.87580414, -1.45865923e+00, 629.59997154),
-     (314.32751912, -1.96175616e+00, 629.59997154),
-     (314.78365709, -2.46097468e+00, 629.59997154),
-     (315.24425697, -2.95624503e+00, 629.59997154),
-     (315.70935704, -3.44749647e+00, 629.59997154),
-     (316.17899487, -3.93465721e+00, 629.59997154),
-     (316.65320726, -4.41765450e+00, 629.59997154),
-     (317.13203014, -4.89641456e+00, 629.59997154),
-     (317.6154985 , -5.37086266e+00, 629.59997154),
-     (318.10364629, -5.84092305e+00, 629.59997154),
-     (318.59650633, -6.30651905e+00, 629.59997154),
-     (319.09411026, -6.76757301e+00, 629.59997154),
-     (319.59648838, -7.22400632e+00, 629.59997154),
-     (320.10366958, -7.67573949e+00, 629.59997154),
-     (320.61568126, -8.12269209e+00, 629.59997154),
-     (321.13254922, -8.56478283e+00, 629.59997154),
-     (321.65429751, -9.00192955e+00, 629.59997154),
-     (322.18094838, -9.43404927e+00, 629.59997154),
-     (322.71252214, -9.86105819e+00, 629.59997154),
-     (323.24903705, -1.02828717e+01, 629.59997154),
-     (323.79050922, -1.06994046e+01, 629.59997154),
-     (324.33695247, -1.11105708e+01, 629.59997154),
-     (324.88837822, -1.15162837e+01, 629.59997154),
-     (325.44479538, -1.19164559e+01, 629.59997154),
-     (326.00621022, -1.23109997e+01, 629.59997154),
-     (326.57262625, -1.26998265e+01, 629.59997154),
-     (327.14404411, -1.30828476e+01, 629.59997154),
-     (327.72046141, -1.34599736e+01, 629.59997154),
-     (328.30187266, -1.38311148e+01, 629.59997154),
-     (328.88826911, -1.41961814e+01, 629.59997154),
-     (329.47963863, -1.45550831e+01, 629.59997154),
-     (330.07596562, -1.49077296e+01, 629.59997154),
-     (330.67723084, -1.52540303e+01, 629.59997154),
-     (331.28341137, -1.55938948e+01, 629.59997154),
-     (331.89448042, -1.59272325e+01, 629.59997154),
-     (332.51040726, -1.62539533e+01, 629.59997154),
-     (333.13115711, -1.65739669e+01, 629.59997154),
-     (333.75669104, -1.68871836e+01, 629.59997154)]&gt;</pre>
+ '2020-12-18 14:56:42.353' '2020-12-18 15:00:00.000'], location=(-1994502.604306139, -5037538.54232911, 3358104.9969029757) m, pressure=0.0 hPa, temperature=0.0 deg_C, relative_humidity=0.0, obswl=1.0 micron): (az, alt, distance) in (deg, deg, pc)
+    [( 68.6453125 ,  3.92957964e+01, 629.59997152),
+     ( 68.87232312,  3.99487849e+01, 629.59997152),
+     ( 69.09658831,  4.06027679e+01, 629.59997152),
+     ( 69.31808233,  4.12577232e+01, 629.59997152),
+     ( 69.53677613,  4.19136292e+01, 629.59997152),
+     ( 69.75263715,  4.25704639e+01, 629.59997152),
+     ( 69.9656291 ,  4.32282062e+01, 629.59997152),
+     ( 70.17571173,  4.38868345e+01, 629.59997152),
+     ( 70.38284052,  4.45463280e+01, 629.59997152),
+     ( 70.58696641,  4.52066657e+01, 629.59997152),
+     ( 70.7880355 ,  4.58678268e+01, 629.59997152),
+     ( 70.98598866,  4.65297907e+01, 629.59997152),
+     ( 71.18076119,  4.71925370e+01, 629.59997152),
+     ( 71.37228235,  4.78560452e+01, 629.59997152),
+     ( 71.56047493,  4.85202949e+01, 629.59997152),
+     ( 71.74525474,  4.91852660e+01, 629.59997152),
+     ( 71.92653004,  4.98509381e+01, 629.59997152),
+     ( 72.10420091,  5.05172912e+01, 629.59997152),
+     ( 72.2781586 ,  5.11843049e+01, 629.59997152),
+     ( 72.44828473,  5.18519591e+01, 629.59997152),
+     ( 72.61445048,  5.25202334e+01, 629.59997152),
+     ( 72.77651565,  5.31891073e+01, 629.59997152),
+     ( 72.9343276 ,  5.38585605e+01, 629.59997152),
+     ( 73.08772013,  5.45285720e+01, 629.59997152),
+     ( 73.23651217,  5.51991212e+01, 629.59997152),
+     ( 73.38050632,  5.58701867e+01, 629.59997152),
+     ( 73.51948725,  5.65417471e+01, 629.59997152),
+     ( 73.65321987,  5.72137807e+01, 629.59997152),
+     ( 73.78144728,  5.78862651e+01, 629.59997152),
+     ( 73.90388843,  5.85591777e+01, 629.59997152),
+     ( 74.02023555,  5.92324952e+01, 629.59997152),
+     ( 74.13015113,  5.99061937e+01, 629.59997152),
+     ( 74.23326456,  6.05802484e+01, 629.59997152),
+     ( 74.32916826,  6.12546340e+01, 629.59997152),
+     ( 74.4174133 ,  6.19293238e+01, 629.59997152),
+     ( 74.4975043 ,  6.26042903e+01, 629.59997152),
+     ( 74.56889364,  6.32795045e+01, 629.59997152),
+     ( 74.63097474,  6.39549360e+01, 629.59997152),
+     ( 74.68307425,  6.46305528e+01, 629.59997152),
+     ( 74.72444303,  6.53063208e+01, 629.59997152),
+     ( 74.75424559,  6.59822037e+01, 629.59997152),
+     ( 74.77154774,  6.66581626e+01, 629.59997152),
+     ( 74.775302  ,  6.73341557e+01, 629.59997152),
+     ( 74.7643305 ,  6.80101374e+01, 629.59997152),
+     ( 74.73730454,  6.86860586e+01, 629.59997152),
+     ( 74.69272033,  6.93618648e+01, 629.59997152),
+     ( 74.62886986,  7.00374965e+01, 629.59997152),
+     ( 74.54380585,  7.07128874e+01, 629.59997152),
+     ( 74.43529924,  7.13879634e+01, 629.59997152),
+     ( 74.30078745,  7.20626413e+01, 629.59997152),
+     ( 74.13731089,  7.27368270e+01, 629.59997152),
+     ( 73.94143462,  7.34104128e+01, 629.59997152),
+     ( 73.70915091,  7.40832754e+01, 629.59997153),
+     ( 73.43575731,  7.47552717e+01, 629.59997153),
+     ( 73.11570266,  7.54262347e+01, 629.59997153),
+     ( 72.74239115,  7.60959677e+01, 629.59997153),
+     ( 72.30793074,  7.67642369e+01, 629.59997153),
+     ( 71.80280707,  7.74307620e+01, 629.59997153),
+     ( 71.21545687,  7.80952030e+01, 629.59997153),
+     ( 70.53170387,  7.87571438e+01, 629.59997153),
+     ( 69.73400548,  7.94160683e+01, 629.59997153),
+     ( 68.80043555,  8.00713294e+01, 629.59997153),
+     ( 67.7032968 ,  8.07221043e+01, 629.59997153),
+     ( 66.4072092 ,  8.13673318e+01, 629.59997153),
+     ( 64.86645553,  8.20056224e+01, 629.59997153),
+     ( 63.02127816,  8.26351262e+01, 629.59997153),
+     ( 60.79272411,  8.32533373e+01, 629.59997153),
+     ( 58.07557898,  8.38568002e+01, 629.59997153),
+     ( 54.72909461,  8.44406656e+01, 629.59997153),
+     ( 50.56612067,  8.49980225e+01, 629.59997153),
+     ( 45.34425335,  8.55189269e+01, 629.59997153),
+     ( 38.77063621,  8.59891116e+01, 629.59997153),
+     ( 30.54878284,  8.63886760e+01, 629.59997153),
+     ( 20.51471432,  8.66919017e+01, 629.59997153),
+     (  8.87923794,  8.68706359e+01, 629.59997153),
+     (356.42132249,  8.69032357e+01, 629.59997153),
+     (344.3056594 ,  8.67852503e+01, 629.59997153),
+     (333.52847465,  8.65320218e+01, 629.59997153),
+     (324.53491904,  8.61702986e+01, 629.59997153),
+     (317.28825519,  8.57275688e+01, 629.59997153),
+     (311.52521889,  8.52263419e+01, 629.59997153),
+     (306.94165647,  8.46831629e+01, 629.59997153),
+     (303.27141217,  8.41096560e+01, 629.59997153),
+     (300.30435917,  8.35138923e+01, 629.59997153),
+     (297.8812238 ,  8.29015066e+01, 629.59997153),
+     (295.88283094,  8.22764861e+01, 629.59997153),
+     (294.21996954,  8.16416999e+01, 629.59997153),
+     (292.8253914 ,  8.09992504e+01, 629.59997153),
+     (291.64789255,  8.03507049e+01, 629.59997153),
+     (290.64804286,  7.96972524e+01, 629.59997153),
+     (289.79512546,  7.90398085e+01, 629.59997153),
+     (289.06493832,  7.83790896e+01, 629.59997153),
+     (288.43820429,  7.77156631e+01, 629.59997153),
+     (287.8994107 ,  7.70499848e+01, 629.59997153),
+     (287.43595363,  7.63824248e+01, 629.59997153),
+     (287.0375003 ,  7.57132874e+01, 629.59997153),
+     (286.69550879,  7.50428249e+01, 629.59997153),
+     (286.40286268,  7.43712488e+01, 629.59997153),
+     (286.15359017,  7.36987380e+01, 629.59997153),
+     (285.9426463 ,  7.30254454e+01, 629.59997153),
+     (285.76574234,  7.23515022e+01, 629.59997153),
+     (285.61921119,  7.16770224e+01, 629.59997153),
+     (285.49990024,  7.10021056e+01, 629.59997153),
+     (285.40508539,  7.03268395e+01, 629.59997153),
+     (285.33240167,  6.96513019e+01, 629.59997153),
+     (285.27978679,  6.89755622e+01, 629.59997153),
+     (285.24543494,  6.82996827e+01, 629.59997153),
+     (285.22775872,  6.76237200e+01, 629.59997153),
+     (285.22535766,  6.69477254e+01, 629.59997153),
+     (285.23699199,  6.62717459e+01, 629.59997153),
+     (285.26156065,  6.55958249e+01, 629.59997153),
+     (285.29808283,  6.49200024e+01, 629.59997153),
+     (285.34568241,  6.42443159e+01, 629.59997153),
+     (285.40357463,  6.35688002e+01, 629.59997153),
+     (285.47105488,  6.28934884e+01, 629.59997153),
+     (285.54748899,  6.22184115e+01, 629.59997153),
+     (285.63230496,  6.15435989e+01, 629.59997153),
+     (285.72498581,  6.08690790e+01, 629.59997153),
+     (285.82506336,  6.01948786e+01, 629.59997153),
+     (285.9321129 ,  5.95210236e+01, 629.59997153),
+     (286.04574847,  5.88475391e+01, 629.59997153),
+     (286.16561884,  5.81744494e+01, 629.59997153),
+     (286.29140388,  5.75017779e+01, 629.59997153),
+     (286.42281143,  5.68295476e+01, 629.59997153),
+     (286.55957455,  5.61577810e+01, 629.59997153),
+     (286.70144908,  5.54864999e+01, 629.59997153),
+     (286.84821144,  5.48157261e+01, 629.59997153),
+     (286.99965678,  5.41454808e+01, 629.59997153),
+     (287.15559721,  5.34757850e+01, 629.59997153),
+     (287.31586033,  5.28066595e+01, 629.59997153),
+     (287.48028784,  5.21381250e+01, 629.59997153),
+     (287.64873435,  5.14702017e+01, 629.59997153),
+     (287.82106628,  5.08029102e+01, 629.59997153),
+     (287.99716089,  5.01362707e+01, 629.59997153),
+     (288.1769054 ,  4.94703035e+01, 629.59997153),
+     (288.3601962 ,  4.88050286e+01, 629.59997153),
+     (288.54693811,  4.81404664e+01, 629.59997153),
+     (288.73704379,  4.74766371e+01, 629.59997153),
+     (288.9304331 ,  4.68135610e+01, 629.59997153),
+     (289.1270326 ,  4.61512585e+01, 629.59997153),
+     (289.32677504,  4.54897499e+01, 629.59997153),
+     (289.52959897,  4.48290560e+01, 629.59997153),
+     (289.73544828,  4.41691973e+01, 629.59997153),
+     (289.94427189,  4.35101947e+01, 629.59997153),
+     (290.15602336,  4.28520693e+01, 629.59997153),
+     (290.37066066,  4.21948422e+01, 629.59997153),
+     (290.58814581,  4.15385347e+01, 629.59997153),
+     (290.80844471,  4.08831684e+01, 629.59997153),
+     (291.03152682,  4.02287651e+01, 629.59997153),
+     (291.257365  ,  3.95753469e+01, 629.59997153),
+     (291.48593532,  3.89229359e+01, 629.59997153),
+     (291.71721684,  3.82715547e+01, 629.59997153),
+     (291.95119145,  3.76212260e+01, 629.59997153),
+     (292.18784374,  3.69719729e+01, 629.59997153),
+     (292.42716085,  3.63238188e+01, 629.59997153),
+     (292.66913231,  3.56767873e+01, 629.59997153),
+     (292.91374996,  3.50309024e+01, 629.59997153),
+     (293.16100781,  3.43861884e+01, 629.59997153),
+     (293.41090195,  3.37426698e+01, 629.59997153),
+     (293.66343043,  3.31003717e+01, 629.59997153),
+     (293.9185932 ,  3.24593194e+01, 629.59997153),
+     (294.17639201,  3.18195387e+01, 629.59997153),
+     (294.43683035,  3.11810555e+01, 629.59997153),
+     (294.69991333,  3.05438965e+01, 629.59997153),
+     (294.96564769,  2.99080885e+01, 629.59997154),
+     (295.23404165,  2.92736588e+01, 629.59997154),
+     (295.50510492,  2.86406351e+01, 629.59997154),
+     (295.77884863,  2.80090457e+01, 629.59997154),
+     (296.05528525,  2.73789192e+01, 629.59997154),
+     (296.33442856,  2.67502846e+01, 629.59997154),
+     (296.61629362,  2.61231716e+01, 629.59997154),
+     (296.9008967 ,  2.54976102e+01, 629.59997154),
+     (297.18825527,  2.48736310e+01, 629.59997154),
+     (297.47838794,  2.42512649e+01, 629.59997154),
+     (297.77131441,  2.36305437e+01, 629.59997154),
+     (298.06705548,  2.30114994e+01, 629.59997154),
+     (298.36563299,  2.23941647e+01, 629.59997154),
+     (298.66706979,  2.17785729e+01, 629.59997154),
+     (298.97138971,  2.11647577e+01, 629.59997154),
+     (299.27861753,  2.05527535e+01, 629.59997154),
+     (299.58877898,  1.99425953e+01, 629.59997154),
+     (299.90190067,  1.93343187e+01, 629.59997154),
+     (300.2180101 ,  1.87279598e+01, 629.59997154),
+     (300.53713562,  1.81235557e+01, 629.59997154),
+     (300.8593064 ,  1.75211436e+01, 629.59997154),
+     (301.18455243,  1.69207618e+01, 629.59997154),
+     (301.51290446,  1.63224491e+01, 629.59997154),
+     (301.84439401,  1.57262451e+01, 629.59997154),
+     (302.17905333,  1.51321898e+01, 629.59997154),
+     (302.51691539,  1.45403243e+01, 629.59997154),
+     (302.85801384,  1.39506902e+01, 629.59997154),
+     (303.202383  ,  1.33633298e+01, 629.59997154),
+     (303.55005782,  1.27782864e+01, 629.59997154),
+     (303.90107389,  1.21956037e+01, 629.59997154),
+     (304.25546736,  1.16153265e+01, 629.59997154),
+     (304.61327499,  1.10375003e+01, 629.59997154),
+     (304.97453405,  1.04621712e+01, 629.59997154),
+     (305.33928233,  9.88938648e+00, 629.59997154),
+     (305.70755814,  9.31919396e+00, 629.59997154),
+     (306.07940021,  8.75164240e+00, 629.59997154),
+     (306.45484773,  8.18678143e+00, 629.59997154),
+     (306.83394028,  7.62466151e+00, 629.59997154),
+     (307.21671783,  7.06533401e+00, 629.59997154),
+     (307.60322067,  6.50885117e+00, 629.59997154),
+     (307.99348941,  5.95526613e+00, 629.59997154),
+     (308.3875649 ,  5.40463297e+00, 629.59997154),
+     (308.78548828,  4.85700665e+00, 629.59997154),
+     (309.18730082,  4.31244310e+00, 629.59997154),
+     (309.593044  ,  3.77099917e+00, 629.59997154),
+     (310.00275939,  3.23273269e+00, 629.59997154),
+     (310.41648862,  2.69770243e+00, 629.59997154),
+     (310.83427336,  2.16596814e+00, 629.59997154),
+     (311.25615526,  1.63759053e+00, 629.59997154),
+     (311.68217588,  1.11263133e+00, 629.59997154),
+     (312.11237667,  5.91153243e-01, 629.59997154),
+     (312.5467989 ,  7.32199602e-02, 629.59997154),
+     (312.98548358, -4.41103810e-01, 629.59997154),
+     (313.42847146, -9.51752358e-01, 629.59997154),
+     (313.87580291, -1.45865897e+00, 629.59997154),
+     (314.32751788, -1.96175590e+00, 629.59997154),
+     (314.78365585, -2.46097443e+00, 629.59997154),
+     (315.24425573, -2.95624480e+00, 629.59997154),
+     (315.70935579, -3.44749624e+00, 629.59997154),
+     (316.17899362, -3.93465700e+00, 629.59997154),
+     (316.65320601, -4.41765429e+00, 629.59997154),
+     (317.13202889, -4.89641437e+00, 629.59997154),
+     (317.61549724, -5.37086248e+00, 629.59997154),
+     (318.10364503, -5.84092289e+00, 629.59997154),
+     (318.59650507, -6.30651890e+00, 629.59997154),
+     (319.094109  , -6.76757286e+00, 629.59997154),
+     (319.59648711, -7.22400619e+00, 629.59997154),
+     (320.10366831, -7.67573936e+00, 629.59997154),
+     (320.61567999, -8.12269198e+00, 629.59997154),
+     (321.13254794, -8.56478273e+00, 629.59997154),
+     (321.65429623, -9.00192947e+00, 629.59997154),
+     (322.1809471 , -9.43404919e+00, 629.59997154),
+     (322.71252086, -9.86105813e+00, 629.59997154),
+     (323.24903577, -1.02828717e+01, 629.59997154),
+     (323.79050794, -1.06994046e+01, 629.59997154),
+     (324.33695118, -1.11105708e+01, 629.59997154),
+     (324.88837693, -1.15162837e+01, 629.59997154),
+     (325.44479408, -1.19164560e+01, 629.59997154),
+     (326.00620892, -1.23109997e+01, 629.59997154),
+     (326.57262496, -1.26998265e+01, 629.59997154),
+     (327.14404281, -1.30828476e+01, 629.59997154),
+     (327.72046011, -1.34599736e+01, 629.59997154),
+     (328.30187136, -1.38311149e+01, 629.59997154),
+     (328.88826781, -1.41961815e+01, 629.59997154),
+     (329.47963733, -1.45550832e+01, 629.59997154),
+     (330.07596431, -1.49077297e+01, 629.59997154),
+     (330.67722954, -1.52540304e+01, 629.59997154),
+     (331.28341007, -1.55938949e+01, 629.59997154),
+     (331.89447912, -1.59272327e+01, 629.59997154),
+     (332.51040596, -1.62539535e+01, 629.59997154),
+     (333.13115581, -1.65739671e+01, 629.59997154),
+     (333.75668973, -1.68871838e+01, 629.59997154)]&gt;</pre>
 </div>
 </div>
 </div>
@@ -8987,7 +9020,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -9009,7 +9042,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/2-Coordinates-Transforms.ipynb_60_0.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/2-Coordinates-Transforms.ipynb_61_0.png"/>
 </div>
 </div>
 </div>
@@ -9030,7 +9063,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">open_cluster_c</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">altaz</span><span class="o">.</span><span class="n">obstime</span><span class="p">)</span>
@@ -9044,7 +9077,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[31]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[32]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>(474, 256)</pre>
 </div>
@@ -9067,7 +9100,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">open_cluster_altaz</span> <span class="o">=</span> <span class="n">open_cluster_c</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">transform_to</span><span class="p">(</span><span class="n">altaz</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span>
@@ -9092,7 +9125,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -9116,7 +9149,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/2-Coordinates-Transforms.ipynb_66_0.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/2-Coordinates-Transforms.ipynb_67_0.png"/>
 </div>
 </div>
 </div>
@@ -9148,7 +9181,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">icrs_c</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">SkyCoord</span><span class="p">(</span><span class="mf">150.4</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span>
@@ -9163,7 +9196,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[34]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[35]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>&lt;SkyCoord (FK5: equinox=J2000.000): (ra, dec) in deg
     (150.40000705, -11.00000493)&gt;</pre>
@@ -9187,7 +9220,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># This cell will raise an exception and will not work (you will see a `ConvertError` exception) - this is expected!</span>
@@ -9208,7 +9241,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ConvertError</span>                              Traceback (most recent call last)
-Cell <span class="ansi-green-fg">In[35], line 3</span>
+Cell <span class="ansi-green-fg">In[36], line 3</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)"># This cell will raise an exception and will not work (you will see a `ConvertError` exception) - this is expected!</span>
 <span class="ansi-green-fg">----&gt; 3</span> <span class="ansi-yellow-bg">icrs_c</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">transform_to</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">coord</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">Galactocentric</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">)</span>
 

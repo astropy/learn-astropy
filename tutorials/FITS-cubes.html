@@ -7569,31 +7569,46 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <p>The tutorial will walk you though a visual analysis of the Small Magellanic Cloud (SMC) using HI 21cm emission and a Herschel 250 micron map. We will learn how to read in data from a file, query and download matching data from Herschel using astroquery, and plot the resulting images in a multitude of ways.</p>
 <p>The primary libraries we'll be using are: <a href="http://www.astropy.org/astroquery/">astroquery</a>, <a href="https://spectral-cube.readthedocs.io/en/latest/">spectral_cube</a>, <a href="https://reproject.readthedocs.io/en/stable/#">reproject</a>, <a href="https://matplotlib.org/">matplotlib</a>)</p>
 <p>They can be installed using conda:</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <pre><code>conda install -c conda-forge astroquery
 conda install -c conda-forge spectral-cube
 conda install -c conda-forge reproject
 </code></pre>
+<p>Alternatively, if you don't use conda, you can use pip.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Alternatively, if you don't use conda, you can use pip.</p>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'requirements.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Required packages for this notebook:</span><span class="se">\n</span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Required packages for this notebook:
+astropy
+astroquery&gt;=0.4.8.dev9474  # 2024-09-24 pinned for Gaia column capitalization issue
+matplotlib
+numpy
+reproject
+spectral_cube @ git+https://github.com/radio-astro-tools/spectral-cube  # as of: 2024-10-10 for issue with 'distutils'
+
+</pre>
+</div>
 </div>
 </div>
 </div>
@@ -7602,7 +7617,7 @@ conda install -c conda-forge reproject
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -7647,7 +7662,7 @@ We have a reduced version of it which will be a FITS data cube in Galactic coord
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Downloads the HI data in a fits file format</span>
@@ -7678,7 +7693,7 @@ So let's open up our data file and read in the data as a SpectralCube!</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">hi_data</span> <span class="o">=</span> <span class="n">fits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">hi_datafile</span><span class="p">)</span>  <span class="c1"># Open the FITS file for reading</span>
@@ -7711,7 +7726,7 @@ If you happen to already have the FITS file on your system, you can also skip th
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
@@ -7758,7 +7773,7 @@ If you happen to already have the FITS file on your system, you can also skip th
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">cube</span><span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">quicklook</span><span class="p">()</span>  <span class="c1"># Slice the cube along the spectral axis, and display a quick image</span>
@@ -7774,7 +7789,7 @@ If you happen to already have the FITS file on your system, you can also skip th
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/FITS-cubes.ipynb_11_0.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/FITS-cubes.ipynb_10_0.png"/>
 </div>
 </div>
 </div>
@@ -7784,7 +7799,7 @@ If you happen to already have the FITS file on your system, you can also skip th
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">cube</span><span class="p">[:,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">75</span><span class="p">]</span><span class="o">.</span><span class="n">quicklook</span><span class="p">()</span>  <span class="c1"># Extract a single spectrum through the data cube</span>
@@ -7800,7 +7815,7 @@ If you happen to already have the FITS file on your system, you can also skip th
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/FITS-cubes.ipynb_12_0.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/FITS-cubes.ipynb_11_0.png"/>
 </div>
 </div>
 </div>
@@ -7866,7 +7881,7 @@ Warning: using .world() will extract coordinates from every position you ask for
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">_</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cube</span><span class="o">.</span><span class="n">world</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1">#extract latitude world coordinates from cube</span>
@@ -7892,7 +7907,7 @@ Warning: using .world() will extract coordinates from every position you ask for
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Define desired latitude and longitude range</span>
@@ -7940,7 +7955,7 @@ Warning: using .world() will extract coordinates from every position you ask for
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">sub_cube_slab</span> <span class="o">=</span> <span class="n">sub_cube</span><span class="o">.</span><span class="n">spectral_slab</span><span class="p">(</span><span class="o">-</span><span class="mf">300.</span> <span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">km</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="mf">300.</span> <span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">km</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span>
@@ -7985,7 +8000,7 @@ We can convert to friendlier spectral units of km/s and these new 2D projections
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">moment_0</span> <span class="o">=</span> <span class="n">sub_cube_slab</span><span class="o">.</span><span class="n">with_spectral_unit</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">km</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">moment</span><span class="p">(</span><span class="n">order</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Zero-th moment </span>
@@ -8037,7 +8052,7 @@ Moment_1 has units of:  km / s
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">moment_1</span><span class="o">.</span><span class="n">wcs</span><span class="p">)</span>  <span class="c1"># Examine the WCS object associated with the moment map</span>
@@ -8057,11 +8072,11 @@ Moment_1 has units of:  km / s
 
 Number of WCS axes: 2
 CTYPE : 'GLON-TAN' 'GLAT-TAN' 
-CRVAL : 303.75 -40.0 
-CRPIX : 11.557620817843869 40.3723930634757 
-PC1_1 PC1_2  : 1.0 0.0 
-PC2_1 PC2_2  : 0.0 1.0 
-CDELT : -0.1494444443846667 0.1538888888273333 
+CRVAL : np.float64(303.75) np.float64(-40.0) 
+CRPIX : np.float64(11.557620817843869) np.float64(40.3723930634757) 
+PC1_1 PC1_2  : np.float64(1.0) np.float64(0.0) 
+PC2_1 PC2_2  : np.float64(0.0) np.float64(1.0) 
+CDELT : np.float64(-0.1494444443846667) np.float64(0.1538888888273333) 
 NAXIS : 0  0
 </pre>
 </div>
@@ -8084,7 +8099,7 @@ NAXIS : 0  0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Initiate a figure and axis object with WCS projection information</span>
@@ -8122,15 +8137,15 @@ NAXIS : 0  0
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;matplotlib.contour.QuadContourSet at 0x7f6e5e978260&gt;</pre>
+<pre>&lt;matplotlib.contour.QuadContourSet at 0x7f04090b1400&gt;</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/FITS-cubes.ipynb_27_1.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/FITS-cubes.ipynb_26_1.png"/>
 </div>
 </div>
 </div>
@@ -8166,7 +8181,7 @@ NAXIS : 0  0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">lat_slice</span> <span class="o">=</span> <span class="mi">18</span>  <span class="c1"># Index of latitude dimension to slice along</span>
@@ -8208,7 +8223,7 @@ WARNING: WCSWarning: Slicing across a celestial axis results in an invalid WCS, 
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/FITS-cubes.ipynb_30_1.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/FITS-cubes.ipynb_29_1.png"/>
 </div>
 </div>
 </div>
@@ -8286,7 +8301,7 @@ We can query for the data by mission, take a quick look at the table of results,
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Query for Herschel data in a 1 degree radius around the SMC</span>
@@ -8328,7 +8343,7 @@ We can query for the data by mission, take a quick look at the table of results,
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">result</span><span class="p">[</span><span class="s1">'HERSCHEL'</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -8342,7 +8357,7 @@ We can query for the data by mission, take a quick look at the table of results,
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>['fov',
  'postcard_url',
@@ -8379,7 +8394,7 @@ We can query for the data by mission, take a quick look at the table of results,
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">result</span><span class="p">[</span><span class="s1">'HERSCHEL'</span><span class="p">][</span><span class="s1">'filter'</span><span class="p">]</span>
@@ -8393,7 +8408,7 @@ We can query for the data by mission, take a quick look at the table of results,
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 &lt;MaskedColumn name='filter' dtype='object' unit='microns' description='Filter or filters used' length=28&gt;
 <table>
@@ -8455,7 +8470,7 @@ Note that the below command requires an internet connection to download five qui
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">filters</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="s1">'HERSCHEL'</span><span class="p">][</span><span class="s1">'filter'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>  <span class="c1"># Convert the list of filters from the query to a string</span>
@@ -8494,7 +8509,7 @@ Note that the below command requires an internet connection to download five qui
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Filename: Maps/HERSCHEL/anonymous1728499452/hspirepmw401_25pxmp_0110_m7303_1342198565_1342198566_1462476888800.fits.gz
+<pre>Filename: Maps/HERSCHEL/anonymous1728571875/hspirepmw401_25pxmp_0110_m7303_1342198565_1342198566_1462476888800.fits.gz
 No.    Name      Ver    Type      Cards   Dimensions   Format
   0  PRIMARY       1 PrimaryHDU     184   ()      
   1  image         1 ImageHDU        47   (2407, 2141)   float64   
@@ -8526,7 +8541,7 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">herschel_header</span> <span class="o">=</span> <span class="n">IR_images</span><span class="p">[</span><span class="s1">'HERSCHEL'</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">'350'</span><span class="p">][</span><span class="s1">'image'</span><span class="p">]</span><span class="o">.</span><span class="n">header</span>
@@ -8549,8 +8564,8 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 
 Number of WCS axes: 2
 CTYPE : 'RA---TAN' 'DEC--TAN' 
-CRVAL : 18.99666058287459 -71.82876374906319 
-CRPIX : 1063.0 1517.0 
+CRVAL : np.float64(18.99666058287459) np.float64(-71.82876374906319) 
+CRPIX : np.float64(1063.0) np.float64(1517.0) 
 NAXIS : 2407  2141
 </pre>
 </div>
@@ -8573,7 +8588,7 @@ NAXIS : 2407  2141
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Set Nans to zero</span>
@@ -8616,7 +8631,7 @@ NAXIS : 2407  2141
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/FITS-cubes.ipynb_47_0.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/FITS-cubes.ipynb_46_0.png"/>
 </div>
 </div>
 </div>
@@ -8638,7 +8653,7 @@ NAXIS : 2407  2141
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Initiate a figure and axis object with WCS projection information</span>
@@ -8696,7 +8711,7 @@ NAXIS : 2407  2141
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>(-0.5, 2140.5)</pre>
 </div>
@@ -8704,7 +8719,7 @@ NAXIS : 2407  2141
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/FITS-cubes.ipynb_49_1.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/FITS-cubes.ipynb_48_1.png"/>
 </div>
 </div>
 </div>
@@ -8727,7 +8742,7 @@ NAXIS : 2407  2141
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">'IR Resolution (dx,dy) = '</span><span class="p">,</span> <span class="n">herschel_header</span><span class="p">[</span><span class="s1">'cdelt1'</span><span class="p">],</span> <span class="n">herschel_header</span><span class="p">[</span><span class="s1">'cdelt2'</span><span class="p">])</span>
@@ -8771,7 +8786,7 @@ Note: Different ways of accessing the header are shown above corresponding to th
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">rescaled_herschel_data</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">reproject_interp</span><span class="p">(</span><span class="n">herschel_imagehdu</span><span class="p">,</span> 
@@ -8802,7 +8817,7 @@ Note: Different ways of accessing the header are shown above corresponding to th
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Set Nans to zero</span>
@@ -8867,7 +8882,7 @@ Note: Different ways of accessing the header are shown above corresponding to th
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>(37.5, -0.5)</pre>
 </div>
@@ -8875,7 +8890,7 @@ Note: Different ways of accessing the header are shown above corresponding to th
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/FITS-cubes.ipynb_55_1.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/FITS-cubes.ipynb_54_1.png"/>
 </div>
 </div>
 </div>

@@ -7522,29 +7522,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Analyzing-interstellar-reddening-and-calculating-synthetic-photometry">Analyzing interstellar reddening and calculating synthetic photometry<a class="anchor-link" href="#Analyzing-interstellar-reddening-and-calculating-synthetic-photometry">¶</a></h1>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Authors">Authors<a class="anchor-link" href="#Authors">¶</a></h2><p>Kristen Larson, Lia Corrales, Stephanie T. Douglas, Kelle Cruz</p>
+<h1 id="Analyzing-interstellar-reddening-and-calculating-synthetic-photometry">Analyzing interstellar reddening and calculating synthetic photometry<a class="anchor-link" href="#Analyzing-interstellar-reddening-and-calculating-synthetic-photometry">¶</a></h1><h2 id="Authors">Authors<a class="anchor-link" href="#Authors">¶</a></h2><p>Kristen Larson, Lia Corrales, Stephanie T. Douglas, Kelle Cruz</p>
 <p>Input from Emir Karamehmetoglu, Pey Lian Lim, Karl Gordon, Kevin Covey</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Learning-Goals">Learning Goals<a class="anchor-link" href="#Learning-Goals">¶</a></h2><ul>
 <li>Investigate extinction curve shapes</li>
 <li>Deredden spectral energy distributions and spectra</li>
@@ -7569,12 +7548,47 @@ pip install dust_extinction
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">'requirements.txt'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Required packages for this notebook:</span><span class="se">\n</span><span class="si">{</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre>Required packages for this notebook:
+astropy
+astroquery&gt;=0.4.8.dev9474  # 2024-09-24 pinned for Gaia column capitalization issue
+dust_extinction
+matplotlib
+numpy
+synphot
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pathlib</span>
@@ -7685,7 +7699,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create wavelengths array.</span>
@@ -7718,9 +7732,9 @@ $$</p>
 &lt;&gt;:11: SyntaxWarning: invalid escape sequence '\l'
 &lt;&gt;:10: SyntaxWarning: invalid escape sequence '\l'
 &lt;&gt;:11: SyntaxWarning: invalid escape sequence '\l'
-/tmp/ipykernel_2564/1795187298.py:10: SyntaxWarning: invalid escape sequence '\l'
+/tmp/ipykernel_3912/1795187298.py:10: SyntaxWarning: invalid escape sequence '\l'
   plt.xlabel('$\lambda^{-1}$ ($\mu$m$^{-1}$)')
-/tmp/ipykernel_2564/1795187298.py:11: SyntaxWarning: invalid escape sequence '\l'
+/tmp/ipykernel_3912/1795187298.py:11: SyntaxWarning: invalid escape sequence '\l'
   plt.ylabel('A($\lambda$) / A(V)')
 </pre>
 </div>
@@ -7728,7 +7742,7 @@ $$</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/color-excess.ipynb_9_1.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/color-excess.ipynb_8_1.png"/>
 </div>
 </div>
 </div>
@@ -7772,7 +7786,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">download_dir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="s1">'~/.astropy/cache/astroquery/Mast'</span><span class="p">)</span><span class="o">.</span><span class="n">expanduser</span><span class="p">()</span>
@@ -7791,21 +7805,21 @@ $$</p>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div><i>Table masked=True length=199</i>
-<table class="table-striped table-bordered table-condensed" id="table139957663248320">
+<table class="table-striped table-bordered table-condensed" id="table140332210508368">
 <thead><tr><th>intentType</th><th>obs_collection</th><th>provenance_name</th><th>instrument_name</th><th>project</th><th>filters</th><th>wavelength_region</th><th>target_name</th><th>target_classification</th><th>obs_id</th><th>s_ra</th><th>s_dec</th><th>dataproduct_type</th><th>proposal_pi</th><th>calib_level</th><th>t_min</th><th>t_max</th><th>t_exptime</th><th>em_min</th><th>em_max</th><th>obs_title</th><th>t_obs_release</th><th>proposal_id</th><th>proposal_type</th><th>sequence_number</th><th>s_region</th><th>jpegURL</th><th>dataURL</th><th>dataRights</th><th>mtFlag</th><th>srcDen</th><th>obsid</th><th>distance</th></tr></thead>
 <thead><tr><th>str7</th><th>str11</th><th>str12</th><th>str13</th><th>str6</th><th>str16</th><th>str16</th><th>str21</th><th>str37</th><th>str35</th><th>float64</th><th>float64</th><th>str8</th><th>str22</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>str117</th><th>float64</th><th>str25</th><th>str7</th><th>int64</th><th>str23309</th><th>str137</th><th>str137</th><th>str6</th><th>bool</th><th>float64</th><th>str9</th><th>float64</th></tr></thead>
-<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-LL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.2948980322</td><td>53594.2951285765</td><td>19.919027318246663</td><td>14000.0</td><td>21700.001</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.413304 -23.447988 246.412781 -23.450865 246.36261 -23.443168 246.363135 -23.440292 246.413304 -23.447988</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch2/pbcd/SPITZER_S2_14207232_0007_8_E7984965_bksub.tbl</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
-<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-SL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.2931982</td><td>53594.2931982</td><td>0.0</td><td>7400.0</td><td>14500.0</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.396259 -23.452085 246.395141 -23.452027 246.396113 -23.436219 246.397232 -23.436276 246.396259 -23.452085</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch0/bcd/SPITZER_S0_14207232_0004_0001_8_spec2.tbl</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
-<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-LL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.2963427</td><td>53594.2963427</td><td>0.0</td><td>19500.0</td><td>38000.0</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.413225 -23.44796 246.412691 -23.450891 246.362521 -23.443195 246.363056 -23.440263 246.413225 -23.44796</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch2/bcd/SPITZER_S2_14207232_0009_0001_8_spec2.tbl</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
-<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-LL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.2960878</td><td>53594.2962577074</td><td>14.68</td><td>19500.0</td><td>38000.0</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.413227 -23.447956 246.412693 -23.450888 246.362523 -23.443191 246.363057 -23.440259 246.413227 -23.447956</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch2/bcd/SPITZER_S2_14207232_0009_0000_8_spect.tbl</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
-<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-SL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.2919501388</td><td>53594.2921807757</td><td>19.927028054371476</td><td>5200.0</td><td>14500.0</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.394994 -23.474048 246.393876 -23.47399 246.396196 -23.436273 246.397314 -23.436331 246.394994 -23.474048</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch0/pbcd/SPITZER_S0_14207232_0002_8_E7984571_bksub.fits</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
-<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-SL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.2926368</td><td>53594.2927096009</td><td>6.29</td><td>5200.0</td><td>8700.0</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.396021 -23.457359 246.394933 -23.457302 246.395905 -23.441494 246.396994 -23.441551 246.396021 -23.457359</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch0/bcd/SPITZER_S0_14207232_0003_0001_8_spect.tbl</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
-<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-LL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.2954061227</td><td>53594.2958308794</td><td>36.698978673666716</td><td>14000.0</td><td>38000.0</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.429821 -23.450469 246.429288 -23.453401 246.32178 -23.43692 246.322315 -23.433988 246.429821 -23.450469</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch2/pbcd/SPITZER_S2_14207232_0008_8_E7984574_bksub.fits</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
-<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-LL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.2944136458</td><td>53594.2946442361</td><td>19.923001597635448</td><td>14000.0</td><td>21700.001</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.429666 -23.45051 246.429143 -23.453386 246.37897 -23.445695 246.379495 -23.442818 246.429666 -23.45051</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch2/pbcd/SPITZER_S2_14207232_0006_8_A37631904_tune.fits</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
-<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-LL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.2954061227</td><td>53594.2958308794</td><td>36.698978673666716</td><td>19500.0</td><td>38000.0</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.429754 -23.450488 246.42922 -23.45342 246.379048 -23.445728 246.379583 -23.442797 246.429754 -23.450488</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch2/pbcd/SPITZER_S2_14207232_0008_8_E7984985_bksub.tbl</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
+<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-LL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.2954061</td><td>53594.2955760074</td><td>14.68</td><td>14000.0</td><td>38000.0</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.429821 -23.450469 246.429288 -23.453401 246.32178 -23.43692 246.322315 -23.433988 246.429821 -23.450469</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch2/bcd/SPITZER_S2_14207232_0008_0000_8_f2ap.fits</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
+<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-LL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.2948980322</td><td>53594.2951285765</td><td>19.919027318246663</td><td>14000.0</td><td>38000.0</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.470586 -23.456756 246.470053 -23.459688 246.362542 -23.443195 246.363077 -23.440264 246.470586 -23.456756</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch2/pbcd/SPITZER_S2_14207232_0007_8_E7984582_bksub.fits</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
+<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-LL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.2954061227</td><td>53594.2958308794</td><td>36.698978673666716</td><td>19500.0</td><td>38000.0</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.429754 -23.450488 246.42922 -23.45342 246.379048 -23.445728 246.379583 -23.442797 246.429754 -23.450488</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch2/pbcd/SPITZER_S2_14207232_0008_8_A37631912_tune.fits</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
+<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-SL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.292108</td><td>53594.2921808009</td><td>6.29</td><td>5200.0</td><td>8700.0</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.396317 -23.452223 246.395229 -23.452167 246.396201 -23.436359 246.397289 -23.436415 246.396317 -23.452223</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch0/bcd/SPITZER_S0_14207232_0002_0001_8_spect.fits</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
+<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-SL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.2924790625</td><td>53594.2927096067</td><td>19.91901914589107</td><td>5200.0</td><td>14500.0</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.394695 -23.479182 246.393576 -23.479124 246.395897 -23.441407 246.397015 -23.441465 246.394695 -23.479182</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch0/pbcd/SPITZER_S0_14207232_0003_8_E7384278_coa2d.fits</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
+<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-LL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.295661</td><td>53594.2958309074</td><td>14.68</td><td>14000.0</td><td>38000.0</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.429817 -23.450469 246.429284 -23.453401 246.321776 -23.436919 246.322311 -23.433988 246.429817 -23.450469</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch2/bcd/SPITZER_S2_14207232_0008_0001_8_f2ap.fits</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
+<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-LL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.2960878</td><td>53594.2960878</td><td>0.0</td><td>19500.0</td><td>38000.0</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.413227 -23.447956 246.412693 -23.450888 246.362523 -23.443191 246.363057 -23.440259 246.413227 -23.447956</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch2/bcd/SPITZER_S2_14207232_0009_0000_8_spec2.tbl</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
+<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-LL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.2963427</td><td>53594.2965126074</td><td>14.68</td><td>19500.0</td><td>38000.0</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.413225 -23.44796 246.412691 -23.450891 246.362521 -23.443195 246.363056 -23.440263 246.413225 -23.44796</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch2/bcd/SPITZER_S2_14207232_0009_0001_8_spect.fits</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
+<tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-LL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.2960878126</td><td>53594.2965126159</td><td>36.703005130402744</td><td>19500.0</td><td>38000.0</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.413227 -23.447956 246.412693 -23.450888 246.362523 -23.443191 246.363057 -23.440259 246.413227 -23.447956</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch2/pbcd/SPITZER_S2_14207232_0009_8_A37631914_tune.fits</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
 <tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
 <tr><td>science</td><td>HST</td><td>CALHRS</td><td>HRS</td><td>HST</td><td>MIRROR-N1</td><td>UV</td><td>HD147933A</td><td>STAR;B0-B2 V-IV;</td><td>z34r0101t</td><td>246.39650225999998</td><td>-23.44680653022271</td><td>spectrum</td><td>Seab, C. Gregory</td><td>1</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>nan</td><td>STRUCTURALLY RESOLVED ABUNDANCES AND DEPLETIONS IN THE RHO OPH CLOUD</td><td>50525.53306704</td><td>5891</td><td>GO</td><td>--</td><td>POLYGON 246.39634951 -23.44711966 246.39616095 -23.44666639 246.39665501 -23.4464934 246.39684357 -23.44694667 246.39634951 -23.44711966</td><td>--</td><td>--</td><td>PUBLIC</td><td>False</td><td>nan</td><td>24790609</td><td>0.21376357547654684</td></tr>
 <tr><td>science</td><td>HST</td><td>CALHRS</td><td>HRS/1</td><td>HST</td><td>MIRROR-N1</td><td>UV</td><td>HD147933A</td><td>STAR;B0-B2 V-IV;</td><td>z34r0102t</td><td>246.3965495632</td><td>-23.44717233421</td><td>spectrum</td><td>Seab, C. Gregory</td><td>1</td><td>50159.585271331016</td><td>50159.58770188657</td><td>0.0</td><td>nan</td><td>nan</td><td>STRUCTURALLY RESOLVED ABUNDANCES AND DEPLETIONS IN THE RHO OPH CLOUD</td><td>50525.53208328</td><td>5891</td><td>GO</td><td>--</td><td>POLYGON 246.39634951 -23.44711966 246.39616095 -23.44666639 246.39665501 -23.4464934 246.39684357 -23.44694667 246.39634951 -23.44711966</td><td>--</td><td>mast:HST/product/z34r0102t_d1f.fits</td><td>PUBLIC</td><td>False</td><td>nan</td><td>24790610</td><td>0.21376357547654684</td></tr>
@@ -7827,7 +7841,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># retrieve a specific 'obs_id' corresponding to the IUE spectrum</span>
@@ -7849,117 +7863,63 @@ $$</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:IUE/url/browse/previews/iue/mx/lwr/05000/gif/lwr05639.gif to /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639.gif ...</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre> [Done]
+<pre>INFO: Found cached file /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639.gif with expected size 7406. [astroquery.query]
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:IUE/url/pub/iue/data/lwr/05000/lwr05639.elbll.gz to /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639.elbll.gz ...</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre> [Done]
+<pre>INFO: Found cached file /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639.elbll.gz with expected size 55417. [astroquery.query]
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:IUE/url/pub/iue/data/lwr/05000/lwr05639.lilo.gz to /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639.lilo.gz ...</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre> [Done]
+<pre>INFO: Found cached file /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639.lilo.gz with expected size 446101. [astroquery.query]
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:IUE/url/pub/iue/data/lwr/05000/lwr05639.melol.gz to /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639.melol.gz ...</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre> [Done]
+<pre>INFO: Found cached file /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639.melol.gz with expected size 6464. [astroquery.query]
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:IUE/url/pub/iue/data/lwr/05000/lwr05639.mxlo.gz to /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639.mxlo.gz ...</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre> [Done]
+<pre>INFO: Found cached file /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639.mxlo.gz with expected size 18165. [astroquery.query]
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:IUE/url/pub/iue/data/lwr/05000/lwr05639.raw.gz to /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639.raw.gz ...</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre> [Done]
+<pre>INFO: Found cached file /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639.raw.gz with expected size 285802. [astroquery.query]
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:IUE/url/pub/iue/data/lwr/05000/lwr05639.rilo.gz to /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639.rilo.gz ...</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre> [Done]
+<pre>INFO: Found cached file /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639.rilo.gz with expected size 291749. [astroquery.query]
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:IUE/url/pub/iue/data/lwr/05000/lwr05639.silo.gz to /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639.silo.gz ...</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre> [Done]
+<pre>INFO: Found cached file /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639.silo.gz with expected size 89943. [astroquery.query]
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Downloading URL https://mast.stsci.edu/api/v0.1/Download/file?uri=mast:IUE/url/pub/vospectra/iue2/lwr05639mxlo_vo.fits to /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639mxlo_vo.fits ...</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre> [Done]
+<pre>INFO: Found cached file /home/runner/.astropy/cache/astroquery/Mast/mastDownload/IUE/lwr05639/lwr05639mxlo_vo.fits with expected size 48960. [astroquery.query]
 </pre>
 </div>
 </div>
@@ -7981,7 +7941,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">t_lwr</span> <span class="o">=</span> <span class="n">Table</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">download_dir</span> <span class="o">/</span> <span class="s1">'mastDownload/IUE/lwr05639/lwr05639mxlo_vo.fits'</span><span class="p">)</span>
@@ -8030,7 +7990,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">wav_UV</span> <span class="o">=</span> <span class="n">t_lwr</span><span class="p">[</span><span class="s1">'WAVE'</span><span class="p">][</span><span class="mi">0</span><span class="p">,]</span><span class="o">.</span><span class="n">quantity</span>
@@ -8056,7 +8016,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">custom_query</span> <span class="o">=</span> <span class="n">Simbad</span><span class="p">()</span>
@@ -8086,7 +8046,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">wav_U</span> <span class="o">=</span> <span class="mf">0.3660</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">micron</span> 
@@ -8116,7 +8076,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">zeroflux_U</span> <span class="o">=</span> <span class="n">zeroflux_U_nu</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">erg</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">AA</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">cm</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">cm</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> 
@@ -8149,7 +8109,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Uflux</span> <span class="o">=</span> <span class="n">zeroflux_U</span> <span class="o">*</span> <span class="mf">10.</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="o">*</span><span class="n">Umag</span><span class="p">)</span>
@@ -8176,7 +8136,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">astropy</span><span class="o">.</span><span class="n">visualization</span><span class="o">.</span><span class="n">quantity_support</span><span class="p">()</span>
@@ -8201,7 +8161,7 @@ $$</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/color-excess.ipynb_28_0.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/color-excess.ipynb_27_0.png"/>
 </div>
 </div>
 </div>
@@ -8222,7 +8182,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">Rv</span> <span class="o">=</span> <span class="mf">5.0</span>  <span class="c1"># Usually around 3, but about 5 for this star.</span>
@@ -8249,7 +8209,7 @@ $$</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">wav_UV</span><span class="p">,</span><span class="n">UVflux</span><span class="p">,</span><span class="s1">'m'</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">'UV'</span><span class="p">)</span>
@@ -8279,7 +8239,7 @@ $$</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/color-excess.ipynb_32_0.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/color-excess.ipynb_31_0.png"/>
 </div>
 </div>
 </div>
@@ -8342,7 +8302,7 @@ for an excellent review of the issues and common misunderstandings in synthetic 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Optional, for when the STScI ftp server is not answering:</span>
@@ -8397,7 +8357,7 @@ for an excellent review of the issues and common misunderstandings in synthetic 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># First, create a blackbody at some temperature.</span>
@@ -8425,7 +8385,7 @@ for an excellent review of the issues and common misunderstandings in synthetic 
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/color-excess.ipynb_40_0.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/color-excess.ipynb_39_0.png"/>
 </div>
 </div>
 </div>
@@ -8446,7 +8406,7 @@ for an excellent review of the issues and common misunderstandings in synthetic 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Initialize the extinction model and choose the extinction, here Av = 2.</span>
@@ -8474,7 +8434,7 @@ for an excellent review of the issues and common misunderstandings in synthetic 
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/color-excess.ipynb_42_0.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/color-excess.ipynb_41_0.png"/>
 </div>
 </div>
 </div>
@@ -8495,7 +8455,7 @@ for an excellent review of the issues and common misunderstandings in synthetic 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># "Observe" the star through the filter and integrate to get photometric mag.</span>
@@ -8524,7 +8484,7 @@ for an excellent review of the issues and common misunderstandings in synthetic 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">sp_stim_before</span> <span class="o">=</span> <span class="n">sp_obs_before</span><span class="o">.</span><span class="n">effstim</span><span class="p">(</span><span class="n">flux_unit</span><span class="o">=</span><span class="s1">'vegamag'</span><span class="p">,</span> <span class="n">vegaspec</span><span class="o">=</span><span class="n">vega</span><span class="p">)</span>
@@ -8583,7 +8543,7 @@ $A_V$ =  2.0 mag
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">bands</span> <span class="o">=</span> <span class="p">[</span><span class="n">u_band</span><span class="p">,</span><span class="n">b_band</span><span class="p">,</span><span class="n">v_band</span><span class="p">,</span><span class="n">r_band</span><span class="p">,</span><span class="n">i_band</span><span class="p">,</span><span class="n">j_band</span><span class="p">,</span><span class="n">h_band</span><span class="p">,</span><span class="n">k_band</span><span class="p">]</span>
@@ -8637,9 +8597,9 @@ $A_V$ =  2.0 mag
 &lt;&gt;:22: SyntaxWarning: invalid escape sequence '\l'
 &lt;&gt;:21: SyntaxWarning: invalid escape sequence '\l'
 &lt;&gt;:22: SyntaxWarning: invalid escape sequence '\l'
-/tmp/ipykernel_2564/326499545.py:21: SyntaxWarning: invalid escape sequence '\l'
+/tmp/ipykernel_3912/326499545.py:21: SyntaxWarning: invalid escape sequence '\l'
   plt.xlabel('$\lambda$ (Angstrom)')
-/tmp/ipykernel_2564/326499545.py:22: SyntaxWarning: invalid escape sequence '\l'
+/tmp/ipykernel_3912/326499545.py:22: SyntaxWarning: invalid escape sequence '\l'
   plt.ylabel('E($\lambda$-V)')
 </pre>
 </div>
@@ -8662,7 +8622,7 @@ $A_V$ =  2.0 mag
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/color-excess.ipynb_49_4.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/color-excess.ipynb_48_4.png"/>
 </div>
 </div>
 </div>
