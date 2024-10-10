@@ -5,7 +5,7 @@ slug: '/contributing/how-to-contribute'
 
 ## Overview
 
-Each tutorial is a [Jupyter notebook](https://jupyter.org/) file. Each notebook is saved in a separate directory within the `tutorials/notebooks` subdirectory in this project. For an example, let's look at the source notebook of the [FITS-header](https://github.com/astropy/astropy-tutorials/tree/main/tutorials/FITS-header/) tutorial. Within `tutorials/notebooks/FITS-header`, there is a single Jupyter notebook file that contains the text and code for the tutorial, and any small data files used in the tutorial (in this case, a single FITS file). The notebook file is automatically run and converted into a static HTML page ([for example](https://learn.astropy.org/tutorials/FITS-header.html)), which is then displayed in the tutorial listing on the main tutorials webpage, http://tutorials.astropy.org. Each tutorial notebook file also contains information such as the author's name, month and year it was written, and any other metadata that should be associated with the tutorial.
+Each tutorial is a [Jupyter notebook](https://jupyter.org/) file. Each notebook is saved in a separate directory within the `tutorials/notebooks` subdirectory in this project. For an example, let's look at the source notebook of the [FITS-header](https://github.com/astropy/astropy-tutorials/tree/main/tutorials/FITS-header/) tutorial. Within `tutorials/notebooks/FITS-header`, there is a single Jupyter notebook file that contains the text and code for the tutorial, any small data files used in the tutorial (in this case, a single FITS file), and a `requirements.txt` file that specifies the required packages to run notebooks in `tutorials/notebooks/FITS-header`. The notebook file is automatically run and converted into a static HTML page ([for example](https://learn.astropy.org/tutorials/FITS-header.html)), which is then displayed in the tutorial listing on the main tutorials webpage, http://tutorials.astropy.org. Each tutorial notebook file also contains information such as the author's name, month and year it was written, and any other metadata that should be associated with the tutorial.
 
 ## Content Guidelines
 
@@ -20,7 +20,7 @@ Each tutorial is a [Jupyter notebook](https://jupyter.org/) file. Each notebook 
 
 ### Template intro
 
-The first cell in every tutorial notebook is used for the title, author list, keywords, and summary and should adhere to the following format:
+The first cell in every tutorial notebook is a markdown cell used for the title, author list, keywords, and summary. All of this information should be contained in a single cell and should adhere to the following format:
 
 ```
 # Title name
@@ -42,6 +42,13 @@ Carroll & Ostlie 10.3, Binney & Tremaine 1.5
 ## Summary
 In this tutorial, we will download a data file, do something to it, and then
 visualize it.
+```
+
+The second cell in every tutorial notebook is a code cell used to display required packages for users, and should be the following lines (this expects the `requirements.txt` file to be present in the notebook's directory):
+
+```
+with open('requirements.txt') as f:
+    print(f"Required packages for this notebook:\n{f.read()}")
 ```
 
 ### Code
