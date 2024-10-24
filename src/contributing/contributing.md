@@ -76,7 +76,7 @@ with open('requirements.txt') as f:
 ### Narrative
 
 - Please read through the other tutorials to get a sense of the desired tone and length.
-- Use [Markdown formatting](http://jupyter-notebook.readthedocs.io/en/latest/exa mples/Notebook/Working%20With%20Markdown%20Cells.html) in text cells for formatting, links, latex, and code snippets.
+- Use [Markdown formatting](http://jupyter-notebook.readthedocs.io/en/latest/examples/Notebook/Working%20With%20Markdown%20Cells.html) in text cells for formatting, links, latex, and code snippets.
 - Titles should be short yet descriptive and emphasize the learning goals of the tutorial. Try to make the title appeal to a broad audience and avoid referencing a specific instrument, catalog, or anything wavelength dependent.
 - List all authors' full names (comma separated) and link to GitHub profiles and/or [ORCID iD](https://orcid.org/) when relevant.
 - Include [Learning Goals](http://tll.mit.edu/help/intended-learning-outcomes) at the top as a bulleted list.
