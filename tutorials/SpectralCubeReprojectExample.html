@@ -7836,7 +7836,13 @@ These are moderately large files, with sizes 18 MB and 337 MB.</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>WARNING: AstropyDeprecationWarning: show_in_notebook() is deprecated as of 6.1 and to create
+<pre>WARNING</pre>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>: AstropyDeprecationWarning: show_in_notebook() is deprecated as of 6.1 and to create
          interactive tables it is recommended to use dedicated tools like:
          - https://github.com/bloomberg/ipydatagrid
          - https://docs.bokeh.org/en/latest/docs/user_guide/interaction/widgets.html#datatable
@@ -7848,7 +7854,7 @@ These are moderately large files, with sizes 18 MB and 337 MB.</p>
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <i>Table length=4</i>
-<table class="table-striped table-bordered table-condensed" id="table139714561848480-964307">
+<table class="table-striped table-bordered table-condensed" id="table140700091315984-753201">
 <thead><tr><th>idx</th><th>species_id</th><th>name</th><th>chemical_name</th><th>resolved_QNs</th><th>linelist</th><th>LovasASTIntensity</th><th>lower_state_energy</th><th>upper_state_energy</th><th>sijmu2</th><th>sij</th><th>aij</th><th>intintensity</th><th>Lovas_NRAO</th><th>orderedfreq</th><th>lower_state_energy_K</th><th>upper_state_energy_K</th><th>orderedFreq</th><th>measFreq</th><th>upperStateDegen</th><th>moleculeTag</th><th>qnCode</th><th>labref_Lovas_NIST</th><th>rel_int_HFS_Lovas</th><th>unres_quantum_numbers</th><th>lineid</th><th>transition_in_space</th><th>transition_in_G358</th><th>obsref_Lovas_NIST</th><th>source_Lovas_NIST</th><th>telescope_Lovas_NIST</th><th>transitionBandColor</th><th>searchErrorMessage</th><th>sqlquery</th><th>requestnumber</th></tr></thead>
 <tr><td>0</td><td>210</td><td>H&lt;sub&gt;2&lt;/sub&gt;CS</td><td>Thioformaldehyde</td><td>4( 1, 3)- 3( 1, 2)</td><td>JPL</td><td>0.17</td><td>16.1465</td><td>20.79917</td><td>30.51674</td><td>11.223</td><td>-4.44732</td><td></td><td>1</td><td>139483.41</td><td>23.23108</td><td>29.92519</td><td>&lt;span style = 'color: #DC143C'&gt;&lt;/span&gt;</td><td>139.48341 (0.28), &lt;span style = 'color: #DC143C'&gt;139.48341&lt;/span&gt;</td><td>27</td><td>-46003</td><td>303</td><td></td><td></td><td>4 1 3       3 1 2</td><td>4065687</td><td>0</td><td>0</td><td>Lor84a</td><td>rho Oph B1</td><td>MMWO    4.9m</td><td>datatablegreen</td><td></td><td>None</td><td>0</td></tr>
 <tr><td>1</td><td>210</td><td>H&lt;sub&gt;2&lt;/sub&gt;CS</td><td>Thioformaldehyde</td><td>4( 1, 3)- 3( 1, 2)</td><td>CDMS</td><td></td><td>16.1329</td><td>20.78557</td><td>30.59661</td><td>11.251</td><td>-4.44619</td><td></td><td>0</td><td>139483.6816</td><td>23.21151</td><td>29.90563</td><td>&lt;span style = 'color: #DC143C'&gt;&lt;/span&gt;</td><td>139.4836816 (0.05), &lt;span style = 'color: #DC143C'&gt;139.4836816&lt;/span&gt;</td><td>27</td><td>-46509</td><td>303</td><td></td><td></td><td>4 1 3       3 1 2</td><td>4066266</td><td>0</td><td>0</td><td></td><td></td><td></td><td>datatablegreen</td><td></td><td>None</td><td>0</td></tr>
@@ -7877,14 +7883,14 @@ require.config({paths: {
     datatables: 'https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min'
 }});
 require(["datatables"], function(){
-    console.log("$('#table139714561848480-964307').dataTable()");
+    console.log("$('#table140700091315984-753201').dataTable()");
 
 jQuery.extend( jQuery.fn.dataTableExt.oSort, {
     "optionalnum-asc": astropy_sort_num,
     "optionalnum-desc": function (a,b) { return -astropy_sort_num(a, b); }
 });
 
-    $('#table139714561848480-964307').dataTable({
+    $('#table140700091315984-753201').dataTable({
         order: [],
         pageLength: 50,
         lengthMenu: [[10, 25, 50, 100, 500, 1000, -1], [10, 25, 50, 100, 500, 1000, 'All']],
@@ -7931,7 +7937,7 @@ WARNING: AstropyDeprecationWarning: show_in_notebook() is deprecated as of 6.1 a
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <i>Table length=6</i>
-<table class="table-striped table-bordered table-condensed" id="table139714561849104-954344">
+<table class="table-striped table-bordered table-condensed" id="table140700091315840-809664">
 <thead><tr><th>idx</th><th>species_id</th><th>name</th><th>chemical_name</th><th>resolved_QNs</th><th>linelist</th><th>LovasASTIntensity</th><th>lower_state_energy</th><th>upper_state_energy</th><th>sijmu2</th><th>sij</th><th>aij</th><th>intintensity</th><th>Lovas_NRAO</th><th>orderedfreq</th><th>lower_state_energy_K</th><th>upper_state_energy_K</th><th>orderedFreq</th><th>measFreq</th><th>upperStateDegen</th><th>moleculeTag</th><th>qnCode</th><th>labref_Lovas_NIST</th><th>rel_int_HFS_Lovas</th><th>unres_quantum_numbers</th><th>lineid</th><th>transition_in_space</th><th>transition_in_G358</th><th>obsref_Lovas_NIST</th><th>source_Lovas_NIST</th><th>telescope_Lovas_NIST</th><th>transitionBandColor</th><th>searchErrorMessage</th><th>sqlquery</th><th>requestnumber</th></tr></thead>
 <tr><td>0</td><td>21081</td><td>SiO, v = 0-10</td><td>Silicon monoxide (global fit)</td><td>J = 5 - 4, v = 0 - 0</td><td>CDMS</td><td></td><td>14.4843</td><td>21.72614</td><td>47.9909</td><td>0.0</td><td>-3.28429</td><td>-1.3211</td><td>1</td><td>217104.919</td><td>20.83981</td><td>31.25927</td><td>&lt;span style = 'color: #DC143C'&gt;&lt;/span&gt;</td><td>217.104919 (0.002), &lt;span style = 'color: #DC143C'&gt;217.104919&lt;/span&gt;</td><td>11</td><td>-44505</td><td>1202</td><td></td><td></td><td>5 0 4 0</td><td>7980087</td><td>1</td><td>0</td><td>Belloche 2013</td><td>Sgr B2(N)</td><td>IRAM 30m</td><td>datatablelightpurple</td><td></td><td>None</td><td>0</td></tr>
 <tr><td>1</td><td>20</td><td>SiO &lt;font color="red"&gt;v = 0 &lt;/font&gt;</td><td>Silicon Monoxide</td><td>5- 4</td><td>CDMS</td><td>1.6</td><td>14.4843</td><td>21.72614</td><td>47.99147</td><td>5.0</td><td>-3.28429</td><td></td><td>0</td><td>217104.98</td><td>20.83956</td><td>31.25889</td><td>&lt;span style = 'color: #DC143C'&gt;&lt;/span&gt;</td><td>217.10498 (0.08), &lt;span style = 'color: #DC143C'&gt;217.10498&lt;/span&gt;</td><td>11</td><td>-44505</td><td>1202</td><td></td><td></td><td>5 0         4 0</td><td>6962437</td><td>0</td><td>0</td><td></td><td></td><td></td><td>datatablelightpurple</td><td></td><td>None</td><td>0</td></tr>
@@ -7962,14 +7968,14 @@ require.config({paths: {
     datatables: 'https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min'
 }});
 require(["datatables"], function(){
-    console.log("$('#table139714561849104-954344').dataTable()");
+    console.log("$('#table140700091315840-809664').dataTable()");
 
 jQuery.extend( jQuery.fn.dataTableExt.oSort, {
     "optionalnum-asc": astropy_sort_num,
     "optionalnum-desc": function (a,b) { return -astropy_sort_num(a, b); }
 });
 
-    $('#table139714561849104-954344').dataTable({
+    $('#table140700091315840-809664').dataTable({
         order: [],
         pageLength: 50,
         lengthMenu: [[10, 25, 50, 100, 500, 1000, -1], [10, 25, 50, 100, 500, 1000, 'All']],
@@ -8111,7 +8117,7 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.max at 0x7f11eab376a0&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
+<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.max at 0x7ff760deb6a0&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
 /opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/spectral_cube/spectral_cube.py:436: RuntimeWarning: All-NaN slice encountered
   out = function(self._get_filled_data(fill=fill,
 </pre>
@@ -8157,7 +8163,7 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.max at 0x7f11eab376a0&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
+<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.max at 0x7ff760deb6a0&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
 </pre>
 </div>
 </div>
@@ -8446,403 +8452,403 @@ $1.8856963 \; \mathrm{\frac{km}{s}}$
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:   6%|▌         | 10717/176400 [00:00&lt;00:01, 107163.71it/s]</pre>
+<pre>Spectral Interpolate:   6%|▌         | 10691/176400 [00:00&lt;00:01, 106906.79it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  12%|█▏        | 21434/176400 [00:00&lt;00:02, 59936.56it/s] </pre>
+<pre>Spectral Interpolate:  12%|█▏        | 21382/176400 [00:00&lt;00:02, 60808.36it/s] </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  16%|█▌        | 28542/176400 [00:00&lt;00:03, 43882.41it/s]</pre>
+<pre>Spectral Interpolate:  16%|█▌        | 28532/176400 [00:00&lt;00:03, 40480.02it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  19%|█▉        | 33758/176400 [00:00&lt;00:03, 37447.47it/s]</pre>
+<pre>Spectral Interpolate:  19%|█▉        | 33576/176400 [00:00&lt;00:04, 33984.75it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  22%|██▏       | 37978/176400 [00:00&lt;00:04, 29858.20it/s]</pre>
+<pre>Spectral Interpolate:  21%|██▏       | 37559/176400 [00:01&lt;00:04, 30450.35it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  23%|██▎       | 41332/176400 [00:01&lt;00:05, 26087.33it/s]</pre>
+<pre>Spectral Interpolate:  23%|██▎       | 40922/176400 [00:01&lt;00:04, 28481.41it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  25%|██▌       | 44151/176400 [00:01&lt;00:05, 22910.27it/s]</pre>
+<pre>Spectral Interpolate:  25%|██▍       | 43927/176400 [00:01&lt;00:04, 26500.05it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  26%|██▋       | 46557/176400 [00:01&lt;00:05, 21721.43it/s]</pre>
+<pre>Spectral Interpolate:  26%|██▋       | 46643/176400 [00:01&lt;00:05, 24792.43it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  28%|██▊       | 48770/176400 [00:01&lt;00:06, 20746.32it/s]</pre>
+<pre>Spectral Interpolate:  28%|██▊       | 49137/176400 [00:01&lt;00:05, 23012.44it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  29%|██▉       | 50845/176400 [00:01&lt;00:06, 19793.03it/s]</pre>
+<pre>Spectral Interpolate:  29%|██▉       | 51427/176400 [00:01&lt;00:05, 21923.18it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  30%|██▉       | 52804/176400 [00:01&lt;00:06, 19628.01it/s]</pre>
+<pre>Spectral Interpolate:  30%|███       | 53593/176400 [00:01&lt;00:06, 19490.66it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  31%|███       | 54913/176400 [00:01&lt;00:06, 19986.08it/s]</pre>
+<pre>Spectral Interpolate:  31%|███▏      | 55551/176400 [00:01&lt;00:06, 19511.28it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  32%|███▏      | 56907/176400 [00:02&lt;00:06, 17984.67it/s]</pre>
+<pre>Spectral Interpolate:  33%|███▎      | 57639/176400 [00:02&lt;00:05, 19850.87it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  33%|███▎      | 58721/176400 [00:02&lt;00:06, 17172.44it/s]</pre>
+<pre>Spectral Interpolate:  34%|███▍      | 59628/176400 [00:02&lt;00:06, 17387.08it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  34%|███▍      | 60444/176400 [00:02&lt;00:07, 14728.87it/s]</pre>
+<pre>Spectral Interpolate:  35%|███▍      | 61460/176400 [00:02&lt;00:06, 17617.27it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  35%|███▌      | 61961/176400 [00:02&lt;00:08, 13425.55it/s]</pre>
+<pre>Spectral Interpolate:  36%|███▌      | 63254/176400 [00:02&lt;00:07, 14658.47it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  36%|███▌      | 63649/176400 [00:02&lt;00:07, 14233.86it/s]</pre>
+<pre>Spectral Interpolate:  37%|███▋      | 64809/176400 [00:02&lt;00:08, 13431.76it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  37%|███▋      | 65635/176400 [00:02&lt;00:07, 15645.37it/s]</pre>
+<pre>Spectral Interpolate:  38%|███▊      | 66744/176400 [00:02&lt;00:07, 14810.74it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  38%|███▊      | 67260/176400 [00:02&lt;00:07, 14522.88it/s]</pre>
+<pre>Spectral Interpolate:  39%|███▉      | 68574/176400 [00:02&lt;00:06, 15681.29it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  39%|███▉      | 69071/176400 [00:02&lt;00:06, 15444.78it/s]</pre>
+<pre>Spectral Interpolate:  40%|███▉      | 70452/176400 [00:02&lt;00:06, 16494.59it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  40%|████      | 71042/176400 [00:03&lt;00:06, 16590.32it/s]</pre>
+<pre>Spectral Interpolate:  41%|████      | 72427/176400 [00:03&lt;00:05, 17381.06it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  41%|████▏     | 72958/176400 [00:03&lt;00:05, 17300.02it/s]</pre>
+<pre>Spectral Interpolate:  42%|████▏     | 74220/176400 [00:03&lt;00:06, 16864.32it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  42%|████▏     | 74728/176400 [00:03&lt;00:06, 16762.56it/s]</pre>
+<pre>Spectral Interpolate:  43%|████▎     | 76149/176400 [00:03&lt;00:05, 17538.01it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  43%|████▎     | 76677/176400 [00:03&lt;00:05, 17526.87it/s]</pre>
+<pre>Spectral Interpolate:  44%|████▍     | 77958/176400 [00:03&lt;00:05, 17693.79it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  44%|████▍     | 78456/176400 [00:03&lt;00:05, 17601.56it/s]</pre>
+<pre>Spectral Interpolate:  45%|████▌     | 79912/176400 [00:03&lt;00:05, 18224.81it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  46%|████▌     | 80414/176400 [00:03&lt;00:05, 18174.31it/s]</pre>
+<pre>Spectral Interpolate:  46%|████▋     | 81784/176400 [00:03&lt;00:05, 18367.00it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  47%|████▋     | 82283/176400 [00:03&lt;00:05, 18323.58it/s]</pre>
+<pre>Spectral Interpolate:  47%|████▋     | 83635/176400 [00:03&lt;00:05, 17647.21it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  48%|████▊     | 84163/176400 [00:03&lt;00:04, 18462.64it/s]</pre>
+<pre>Spectral Interpolate:  48%|████▊     | 85415/176400 [00:03&lt;00:05, 17665.19it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  49%|████▉     | 86072/176400 [00:03&lt;00:04, 18648.63it/s]</pre>
+<pre>Spectral Interpolate:  49%|████▉     | 87229/176400 [00:03&lt;00:05, 17802.01it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  50%|████▉     | 87961/176400 [00:03&lt;00:04, 18718.40it/s]</pre>
+<pre>Spectral Interpolate:  51%|█████     | 89140/176400 [00:03&lt;00:04, 18182.85it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  51%|█████     | 89837/176400 [00:04&lt;00:05, 15507.46it/s]</pre>
+<pre>Spectral Interpolate:  52%|█████▏    | 90965/176400 [00:04&lt;00:05, 15900.77it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  52%|█████▏    | 91482/176400 [00:04&lt;00:05, 14501.98it/s]</pre>
+<pre>Spectral Interpolate:  53%|█████▎    | 92623/176400 [00:04&lt;00:05, 16079.86it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  53%|█████▎    | 93366/176400 [00:04&lt;00:05, 15608.72it/s]</pre>
+<pre>Spectral Interpolate:  54%|█████▎    | 94590/176400 [00:04&lt;00:04, 17075.90it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  54%|█████▍    | 94997/176400 [00:04&lt;00:05, 15519.94it/s]</pre>
+<pre>Spectral Interpolate:  55%|█████▍    | 96461/176400 [00:04&lt;00:04, 17538.07it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  55%|█████▍    | 96847/176400 [00:04&lt;00:04, 16332.51it/s]</pre>
+<pre>Spectral Interpolate:  56%|█████▌    | 98377/176400 [00:04&lt;00:04, 18004.02it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  56%|█████▌    | 98523/176400 [00:04&lt;00:05, 14539.28it/s]</pre>
+<pre>Spectral Interpolate:  57%|█████▋    | 100256/176400 [00:04&lt;00:04, 18231.93it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  57%|█████▋    | 100289/176400 [00:04&lt;00:04, 15354.96it/s]</pre>
+<pre>Spectral Interpolate:  58%|█████▊    | 102095/176400 [00:04&lt;00:04, 18036.42it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  58%|█████▊    | 102243/176400 [00:04&lt;00:04, 16490.55it/s]</pre>
+<pre>Spectral Interpolate:  59%|█████▉    | 104029/176400 [00:04&lt;00:03, 18417.07it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  59%|█████▉    | 104127/176400 [00:05&lt;00:04, 17147.69it/s]</pre>
+<pre>Spectral Interpolate:  60%|██████    | 106019/176400 [00:04&lt;00:03, 18852.41it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  60%|██████    | 105882/176400 [00:05&lt;00:04, 15622.57it/s]</pre>
+<pre>Spectral Interpolate:  61%|██████    | 107911/176400 [00:05&lt;00:03, 17808.40it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  61%|██████    | 107556/176400 [00:05&lt;00:04, 15922.91it/s]</pre>
+<pre>Spectral Interpolate:  62%|██████▏   | 109839/176400 [00:05&lt;00:03, 18227.58it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  62%|██████▏   | 109342/176400 [00:05&lt;00:04, 16460.04it/s]</pre>
+<pre>Spectral Interpolate:  63%|██████▎   | 111820/176400 [00:05&lt;00:03, 18683.64it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  63%|██████▎   | 111341/176400 [00:05&lt;00:03, 17461.80it/s]</pre>
+<pre>Spectral Interpolate:  64%|██████▍   | 113700/176400 [00:05&lt;00:03, 17724.72it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  64%|██████▍   | 113160/176400 [00:05&lt;00:03, 17669.54it/s]</pre>
+<pre>Spectral Interpolate:  65%|██████▌   | 115489/176400 [00:05&lt;00:03, 17475.00it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  65%|██████▌   | 115018/176400 [00:05&lt;00:03, 17933.64it/s]</pre>
+<pre>Spectral Interpolate:  67%|██████▋   | 117502/176400 [00:05&lt;00:03, 18230.81it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  66%|██████▋   | 117066/176400 [00:05&lt;00:03, 18681.96it/s]</pre>
+<pre>Spectral Interpolate:  68%|██████▊   | 119337/176400 [00:05&lt;00:03, 16465.53it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  68%|██████▊   | 119119/176400 [00:05&lt;00:02, 19227.66it/s]</pre>
+<pre>Spectral Interpolate:  69%|██████▊   | 121021/176400 [00:05&lt;00:03, 16325.20it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  69%|██████▊   | 121187/176400 [00:05&lt;00:02, 19658.46it/s]</pre>
+<pre>Spectral Interpolate:  70%|██████▉   | 122679/176400 [00:05&lt;00:03, 15673.35it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  70%|██████▉   | 123266/176400 [00:06&lt;00:02, 19995.26it/s]</pre>
+<pre>Spectral Interpolate:  71%|███████   | 124424/176400 [00:05&lt;00:03, 16159.64it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  71%|███████   | 125271/176400 [00:06&lt;00:02, 17614.03it/s]</pre>
+<pre>Spectral Interpolate:  72%|███████▏  | 126569/176400 [00:06&lt;00:02, 17647.18it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  72%|███████▏  | 127318/176400 [00:06&lt;00:02, 18393.43it/s]</pre>
+<pre>Spectral Interpolate:  73%|███████▎  | 128357/176400 [00:06&lt;00:02, 16045.51it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  73%|███████▎  | 129342/176400 [00:06&lt;00:02, 18911.28it/s]</pre>
+<pre>Spectral Interpolate:  74%|███████▎  | 130002/176400 [00:06&lt;00:02, 15825.69it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  74%|███████▍  | 131344/176400 [00:06&lt;00:02, 19226.62it/s]</pre>
+<pre>Spectral Interpolate:  75%|███████▍  | 132173/176400 [00:06&lt;00:02, 17440.16it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  76%|███████▌  | 133654/176400 [00:06&lt;00:02, 20349.85it/s]</pre>
+<pre>Spectral Interpolate:  76%|███████▋  | 134508/176400 [00:06&lt;00:02, 19104.18it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  77%|███████▋  | 135881/176400 [00:06&lt;00:01, 20908.43it/s]</pre>
+<pre>Spectral Interpolate:  77%|███████▋  | 136453/176400 [00:06&lt;00:02, 18884.66it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  78%|███████▊  | 138038/176400 [00:06&lt;00:01, 21101.19it/s]</pre>
+<pre>Spectral Interpolate:  78%|███████▊  | 138399/176400 [00:06&lt;00:01, 19047.03it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  80%|███████▉  | 140314/176400 [00:06&lt;00:01, 21592.86it/s]</pre>
+<pre>Spectral Interpolate:  80%|███████▉  | 140322/176400 [00:06&lt;00:01, 18771.71it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  81%|████████  | 142612/176400 [00:07&lt;00:01, 22005.16it/s]</pre>
+<pre>Spectral Interpolate:  81%|████████  | 142793/176400 [00:06&lt;00:01, 20493.90it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  82%|████████▏ | 144820/176400 [00:07&lt;00:01, 20833.96it/s]</pre>
+<pre>Spectral Interpolate:  82%|████████▏ | 145336/176400 [00:07&lt;00:01, 21939.49it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  84%|████████▎ | 147596/176400 [00:07&lt;00:01, 22820.63it/s]</pre>
+<pre>Spectral Interpolate:  84%|████████▍ | 148046/176400 [00:07&lt;00:01, 23460.68it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  85%|████████▍ | 149899/176400 [00:07&lt;00:01, 22083.39it/s]</pre>
+<pre>Spectral Interpolate:  86%|████████▌ | 150846/176400 [00:07&lt;00:01, 24806.26it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  87%|████████▋ | 152995/176400 [00:07&lt;00:00, 24621.98it/s]</pre>
+<pre>Spectral Interpolate:  87%|████████▋ | 153337/176400 [00:07&lt;00:00, 23304.74it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  88%|████████▊ | 155739/176400 [00:07&lt;00:00, 25439.35it/s]</pre>
+<pre>Spectral Interpolate:  88%|████████▊ | 155693/176400 [00:07&lt;00:00, 21961.72it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  90%|█████████ | 159269/176400 [00:07&lt;00:00, 28329.34it/s]</pre>
+<pre>Spectral Interpolate:  90%|████████▉ | 158682/176400 [00:07&lt;00:00, 24155.49it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  93%|█████████▎| 163831/176400 [00:07&lt;00:00, 33431.91it/s]</pre>
+<pre>Spectral Interpolate:  92%|█████████▏| 162430/176400 [00:07&lt;00:00, 27930.49it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  99%|█████████▉| 174328/176400 [00:07&lt;00:00, 54647.73it/s]</pre>
+<pre>Spectral Interpolate:  97%|█████████▋| 170940/176400 [00:07&lt;00:00, 44402.86it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate: 100%|██████████| 176400/176400 [00:07&lt;00:00, 22421.65it/s]</pre>
+<pre>Spectral Interpolate: 100%|██████████| 176400/176400 [00:07&lt;00:00, 22462.14it/s]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -9226,37 +9232,37 @@ See <a href="https://spectral-cube.readthedocs.io/en/latest/dask.html">the spect
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 210.06 us</pre>
+<pre>[                                        ] | 0% Completed | 395.34 us</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 101.14 ms</pre>
+<pre>[                                        ] | 0% Completed | 101.61 ms</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 202.00 ms</pre>
+<pre>[                                        ] | 0% Completed | 205.18 ms</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 451.72 ms</pre>
+<pre>[                                        ] | 0% Completed | 452.08 ms</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 698.76 ms</pre>
+<pre>[                                        ] | 0% Completed | 700.30 ms</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 830.08 ms</pre>
+<pre>[                                        ] | 0% Completed | 824.72 ms</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -9274,103 +9280,103 @@ See <a href="https://spectral-cube.readthedocs.io/en/latest/dask.html">the spect
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 1.94 s</pre>
+<pre>[                                        ] | 0% Completed | 1.92 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 2.22 s</pre>
+<pre>[                                        ] | 0% Completed | 2.19 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 2.32 s</pre>
+<pre>[                                        ] | 0% Completed | 2.29 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 2.42 s</pre>
+<pre>[                                        ] | 0% Completed | 2.40 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 3.20 s</pre>
+<pre>[                                        ] | 0% Completed | 3.23 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 3.30 s</pre>
+<pre>[                                        ] | 0% Completed | 3.33 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 3.40 s</pre>
+<pre>[                                        ] | 0% Completed | 3.44 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 3.51 s</pre>
+<pre>[                                        ] | 0% Completed | 3.54 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 152.63 s</pre>
+<pre>[                                        ] | 0% Completed | 152.72 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 152.73 s</pre>
+<pre>[                                        ] | 0% Completed | 152.82 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 152.83 s</pre>
+<pre>[                                        ] | 0% Completed | 152.93 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 153.06 s</pre>
+<pre>[                                        ] | 0% Completed | 153.17 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 153.30 s</pre>
+<pre>[                                        ] | 0% Completed | 153.39 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 154.11 s</pre>
+<pre>[                                        ] | 0% Completed | 154.24 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 154.21 s</pre>
+<pre>[                                        ] | 0% Completed | 154.34 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 154.31 s</pre>
+<pre>[                                        ] | 0% Completed | 154.44 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[########################################] | 100% Completed | 154.41 s</pre>
+<pre>[########################################] | 100% Completed | 154.54 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
