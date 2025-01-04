@@ -105,7 +105,7 @@ When the tutorial is ready to be incorporated, Learn Astropy maintainers will op
 
 ### Method Two: Submit a Pull Request
 
-The process for contributing a tutorial involves the [GitHub fork](https://help.github.com/articles/working-with-forks/) and `git` workflow concepts [branch, push, pull request](https://help.github.com/articles/proposing -changes-to-your-work-with-pull-requests/).
+The process for contributing a tutorial involves the [GitHub fork](https://help.github.com/articles/working-with-forks/) and `git` workflow concepts [branch, push, pull request](https://help.github.com/articles/proposing-changes-to-your-work-with-pull-requests/).
 
 To contribute a new tutorial, first fork the `astropy-tutorials` repository. Then, clone your fork locally to your machine (replace `<GITHUB USERNAME>` with your GitHub username):
 
@@ -134,7 +134,7 @@ scipy==1.0
 numpy>=1.13
 ```
 
-To see an example, have a look at the FITS-header [requirements.txt file](https: //github.com/astropy/astropy-tutorials/blob/master/tutorials/notebooks/FITS-head er/requirements.txt).
+To see an example, have a look at the FITS-header [requirements.txt file](https://github.com/astropy/astropy-tutorials/blob/master/tutorials/FITS-header/requirements.txt).
 
 Push the notebook and other files from your local branch up to your fork of the repository on GitHub (by default, named 'origin'):
 
