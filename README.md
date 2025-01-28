@@ -3,7 +3,7 @@
 This repository hosts the homepage of the Astropy Learn project, https://learn.astropy.org and serves the content from the [astropy-tutorials](https://github.com/astropy/astropy-tutorials) repository. The site itself is built with [Gatsby](https://www.gatsbyjs.com/) and the [Algolia](https://www.algolia.com) search service. Records for the Algolia database are curated and formatted by the [learn-astropy-librarian](https://github.com/astropy/learn-astropy-librarian) app.
 
 ## Developer guide
- 
+
 ### Initial set up
 
 Create a fork on https://github.com/astropy/learn.
@@ -38,7 +38,7 @@ npm run serve
 
 This app uses ESLint to lint JavaScript, which in turn runs Prettier to format JavaScript. The configuration is based on [wesbos/eslint-config-wesbos](https://github.com/wesbos/eslint-config-wesbos).
 
-A Git pre-commit hooks runs both ESLint and Prettier and automatically lints and reformats code before every commit. These hooks are run by [husky](https://typicode.github.io/husky/#/) and should already be installed when you ran `npm install`.
+A Git pre-commit hooks runs both ESLint and Prettier and automatically lints and reformats code before every commit. These hooks are run by [husky](https://typicode.github.io/husky/#/) and were already installed when you ran `npm install`.
 
 To manually lint the code base:
 
