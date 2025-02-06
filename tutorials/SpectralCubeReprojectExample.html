@@ -3,7 +3,34 @@
 <html>
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Custom template: SpectralCubeReprojectExample</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Custom template: SpectralCubeReprojectExample</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script><script>
+(function() {
+  function addWidgetsRenderer() {
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var scriptElement = document.createElement('script');
+    
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        
+        var widgetRendererSrc = 'https://unpkg.com/@jupyter-js-widgets@*/dist/embed.js';
+        
+      }
+    } catch(e) {}
+
+    scriptElement.src = widgetRendererSrc;
+    document.body.appendChild(scriptElement);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7472,6 +7499,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7493,7 +7521,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="at-logotext__secondary">Tutorials</span>
 </a></p>
 <nav class="at-header-nav">
-<a download="" href="SpectralCubeReprojectExample.ipynb">Download</a>
+<a download="" href="SpectralCubeReprojectExample.ipynb">Download this notebook</a>
 </nav>
 </header>
 <aside class="at-notebook-sidebar">
@@ -7573,7 +7601,9 @@ Finally, it shows how to do the reprojection using <a href="https://dask.org">da
 <pre>Required packages for this notebook:
 astropy
 dask
+ipydatagrid
 numpy
+pandas
 radio_beam
 reproject
 spectral_cube @ git+https://github.com/radio-astro-tools/spectral-cube  # as of: 2024-10-10 for issue with 'distutils'
@@ -7621,8 +7651,8 @@ spectral_cube @ git+https://github.com/radio-astro-tools/spectral-cube  # as of:
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">astropy.utils.data</span> <span class="kn">import</span> <span class="n">download_file</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">download_file</span>
 </pre></div>
 </div>
 </div>
@@ -7682,7 +7712,7 @@ These are moderately large files, with sizes 18 MB and 337 MB.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=9">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7690,22 +7720,8 @@ These are moderately large files, with sizes 18 MB and 337 MB.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">spectral_cube</span> <span class="kn">import</span> <span class="n">SpectralCube</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">spectral_cube</span><span class="w"> </span><span class="kn">import</span> <span class="n">SpectralCube</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
-  from .autonotebook import tqdm as notebook_tqdm
-</pre>
 </div>
 </div>
 </div>
@@ -7833,71 +7849,14 @@ These are moderately large files, with sizes 18 MB and 337 MB.</p>
 </pre>
 </div>
 </div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>WARNING</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>: AstropyDeprecationWarning: show_in_notebook() is deprecated as of 6.1 and to create
-         interactive tables it is recommended to use dedicated tools like:
-         - https://github.com/bloomberg/ipydatagrid
-         - https://docs.bokeh.org/en/latest/docs/user_guide/interaction/widgets.html#datatable
-         - https://dash.plotly.com/datatable [warnings]
-</pre>
-</div>
-</div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<i>Table length=4</i>
-<table class="table-striped table-bordered table-condensed" id="table140700091315984-753201">
-<thead><tr><th>idx</th><th>species_id</th><th>name</th><th>chemical_name</th><th>resolved_QNs</th><th>linelist</th><th>LovasASTIntensity</th><th>lower_state_energy</th><th>upper_state_energy</th><th>sijmu2</th><th>sij</th><th>aij</th><th>intintensity</th><th>Lovas_NRAO</th><th>orderedfreq</th><th>lower_state_energy_K</th><th>upper_state_energy_K</th><th>orderedFreq</th><th>measFreq</th><th>upperStateDegen</th><th>moleculeTag</th><th>qnCode</th><th>labref_Lovas_NIST</th><th>rel_int_HFS_Lovas</th><th>unres_quantum_numbers</th><th>lineid</th><th>transition_in_space</th><th>transition_in_G358</th><th>obsref_Lovas_NIST</th><th>source_Lovas_NIST</th><th>telescope_Lovas_NIST</th><th>transitionBandColor</th><th>searchErrorMessage</th><th>sqlquery</th><th>requestnumber</th></tr></thead>
-<tr><td>0</td><td>210</td><td>H&lt;sub&gt;2&lt;/sub&gt;CS</td><td>Thioformaldehyde</td><td>4( 1, 3)- 3( 1, 2)</td><td>JPL</td><td>0.17</td><td>16.1465</td><td>20.79917</td><td>30.51674</td><td>11.223</td><td>-4.44732</td><td></td><td>1</td><td>139483.41</td><td>23.23108</td><td>29.92519</td><td>&lt;span style = 'color: #DC143C'&gt;&lt;/span&gt;</td><td>139.48341 (0.28), &lt;span style = 'color: #DC143C'&gt;139.48341&lt;/span&gt;</td><td>27</td><td>-46003</td><td>303</td><td></td><td></td><td>4 1 3       3 1 2</td><td>4065687</td><td>0</td><td>0</td><td>Lor84a</td><td>rho Oph B1</td><td>MMWO    4.9m</td><td>datatablegreen</td><td></td><td>None</td><td>0</td></tr>
-<tr><td>1</td><td>210</td><td>H&lt;sub&gt;2&lt;/sub&gt;CS</td><td>Thioformaldehyde</td><td>4( 1, 3)- 3( 1, 2)</td><td>CDMS</td><td></td><td>16.1329</td><td>20.78557</td><td>30.59661</td><td>11.251</td><td>-4.44619</td><td></td><td>0</td><td>139483.6816</td><td>23.21151</td><td>29.90563</td><td>&lt;span style = 'color: #DC143C'&gt;&lt;/span&gt;</td><td>139.4836816 (0.05), &lt;span style = 'color: #DC143C'&gt;139.4836816&lt;/span&gt;</td><td>27</td><td>-46509</td><td>303</td><td></td><td></td><td>4 1 3       3 1 2</td><td>4066266</td><td>0</td><td>0</td><td></td><td></td><td></td><td>datatablegreen</td><td></td><td>None</td><td>0</td></tr>
-<tr><td>2</td><td>210</td><td>H&lt;sub&gt;2&lt;/sub&gt;CS</td><td>Thioformaldehyde</td><td>4(  1, 3)-   3(  1, 2)</td><td>SLAIM</td><td>0.17</td><td>16.133</td><td>20.78568</td><td>30.59472</td><td>3.75</td><td>-3.94426</td><td></td><td>0</td><td>139483.699</td><td>23.21165</td><td>29.90578</td><td>139.483699 (0.017), &lt;span style = 'color: #DC143C'&gt;139.483699&lt;/span&gt;</td><td>139.483741 (0.024), &lt;span style = 'color: #DC143C'&gt;139.483741&lt;/span&gt;</td><td>8.5</td><td>0</td><td>0</td><td>Mar05</td><td></td><td>4(  1, 3)-   3(  1, 2)</td><td>3744487</td><td>1</td><td>0</td><td></td><td></td><td></td><td>datatablegreen</td><td></td><td>None</td><td>0</td></tr>
-<tr><td>3</td><td>210</td><td>H&lt;sub&gt;2&lt;/sub&gt;CS</td><td>Thioformaldehyde</td><td>4(1,3)-3(1,2)</td><td>Lovas</td><td>0.17</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td></td><td>0</td><td>139483.699</td><td>0.0</td><td>0.0</td><td>139.483699 (0.017), &lt;span style = 'color: #DC143C'&gt;139.483699&lt;/span&gt;</td><td>&lt;span style = 'color: #DC143C'&gt;&lt;/span&gt;</td><td></td><td>0</td><td>0</td><td></td><td></td><td>4(1,3)-3(1,2)</td><td>3734199</td><td>0</td><td>0</td><td>Lor84a</td><td>rho Oph B1</td><td>MMWO    4.9m</td><td>datatablegreen</td><td></td><td>None</td><td>0</td></tr>
-</table><style>table.dataTable {clear: both; width: auto !important; margin: 0 !important;}
-.dataTables_info, .dataTables_length, .dataTables_filter, .dataTables_paginate{
-display: inline-block; margin-right: 1em; }
-.paginate_button { margin-right: 5px; }
-</style>
-<script>
-
-var astropy_sort_num = function(a, b) {
-    var a_num = parseFloat(a);
-    var b_num = parseFloat(b);
-
-    if (isNaN(a_num) && isNaN(b_num))
-        return ((a < b) ? -1 : ((a > b) ? 1 : 0));
-    else if (!isNaN(a_num) && !isNaN(b_num))
-        return ((a_num < b_num) ? -1 : ((a_num > b_num) ? 1 : 0));
-    else
-        return isNaN(a_num) ? -1 : 1;
-}
-
-require.config({paths: {
-    datatables: 'https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min'
-}});
-require(["datatables"], function(){
-    console.log("$('#table140700091315984-753201').dataTable()");
-
-jQuery.extend( jQuery.fn.dataTableExt.oSort, {
-    "optionalnum-asc": astropy_sort_num,
-    "optionalnum-desc": function (a,b) { return -astropy_sort_num(a, b); }
-});
-
-    $('#table140700091315984-753201').dataTable({
-        order: [],
-        pageLength: 50,
-        lengthMenu: [[10, 25, 50, 100, 500, 1000, -1], [10, 25, 50, 100, 500, 1000, 'All']],
-        pagingType: "full_numbers",
-        columnDefs: [{targets: [0, 1, 7, 8, 9, 10, 11, 13, 14, 15, 16, 20, 21, 25, 26, 27, 34], type: "optionalnum"}]
-    });
-});
+<div class="jupyter-widgets jp-OutputArea-output jp-OutputArea-executeResult" id="977f1d51-2cd2-4a43-8901-55c046e02a8e" tabindex="0">
+<script type="text/javascript">
+var element = document.getElementById('977f1d51-2cd2-4a43-8901-55c046e02a8e');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "36fe2a0d67b54e61a051308b076233ec", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 </div>
@@ -7925,64 +7884,17 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>WARNING: ExperimentalImplementationWarning: The line-finding routine is experimental.  Please report bugs on the Issues page: https://github.com/radio-astro-tools/spectral-cube/issues [spectral_cube.spectral_cube]
-WARNING: AstropyDeprecationWarning: show_in_notebook() is deprecated as of 6.1 and to create
-         interactive tables it is recommended to use dedicated tools like:
-         - https://github.com/bloomberg/ipydatagrid
-         - https://docs.bokeh.org/en/latest/docs/user_guide/interaction/widgets.html#datatable
-         - https://dash.plotly.com/datatable [warnings]
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
-<i>Table length=6</i>
-<table class="table-striped table-bordered table-condensed" id="table140700091315840-809664">
-<thead><tr><th>idx</th><th>species_id</th><th>name</th><th>chemical_name</th><th>resolved_QNs</th><th>linelist</th><th>LovasASTIntensity</th><th>lower_state_energy</th><th>upper_state_energy</th><th>sijmu2</th><th>sij</th><th>aij</th><th>intintensity</th><th>Lovas_NRAO</th><th>orderedfreq</th><th>lower_state_energy_K</th><th>upper_state_energy_K</th><th>orderedFreq</th><th>measFreq</th><th>upperStateDegen</th><th>moleculeTag</th><th>qnCode</th><th>labref_Lovas_NIST</th><th>rel_int_HFS_Lovas</th><th>unres_quantum_numbers</th><th>lineid</th><th>transition_in_space</th><th>transition_in_G358</th><th>obsref_Lovas_NIST</th><th>source_Lovas_NIST</th><th>telescope_Lovas_NIST</th><th>transitionBandColor</th><th>searchErrorMessage</th><th>sqlquery</th><th>requestnumber</th></tr></thead>
-<tr><td>0</td><td>21081</td><td>SiO, v = 0-10</td><td>Silicon monoxide (global fit)</td><td>J = 5 - 4, v = 0 - 0</td><td>CDMS</td><td></td><td>14.4843</td><td>21.72614</td><td>47.9909</td><td>0.0</td><td>-3.28429</td><td>-1.3211</td><td>1</td><td>217104.919</td><td>20.83981</td><td>31.25927</td><td>&lt;span style = 'color: #DC143C'&gt;&lt;/span&gt;</td><td>217.104919 (0.002), &lt;span style = 'color: #DC143C'&gt;217.104919&lt;/span&gt;</td><td>11</td><td>-44505</td><td>1202</td><td></td><td></td><td>5 0 4 0</td><td>7980087</td><td>1</td><td>0</td><td>Belloche 2013</td><td>Sgr B2(N)</td><td>IRAM 30m</td><td>datatablelightpurple</td><td></td><td>None</td><td>0</td></tr>
-<tr><td>1</td><td>20</td><td>SiO &lt;font color="red"&gt;v = 0 &lt;/font&gt;</td><td>Silicon Monoxide</td><td>5- 4</td><td>CDMS</td><td>1.6</td><td>14.4843</td><td>21.72614</td><td>47.99147</td><td>5.0</td><td>-3.28429</td><td></td><td>0</td><td>217104.98</td><td>20.83956</td><td>31.25889</td><td>&lt;span style = 'color: #DC143C'&gt;&lt;/span&gt;</td><td>217.10498 (0.08), &lt;span style = 'color: #DC143C'&gt;217.10498&lt;/span&gt;</td><td>11</td><td>-44505</td><td>1202</td><td></td><td></td><td>5 0         4 0</td><td>6962437</td><td>0</td><td>0</td><td></td><td></td><td></td><td>datatablelightpurple</td><td></td><td>None</td><td>0</td></tr>
-<tr><td>2</td><td>20</td><td>SiO &lt;font color="red"&gt;v = 0 &lt;/font&gt;</td><td>Silicon Monoxide</td><td>5- 4</td><td>CDMS</td><td>1.6</td><td>14.4843</td><td>21.72614</td><td>47.9911</td><td>5.0</td><td>-3.28429</td><td>-1.3199</td><td>0</td><td>217104.98</td><td>20.83956</td><td>31.25889</td><td>&lt;span style = 'color: #DC143C'&gt;&lt;/span&gt;</td><td>217.10498 (0.05), &lt;span style = 'color: #DC143C'&gt;217.10498&lt;/span&gt;</td><td>11</td><td>-44505</td><td>1202</td><td></td><td></td><td>J=5-4 v=0</td><td>13358</td><td>1</td><td>0</td><td></td><td></td><td></td><td>datatablelightpurple</td><td></td><td>None</td><td>0</td></tr>
-<tr><td>3</td><td>20</td><td>SiO &lt;font color="red"&gt;v = 0 &lt;/font&gt;</td><td>Silicon Monoxide</td><td>5-4</td><td>JPL</td><td>1.6</td><td>14.4843</td><td>21.72614</td><td>48.14651</td><td>5.0</td><td>-3.28288</td><td>-1.3166</td><td>1</td><td>217104.98</td><td>20.83956</td><td>31.25889</td><td>&lt;span style = 'color: #DC143C'&gt;&lt;/span&gt;</td><td>217.10498 (0.08), &lt;span style = 'color: #DC143C'&gt;217.10498&lt;/span&gt;</td><td>11</td><td>-44002</td><td>101</td><td></td><td></td><td>J=5-4 v=0</td><td>1167368</td><td>0</td><td>0</td><td>Lor84a</td><td>OriMC-1</td><td>MMWO    4.9m</td><td>datatablelightpurple</td><td></td><td>None</td><td>0</td></tr>
-<tr><td>4</td><td>20</td><td>SiO &lt;font color="red"&gt;v = 0 &lt;/font&gt;</td><td>Silicon Monoxide</td><td>5-4</td><td>Lovas</td><td>1.6</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td></td><td>0</td><td>217104.984</td><td>0.0</td><td>0.0</td><td>217.104984 (0.014), &lt;span style = 'color: #DC143C'&gt;217.104984&lt;/span&gt;</td><td>&lt;span style = 'color: #DC143C'&gt;&lt;/span&gt;</td><td></td><td>0</td><td>0</td><td></td><td></td><td>5-4 v=0</td><td>3724638</td><td>0</td><td>0</td><td>Lor84a</td><td>OriMC-1</td><td>MMWO    4.9m</td><td>datatablelightpurple</td><td></td><td>None</td><td>0</td></tr>
-<tr><td>5</td><td>20</td><td>SiO &lt;font color="red"&gt;v = 0 &lt;/font&gt;</td><td>Silicon Monoxide</td><td>5        -   4</td><td>SLAIM</td><td></td><td>14.484</td><td>21.72584</td><td>47.6849</td><td>5.0</td><td>-3.28706</td><td></td><td>0</td><td>217104.984</td><td>20.83913</td><td>31.25846</td><td>217.104984 (0.014), &lt;span style = 'color: #DC143C'&gt;217.104984&lt;/span&gt;</td><td>217.10498 (0.1), &lt;span style = 'color: #DC143C'&gt;217.10498&lt;/span&gt;</td><td>11</td><td>0</td><td>0</td><td>Man77</td><td></td><td>5        -   4 v=0</td><td>3932866</td><td>0</td><td>0</td><td></td><td></td><td></td><td>datatablelightpurple</td><td></td><td>None</td><td>0</td></tr>
-</table><style>table.dataTable {clear: both; width: auto !important; margin: 0 !important;}
-.dataTables_info, .dataTables_length, .dataTables_filter, .dataTables_paginate{
-display: inline-block; margin-right: 1em; }
-.paginate_button { margin-right: 5px; }
-</style>
-<script>
-
-var astropy_sort_num = function(a, b) {
-    var a_num = parseFloat(a);
-    var b_num = parseFloat(b);
-
-    if (isNaN(a_num) && isNaN(b_num))
-        return ((a < b) ? -1 : ((a > b) ? 1 : 0));
-    else if (!isNaN(a_num) && !isNaN(b_num))
-        return ((a_num < b_num) ? -1 : ((a_num > b_num) ? 1 : 0));
-    else
-        return isNaN(a_num) ? -1 : 1;
-}
-
-require.config({paths: {
-    datatables: 'https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min'
-}});
-require(["datatables"], function(){
-    console.log("$('#table140700091315840-809664').dataTable()");
-
-jQuery.extend( jQuery.fn.dataTableExt.oSort, {
-    "optionalnum-asc": astropy_sort_num,
-    "optionalnum-desc": function (a,b) { return -astropy_sort_num(a, b); }
-});
-
-    $('#table140700091315840-809664').dataTable({
-        order: [],
-        pageLength: 50,
-        lengthMenu: [[10, 25, 50, 100, 500, 1000, -1], [10, 25, 50, 100, 500, 1000, 'All']],
-        pagingType: "full_numbers",
-        columnDefs: [{targets: [0, 1, 7, 8, 9, 10, 11, 13, 14, 15, 16, 20, 21, 25, 26, 27, 34], type: "optionalnum"}]
-    });
-});
+<div class="jupyter-widgets jp-OutputArea-output jp-OutputArea-executeResult" id="085c8477-7f9f-4ee4-88c5-bb9e5b9c2a46" tabindex="0">
+<script type="text/javascript">
+var element = document.getElementById('085c8477-7f9f-4ee4-88c5-bb9e5b9c2a46');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "2199b2062a314341b19fd86f34e1b4dc", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 </div>
@@ -8007,7 +7919,7 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 <div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
 </pre></div>
 </div>
 </div>
@@ -8117,8 +8029,8 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.max at 0x7ff760deb6a0&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
-/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/spectral_cube/spectral_cube.py:436: RuntimeWarning: All-NaN slice encountered
+<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.max at 0x7ff36e493c40&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
+/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/site-packages/spectral_cube/spectral_cube.py:436: RuntimeWarning: All-NaN slice encountered
   out = function(self._get_filled_data(fill=fill,
 </pre>
 </div>
@@ -8163,14 +8075,14 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.max at 0x7ff760deb6a0&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
+<pre>WARNING: PossiblySlowWarning: This function (&lt;function BaseSpectralCube.max at 0x7ff36e493c40&gt;) requires loading the entire cube into memory and may therefore be slow. [spectral_cube.utils]
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/spectral_cube/spectral_cube.py:436: RuntimeWarning: All-NaN slice encountered
+<pre>/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/site-packages/spectral_cube/spectral_cube.py:436: RuntimeWarning: All-NaN slice encountered
   out = function(self._get_filled_data(fill=fill,
 </pre>
 </div>
@@ -8365,7 +8277,7 @@ $1.8856963 \; \mathrm{\frac{km}{s}}$
 <div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.convolution</span> <span class="kn">import</span> <span class="n">Gaussian1DKernel</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy.convolution</span><span class="w"> </span><span class="kn">import</span> <span class="n">Gaussian1DKernel</span>
 <span class="n">fwhm_to_sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 <span class="c1"># we want the kernel in pixel units, so we force to km/s and take the value</span>
 <span class="n">spectral_smoothing_kernel</span> <span class="o">=</span> <span class="n">Gaussian1DKernel</span><span class="p">(</span><span class="n">stddev</span><span class="o">=</span><span class="n">fwhm_gaussian</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">km</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">value</span> <span class="o">/</span> <span class="n">fwhm_to_sigma</span><span class="p">)</span>
@@ -8445,417 +8357,13 @@ $1.8856963 \; \mathrm{\frac{km}{s}}$
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:   0%|          | 0/176400 [00:00&lt;?, ?it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:   6%|▌         | 10691/176400 [00:00&lt;00:01, 106906.79it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  12%|█▏        | 21382/176400 [00:00&lt;00:02, 60808.36it/s] </pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  16%|█▌        | 28532/176400 [00:00&lt;00:03, 40480.02it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  19%|█▉        | 33576/176400 [00:00&lt;00:04, 33984.75it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  21%|██▏       | 37559/176400 [00:01&lt;00:04, 30450.35it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  23%|██▎       | 40922/176400 [00:01&lt;00:04, 28481.41it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  25%|██▍       | 43927/176400 [00:01&lt;00:04, 26500.05it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  26%|██▋       | 46643/176400 [00:01&lt;00:05, 24792.43it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  28%|██▊       | 49137/176400 [00:01&lt;00:05, 23012.44it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  29%|██▉       | 51427/176400 [00:01&lt;00:05, 21923.18it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  30%|███       | 53593/176400 [00:01&lt;00:06, 19490.66it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  31%|███▏      | 55551/176400 [00:01&lt;00:06, 19511.28it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  33%|███▎      | 57639/176400 [00:02&lt;00:05, 19850.87it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  34%|███▍      | 59628/176400 [00:02&lt;00:06, 17387.08it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  35%|███▍      | 61460/176400 [00:02&lt;00:06, 17617.27it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  36%|███▌      | 63254/176400 [00:02&lt;00:07, 14658.47it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  37%|███▋      | 64809/176400 [00:02&lt;00:08, 13431.76it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  38%|███▊      | 66744/176400 [00:02&lt;00:07, 14810.74it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  39%|███▉      | 68574/176400 [00:02&lt;00:06, 15681.29it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  40%|███▉      | 70452/176400 [00:02&lt;00:06, 16494.59it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  41%|████      | 72427/176400 [00:03&lt;00:05, 17381.06it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  42%|████▏     | 74220/176400 [00:03&lt;00:06, 16864.32it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  43%|████▎     | 76149/176400 [00:03&lt;00:05, 17538.01it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  44%|████▍     | 77958/176400 [00:03&lt;00:05, 17693.79it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  45%|████▌     | 79912/176400 [00:03&lt;00:05, 18224.81it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  46%|████▋     | 81784/176400 [00:03&lt;00:05, 18367.00it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  47%|████▋     | 83635/176400 [00:03&lt;00:05, 17647.21it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  48%|████▊     | 85415/176400 [00:03&lt;00:05, 17665.19it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  49%|████▉     | 87229/176400 [00:03&lt;00:05, 17802.01it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  51%|█████     | 89140/176400 [00:03&lt;00:04, 18182.85it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  52%|█████▏    | 90965/176400 [00:04&lt;00:05, 15900.77it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  53%|█████▎    | 92623/176400 [00:04&lt;00:05, 16079.86it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  54%|█████▎    | 94590/176400 [00:04&lt;00:04, 17075.90it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  55%|█████▍    | 96461/176400 [00:04&lt;00:04, 17538.07it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  56%|█████▌    | 98377/176400 [00:04&lt;00:04, 18004.02it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  57%|█████▋    | 100256/176400 [00:04&lt;00:04, 18231.93it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  58%|█████▊    | 102095/176400 [00:04&lt;00:04, 18036.42it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  59%|█████▉    | 104029/176400 [00:04&lt;00:03, 18417.07it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  60%|██████    | 106019/176400 [00:04&lt;00:03, 18852.41it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  61%|██████    | 107911/176400 [00:05&lt;00:03, 17808.40it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  62%|██████▏   | 109839/176400 [00:05&lt;00:03, 18227.58it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  63%|██████▎   | 111820/176400 [00:05&lt;00:03, 18683.64it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  64%|██████▍   | 113700/176400 [00:05&lt;00:03, 17724.72it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  65%|██████▌   | 115489/176400 [00:05&lt;00:03, 17475.00it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  67%|██████▋   | 117502/176400 [00:05&lt;00:03, 18230.81it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  68%|██████▊   | 119337/176400 [00:05&lt;00:03, 16465.53it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  69%|██████▊   | 121021/176400 [00:05&lt;00:03, 16325.20it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  70%|██████▉   | 122679/176400 [00:05&lt;00:03, 15673.35it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  71%|███████   | 124424/176400 [00:05&lt;00:03, 16159.64it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  72%|███████▏  | 126569/176400 [00:06&lt;00:02, 17647.18it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  73%|███████▎  | 128357/176400 [00:06&lt;00:02, 16045.51it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  74%|███████▎  | 130002/176400 [00:06&lt;00:02, 15825.69it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  75%|███████▍  | 132173/176400 [00:06&lt;00:02, 17440.16it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  76%|███████▋  | 134508/176400 [00:06&lt;00:02, 19104.18it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  77%|███████▋  | 136453/176400 [00:06&lt;00:02, 18884.66it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  78%|███████▊  | 138399/176400 [00:06&lt;00:01, 19047.03it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  80%|███████▉  | 140322/176400 [00:06&lt;00:01, 18771.71it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  81%|████████  | 142793/176400 [00:06&lt;00:01, 20493.90it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  82%|████████▏ | 145336/176400 [00:07&lt;00:01, 21939.49it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  84%|████████▍ | 148046/176400 [00:07&lt;00:01, 23460.68it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  86%|████████▌ | 150846/176400 [00:07&lt;00:01, 24806.26it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  87%|████████▋ | 153337/176400 [00:07&lt;00:00, 23304.74it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  88%|████████▊ | 155693/176400 [00:07&lt;00:00, 21961.72it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  90%|████████▉ | 158682/176400 [00:07&lt;00:00, 24155.49it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  92%|█████████▏| 162430/176400 [00:07&lt;00:00, 27930.49it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate:  97%|█████████▋| 170940/176400 [00:07&lt;00:00, 44402.86it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>Spectral Interpolate: 100%|██████████| 176400/176400 [00:07&lt;00:00, 22462.14it/s]</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>
-</pre>
+<div class="jupyter-widgets jp-OutputArea-output" id="46b4e984-e3b4-492c-9898-aadc247b2328" tabindex="0">
+<script type="text/javascript">
+var element = document.getElementById('46b4e984-e3b4-492c-9898-aadc247b2328');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "6716c48b0643448ea15223510bb163a4", "version_major": 2, "version_minor": 0}
+</script>
 </div>
 </div>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
@@ -8964,7 +8472,7 @@ $1.8856963 \; \mathrm{\frac{km}{s}}$
 <div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">radio_beam</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">radio_beam</span>
 <span class="n">common_beam</span> <span class="o">=</span> <span class="n">radio_beam</span><span class="o">.</span><span class="n">commonbeam</span><span class="o">.</span><span class="n">common_2beams</span><span class="p">(</span><span class="n">radio_beam</span><span class="o">.</span><span class="n">Beams</span><span class="p">(</span><span class="n">beams</span><span class="o">=</span><span class="p">[</span><span class="n">cube1vel</span><span class="o">.</span><span class="n">beam</span><span class="p">,</span> <span class="n">cube2vel</span><span class="o">.</span><span class="n">beam</span><span class="p">]))</span>
 <span class="n">common_beam</span>
 </pre></div>
@@ -9191,8 +8699,8 @@ See <a href="https://spectral-cube.readthedocs.io/en/latest/dask.html">the spect
 <div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">dask.diagnostics</span> <span class="kn">import</span> <span class="n">ProgressBar</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dask.diagnostics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProgressBar</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 </pre></div>
 </div>
 </div>
@@ -9232,151 +8740,133 @@ See <a href="https://spectral-cube.readthedocs.io/en/latest/dask.html">the spect
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 395.34 us</pre>
+<pre>[                                        ] | 0% Completed | 208.14 us</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 101.61 ms</pre>
+<pre>[                                        ] | 0% Completed | 103.13 ms</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 205.18 ms</pre>
+<pre>[                                        ] | 0% Completed | 205.85 ms</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 452.08 ms</pre>
+<pre>[                                        ] | 0% Completed | 442.04 ms</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 700.30 ms</pre>
+<pre>[                                        ] | 0% Completed | 686.96 ms</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 824.72 ms</pre>
+<pre>[                                        ] | 0% Completed | 797.35 ms</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 1.60 s</pre>
+<pre>[                                        ] | 0% Completed | 1.65 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 1.70 s</pre>
+<pre>[                                        ] | 0% Completed | 1.89 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 1.92 s</pre>
+<pre>[                                        ] | 0% Completed | 2.13 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 2.19 s</pre>
+<pre>[                                        ] | 0% Completed | 2.24 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 2.29 s</pre>
+<pre>[                                        ] | 0% Completed | 2.34 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 2.40 s</pre>
+<pre>[                                        ] | 0% Completed | 3.15 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 3.23 s</pre>
+<pre>[                                        ] | 0% Completed | 3.25 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 3.33 s</pre>
+<pre>[                                        ] | 0% Completed | 3.36 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 3.44 s</pre>
+<pre>[                                        ] | 0% Completed | 153.44 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 3.54 s</pre>
+<pre>[                                        ] | 0% Completed | 153.61 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 152.72 s</pre>
+<pre>[                                        ] | 0% Completed | 153.88 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 152.82 s</pre>
+<pre>[                                        ] | 0% Completed | 154.10 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 152.93 s</pre>
+<pre>[                                        ] | 0% Completed | 154.95 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 153.17 s</pre>
+<pre>[                                        ] | 0% Completed | 155.05 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 153.39 s</pre>
+<pre>[                                        ] | 0% Completed | 155.15 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 154.24 s</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 154.34 s</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[                                        ] | 0% Completed | 154.44 s</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[########################################] | 100% Completed | 154.54 s</pre>
+<pre>[########################################] | 100% Completed | 155.25 s</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -9413,6 +8903,9 @@ See <a href="https://spectral-cube.readthedocs.io/en/latest/dask.html">the spect
 </div>
 </div>
 </main>
-<footer class="at-tutorial-footer">Astropy footer</footer>
+<footer class="at-tutorial-footer"> </footer>
 </body>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"0a295b848a9b430185d542f78f06c1f7": {"model_module": "@jupyter-widgets\/controls", "model_module_version": "2.0.0", "model_name": "ProgressStyleModel", "state": {"_model_module": "@jupyter-widgets\/controls", "_model_module_version": "2.0.0", "_model_name": "ProgressStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "bar_color": null, "description_width": ""}}, "1503210f73184e479512bbddb11e43da": {"model_module": "@jupyter-widgets\/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets\/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "2199b2062a314341b19fd86f34e1b4dc": {"buffers": [{"data": "AAAAAAEAAAACAAAAAwAAAAQAAAAFAAAA", "encoding": "base64", "path": ["_data", "data", "key", "value"]}, {"data": "WVIAABQAAAAUAAAAFAAAABQAAAAUAAAA", "encoding": "base64", "path": ["_data", "data", "species_id", "value"]}, {"data": "1edqK\/b3LEDV52or9vcsQNXnaiv29yxA1edqK\/b3LEAAAAAAAAAAACuHFtnO9yxA", "encoding": "base64", "path": ["_data", "data", "lower_state_energy", "value"]}, {"data": "RFGgT+S5NUBEUaBP5Lk1QERRoE\/kuTVARFGgT+S5NUAAAAAAAAAAAO8gdqbQuTVA", "encoding": "base64", "path": ["_data", "data", "upper_state_energy", "value"]}, {"data": "n82qz9X+R0CJeyx96P5HQGaIY13c\/kdAu0T11sASSEAAAAAAAAAAAOSDns2q10dA", "encoding": "base64", "path": ["_data", "data", "sijmu2", "value"]}, {"data": "AAAAAAAAAAAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFEAAAAAAAAAAAAAAAAAAABRA", "encoding": "base64", "path": ["_data", "data", "sij", "value"]}, {"data": "g6Pk1TlGCsCDo+TVOUYKwIOj5NU5RgrAM4rlllZDCsAAAAAAAAAAAAfr\/xzmSwrA", "encoding": "base64", "path": ["_data", "data", "aij", "value"]}, {"data": "AQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA", "encoding": "base64", "path": ["_data", "data", "Lovas_NRAO", "value"]}, {"data": "CKwcWoeACkFxPQrXh4AKQXE9CteHgApBcT0K14eACkFaZDvfh4AKQVpkO9+HgApB", "encoding": "base64", "path": ["_data", "data", "orderedfreq", "value"]}, {"data": "kNrEyf3WNECeB3dn7dY0QJ4Hd2ft1jRAngd3Z+3WNEAAAAAAAAAAAK0XQznR1jRA", "encoding": "base64", "path": ["_data", "data", "lower_state_energy_K", "value"]}, {"data": "fNXKhF9CP0DuQnOdRkI\/QO5Cc51GQj9A7kJznUZCP0AAAAAAAAAAAPxSP28qQj9A", "encoding": "base64", "path": ["_data", "data", "upper_state_energy_K", "value"]}, {"data": "J1L\/\/ydS\/\/8nUv\/\/HlT\/\/wAAAAAAAAAA", "encoding": "base64", "path": ["_data", "data", "moleculeTag", "value"]}, {"data": "sgQAALIEAACyBAAAZQAAAAAAAAAAAAAA", "encoding": "base64", "path": ["_data", "data", "qnCode", "value"]}, {"data": "N8R5AAU9agAuNAAACNARAF7VOADCAjwA", "encoding": "base64", "path": ["_data", "data", "lineid", "value"]}, {"data": "AQAAAAAAAAABAAAAAAAAAAAAAAAAAAAA", "encoding": "base64", "path": ["_data", "data", "transition_in_space", "value"]}, {"data": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "encoding": "base64", "path": ["_data", "data", "transition_in_G358", "value"]}, {"data": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "encoding": "base64", "path": ["_data", "data", "requestnumber", "value"]}, {"data": "AAAAAAEAAAACAAAAAwAAAAQAAAAFAAAA", "encoding": "base64", "path": ["_data", "data", "ipydguuid", "value"]}], "model_module": "ipydatagrid", "model_module_version": "^1.4.0", "model_name": "DataGridModel", "state": {"_data": {"data": {"LovasASTIntensity": [" ", "1.6", " 1.6", " 1.6", " 1.6", " "], "Lovas_NRAO": {"dtype": "int32", "shape": [6], "type": null}, "aij": {"dtype": "float64", "shape": [6], "type": null}, "chemical_name": ["Silicon monoxide (global fit)", "Silicon Monoxide", "Silicon Monoxide", "Silicon Monoxide", "Silicon Monoxide", "Silicon Monoxide"], "intintensity": ["-1.3211", "", "-1.3199", "-1.3166", "", ""], "ipydguuid": {"dtype": "int32", "shape": [6], "type": null}, "key": {"dtype": "int32", "shape": [6], "type": null}, "labref_Lovas_NIST": [" ", " ", " ", " ", "", "    Man77"], "lineid": {"dtype": "int32", "shape": [6], "type": null}, "linelist": ["CDMS", "CDMS", "CDMS", "JPL", "Lovas", "SLAIM"], "lower_state_energy": {"dtype": "float64", "shape": [6], "type": null}, "lower_state_energy_K": {"dtype": "float64", "shape": [6], "type": null}, "measFreq": ["217.104919 (0.002), <span style = 'color: #DC143C'>217.104919<\/span>", "217.10498 (0.08), <span style = 'color: #DC143C'>217.10498<\/span>", "217.10498 (0.05), <span style = 'color: #DC143C'>217.10498<\/span>", "217.10498 (0.08), <span style = 'color: #DC143C'>217.10498<\/span>", " <span style = 'color: #DC143C'><\/span>", "217.10498 (0.1), <span style = 'color: #DC143C'>217.10498<\/span>"], "moleculeTag": {"dtype": "int32", "shape": [6], "type": null}, "name": ["SiO, v = 0-10", "SiO <font color=\"red\">v = 0 <\/font>", "SiO <font color=\"red\">v = 0 <\/font>", "SiO <font color=\"red\">v = 0 <\/font>", "SiO <font color=\"red\">v = 0 <\/font>", "SiO <font color=\"red\">v = 0 <\/font>"], "obsref_Lovas_NIST": ["Belloche 2013", " ", " ", "Lor84a", "Lor84a", " "], "orderedFreq": [" <span style = 'color: #DC143C'><\/span>", " <span style = 'color: #DC143C'><\/span>", " <span style = 'color: #DC143C'><\/span>", " <span style = 'color: #DC143C'><\/span>", "217.104984 (0.014), <span style = 'color: #DC143C'>217.104984<\/span>", "217.104984 (0.014), <span style = 'color: #DC143C'>217.104984<\/span>"], "orderedfreq": {"dtype": "float64", "shape": [6], "type": null}, "qnCode": {"dtype": "int32", "shape": [6], "type": null}, "rel_int_HFS_Lovas": [" ", " ", " ", " ", " ", ""], "requestnumber": {"dtype": "int32", "shape": [6], "type": null}, "resolved_QNs": ["J = 5 - 4, v = 0 - 0", " 5- 4", " 5- 4", "5-4 ", "5-4 ", "      5        -   4"], "searchErrorMessage": ["", "", "", "", "", ""], "sij": {"dtype": "float64", "shape": [6], "type": null}, "sijmu2": {"dtype": "float64", "shape": [6], "type": null}, "source_Lovas_NIST": ["Sgr B2(N)", " ", " ", " OriMC-1", " OriMC-1", " "], "species_id": {"dtype": "int32", "shape": [6], "type": null}, "sqlquery": {"type": "raw", "value": ["$NaN$", "$NaN$", "$NaN$", "$NaN$", "$NaN$", "$NaN$"]}, "telescope_Lovas_NIST": ["IRAM 30m", " ", " ", " MMWO    4.9m", " MMWO    4.9m", " "], "transitionBandColor": ["datatablelightpurple", "datatablelightpurple", "datatablelightpurple", "datatablelightpurple", "datatablelightpurple", "datatablelightpurple"], "transition_in_G358": {"dtype": "int32", "shape": [6], "type": null}, "transition_in_space": {"dtype": "int32", "shape": [6], "type": null}, "unres_quantum_numbers": ["5 0 4 0", " 5 0         4 0", "J=5-4 v=0", "J=5-4 v=0", "5-4 v=0", "      5        -   4 v=0"], "upperStateDegen": ["11", "11", "11", "11", "", "11"], "upper_state_energy": {"dtype": "float64", "shape": [6], "type": null}, "upper_state_energy_K": {"dtype": "float64", "shape": [6], "type": null}}, "fields": [{"key": "$NaN$"}, {"species_id": "$NaN$"}, {"name": "$NaN$"}, {"chemical_name": "$NaN$"}, {"resolved_QNs": "$NaN$"}, {"linelist": "$NaN$"}, {"LovasASTIntensity": "$NaN$"}, {"lower_state_energy": "$NaN$"}, {"upper_state_energy": "$NaN$"}, {"sijmu2": "$NaN$"}, {"sij": "$NaN$"}, {"aij": "$NaN$"}, {"intintensity": "$NaN$"}, {"Lovas_NRAO": "$NaN$"}, {"orderedfreq": "$NaN$"}, {"lower_state_energy_K": "$NaN$"}, {"upper_state_energy_K": "$NaN$"}, {"orderedFreq": "$NaN$"}, {"measFreq": "$NaN$"}, {"upperStateDegen": "$NaN$"}, {"moleculeTag": "$NaN$"}, {"qnCode": "$NaN$"}, {"labref_Lovas_NIST": "$NaN$"}, {"rel_int_HFS_Lovas": "$NaN$"}, {"unres_quantum_numbers": "$NaN$"}, {"lineid": "$NaN$"}, {"transition_in_space": "$NaN$"}, {"transition_in_G358": "$NaN$"}, {"obsref_Lovas_NIST": "$NaN$"}, {"source_Lovas_NIST": "$NaN$"}, {"telescope_Lovas_NIST": "$NaN$"}, {"transitionBandColor": "$NaN$"}, {"searchErrorMessage": "$NaN$"}, {"sqlquery": "$NaN$"}, {"requestnumber": "$NaN$"}, {"ipydguuid": "$NaN$"}], "schema": {"fields": [{"name": "key", "type": "integer"}, {"name": "species_id", "type": "integer"}, {"name": "name", "type": "string"}, {"name": "chemical_name", "type": "string"}, {"name": "resolved_QNs", "type": "string"}, {"name": "linelist", "type": "string"}, {"name": "LovasASTIntensity", "type": "string"}, {"name": "lower_state_energy", "type": "number"}, {"name": "upper_state_energy", "type": "number"}, {"name": "sijmu2", "type": "number"}, {"name": "sij", "type": "number"}, {"name": "aij", "type": "number"}, {"name": "intintensity", "type": "string"}, {"name": "Lovas_NRAO", "type": "integer"}, {"name": "orderedfreq", "type": "number"}, {"name": "lower_state_energy_K", "type": "number"}, {"name": "upper_state_energy_K", "type": "number"}, {"name": "orderedFreq", "type": "string"}, {"name": "measFreq", "type": "string"}, {"name": "upperStateDegen", "type": "string"}, {"name": "moleculeTag", "type": "integer"}, {"name": "qnCode", "type": "integer"}, {"name": "labref_Lovas_NIST", "type": "string"}, {"name": "rel_int_HFS_Lovas", "type": "string"}, {"name": "unres_quantum_numbers", "type": "string"}, {"name": "lineid", "type": "integer"}, {"name": "transition_in_space", "type": "integer"}, {"name": "transition_in_G358", "type": "integer"}, {"name": "obsref_Lovas_NIST", "type": "string"}, {"name": "source_Lovas_NIST", "type": "string"}, {"name": "telescope_Lovas_NIST", "type": "string"}, {"name": "transitionBandColor", "type": "string"}, {"name": "searchErrorMessage", "type": "string"}, {"name": "sqlquery", "type": "string"}, {"name": "requestnumber", "type": "integer"}, {"name": "ipydguuid", "type": "integer"}], "pandas_version": "1.4.0", "primaryKey": ["key", "ipydguuid"], "primaryKeyUuid": "ipydguuid"}}, "_dom_classes": [], "_model_module": "ipydatagrid", "_model_module_version": "^1.4.0", "_model_name": "DataGridModel", "_transforms": [], "_view_count": null, "_view_module": "ipydatagrid", "_view_module_version": "^1.4.0", "_view_name": "DataGridView", "_visible_rows": [], "auto_fit_columns": false, "auto_fit_params": {"area": "all", "numCols": null, "padding": 30}, "base_column_header_size": 20, "base_column_size": 64, "base_row_header_size": 64, "base_row_size": 20, "column_widths": {}, "corner_renderer": null, "default_renderer": "IPY_MODEL_f385759f9f964d3780b34adc00e2c0b0", "editable": false, "grid_style": {}, "header_renderer": null, "header_visibility": "all", "horizontal_stripes": false, "layout": "IPY_MODEL_9f41b7eacb87468c9e5bfbd27572fe4f", "renderers": {}, "selection_mode": "none", "selections": [], "tabbable": null, "tooltip": null, "vertical_stripes": false}}, "36fe2a0d67b54e61a051308b076233ec": {"buffers": [{"data": "AAAAAAEAAAACAAAAAwAAAA==", "encoding": "base64", "path": ["_data", "data", "key", "value"]}, {"data": "0gAAANIAAADSAAAA0gAAAA==", "encoding": "base64", "path": ["_data", "data", "species_id", "value"]}, {"data": "L90kBoElMEBuowG8BSIwQDVeukkMIjBAAAAAAAAAAAA=", "encoding": "base64", "path": ["_data", "data", "lower_state_energy", "value"]}, {"data": "v\/G1Z5bMNED+t5IdG8k0QAwfEVMiyTRAAAAAAAAAAAA=", "encoding": "base64", "path": ["_data", "data", "upper_state_energy", "value"]}, {"data": "+IiYEkmEPkBwd9Zuu5g+QPFG5pE\/mD5AAAAAAAAAAAA=", "encoding": "base64", "path": ["_data", "data", "sijmu2", "value"]}, {"data": "GQRWDi1yJkCNl24Sg4AmQAAAAAAAAA5AAAAAAAAAAAA=", "encoding": "base64", "path": ["_data", "data", "sij", "value"]}, {"data": "C2MLQQ7KEcB+NQcI5sgRwCBe1y\/YjQ\/AAAAAAAAAAAA=", "encoding": "base64", "path": ["_data", "data", "aij", "value"]}, {"data": "AQAAAAAAAAAAAAAAAAAAAA==", "encoding": "base64", "path": ["_data", "data", "Lovas_NRAO", "value"]}, {"data": "exSuR9sGAUFos+pz3QYBQd9PjZfdBgFB30+Nl90GAUE=", "encoding": "base64", "path": ["_data", "data", "orderedfreq", "value"]}, {"data": "esISDyg7N0DnxvSEJTY3QMoyxLEuNjdAAAAAAAAAAAA=", "encoding": "base64", "path": ["_data", "data", "lower_state_energy_K", "value"]}, {"data": "FJZ4QNnsPUDHRiBe1+c9QPJetTLh5z1AAAAAAAAAAAA=", "encoding": "base64", "path": ["_data", "data", "upper_state_energy_K", "value"]}, {"data": "TUz\/\/1NK\/\/8AAAAAAAAAAA==", "encoding": "base64", "path": ["_data", "data", "moleculeTag", "value"]}, {"data": "LwEAAC8BAAAAAAAAAAAAAA==", "encoding": "base64", "path": ["_data", "data", "qnCode", "value"]}, {"data": "lwk+ANoLPgDnIjkAt\/o4AA==", "encoding": "base64", "path": ["_data", "data", "lineid", "value"]}, {"data": "AAAAAAAAAAABAAAAAAAAAA==", "encoding": "base64", "path": ["_data", "data", "transition_in_space", "value"]}, {"data": "AAAAAAAAAAAAAAAAAAAAAA==", "encoding": "base64", "path": ["_data", "data", "transition_in_G358", "value"]}, {"data": "AAAAAAAAAAAAAAAAAAAAAA==", "encoding": "base64", "path": ["_data", "data", "requestnumber", "value"]}, {"data": "AAAAAAEAAAACAAAAAwAAAA==", "encoding": "base64", "path": ["_data", "data", "ipydguuid", "value"]}], "model_module": "ipydatagrid", "model_module_version": "^1.4.0", "model_name": "DataGridModel", "state": {"_data": {"data": {"LovasASTIntensity": [" 0.17", " ", " 0.17", " 0.17"], "Lovas_NRAO": {"dtype": "int32", "shape": [4], "type": null}, "aij": {"dtype": "float64", "shape": [4], "type": null}, "chemical_name": ["Thioformaldehyde", "Thioformaldehyde", "Thioformaldehyde", "Thioformaldehyde"], "intintensity": ["", "", "", ""], "ipydguuid": {"dtype": "int32", "shape": [4], "type": null}, "key": {"dtype": "int32", "shape": [4], "type": null}, "labref_Lovas_NIST": [" ", " ", "   Mar05", ""], "lineid": {"dtype": "int32", "shape": [4], "type": null}, "linelist": ["JPL", "CDMS", "SLAIM", "Lovas"], "lower_state_energy": {"dtype": "float64", "shape": [4], "type": null}, "lower_state_energy_K": {"dtype": "float64", "shape": [4], "type": null}, "measFreq": ["139.48341 (0.28), <span style = 'color: #DC143C'>139.48341<\/span>", "139.4836816 (0.05), <span style = 'color: #DC143C'>139.4836816<\/span>", "139.483741 (0.024), <span style = 'color: #DC143C'>139.483741<\/span>", " <span style = 'color: #DC143C'><\/span>"], "moleculeTag": {"dtype": "int32", "shape": [4], "type": null}, "name": ["H<sub>2<\/sub>CS", "H<sub>2<\/sub>CS", "H<sub>2<\/sub>CS", "H<sub>2<\/sub>CS"], "obsref_Lovas_NIST": ["Lor84a", " ", " ", "Lor84a"], "orderedFreq": [" <span style = 'color: #DC143C'><\/span>", " <span style = 'color: #DC143C'><\/span>", "139.483699 (0.017), <span style = 'color: #DC143C'>139.483699<\/span>", "139.483699 (0.017), <span style = 'color: #DC143C'>139.483699<\/span>"], "orderedfreq": {"dtype": "float64", "shape": [4], "type": null}, "qnCode": {"dtype": "int32", "shape": [4], "type": null}, "rel_int_HFS_Lovas": [" ", " ", "", " "], "requestnumber": {"dtype": "int32", "shape": [4], "type": null}, "resolved_QNs": [" 4( 1, 3)- 3( 1, 2)", " 4( 1, 3)- 3( 1, 2)", "      4(  1, 3)-   3(  1, 2)", "4(1,3)-3(1,2)"], "searchErrorMessage": ["", "", "", ""], "sij": {"dtype": "float64", "shape": [4], "type": null}, "sijmu2": {"dtype": "float64", "shape": [4], "type": null}, "source_Lovas_NIST": [" rho Oph B1", " ", " ", " rho Oph B1"], "species_id": {"dtype": "int32", "shape": [4], "type": null}, "sqlquery": {"type": "raw", "value": ["$NaN$", "$NaN$", "$NaN$", "$NaN$"]}, "telescope_Lovas_NIST": [" MMWO    4.9m", " ", " ", " MMWO    4.9m"], "transitionBandColor": ["datatablegreen", "datatablegreen", "datatablegreen", "datatablegreen"], "transition_in_G358": {"dtype": "int32", "shape": [4], "type": null}, "transition_in_space": {"dtype": "int32", "shape": [4], "type": null}, "unres_quantum_numbers": [" 4 1 3       3 1 2", " 4 1 3       3 1 2", "      4(  1, 3)-   3(  1, 2)", "4(1,3)-3(1,2)"], "upperStateDegen": ["27", "27", "8.5", ""], "upper_state_energy": {"dtype": "float64", "shape": [4], "type": null}, "upper_state_energy_K": {"dtype": "float64", "shape": [4], "type": null}}, "fields": [{"key": "$NaN$"}, {"species_id": "$NaN$"}, {"name": "$NaN$"}, {"chemical_name": "$NaN$"}, {"resolved_QNs": "$NaN$"}, {"linelist": "$NaN$"}, {"LovasASTIntensity": "$NaN$"}, {"lower_state_energy": "$NaN$"}, {"upper_state_energy": "$NaN$"}, {"sijmu2": "$NaN$"}, {"sij": "$NaN$"}, {"aij": "$NaN$"}, {"intintensity": "$NaN$"}, {"Lovas_NRAO": "$NaN$"}, {"orderedfreq": "$NaN$"}, {"lower_state_energy_K": "$NaN$"}, {"upper_state_energy_K": "$NaN$"}, {"orderedFreq": "$NaN$"}, {"measFreq": "$NaN$"}, {"upperStateDegen": "$NaN$"}, {"moleculeTag": "$NaN$"}, {"qnCode": "$NaN$"}, {"labref_Lovas_NIST": "$NaN$"}, {"rel_int_HFS_Lovas": "$NaN$"}, {"unres_quantum_numbers": "$NaN$"}, {"lineid": "$NaN$"}, {"transition_in_space": "$NaN$"}, {"transition_in_G358": "$NaN$"}, {"obsref_Lovas_NIST": "$NaN$"}, {"source_Lovas_NIST": "$NaN$"}, {"telescope_Lovas_NIST": "$NaN$"}, {"transitionBandColor": "$NaN$"}, {"searchErrorMessage": "$NaN$"}, {"sqlquery": "$NaN$"}, {"requestnumber": "$NaN$"}, {"ipydguuid": "$NaN$"}], "schema": {"fields": [{"name": "key", "type": "integer"}, {"name": "species_id", "type": "integer"}, {"name": "name", "type": "string"}, {"name": "chemical_name", "type": "string"}, {"name": "resolved_QNs", "type": "string"}, {"name": "linelist", "type": "string"}, {"name": "LovasASTIntensity", "type": "string"}, {"name": "lower_state_energy", "type": "number"}, {"name": "upper_state_energy", "type": "number"}, {"name": "sijmu2", "type": "number"}, {"name": "sij", "type": "number"}, {"name": "aij", "type": "number"}, {"name": "intintensity", "type": "string"}, {"name": "Lovas_NRAO", "type": "integer"}, {"name": "orderedfreq", "type": "number"}, {"name": "lower_state_energy_K", "type": "number"}, {"name": "upper_state_energy_K", "type": "number"}, {"name": "orderedFreq", "type": "string"}, {"name": "measFreq", "type": "string"}, {"name": "upperStateDegen", "type": "string"}, {"name": "moleculeTag", "type": "integer"}, {"name": "qnCode", "type": "integer"}, {"name": "labref_Lovas_NIST", "type": "string"}, {"name": "rel_int_HFS_Lovas", "type": "string"}, {"name": "unres_quantum_numbers", "type": "string"}, {"name": "lineid", "type": "integer"}, {"name": "transition_in_space", "type": "integer"}, {"name": "transition_in_G358", "type": "integer"}, {"name": "obsref_Lovas_NIST", "type": "string"}, {"name": "source_Lovas_NIST", "type": "string"}, {"name": "telescope_Lovas_NIST", "type": "string"}, {"name": "transitionBandColor", "type": "string"}, {"name": "searchErrorMessage", "type": "string"}, {"name": "sqlquery", "type": "string"}, {"name": "requestnumber", "type": "integer"}, {"name": "ipydguuid", "type": "integer"}], "pandas_version": "1.4.0", "primaryKey": ["key", "ipydguuid"], "primaryKeyUuid": "ipydguuid"}}, "_dom_classes": [], "_model_module": "ipydatagrid", "_model_module_version": "^1.4.0", "_model_name": "DataGridModel", "_transforms": [], "_view_count": null, "_view_module": "ipydatagrid", "_view_module_version": "^1.4.0", "_view_name": "DataGridView", "_visible_rows": [], "auto_fit_columns": false, "auto_fit_params": {"area": "all", "numCols": null, "padding": 30}, "base_column_header_size": 20, "base_column_size": 64, "base_row_header_size": 64, "base_row_size": 20, "column_widths": {}, "corner_renderer": null, "default_renderer": "IPY_MODEL_9f6fd9f1508a4538a1aad1805c0bc4a9", "editable": false, "grid_style": {}, "header_renderer": null, "header_visibility": "all", "horizontal_stripes": false, "layout": "IPY_MODEL_1503210f73184e479512bbddb11e43da", "renderers": {}, "selection_mode": "none", "selections": [], "tabbable": null, "tooltip": null, "vertical_stripes": false}}, "5804b3a874db4d57b05b2ebbc217e783": {"model_module": "ipydatagrid", "model_module_version": "^1.4.0", "model_name": "VegaExprModel", "state": {"_model_module": "ipydatagrid", "_model_module_version": "^1.4.0", "_model_name": "VegaExprModel", "_view_count": null, "_view_module": "ipydatagrid", "_view_module_version": "^1.4.0", "_view_name": "VegaExprView", "value": "default_value"}}, "6716c48b0643448ea15223510bb163a4": {"model_module": "@jupyter-widgets\/controls", "model_module_version": "2.0.0", "model_name": "HBoxModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets\/controls", "_model_module_version": "2.0.0", "_model_name": "HBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets\/controls", "_view_module_version": "2.0.0", "_view_name": "HBoxView", "box_style": "", "children": ["IPY_MODEL_adc62ce402d9415aa9044099dcce076d", "IPY_MODEL_c45fe272df624bd181d3ac32d4011063", "IPY_MODEL_f21dd5b279144f8d8cbe38f11f809f7f"], "layout": "IPY_MODEL_f067384a97aa47a7a157ff22e25e510b", "tabbable": null, "tooltip": null}}, "84f2a4c15a824fca8e957fd7c051158e": {"model_module": "ipydatagrid", "model_module_version": "^1.4.0", "model_name": "VegaExprModel", "state": {"_model_module": "ipydatagrid", "_model_module_version": "^1.4.0", "_model_name": "VegaExprModel", "_view_count": null, "_view_module": "ipydatagrid", "_view_module_version": "^1.4.0", "_view_name": "VegaExprView", "value": "default_value"}}, "8c15f62765874123955b0693b8dece75": {"model_module": "@jupyter-widgets\/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets\/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "8f1fe89fdf4a4f97958b1bdd5f7fb0df": {"model_module": "@jupyter-widgets\/controls", "model_module_version": "2.0.0", "model_name": "HTMLStyleModel", "state": {"_model_module": "@jupyter-widgets\/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "9f41b7eacb87468c9e5bfbd27572fe4f": {"model_module": "@jupyter-widgets\/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets\/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "9f6fd9f1508a4538a1aad1805c0bc4a9": {"model_module": "ipydatagrid", "model_module_version": "^1.4.0", "model_name": "TextRendererModel", "state": {"_model_module": "ipydatagrid", "_model_module_version": "^1.4.0", "_model_name": "TextRendererModel", "_view_count": null, "_view_module": "ipydatagrid", "_view_module_version": "^1.4.0", "_view_name": "TextRendererView", "background_color": "IPY_MODEL_5804b3a874db4d57b05b2ebbc217e783", "font": "12px sans-serif", "format": null, "format_type": "number", "horizontal_alignment": "left", "missing": "", "text_color": "IPY_MODEL_b92fd3c0f5d44b9da9066aab95ac86fb", "text_elide_direction": "right", "text_value": null, "text_wrap": false, "vertical_alignment": "center"}}, "adc62ce402d9415aa9044099dcce076d": {"model_module": "@jupyter-widgets\/controls", "model_module_version": "2.0.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets\/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets\/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_8c15f62765874123955b0693b8dece75", "placeholder": "\u200b", "style": "IPY_MODEL_e248b14f92054bfa81fd75376510fdbe", "tabbable": null, "tooltip": null, "value": "Spectral\u2007Interpolate:\u2007100%"}}, "b13c30674cf14c168159f1e981185f25": {"model_module": "@jupyter-widgets\/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets\/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b92fd3c0f5d44b9da9066aab95ac86fb": {"model_module": "ipydatagrid", "model_module_version": "^1.4.0", "model_name": "VegaExprModel", "state": {"_model_module": "ipydatagrid", "_model_module_version": "^1.4.0", "_model_name": "VegaExprModel", "_view_count": null, "_view_module": "ipydatagrid", "_view_module_version": "^1.4.0", "_view_name": "VegaExprView", "value": "default_value"}}, "c242320fc38a49a78fa89f8575299801": {"model_module": "@jupyter-widgets\/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets\/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c45fe272df624bd181d3ac32d4011063": {"model_module": "@jupyter-widgets\/controls", "model_module_version": "2.0.0", "model_name": "FloatProgressModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets\/controls", "_model_module_version": "2.0.0", "_model_name": "FloatProgressModel", "_view_count": null, "_view_module": "@jupyter-widgets\/controls", "_view_module_version": "2.0.0", "_view_name": "ProgressView", "bar_style": "success", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_b13c30674cf14c168159f1e981185f25", "max": 176400.0, "min": 0.0, "orientation": "horizontal", "style": "IPY_MODEL_0a295b848a9b430185d542f78f06c1f7", "tabbable": null, "tooltip": null, "value": 176400.0}}, "cb103b47943b4551bd99495d40563386": {"model_module": "ipydatagrid", "model_module_version": "^1.4.0", "model_name": "VegaExprModel", "state": {"_model_module": "ipydatagrid", "_model_module_version": "^1.4.0", "_model_name": "VegaExprModel", "_view_count": null, "_view_module": "ipydatagrid", "_view_module_version": "^1.4.0", "_view_name": "VegaExprView", "value": "default_value"}}, "e248b14f92054bfa81fd75376510fdbe": {"model_module": "@jupyter-widgets\/controls", "model_module_version": "2.0.0", "model_name": "HTMLStyleModel", "state": {"_model_module": "@jupyter-widgets\/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "StyleView", "background": null, "description_width": "", "font_size": null, "text_color": null}}, "f067384a97aa47a7a157ff22e25e510b": {"model_module": "@jupyter-widgets\/base", "model_module_version": "2.0.0", "model_name": "LayoutModel", "state": {"_model_module": "@jupyter-widgets\/base", "_model_module_version": "2.0.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets\/base", "_view_module_version": "2.0.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border_bottom": null, "border_left": null, "border_right": null, "border_top": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "f21dd5b279144f8d8cbe38f11f809f7f": {"model_module": "@jupyter-widgets\/controls", "model_module_version": "2.0.0", "model_name": "HTMLModel", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets\/controls", "_model_module_version": "2.0.0", "_model_name": "HTMLModel", "_view_count": null, "_view_module": "@jupyter-widgets\/controls", "_view_module_version": "2.0.0", "_view_name": "HTMLView", "description": "", "description_allow_html": false, "layout": "IPY_MODEL_c242320fc38a49a78fa89f8575299801", "placeholder": "\u200b", "style": "IPY_MODEL_8f1fe89fdf4a4f97958b1bdd5f7fb0df", "tabbable": null, "tooltip": null, "value": "\u2007176400\/176400\u2007[00:10&lt;00:00,\u200755048.48it\/s]"}}, "f385759f9f964d3780b34adc00e2c0b0": {"model_module": "ipydatagrid", "model_module_version": "^1.4.0", "model_name": "TextRendererModel", "state": {"_model_module": "ipydatagrid", "_model_module_version": "^1.4.0", "_model_name": "TextRendererModel", "_view_count": null, "_view_module": "ipydatagrid", "_view_module_version": "^1.4.0", "_view_name": "TextRendererView", "background_color": "IPY_MODEL_84f2a4c15a824fca8e957fd7c051158e", "font": "12px sans-serif", "format": null, "format_type": "number", "horizontal_alignment": "left", "missing": "", "text_color": "IPY_MODEL_cb103b47943b4551bd99495d40563386", "text_elide_direction": "right", "text_value": null, "text_wrap": false, "vertical_alignment": "center"}}}, "version_major": 2, "version_minor": 0}
+</script>
 </html>

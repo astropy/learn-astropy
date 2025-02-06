@@ -7472,6 +7472,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7493,7 +7494,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="at-logotext__secondary">Tutorials</span>
 </a></p>
 <nav class="at-header-nav">
-<a download="" href="3-Trace_Extract_Wavelength-CalibrateSpectrum.ipynb">Download</a>
+<a download="" href="3-Trace_Extract_Wavelength-CalibrateSpectrum.ipynb">Download this notebook</a>
 </nav>
 </header>
 <aside class="at-notebook-sidebar">
@@ -7588,9 +7589,9 @@ matplotlib
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="k">as</span> <span class="n">PILImage</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span> <span class="k">as</span> <span class="n">PILImage</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">'dark_background'</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -7605,10 +7606,10 @@ matplotlib
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.modeling.models</span> <span class="kn">import</span> <span class="n">Linear1D</span>
-<span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">constants</span>
-<span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
-<span class="kn">from</span> <span class="nn">astropy.visualization</span> <span class="kn">import</span> <span class="n">quantity_support</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy.modeling.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Linear1D</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">constants</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.visualization</span><span class="w"> </span><span class="kn">import</span> <span class="n">quantity_support</span>
 <span class="n">quantity_support</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -7622,7 +7623,7 @@ matplotlib
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;astropy.visualization.units.quantity_support.&lt;locals&gt;.MplQuantityConverter at 0x7ff1baa187d0&gt;</pre>
+<pre>&lt;astropy.visualization.units.quantity_support.&lt;locals&gt;.MplQuantityConverter at 0x7f7130448230&gt;</pre>
 </div>
 </div>
 </div>
@@ -7649,9 +7650,9 @@ matplotlib
 <div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.modeling.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial1D</span>
-<span class="kn">from</span> <span class="nn">astropy.modeling.models</span> <span class="kn">import</span> <span class="n">Gaussian1D</span>
-<span class="kn">from</span> <span class="nn">astropy.modeling.fitting</span> <span class="kn">import</span> <span class="n">LevMarLSQFitter</span><span class="p">,</span> <span class="n">LinearLSQFitter</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy.modeling.polynomial</span><span class="w"> </span><span class="kn">import</span> <span class="n">Polynomial1D</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.modeling.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Gaussian1D</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.modeling.fitting</span><span class="w"> </span><span class="kn">import</span> <span class="n">LevMarLSQFitter</span><span class="p">,</span> <span class="n">LinearLSQFitter</span>
 <span class="n">linfitter</span> <span class="o">=</span> <span class="n">LinearLSQFitter</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -7772,7 +7773,7 @@ matplotlib
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>[&lt;matplotlib.lines.Line2D at 0x7ff1ba9461e0&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x7f71544d1520&gt;]</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -8073,7 +8074,7 @@ matplotlib
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 <div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
-$1.7126856 \; \mathrm{nm}$
+$1.7127193 \; \mathrm{nm}$
 </div>
 </div>
 </div>
@@ -8099,7 +8100,7 @@ $1.7126856 \; \mathrm{nm}$
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;Gaussian1D(amplitude=-22.81529847, mean=486.34296327, stddev=0.4969129)&gt;</pre>
+<pre>&lt;Gaussian1D(amplitude=-22.81498285, mean=486.34294504, stddev=0.49692951)&gt;</pre>
 </div>
 </div>
 </div>
@@ -8174,7 +8175,7 @@ $$v_{opt} = c \frac{\lambda-\lambda_0}{\lambda} $$</p>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
 <div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
-$128.24796 \; \mathrm{\frac{km}{s}}$
+$128.23671 \; \mathrm{\frac{km}{s}}$
 </div>
 </div>
 </div>
@@ -8212,7 +8213,7 @@ $128.24796 \; \mathrm{\frac{km}{s}}$
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[23]:</div>
 <div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
-$128.24796 \; \mathrm{\frac{km}{s}}$
+$128.23671 \; \mathrm{\frac{km}{s}}$
 </div>
 </div>
 </div>
@@ -8250,7 +8251,7 @@ $128.24796 \; \mathrm{\frac{km}{s}}$
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
 <div class="jp-RenderedLatex jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/latex" tabindex="0">
-$306.43904 \; \mathrm{\frac{km}{s}}$
+$306.44928 \; \mathrm{\frac{km}{s}}$
 </div>
 </div>
 </div>
@@ -8269,6 +8270,6 @@ $306.43904 \; \mathrm{\frac{km}{s}}$
 </div>
 </div>
 </main>
-<footer class="at-tutorial-footer">Astropy footer</footer>
+<footer class="at-tutorial-footer"> </footer>
 </body>
 </html>

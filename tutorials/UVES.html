@@ -7472,6 +7472,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7493,7 +7494,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="at-logotext__secondary">Tutorials</span>
 </a></p>
 <nav class="at-header-nav">
-<a download="" href="UVES.ipynb">Download</a>
+<a download="" href="UVES.ipynb">Download this notebook</a>
 </nav>
 </header>
 <aside class="at-notebook-sidebar">
@@ -7634,11 +7635,11 @@ numpy
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pathlib</span>
-<span class="kn">import</span> <span class="nn">tarfile</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">tarfile</span>
 
-<span class="kn">from</span> <span class="nn">astropy.utils.data</span> <span class="kn">import</span> <span class="n">download_file</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">download_file</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
@@ -7680,7 +7681,7 @@ numpy
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/tmp/ipykernel_3768/1577637524.py:4: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
+<pre>/tmp/ipykernel_4655/1577637524.py:4: DeprecationWarning: Python 3.14 will, by default, filter extracted tar archives and reject files or modify their metadata. Use the filter argument to control this behavior.
   f.extractall(path=working_dir_path)
 </pre>
 </div>
@@ -7753,13 +7754,13 @@ or the other two tutorials for more details:</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">glob</span> <span class="kn">import</span> <span class="n">glob</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">glob</span><span class="w"> </span><span class="kn">import</span> <span class="n">glob</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">astropy.wcs</span> <span class="kn">import</span> <span class="n">WCS</span>
-<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.wcs</span><span class="w"> </span><span class="kn">import</span> <span class="n">WCS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">fits</span>
 
 <span class="c1"># os.path.join is a platform-independent way to join two directories</span>
 <span class="n">globpath</span> <span class="o">=</span> <span class="n">working_dir_path</span> <span class="o">/</span> <span class="s1">'UVES'</span>
@@ -7966,7 +7967,7 @@ than two lines.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">read_spec</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_spec</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''Read a UVES spectrum from the ESO pipeline</span>
 
 <span class="sd">    Parameters</span>
@@ -8107,7 +8108,7 @@ setup.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">read_setup</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_setup</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''Get setup for UVES spectrum from the ESO pipeline</span>
 
 <span class="sd">    Parameters</span>
@@ -8162,22 +8163,10 @@ setup.</p>
 (1200.0011, 3732.05623191818, 'BLUE')
 (1200.0011, 3732.05623191818, 'BLUE')
 (1200.0011, 3732.05623191818, 'BLUE')
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>(1200.0012, 3732.05623191818, 'BLUE')
+(1200.0012, 3732.05623191818, 'BLUE')
 (1200.0011, 3732.05623191818, 'BLUE')
 (1200.0013, 3732.05623191818, 'BLUE')
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>(1200.0013, 3732.05623191818, 'BLUE')
+(1200.0013, 3732.05623191818, 'BLUE')
 (1200.0013, 3732.05623191818, 'BLUE')
 </pre>
 </div>
@@ -8261,8 +8250,8 @@ The easiest way to attach a unit to a number is by multiplication.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">u</span>
-<span class="kn">from</span> <span class="nn">astropy.constants.si</span> <span class="kn">import</span> <span class="n">c</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">M_sun</span><span class="p">,</span> <span class="n">R_sun</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">astropy.units</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.constants.si</span><span class="w"> </span><span class="kn">import</span> <span class="n">c</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">M_sun</span><span class="p">,</span> <span class="n">R_sun</span>
 
 <span class="n">wavelength</span> <span class="o">=</span> <span class="n">wavelength</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">AA</span>
 
@@ -8337,7 +8326,7 @@ $$\frac{1}{2} m v^2  =  G \frac{m M_*}{R_*}$$</p>
 <span class="c1"># Maybe astronomers prefer it in the traditional cgs system?</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">v_accr</span><span class="o">.</span><span class="n">cgs</span><span class="p">)</span>
 <span class="c1"># Or in some really obscure unit?</span>
-<span class="kn">from</span> <span class="nn">astropy.units</span> <span class="kn">import</span> <span class="n">imperial</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.units</span><span class="w"> </span><span class="kn">import</span> <span class="n">imperial</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">v_accr</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">imperial</span><span class="o">.</span><span class="n">yd</span> <span class="o">/</span> <span class="n">u</span><span class="o">.</span><span class="n">hour</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -8692,8 +8681,8 @@ of the following wavelengths relative to $H_\alpha$.</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># This function uses the Doppler equivalency between wavelength and velocity</span>
-<span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">u</span>
-<span class="k">def</span> <span class="nf">wave2doppler</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w0</span><span class="p">):</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">astropy.units</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">wave2doppler</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w0</span><span class="p">):</span>
     <span class="n">w0_equiv</span> <span class="o">=</span> <span class="n">u</span><span class="o">.</span><span class="n">doppler_optical</span><span class="p">(</span><span class="n">w0</span><span class="p">)</span>
     <span class="n">w_equiv</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">km</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="n">equivalencies</span><span class="o">=</span><span class="n">w0_equiv</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">w_equiv</span>
@@ -8754,7 +8743,7 @@ to make sure the that code below can use it later.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">w2vsini</span><span class="p">(</span><span class="n">wavelength_array</span><span class="p">,</span> <span class="n">wavelength_line</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">w2vsini</span><span class="p">(</span><span class="n">wavelength_array</span><span class="p">,</span> <span class="n">wavelength_line</span><span class="p">):</span>
     <span class="c1"># .. replace this with your implementation ..</span>
     <span class="k">return</span> <span class="n">array_of_shifts_in_vsini</span>
 </pre></div>
@@ -8770,7 +8759,7 @@ to make sure the that code below can use it later.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">w2vsini</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w0</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">w2vsini</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w0</span><span class="p">):</span>
     <span class="n">v</span> <span class="o">=</span> <span class="n">wave2doppler</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w0</span><span class="p">)</span> <span class="o">-</span> <span class="mf">4.77</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">km</span><span class="o">/</span><span class="n">u</span><span class="o">.</span><span class="n">s</span>
     <span class="k">return</span> <span class="n">v</span> <span class="o">/</span> <span class="n">vsini</span>
 </pre></div>
@@ -8816,7 +8805,7 @@ Below are several examples, initialized from different header keywords.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.time</span> <span class="kn">import</span> <span class="n">Time</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy.time</span><span class="w"> </span><span class="kn">import</span> <span class="n">Time</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="n">header</span><span class="p">[</span><span class="s1">'MJD-Obs'</span><span class="p">],</span> <span class="nb">format</span> <span class="o">=</span> <span class="s1">'mjd'</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="s1">'utc'</span><span class="p">)</span>
 <span class="n">t2</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="n">header</span><span class="p">[</span><span class="s1">'Date-Obs'</span><span class="p">],</span> <span class="n">scale</span> <span class="o">=</span> <span class="s1">'utc'</span><span class="p">)</span>
 </pre></div>
@@ -9003,7 +8992,7 @@ this polynomial.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">region_around_line</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">flux</span><span class="p">,</span> <span class="n">cont</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">region_around_line</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">flux</span><span class="p">,</span> <span class="n">cont</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''cut out and normalize flux around a line</span>
 
 <span class="sd">    Parameters</span>
@@ -9151,8 +9140,8 @@ details on <code>Table</code>). So, here is the code:</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Table</span>
-<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">ascii</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Table</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">ascii</span>
 
 <span class="n">datecol</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'Obs Date'</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">date</span><span class="p">)</span>
 <span class="n">pcol</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'phase'</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">delta_p</span><span class="p">,</span> <span class="nb">format</span> <span class="o">=</span> <span class="s1">'</span><span class="si">{:.1f}</span><span class="s1">'</span><span class="p">)</span>
@@ -9519,7 +9508,7 @@ improved:</p>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'vel in $v</span><span class="se">\\</span><span class="s1">sin i$'</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_locator</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">MaxNLocator</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 
-<span class="k">def</span> <span class="nf">pplot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">pplot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
     <span class="s1">'The two args are the value and tick position'</span>
     <span class="s1">'Function to make tick labels look good.'</span>
     <span class="k">if</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
@@ -9642,6 +9631,6 @@ information about your operating system (e.g. MacOSX version or Linux version).<
 </div>
 </div>
 </main>
-<footer class="at-tutorial-footer">Astropy footer</footer>
+<footer class="at-tutorial-footer"> </footer>
 </body>
 </html>

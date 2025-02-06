@@ -7472,6 +7472,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7493,7 +7494,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="at-logotext__secondary">Tutorials</span>
 </a></p>
 <nav class="at-header-nav">
-<a download="" href="Models-Quick-Fit.ipynb">Download</a>
+<a download="" href="Models-Quick-Fit.ipynb">Download this notebook</a>
 </nav>
 </header>
 <aside class="at-notebook-sidebar">
@@ -7625,13 +7626,13 @@ scipy
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">astropy.modeling</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fitting</span>
-<span class="kn">from</span> <span class="nn">astroquery.vizier</span> <span class="kn">import</span> <span class="n">Vizier</span>
-<span class="kn">import</span> <span class="nn">scipy.optimize</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.modeling</span><span class="w"> </span><span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fitting</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.vizier</span><span class="w"> </span><span class="kn">import</span> <span class="n">Vizier</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.optimize</span>
 <span class="c1"># Make plots display in notebooks</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline 
+<span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
 </div>
@@ -7681,7 +7682,7 @@ scipy
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>This catalog has a lot of information, but for this tutorial we are going to work only with periods and magnitudes. Let's grab them using the keywords <code>'Period'</code> and <code>__Ksmag__</code>.  Note that <code>'e__Ksmag_'</code> refers to the error bars in the magnitude measurements.</p>
+<p>This catalog has a lot of information, but for this tutorial we are going to work only with periods and magnitudes. Let's grab them using the keywords <code>'Period'</code> and <code>&lt;Ksmag&gt;</code>.  Note that <code>'e_&lt;Ksmag&gt;'</code> refers to the error bars in the magnitude measurements.</p>
 </div>
 </div>
 </div>
@@ -7693,10 +7694,10 @@ scipy
 <div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">period</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'Period'</span><span class="p">])</span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">period</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'Period'</span><span class="p">])</span>
 <span class="n">log_period</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">period</span><span class="p">)</span>
-<span class="n">k_mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'__Ksmag_'</span><span class="p">])</span>
-<span class="n">k_mag_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'e__Ksmag_'</span><span class="p">])</span>
+<span class="n">k_mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'&lt;Ksmag&gt;'</span><span class="p">])</span>
+<span class="n">k_mag_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">catalog</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">'e_&lt;Ksmag&gt;'</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -7892,7 +7893,7 @@ scipy
 <div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">fitter</span> <span class="o">=</span> <span class="n">fitting</span><span class="o">.</span><span class="n">LinearLSQFitter</span><span class="p">()</span> 
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">fitter</span> <span class="o">=</span> <span class="n">fitting</span><span class="o">.</span><span class="n">LinearLSQFitter</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -7976,7 +7977,7 @@ Parameters:
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">log_period</span><span class="p">,</span><span class="n">k_mag</span><span class="p">,</span><span class="n">k_mag_err</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">'k.'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">log_period</span><span class="p">,</span> <span class="n">best_fit</span><span class="p">(</span><span class="n">log_period</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">log_period</span><span class="p">,</span> <span class="n">best_fit</span><span class="p">(</span><span class="n">log_period</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'$\log_</span><span class="si">{10}</span><span class="s1">$(Period [days])'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Ks'</span><span class="p">)</span>
 </pre></div>
@@ -8089,11 +8090,11 @@ Parameters:
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>  <span class="c1"># Makes an array from 0 to 4 of N elements</span>
-<span class="n">y1</span> <span class="o">=</span> <span class="n">x1</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">6</span><span class="o">*</span><span class="n">x1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">12</span><span class="o">*</span><span class="n">x1</span> <span class="o">-</span> <span class="mi">9</span> 
+<span class="n">y1</span> <span class="o">=</span> <span class="n">x1</span><span class="o">**</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">6</span><span class="o">*</span><span class="n">x1</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">12</span><span class="o">*</span><span class="n">x1</span> <span class="o">-</span> <span class="mi">9</span>
 <span class="c1"># Now we add some noise to the data</span>
 <span class="n">y1</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">y1</span><span class="p">))</span> <span class="c1">#One way to add random gaussian noise</span>
 <span class="n">sigma</span> <span class="o">=</span> <span class="mf">1.5</span>
-<span class="n">y1_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="n">sigma</span> 
+<span class="n">y1_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="n">sigma</span>
 </pre></div>
 </div>
 </div>
@@ -8119,7 +8120,7 @@ Parameters:
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">y1_err</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">'k.'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'$x_1$'</span><span class="p">)</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'$x_1$'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'$y_1$'</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -8164,7 +8165,7 @@ Parameters:
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">model_poly</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">Polynomial1D</span><span class="p">(</span><span class="n">degree</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">fitter_poly</span> <span class="o">=</span> <span class="n">fitting</span><span class="o">.</span><span class="n">LinearLSQFitter</span><span class="p">()</span> 
+<span class="n">fitter_poly</span> <span class="o">=</span> <span class="n">fitting</span><span class="o">.</span><span class="n">LinearLSQFitter</span><span class="p">()</span>
 <span class="n">best_fit_poly</span> <span class="o">=</span> <span class="n">fitter_poly</span><span class="p">(</span><span class="n">model_poly</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">weights</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">/</span><span class="n">y1_err</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -8200,7 +8201,7 @@ Degree: 3
 Parameters:
             c0                 c1                 c2                 c3        
     ------------------ ------------------ ------------------ ------------------
-    -8.615468832776616 12.974729441118727 -6.722224430801099 1.1148271135203545
+    -9.140805732521816 12.522809101054847 -6.403055691454967 1.0831628554602957
 </pre>
 </div>
 </div>
@@ -8273,9 +8274,9 @@ Outputs: ('y',)
 Model set size: 1
 Degree: 3
 Parameters:
-             c0                 c1                 c2                  c3         
-    ------------------- ------------------ ------------------ --------------------
-    -4.1856325588769145 0.6364492220032307 0.7426807029698573 -0.10172151051188941
+             c0                  c1                 c2                  c3        
+    ------------------- ------------------- ------------------ -------------------
+    0.11497833769744975 -0.3235853997083188 -1.058912497600022 0.39678584771668046
 </pre>
 </div>
 </div>
@@ -8326,7 +8327,7 @@ Parameters:
 <div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">calc_reduced_chi_square</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">n_free</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calc_reduced_chi_square</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">n_free</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    fit (array) values for the fit</span>
 <span class="sd">    x,y,yerr (arrays) data</span>
@@ -8361,7 +8362,7 @@ Parameters:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Reduced Chi Squared with LinearLSQFitter: 1.5145840333795348
+<pre>Reduced Chi Squared with LinearLSQFitter: 1.6564350857563368
 </pre>
 </div>
 </div>
@@ -8389,7 +8390,7 @@ Parameters:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Reduced Chi Squared with SimplexLSQFitter: 2.6036321455567926
+<pre>Reduced Chi Squared with SimplexLSQFitter: 4.812085962387151
 </pre>
 </div>
 </div>
@@ -8416,7 +8417,7 @@ Parameters:
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">yerr</span><span class="o">=</span><span class="n">y1_err</span><span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">'k.'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">best_fit_poly</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'LinearLSQFitter()'</span><span class="p">)</span>  
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">best_fit_poly</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">'r'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'LinearLSQFitter()'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">best_fit_poly_2</span><span class="p">(</span><span class="n">x1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">'g'</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'SimplexLSQFitter()'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'$\log_</span><span class="si">{10}</span><span class="s1">$(Period [days])'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'Ks'</span><span class="p">)</span>
@@ -8433,7 +8434,7 @@ Parameters:
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;matplotlib.legend.Legend at 0x7f05b3ea1160&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x7f354eb89790&gt;</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -8585,9 +8586,9 @@ Inputs: ('x',)
 Outputs: ('y',)
 Model set size: 1
 Parameters:
-        amplitude              mean             stddev     
-    ------------------ ------------------- ----------------
-    10.433491733868161 0.15735275688684142 9.52972073427544
+        amplitude             mean              stddev     
+    ------------------ ------------------ -----------------
+    10.198433360297745 0.5765781778121699 9.645654161028434
 </pre>
 </div>
 </div>
@@ -8652,7 +8653,7 @@ Parameters:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[0.05384369 0.05987734 0.05996127]
+<pre>[0.05320319 0.06343386 0.06354759]
 </pre>
 </div>
 </div>
@@ -8692,9 +8693,9 @@ Parameters:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Amplitude: 10.433491733868161 +\- 0.23204243001251423
-Mean: 0.15735275688684142 +\- 0.24469846250048938
-Standard Deviation: 9.52972073427544 +\- 0.24486990136306866
+<pre>Amplitude: 10.198433360297745 +\- 0.2306581689387047
+Mean: 0.5765781778121699 +\- 0.2518607952097361
+Standard Deviation: 9.645654161028434 +\- 0.25208647600162226
 </pre>
 </div>
 </div>
@@ -8707,11 +8708,11 @@ Standard Deviation: 9.52972073427544 +\- 0.24486990136306866
 &lt;&gt;:1: SyntaxWarning: invalid escape sequence '\-'
 &lt;&gt;:2: SyntaxWarning: invalid escape sequence '\-'
 &lt;&gt;:3: SyntaxWarning: invalid escape sequence '\-'
-/tmp/ipykernel_3838/3167422338.py:1: SyntaxWarning: invalid escape sequence '\-'
+/tmp/ipykernel_4816/3167422338.py:1: SyntaxWarning: invalid escape sequence '\-'
   print('Amplitude: {} +\- {}'.format(best_fit_gauss.amplitude.value, np.sqrt(cov_diag[0])))
-/tmp/ipykernel_3838/3167422338.py:2: SyntaxWarning: invalid escape sequence '\-'
+/tmp/ipykernel_4816/3167422338.py:2: SyntaxWarning: invalid escape sequence '\-'
   print('Mean: {} +\- {}'.format(best_fit_gauss.mean.value, np.sqrt(cov_diag[1])))
-/tmp/ipykernel_3838/3167422338.py:3: SyntaxWarning: invalid escape sequence '\-'
+/tmp/ipykernel_4816/3167422338.py:3: SyntaxWarning: invalid escape sequence '\-'
   print('Standard Deviation: {} +\- {}'.format(best_fit_gauss.stddev.value, np.sqrt(cov_diag[2])))
 </pre>
 </div>
@@ -8737,7 +8738,7 @@ Standard Deviation: 9.52972073427544 +\- 0.24486990136306866
 <div class="jp-InputPrompt jp-InputArea-prompt">In [27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">b</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mf">2.0</span><span class="o">*</span><span class="n">c</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -8781,7 +8782,7 @@ Standard Deviation: 9.52972073427544 +\- 0.24486990136306866
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>[10.4334971   0.15735047  9.52971092]
+<pre>[10.19843369  0.57657784  9.64565354]
 </pre>
 </div>
 </div>
@@ -8810,9 +8811,9 @@ Standard Deviation: 9.52972073427544 +\- 0.24486990136306866
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Amplitude: 10.433497103632169 +\- 0.2389569024726583
-Mean: 0.15735047197572052 +\- 0.251984673163456
-Standard Deviation: 9.529710921181444 +\- 0.2521611902179324
+<pre>Amplitude: 10.198433690873244 +\- 0.24115141557109318
+Mean: 0.5765778449232426 +\- 0.26331909966472666
+Standard Deviation: 9.645653536706343 +\- 0.2635550446476464
 </pre>
 </div>
 </div>
@@ -8825,11 +8826,11 @@ Standard Deviation: 9.529710921181444 +\- 0.2521611902179324
 &lt;&gt;:1: SyntaxWarning: invalid escape sequence '\-'
 &lt;&gt;:2: SyntaxWarning: invalid escape sequence '\-'
 &lt;&gt;:3: SyntaxWarning: invalid escape sequence '\-'
-/tmp/ipykernel_3838/1317675368.py:1: SyntaxWarning: invalid escape sequence '\-'
+/tmp/ipykernel_4816/1317675368.py:1: SyntaxWarning: invalid escape sequence '\-'
   print('Amplitude: {} +\- {}'.format(p_opt[0], np.sqrt(p_cov[0,0])))
-/tmp/ipykernel_3838/1317675368.py:2: SyntaxWarning: invalid escape sequence '\-'
+/tmp/ipykernel_4816/1317675368.py:2: SyntaxWarning: invalid escape sequence '\-'
   print('Mean: {} +\- {}'.format(p_opt[1], np.sqrt(p_cov[1,1])))
-/tmp/ipykernel_3838/1317675368.py:3: SyntaxWarning: invalid escape sequence '\-'
+/tmp/ipykernel_4816/1317675368.py:3: SyntaxWarning: invalid escape sequence '\-'
   print('Standard Deviation: {} +\- {}'.format(p_opt[2], np.sqrt(p_cov[2,2])))
 </pre>
 </div>
@@ -8869,7 +8870,7 @@ Standard Deviation: 9.529710921181444 +\- 0.2521611902179324
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Reduced Chi Squared using astropy.modeling: 1.0604695774872699
+<pre>Reduced Chi Squared using astropy.modeling: 1.0930561800371716
 </pre>
 </div>
 </div>
@@ -8897,7 +8898,7 @@ Standard Deviation: 9.529710921181444 +\- 0.2521611902179324
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Reduced Chi Squared using scipy: 1.060469577491293
+<pre>Reduced Chi Squared using scipy: 1.093056180036825
 </pre>
 </div>
 </div>
@@ -8940,7 +8941,7 @@ Standard Deviation: 9.529710921181444 +\- 0.2521611902179324
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;matplotlib.legend.Legend at 0x7f05b3aaa690&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x7f354eb89ee0&gt;</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -9025,7 +9026,7 @@ Standard Deviation: 9.529710921181444 +\- 0.2521611902179324
 <span class="n">y3</span> <span class="o">=</span> <span class="mf">5.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x3</span><span class="p">)</span>
 <span class="n">y3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">y_point</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">y_point</span> <span class="ow">in</span> <span class="n">y3</span><span class="p">])</span>
 <span class="n">sigma</span> <span class="o">=</span> <span class="mf">1.5</span>
-<span class="n">y3_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="n">sigma</span> 
+<span class="n">y3_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="n">sigma</span>
 </pre></div>
 </div>
 </div>
@@ -9081,6 +9082,6 @@ Standard Deviation: 9.529710921181444 +\- 0.2521611902179324
 </div>
 </div>
 </main>
-<footer class="at-tutorial-footer">Astropy footer</footer>
+<footer class="at-tutorial-footer"> </footer>
 </body>
 </html>

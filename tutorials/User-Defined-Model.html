@@ -7472,6 +7472,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7493,7 +7494,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="at-logotext__secondary">Tutorials</span>
 </a></p>
 <nav class="at-header-nav">
-<a download="" href="User-Defined-Model.ipynb">Download</a>
+<a download="" href="User-Defined-Model.ipynb">Download this notebook</a>
 </nav>
 </header>
 <aside class="at-notebook-sidebar">
@@ -7574,9 +7575,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Required packages for this notebook:
 astropy
-astroquery&gt;=0.4.8.dev9474  # 2024-09-24 pinned for Gaia column capitalization issue
+astroquery&gt;=0.4.9  # 2025-02-06 pinned for Gaia column capitalization and `astroquery.sdss.get_spectra` issues
 matplotlib
 numpy
+scipy
 
 </pre>
 </div>
@@ -7617,13 +7619,13 @@ which provides an introduction to <code>astropy.modeling</code></p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
-<span class="kn">from</span> <span class="nn">astropy.modeling</span> <span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fitting</span>
-<span class="kn">from</span> <span class="nn">astropy.modeling.models</span> <span class="kn">import</span> <span class="n">custom_model</span>
-<span class="kn">from</span> <span class="nn">astropy.modeling</span> <span class="kn">import</span> <span class="n">Fittable1DModel</span><span class="p">,</span> <span class="n">Parameter</span>
-<span class="kn">from</span> <span class="nn">astroquery.sdss</span> <span class="kn">import</span> <span class="n">SDSS</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">fits</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.modeling</span><span class="w"> </span><span class="kn">import</span> <span class="n">models</span><span class="p">,</span> <span class="n">fitting</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.modeling.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">custom_model</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.modeling</span><span class="w"> </span><span class="kn">import</span> <span class="n">Fittable1DModel</span><span class="p">,</span> <span class="n">Parameter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.sdss</span><span class="w"> </span><span class="kn">import</span> <span class="n">SDSS</span>
 </pre></div>
 </div>
 </div>
@@ -8216,13 +8218,13 @@ Outputs: ('y',)
 Model set size: 1
 Expression: [0] + [1]
 Components: 
-    [0]: &lt;Gaussian1D(amplitude=7.02089174, mean=6564.13631715, stddev=1.97761475)&gt;
+    [0]: &lt;Gaussian1D(amplitude=7.02171248, mean=6564.13272082, stddev=1.97715531)&gt;
 
-    [1]: &lt;Polynomial1D(1, c0=-12.79335619, c1=0.00323995)&gt;
+    [1]: &lt;Polynomial1D(1, c0=-12.79335637, c1=0.00323995)&gt;
 Parameters:
        amplitude_0          mean_0      ...         c0_1                c1_1        
     ----------------- ----------------- ... ------------------- --------------------
-    7.020891743992038 6564.136317149307 ... -12.793356186323782 0.003239952053201798
+    7.021712482355418 6564.132720819791 ... -12.793356369422343 0.003239952196866877
 </pre>
 </div>
 </div>
@@ -8261,11 +8263,11 @@ Parameters:
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>amplitude_0 7.020891743992038
-mean_0 6564.136317149307
-stddev_0 1.9776147549595713
-c0_1 -12.793356186323782
-c1_1 0.003239952053201798
+<pre>amplitude_0 7.021712482355418
+mean_0 6564.132720819791
+stddev_0 1.977155311367857
+c0_1 -12.793356369422343
+c1_1 0.003239952196866877
 </pre>
 </div>
 </div>
@@ -8303,7 +8305,7 @@ c1_1 0.003239952053201798
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>Parameter('amplitude', value=7.020891743992038)</pre>
+<pre>Parameter('amplitude', value=7.021712482355418)</pre>
 </div>
 </div>
 </div>
@@ -8430,13 +8432,13 @@ Outputs: ('y',)
 Model set size: 1
 Expression: [0] + [1]
 Components: 
-    [0]: &lt;Gaussian1D(amplitude=1.53257471, mean=6563., stddev=28.57847527)&gt;
+    [0]: &lt;Gaussian1D(amplitude=1.53255901, mean=6563., stddev=28.57906909)&gt;
 
-    [1]: &lt;Polynomial1D(1, c0=-12.79103, c1=0.00323745)&gt;
+    [1]: &lt;Polynomial1D(1, c0=-12.79102997, c1=0.00323745)&gt;
 Parameters:
-       amplitude_0     mean_0 ...        c0_1                c1_1        
-    ------------------ ------ ... ------------------ --------------------
-    1.5325747099672096 6563.0 ... -12.79103000338307 0.003237448628249798
+       amplitude_0     mean_0 ...         c0_1                c1_1        
+    ------------------ ------ ... ------------------- --------------------
+    1.5325590144558827 6563.0 ... -12.791029967444068 0.003237448589619317
 </pre>
 </div>
 </div>
@@ -8532,13 +8534,13 @@ Outputs: ('y',)
 Model set size: 1
 Expression: [0] + [1]
 Components: 
-    [0]: &lt;Gaussian1D(amplitude=6.65730507, mean=6563.5, stddev=2.09182676)&gt;
+    [0]: &lt;Gaussian1D(amplitude=6.86741863, mean=6563.5, stddev=2.12272132)&gt;
 
-    [1]: &lt;Polynomial1D(1, c0=-12.79336254, c1=0.00323995)&gt;
+    [1]: &lt;Polynomial1D(1, c0=-12.79313621, c1=0.00323986)&gt;
 Parameters:
-       amplitude_0    mean_0 ...         c0_1                 c1_1        
-    ----------------- ------ ... ------------------- ---------------------
-    6.657305067136674 6563.5 ... -12.793362542827573 0.0032399500254038354
+      amplitude_0   mean_0 ...         c0_1                c1_1        
+    --------------- ------ ... ------------------- --------------------
+    6.8674186332946 6563.5 ... -12.793136209085365 0.003239857612426906
 </pre>
 </div>
 </div>
@@ -8688,7 +8690,7 @@ Parameters:
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nd">@custom_model</span>
-<span class="k">def</span> <span class="nf">exponential</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">exponential</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mf">1.</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    f(x)=a*exp(b*x + c)</span>
 <span class="sd">    '''</span>
@@ -8779,9 +8781,9 @@ Inputs: ('x',)
 Outputs: ('y',)
 Model set size: 1
 Parameters:
-            a                  b                  c         
-    ------------------ ------------------ ------------------
-    1.4900108822152918 -2.010051786355558 0.6934408519190175
+            a                  b                 c         
+    ------------------ ----------------- ------------------
+    1.5175472117986035 -2.05603748996309 0.6888824794271157
 </pre>
 </div>
 </div>
@@ -8806,7 +8808,7 @@ Parameters:
 <div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">calc_reduced_chi_square</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">n_free</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calc_reduced_chi_square</span><span class="p">(</span><span class="n">fit</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yerr</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">n_free</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">'''</span>
 <span class="sd">    fit (array) values for the fit</span>
 <span class="sd">    x,y,yerr (arrays) data</span>
@@ -8840,7 +8842,7 @@ Parameters:
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[33]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>np.float64(0.9751589771846978)</pre>
+<pre>np.float64(0.7074904682154596)</pre>
 </div>
 </div>
 </div>
@@ -8957,18 +8959,18 @@ Parameters:
 <div class="jp-InputPrompt jp-InputArea-prompt">In [36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">SineNew</span><span class="p">(</span><span class="n">Fittable1DModel</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">SineNew</span><span class="p">(</span><span class="n">Fittable1DModel</span><span class="p">):</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
     <span class="n">b</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
     <span class="n">d</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
         
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">evaluate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">c</span><span class="p">)</span><span class="o">+</span><span class="n">d</span>
     
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">fit_deriv</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fit_deriv</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
         <span class="n">d_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">c</span><span class="p">)</span>
         <span class="n">d_b</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">c</span><span class="p">)</span><span class="o">*</span><span class="n">x</span>
         <span class="n">d_c</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="n">c</span><span class="p">)</span>
@@ -9061,9 +9063,9 @@ Inputs: ('x',)
 Outputs: ('y',)
 Model set size: 1
 Parameters:
-            a                  b                  c                 d        
-    ------------------ ------------------ ----------------- -----------------
-    2.9906017626896815 2.0070002708298227 3.980508383219219 1.032960758023633
+            a                  b                  c                 d         
+    ------------------ ------------------ ----------------- ------------------
+    3.0914251202937355 1.9859081224241752 4.060355858539346 1.0041360065158706
 </pre>
 </div>
 </div>
@@ -9090,7 +9092,7 @@ Parameters:
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[40]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>np.float64(2.8233660558737363)</pre>
+<pre>np.float64(2.0329830724218234)</pre>
 </div>
 </div>
 </div>
@@ -9189,6 +9191,6 @@ Parameters:
 </div>
 </div>
 </main>
-<footer class="at-tutorial-footer">Astropy footer</footer>
+<footer class="at-tutorial-footer"> </footer>
 </body>
 </html>

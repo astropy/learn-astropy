@@ -7472,6 +7472,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7493,7 +7494,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="at-logotext__secondary">Tutorials</span>
 </a></p>
 <nav class="at-header-nav">
-<a download="" href="2-Coordinates-Transforms.ipynb">Download</a>
+<a download="" href="2-Coordinates-Transforms.ipynb">Download this notebook</a>
 </nav>
 </header>
 <aside class="at-notebook-sidebar">
@@ -7605,19 +7606,19 @@ numpy
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
-<span class="kn">from</span> <span class="nn">astropy.coordinates</span> <span class="kn">import</span> <span class="p">(</span><span class="n">SkyCoord</span><span class="p">,</span> <span class="n">Distance</span><span class="p">,</span> <span class="n">Galactic</span><span class="p">,</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.coordinates</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">SkyCoord</span><span class="p">,</span> <span class="n">Distance</span><span class="p">,</span> <span class="n">Galactic</span><span class="p">,</span> 
                                  <span class="n">EarthLocation</span><span class="p">,</span> <span class="n">AltAz</span><span class="p">)</span>
-<span class="kn">import</span> <span class="nn">astropy.coordinates</span> <span class="k">as</span> <span class="nn">coord</span>
-<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
-<span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">QTable</span>
-<span class="kn">from</span> <span class="nn">astropy.time</span> <span class="kn">import</span> <span class="n">Time</span>
-<span class="kn">from</span> <span class="nn">astropy.utils.data</span> <span class="kn">import</span> <span class="n">download_file</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">astropy.coordinates</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">coord</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">fits</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">QTable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.time</span><span class="w"> </span><span class="kn">import</span> <span class="n">Time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">download_file</span>
 </pre></div>
 </div>
 </div>
@@ -8150,7 +8151,7 @@ numpy
 <div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">coordinates_aitoff_plot</span><span class="p">(</span><span class="n">coords</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">coordinates_aitoff_plot</span><span class="p">(</span><span class="n">coords</span><span class="p">):</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> 
                            <span class="n">subplot_kw</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s2">"aitoff"</span><span class="p">))</span>
     
@@ -8159,7 +8160,7 @@ numpy
                     <span class="n">sph</span><span class="o">.</span><span class="n">lat</span><span class="o">.</span><span class="n">radian</span><span class="p">,</span>
                     <span class="n">c</span><span class="o">=</span><span class="n">sph</span><span class="o">.</span><span class="n">distance</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">fmt_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fmt_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">pos</span><span class="p">):</span>
         <span class="n">val</span> <span class="o">=</span> <span class="n">coord</span><span class="o">.</span><span class="n">Angle</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">radian</span><span class="p">)</span><span class="o">.</span><span class="n">wrap_at</span><span class="p">(</span><span class="mi">360</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">deg</span><span class="p">)</span><span class="o">.</span><span class="n">degree</span>
         <span class="k">return</span> <span class="sa">f</span><span class="s1">'$</span><span class="si">{</span><span class="n">val</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1">'</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">'^{\circ}$'</span>
 
@@ -9245,16 +9246,16 @@ Cell <span class="ansi-green-fg">In[36], line 3</span>
 <span class="ansi-green-intense-fg ansi-bold">      1</span> <span style="color: rgb(95,135,135)"># This cell will raise an exception and will not work (you will see a `ConvertError` exception) - this is expected!</span>
 <span class="ansi-green-fg">----&gt; 3</span> <span class="ansi-yellow-bg">icrs_c</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">transform_to</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">coord</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">Galactocentric</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">)</span>
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/astropy/coordinates/sky_coordinate.py:722</span>, in <span class="ansi-cyan-fg">SkyCoord.transform_to</span><span class="ansi-blue-fg">(self, frame, merge_attributes)</span>
-<span class="ansi-green-intense-fg ansi-bold">    718</span> generic_frame <span style="color: rgb(98,98,98)">=</span> GenericFrame(frame_kwargs)
-<span class="ansi-green-intense-fg ansi-bold">    720</span> <span style="color: rgb(95,135,135)"># Do the transformation, returning a coordinate frame of the desired</span>
-<span class="ansi-green-intense-fg ansi-bold">    721</span> <span style="color: rgb(95,135,135)"># final type (not generic).</span>
-<span class="ansi-green-fg">--&gt; 722</span> new_coord <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">trans</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">frame</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">generic_frame</span><span class="ansi-yellow-bg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">    724</span> <span style="color: rgb(95,135,135)"># Finally make the new SkyCoord object from the `new_coord` and</span>
-<span class="ansi-green-intense-fg ansi-bold">    725</span> <span style="color: rgb(95,135,135)"># remaining frame_kwargs that are not frame_attributes in `new_coord`.</span>
-<span class="ansi-green-intense-fg ansi-bold">    726</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> attr <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">set</span>(new_coord<span style="color: rgb(98,98,98)">.</span>frame_attributes) <span style="color: rgb(98,98,98)">&amp;</span> <span style="color: rgb(0,135,0)">set</span>(frame_kwargs<span style="color: rgb(98,98,98)">.</span>keys()):
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/site-packages/astropy/coordinates/sky_coordinate.py:555</span>, in <span class="ansi-cyan-fg">SkyCoord.transform_to</span><span class="ansi-blue-fg">(self, frame, merge_attributes)</span>
+<span class="ansi-green-intense-fg ansi-bold">    551</span> generic_frame <span style="color: rgb(98,98,98)">=</span> GenericFrame(frame_kwargs)
+<span class="ansi-green-intense-fg ansi-bold">    553</span> <span style="color: rgb(95,135,135)"># Do the transformation, returning a coordinate frame of the desired</span>
+<span class="ansi-green-intense-fg ansi-bold">    554</span> <span style="color: rgb(95,135,135)"># final type (not generic).</span>
+<span class="ansi-green-fg">--&gt; 555</span> new_coord <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">trans</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">frame</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">generic_frame</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    557</span> <span style="color: rgb(95,135,135)"># Finally make the new SkyCoord object from the `new_coord` and</span>
+<span class="ansi-green-intense-fg ansi-bold">    558</span> <span style="color: rgb(95,135,135)"># remaining frame_kwargs that are not frame_attributes in `new_coord`.</span>
+<span class="ansi-green-intense-fg ansi-bold">    559</span> <span class="ansi-bold" style="color: rgb(0,135,0)">for</span> attr <span class="ansi-bold" style="color: rgb(175,0,255)">in</span> <span style="color: rgb(0,135,0)">set</span>(new_coord<span style="color: rgb(98,98,98)">.</span>frame_attributes) <span style="color: rgb(98,98,98)">&amp;</span> <span style="color: rgb(0,135,0)">set</span>(frame_kwargs<span style="color: rgb(98,98,98)">.</span>keys()):
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/astropy/coordinates/transformations/composite.py:113</span>, in <span class="ansi-cyan-fg">CompositeTransform.__call__</span><span class="ansi-blue-fg">(self, fromcoord, toframe)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/site-packages/astropy/coordinates/transformations/composite.py:113</span>, in <span class="ansi-cyan-fg">CompositeTransform.__call__</span><span class="ansi-blue-fg">(self, fromcoord, toframe)</span>
 <span class="ansi-green-intense-fg ansi-bold">    110</span>             frattrs[inter_frame_attr_nm] <span style="color: rgb(98,98,98)">=</span> attr
 <span class="ansi-green-intense-fg ansi-bold">    112</span>     curr_toframe <span style="color: rgb(98,98,98)">=</span> t<span style="color: rgb(98,98,98)">.</span>tosys(<span style="color: rgb(98,98,98)">*</span><span style="color: rgb(98,98,98)">*</span>frattrs)
 <span class="ansi-green-fg">--&gt; 113</span>     curr_coord <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">t</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">curr_coord</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">curr_toframe</span><span class="ansi-yellow-bg">)</span>
@@ -9262,24 +9263,24 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.7/x64/lib/pyth
 <span class="ansi-green-intense-fg ansi-bold">    116</span> <span style="color: rgb(95,135,135)"># coordinate objects are immutable, so copying is not needed</span>
 <span class="ansi-green-intense-fg ansi-bold">    117</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> curr_coord
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/astropy/coordinates/transformations/affine.py:205</span>, in <span class="ansi-cyan-fg">BaseAffineTransform.__call__</span><span class="ansi-blue-fg">(self, fromcoord, toframe)</span>
-<span class="ansi-green-intense-fg ansi-bold">    204</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">__call__</span>(<span style="color: rgb(0,135,0)">self</span>, fromcoord, toframe):
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/site-packages/astropy/coordinates/transformations/affine.py:205</span>, in <span class="ansi-cyan-fg">BaseAffineTransform.__call__</span><span class="ansi-blue-fg">(self, fromcoord, toframe)</span>
+<span class="ansi-green-intense-fg ansi-bold">    204</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span style="color: rgb(0,0,255)">__call__</span>(<span style="color: rgb(0,135,0)">self</span>, fromcoord, toframe):
 <span class="ansi-green-fg">--&gt; 205</span>     params <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">_affine_params</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">fromcoord</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">toframe</span><span class="ansi-yellow-bg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    206</span>     newrep <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>_apply_transform(fromcoord, <span style="color: rgb(98,98,98)">*</span>params)
 <span class="ansi-green-intense-fg ansi-bold">    207</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> toframe<span style="color: rgb(98,98,98)">.</span>realize_frame(newrep)
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/astropy/coordinates/transformations/affine.py:259</span>, in <span class="ansi-cyan-fg">AffineTransform._affine_params</span><span class="ansi-blue-fg">(self, fromcoord, toframe)</span>
-<span class="ansi-green-intense-fg ansi-bold">    258</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">_affine_params</span>(<span style="color: rgb(0,135,0)">self</span>, fromcoord, toframe):
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/site-packages/astropy/coordinates/transformations/affine.py:259</span>, in <span class="ansi-cyan-fg">AffineTransform._affine_params</span><span class="ansi-blue-fg">(self, fromcoord, toframe)</span>
+<span class="ansi-green-intense-fg ansi-bold">    258</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span style="color: rgb(0,0,255)">_affine_params</span>(<span style="color: rgb(0,135,0)">self</span>, fromcoord, toframe):
 <span class="ansi-green-fg">--&gt; 259</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> <span class="ansi-yellow-bg" style="color: rgb(0,135,0)">self</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">transform_func</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">fromcoord</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">toframe</span><span class="ansi-yellow-bg">)</span>
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/astropy/coordinates/builtin_frames/galactocentric.py:592</span>, in <span class="ansi-cyan-fg">icrs_to_galactocentric</span><span class="ansi-blue-fg">(icrs_coord, galactocentric_frame)</span>
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/site-packages/astropy/coordinates/builtin_frames/galactocentric.py:592</span>, in <span class="ansi-cyan-fg">icrs_to_galactocentric</span><span class="ansi-blue-fg">(icrs_coord, galactocentric_frame)</span>
 <span class="ansi-green-intense-fg ansi-bold">    590</span> <span style="color: rgb(175,0,255)">@frame_transform_graph</span><span style="color: rgb(98,98,98)">.</span>transform(AffineTransform, ICRS, Galactocentric)
-<span class="ansi-green-intense-fg ansi-bold">    591</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">icrs_to_galactocentric</span>(icrs_coord, galactocentric_frame):
+<span class="ansi-green-intense-fg ansi-bold">    591</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span style="color: rgb(0,0,255)">icrs_to_galactocentric</span>(icrs_coord, galactocentric_frame):
 <span class="ansi-green-fg">--&gt; 592</span>     <span class="ansi-yellow-bg">_check_coord_repr_diff_types</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">icrs_coord</span><span class="ansi-yellow-bg">)</span>
 <span class="ansi-green-intense-fg ansi-bold">    593</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> get_matrix_vectors(galactocentric_frame)
 
-File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/astropy/coordinates/builtin_frames/galactocentric.py:571</span>, in <span class="ansi-cyan-fg">_check_coord_repr_diff_types</span><span class="ansi-blue-fg">(c)</span>
-<span class="ansi-green-intense-fg ansi-bold">    569</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span> <span style="color: rgb(0,0,255)">_check_coord_repr_diff_types</span>(c):
+File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.8/x64/lib/python3.12/site-packages/astropy/coordinates/builtin_frames/galactocentric.py:571</span>, in <span class="ansi-cyan-fg">_check_coord_repr_diff_types</span><span class="ansi-blue-fg">(c)</span>
+<span class="ansi-green-intense-fg ansi-bold">    569</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span style="color: rgb(0,0,255)">_check_coord_repr_diff_types</span>(c):
 <span class="ansi-green-intense-fg ansi-bold">    570</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> <span style="color: rgb(0,135,0)">isinstance</span>(c<span style="color: rgb(98,98,98)">.</span>data, r<span style="color: rgb(98,98,98)">.</span>UnitSphericalRepresentation):
 <span class="ansi-green-fg">--&gt; 571</span>         <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> ConvertError(
 <span class="ansi-green-intense-fg ansi-bold">    572</span>             <span style="color: rgb(175,0,0)">"</span><span style="color: rgb(175,0,0)">Transforming to/from a Galactocentric frame requires a 3D coordinate, e.g.</span><span style="color: rgb(175,0,0)">"</span>
@@ -9400,6 +9401,6 @@ File <span class="ansi-green-fg">/opt/hostedtoolcache/Python/3.12.7/x64/lib/pyth
 </div>
 </div>
 </main>
-<footer class="at-tutorial-footer">Astropy footer</footer>
+<footer class="at-tutorial-footer"> </footer>
 </body>
 </html>

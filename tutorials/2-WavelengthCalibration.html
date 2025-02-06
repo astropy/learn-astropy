@@ -7472,6 +7472,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7493,7 +7494,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="at-logotext__secondary">Tutorials</span>
 </a></p>
 <nav class="at-header-nav">
-<a download="" href="2-WavelengthCalibration.ipynb">Download</a>
+<a download="" href="2-WavelengthCalibration.ipynb">Download this notebook</a>
 </nav>
 </header>
 <aside class="at-notebook-sidebar">
@@ -7584,9 +7585,9 @@ matplotlib
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span> <span class="k">as</span> <span class="n">PILImage</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span> <span class="k">as</span> <span class="n">PILImage</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">'image.origin'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'lower'</span>  <span class="c1"># we want to show images, not matrices, so we set the origin to the lower-left</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">'dark_background'</span><span class="p">)</span>  <span class="c1"># Optional configuration: if run, this will look nice on dark background notebooks</span>
 </pre></div>
@@ -7602,13 +7603,13 @@ matplotlib
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
-<span class="kn">from</span> <span class="nn">astropy.modeling.polynomial</span> <span class="kn">import</span> <span class="n">Polynomial1D</span>
-<span class="kn">from</span> <span class="nn">astropy.modeling.models</span> <span class="kn">import</span> <span class="n">Gaussian1D</span><span class="p">,</span> <span class="n">Linear1D</span>
-<span class="kn">from</span> <span class="nn">astropy.modeling.fitting</span> <span class="kn">import</span> <span class="n">LinearLSQFitter</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.modeling.polynomial</span><span class="w"> </span><span class="kn">import</span> <span class="n">Polynomial1D</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.modeling.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Gaussian1D</span><span class="p">,</span> <span class="n">Linear1D</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.modeling.fitting</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearLSQFitter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
 <span class="c1"># astroquery provides an interface to the NIST atomic line database</span>
-<span class="kn">from</span> <span class="nn">astroquery.nist</span> <span class="kn">import</span> <span class="n">Nist</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.nist</span><span class="w"> </span><span class="kn">import</span> <span class="n">Nist</span>
 </pre></div>
 </div>
 </div>
@@ -8374,7 +8375,7 @@ We can assume it's either H-alpha or H-beta, since they are both in the optical 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>&lt;&gt;:3: SyntaxWarning: invalid escape sequence '\l'
 &lt;&gt;:3: SyntaxWarning: invalid escape sequence '\l'
-/tmp/ipykernel_3665/1925952792.py:3: SyntaxWarning: invalid escape sequence '\l'
+/tmp/ipykernel_4500/1925952792.py:3: SyntaxWarning: invalid escape sequence '\l'
   plt.ylabel("$\lambda(x)$")
 </pre>
 </div>
@@ -8541,7 +8542,7 @@ We can assume it's either H-alpha or H-beta, since they are both in the optical 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>&lt;&gt;:5: SyntaxWarning: invalid escape sequence '\l'
 &lt;&gt;:5: SyntaxWarning: invalid escape sequence '\l'
-/tmp/ipykernel_3665/4267924989.py:5: SyntaxWarning: invalid escape sequence '\l'
+/tmp/ipykernel_4500/4267924989.py:5: SyntaxWarning: invalid escape sequence '\l'
   plt.xlabel("$\lambda$ [nm]");
 </pre>
 </div>
@@ -8624,7 +8625,7 @@ We can assume it's either H-alpha or H-beta, since they are both in the optical 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>&lt;&gt;:3: SyntaxWarning: invalid escape sequence '\l'
 &lt;&gt;:3: SyntaxWarning: invalid escape sequence '\l'
-/tmp/ipykernel_3665/514056980.py:3: SyntaxWarning: invalid escape sequence '\l'
+/tmp/ipykernel_4500/514056980.py:3: SyntaxWarning: invalid escape sequence '\l'
   plt.xlabel("$\lambda$ [nm]")
 </pre>
 </div>
@@ -8674,7 +8675,7 @@ We can assume it's either H-alpha or H-beta, since they are both in the optical 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>&lt;&gt;:3: SyntaxWarning: invalid escape sequence '\l'
 &lt;&gt;:3: SyntaxWarning: invalid escape sequence '\l'
-/tmp/ipykernel_3665/1350297613.py:3: SyntaxWarning: invalid escape sequence '\l'
+/tmp/ipykernel_4500/1350297613.py:3: SyntaxWarning: invalid escape sequence '\l'
   plt.xlabel("$\lambda$ [nm]")
 </pre>
 </div>
@@ -9409,7 +9410,7 @@ We can assume it's either H-alpha or H-beta, since they are both in the optical 
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[54]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;Linear1D(slope=-0.10213663, intercept=562.38704084)&gt;</pre>
+<pre>&lt;Linear1D(slope=-0.10213663, intercept=562.38704033)&gt;</pre>
 </div>
 </div>
 </div>
@@ -9457,9 +9458,9 @@ We can assume it's either H-alpha or H-beta, since they are both in the optical 
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[56]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>(np.float64(1.2974244674712048),
- np.float64(1.5361995410991647),
- np.float64(1.2470951152669452))</pre>
+<pre>(np.float64(1.2974074905657398),
+ np.float64(1.5361847762873513),
+ np.float64(1.2470762011963794))</pre>
 </div>
 </div>
 </div>
@@ -9940,7 +9941,7 @@ $   \sigma_{\Sigma f(x)}^2 = \Sigma \sigma_{f(x)}^2 = N \sigma_{f(x)}^2 $</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Standard Deviation of the residuals = 0.23808851631912648 nm, Faint Line uncertainty = -0.003827022578147107 nm
+<pre>Standard Deviation of the residuals = 0.23808671082730068 nm, Faint Line uncertainty = -0.003827022595145164 nm
 </pre>
 </div>
 </div>
@@ -9983,6 +9984,6 @@ $   \sigma_{\Sigma f(x)}^2 = \Sigma \sigma_{f(x)}^2 = N \sigma_{f(x)}^2 $</p>
 </div>
 </div>
 </main>
-<footer class="at-tutorial-footer">Astropy footer</footer>
+<footer class="at-tutorial-footer"> </footer>
 </body>
 </html>

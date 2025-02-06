@@ -7472,6 +7472,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7493,7 +7494,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="at-logotext__secondary">Tutorials</span>
 </a></p>
 <nav class="at-header-nav">
-<a download="" href="FITS-cubes.ipynb">Download</a>
+<a download="" href="FITS-cubes.ipynb">Download this notebook</a>
 </nav>
 </header>
 <aside class="at-notebook-sidebar">
@@ -7612,7 +7613,7 @@ spectral_cube @ git+https://github.com/radio-astro-tools/spectral-cube  # as of:
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7620,38 +7621,24 @@ spectral_cube @ git+https://github.com/radio-astro-tools/spectral-cube  # as of:
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LogNorm</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogNorm</span>
 
-<span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">u</span>
-<span class="kn">from</span> <span class="nn">astropy.utils.data</span> <span class="kn">import</span> <span class="n">download_file</span>
-<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>  <span class="c1"># We use fits to open the actual data file</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">astropy.units</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.utils.data</span><span class="w"> </span><span class="kn">import</span> <span class="n">download_file</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">fits</span>  <span class="c1"># We use fits to open the actual data file</span>
 
-<span class="kn">from</span> <span class="nn">astropy.utils</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">data</span>
 <span class="n">data</span><span class="o">.</span><span class="n">conf</span><span class="o">.</span><span class="n">remote_timeout</span> <span class="o">=</span> <span class="mi">60</span>
 
-<span class="kn">from</span> <span class="nn">spectral_cube</span> <span class="kn">import</span> <span class="n">SpectralCube</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">spectral_cube</span><span class="w"> </span><span class="kn">import</span> <span class="n">SpectralCube</span>
 
-<span class="kn">from</span> <span class="nn">astroquery.esasky</span> <span class="kn">import</span> <span class="n">ESASky</span>
-<span class="kn">from</span> <span class="nn">astroquery.utils</span> <span class="kn">import</span> <span class="n">TableList</span>
-<span class="kn">from</span> <span class="nn">astropy.wcs</span> <span class="kn">import</span> <span class="n">WCS</span>
-<span class="kn">from</span> <span class="nn">reproject</span> <span class="kn">import</span> <span class="n">reproject_interp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.esasky</span><span class="w"> </span><span class="kn">import</span> <span class="n">ESASky</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">TableList</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.wcs</span><span class="w"> </span><span class="kn">import</span> <span class="n">WCS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">reproject</span><span class="w"> </span><span class="kn">import</span> <span class="n">reproject_interp</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>/opt/hostedtoolcache/Python/3.12.7/x64/lib/python3.12/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
-  from .autonotebook import tqdm as notebook_tqdm
-</pre>
 </div>
 </div>
 </div>
@@ -8086,11 +8073,11 @@ Moment_1 has units of:  km / s
 
 Number of WCS axes: 2
 CTYPE : 'GLON-TAN' 'GLAT-TAN' 
-CRVAL : np.float64(303.75) np.float64(-40.0) 
-CRPIX : np.float64(11.557620817843869) np.float64(40.3723930634757) 
-PC1_1 PC1_2  : np.float64(1.0) np.float64(0.0) 
-PC2_1 PC2_2  : np.float64(0.0) np.float64(1.0) 
-CDELT : np.float64(-0.1494444443846667) np.float64(0.1538888888273333) 
+CRVAL : 303.75 -40.0 
+CRPIX : 11.557620817843869 40.3723930634757 
+PC1_1 PC1_2  : 1.0 0.0 
+PC2_1 PC2_2  : 0.0 1.0 
+CDELT : -0.1494444443846667 0.1538888888273333 
 NAXIS : 0  0
 </pre>
 </div>
@@ -8153,7 +8140,7 @@ NAXIS : 0  0
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[13]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;matplotlib.contour.QuadContourSet at 0x7f2ea6f1ac60&gt;</pre>
+<pre>&lt;matplotlib.contour.QuadContourSet at 0x7f7ae6cf19a0&gt;</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -8523,7 +8510,7 @@ Note that the below command requires an internet connection to download five qui
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Filename: Maps/HERSCHEL/anonymous1730227266/hspirepmw401_25pxmp_0110_m7303_1342198565_1342198566_1462476888800.fits.gz
+<pre>Filename: Maps/HERSCHEL/anonymous1738869238/hspirepmw401_25pxmp_0110_m7303_1342198565_1342198566_1462476888800.fits.gz
 No.    Name      Ver    Type      Cards   Dimensions   Format
   0  PRIMARY       1 PrimaryHDU     184   ()      
   1  image         1 ImageHDU        47   (2407, 2141)   float64   
@@ -8578,8 +8565,8 @@ No.    Name      Ver    Type      Cards   Dimensions   Format
 
 Number of WCS axes: 2
 CTYPE : 'RA---TAN' 'DEC--TAN' 
-CRVAL : np.float64(18.99666058287459) np.float64(-71.82876374906319) 
-CRPIX : np.float64(1063.0) np.float64(1517.0) 
+CRVAL : 18.99666058287459 -71.82876374906319 
+CRPIX : 1063.0 1517.0 
 NAXIS : 2407  2141
 </pre>
 </div>
@@ -8965,6 +8952,6 @@ Note: Different ways of accessing the header are shown above corresponding to th
 </div>
 </div>
 </main>
-<footer class="at-tutorial-footer">Astropy footer</footer>
+<footer class="at-tutorial-footer"> </footer>
 </body>
 </html>

@@ -7472,6 +7472,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7493,7 +7494,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="at-logotext__secondary">Tutorials</span>
 </a></p>
 <nav class="at-header-nav">
-<a download="" href="conesearch.ipynb">Download</a>
+<a download="" href="conesearch.ipynb">Download this notebook</a>
 </nav>
 </header>
 <aside class="at-notebook-sidebar">
@@ -7596,24 +7597,24 @@ numpy
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Python standard library</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 
 <span class="c1"># Third-party software</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># Astropy</span>
-<span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">coordinates</span> <span class="k">as</span> <span class="n">coord</span>
-<span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
-<span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">Table</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">coordinates</span> <span class="k">as</span> <span class="n">coord</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span> <span class="k">as</span> <span class="n">u</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span>
 
 <span class="c1"># Astroquery. This tutorial requires 0.3.5 or greater.</span>
-<span class="kn">import</span> <span class="nn">astroquery</span>
-<span class="kn">from</span> <span class="nn">astroquery.simbad</span> <span class="kn">import</span> <span class="n">Simbad</span>
-<span class="kn">from</span> <span class="nn">astroquery.vo_conesearch</span> <span class="kn">import</span> <span class="n">conf</span><span class="p">,</span> <span class="n">conesearch</span><span class="p">,</span> <span class="n">vos_catalog</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">astroquery</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.simbad</span><span class="w"> </span><span class="kn">import</span> <span class="n">Simbad</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.vo_conesearch</span><span class="w"> </span><span class="kn">import</span> <span class="n">conf</span><span class="p">,</span> <span class="n">conesearch</span><span class="p">,</span> <span class="n">vos_catalog</span>
 
 <span class="c1"># Set up matplotlib</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
@@ -7639,7 +7640,7 @@ numpy
 <div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.utils</span> <span class="kn">import</span> <span class="n">minversion</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">minversion</span>
 
 <span class="k">if</span> <span class="ow">not</span> <span class="n">minversion</span><span class="p">(</span><span class="n">astroquery</span><span class="p">,</span> <span class="s1">'0.3.10'</span><span class="p">):</span>
     <span class="n">conf</span><span class="o">.</span><span class="n">vos_baseurl</span> <span class="o">=</span> <span class="s1">'https://astroconda.org/aux/vo_databases/'</span>
@@ -7733,7 +7734,7 @@ numpy
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>&lt;SkyCoord (ICRS): (ra, dec) in deg
-    (10.68470833, 41.26875)&gt;
+    (10.6847083, 41.26875)&gt;
 </pre>
 </div>
 </div>
@@ -7779,13 +7780,13 @@ numpy
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>WARNING: W06: http://vizier.unistra.fr/viz-bin/conesearch/II/246/out?RA=10.68470833&amp;DEC=41.26875&amp;SR=0.1&amp;VERB=1:46:4: W06: Invalid UCD 'POS_EQ_RA_MAIN': Unknown word 'POS_EQ_RA_MAIN' [astropy.io.votable.tree]
-WARNING: W06: http://vizier.unistra.fr/viz-bin/conesearch/II/246/out?RA=10.68470833&amp;DEC=41.26875&amp;SR=0.1&amp;VERB=1:49:4: W06: Invalid UCD 'POS_EQ_DEC_MAIN': Unknown word 'POS_EQ_DEC_MAIN' [astropy.io.votable.tree]
-WARNING: W03: http://vizier.unistra.fr/viz-bin/conesearch/II/246/out?RA=10.68470833&amp;DEC=41.26875&amp;SR=0.1&amp;VERB=1:61:4: W03: Implicitly generating an ID from a name '2MASS' -&gt; '_2MASS' [astropy.io.votable.xmlutil]
-WARNING: W06: http://vizier.unistra.fr/viz-bin/conesearch/II/246/out?RA=10.68470833&amp;DEC=41.26875&amp;SR=0.1&amp;VERB=1:61:4: W06: Invalid UCD 'ID_MAIN': Unknown word 'ID_MAIN' [astropy.io.votable.tree]
-WARNING: W06: http://vizier.unistra.fr/viz-bin/conesearch/II/246/out?RA=10.68470833&amp;DEC=41.26875&amp;SR=0.1&amp;VERB=1:152:4: W06: Invalid UCD 'obs.field': Secondary word 'obs.field' is not valid as a primary word [astropy.io.votable.tree]
-WARNING: W06: http://vizier.unistra.fr/viz-bin/conesearch/II/246/out?RA=10.68470833&amp;DEC=41.26875&amp;SR=0.1&amp;VERB=1:161:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word [astropy.io.votable.tree]
-WARNING: W06: http://vizier.unistra.fr/viz-bin/conesearch/II/246/out?RA=10.68470833&amp;DEC=41.26875&amp;SR=0.1&amp;VERB=1:209:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word [astropy.io.votable.tree]
+<pre>WARNING: W06: http://vizier.unistra.fr/viz-bin/conesearch/II/246/out?RA=10.6847083&amp;DEC=41.26875&amp;SR=0.1&amp;VERB=1:46:4: W06: Invalid UCD 'POS_EQ_RA_MAIN': Unknown word 'POS_EQ_RA_MAIN' [astropy.io.votable.tree]
+WARNING: W06: http://vizier.unistra.fr/viz-bin/conesearch/II/246/out?RA=10.6847083&amp;DEC=41.26875&amp;SR=0.1&amp;VERB=1:49:4: W06: Invalid UCD 'POS_EQ_DEC_MAIN': Unknown word 'POS_EQ_DEC_MAIN' [astropy.io.votable.tree]
+WARNING: W03: http://vizier.unistra.fr/viz-bin/conesearch/II/246/out?RA=10.6847083&amp;DEC=41.26875&amp;SR=0.1&amp;VERB=1:61:4: W03: Implicitly generating an ID from a name '2MASS' -&gt; '_2MASS' [astropy.io.votable.xmlutil]
+WARNING: W06: http://vizier.unistra.fr/viz-bin/conesearch/II/246/out?RA=10.6847083&amp;DEC=41.26875&amp;SR=0.1&amp;VERB=1:61:4: W06: Invalid UCD 'ID_MAIN': Unknown word 'ID_MAIN' [astropy.io.votable.tree]
+WARNING: W06: http://vizier.unistra.fr/viz-bin/conesearch/II/246/out?RA=10.6847083&amp;DEC=41.26875&amp;SR=0.1&amp;VERB=1:152:4: W06: Invalid UCD 'obs.field': Secondary word 'obs.field' is not valid as a primary word [astropy.io.votable.tree]
+WARNING: W06: http://vizier.unistra.fr/viz-bin/conesearch/II/246/out?RA=10.6847083&amp;DEC=41.26875&amp;SR=0.1&amp;VERB=1:161:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word [astropy.io.votable.tree]
+WARNING: W06: http://vizier.unistra.fr/viz-bin/conesearch/II/246/out?RA=10.6847083&amp;DEC=41.26875&amp;SR=0.1&amp;VERB=1:209:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word [astropy.io.votable.tree]
 </pre>
 </div>
 </div>
@@ -8110,23 +8111,23 @@ For example, you can query SIMBAD for the first entry in your result above.</p>
         "W06"
     ],
     "validate_warnings": [
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241029/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:46:4: W06: Invalid UCD 'POS_EQ_RA_MAIN': Unknown word 'POS_EQ_RA_MAIN'",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241029/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:49:4: W06: Invalid UCD 'POS_EQ_DEC_MAIN': Unknown word 'POS_EQ_DEC_MAIN'",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241029/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:61:4: W03: Implicitly generating an ID from a name '2MASS' -&gt; '_2MASS'",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241029/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:61:4: W06: Invalid UCD 'ID_MAIN': Unknown word 'ID_MAIN'",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241029/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:152:4: W06: Invalid UCD 'obs.field': Secondary word 'obs.field' is not valid as a primary word",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241029/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:161:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241029/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:209:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241029/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:46:4: W06: Invalid UCD 'POS_EQ_RA_MAIN': Unknown word 'POS_EQ_RA_MAIN'",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241029/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:49:4: W06: Invalid UCD 'POS_EQ_DEC_MAIN': Unknown word 'POS_EQ_DEC_MAIN'",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241029/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:61:4: W03: Implicitly generating an ID from a name '2MASS' -&gt; '_2MASS'",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241029/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:61:4: W06: Invalid UCD 'ID_MAIN': Unknown word 'ID_MAIN'",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241029/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:152:4: W06: Invalid UCD 'obs.field': Secondary word 'obs.field' is not valid as a primary word",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241029/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:161:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word",
-        "/var/www/astroconda.org/html/aux/vo_databases/daily_20241029/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:209:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word"
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20250206/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:46:4: W06: Invalid UCD 'POS_EQ_RA_MAIN': Unknown word 'POS_EQ_RA_MAIN'",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20250206/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:49:4: W06: Invalid UCD 'POS_EQ_DEC_MAIN': Unknown word 'POS_EQ_DEC_MAIN'",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20250206/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:61:4: W03: Implicitly generating an ID from a name '2MASS' -&gt; '_2MASS'",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20250206/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:61:4: W06: Invalid UCD 'ID_MAIN': Unknown word 'ID_MAIN'",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20250206/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:152:4: W06: Invalid UCD 'obs.field': Secondary word 'obs.field' is not valid as a primary word",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20250206/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:161:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20250206/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:209:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20250206/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:46:4: W06: Invalid UCD 'POS_EQ_RA_MAIN': Unknown word 'POS_EQ_RA_MAIN'",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20250206/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:49:4: W06: Invalid UCD 'POS_EQ_DEC_MAIN': Unknown word 'POS_EQ_DEC_MAIN'",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20250206/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:61:4: W03: Implicitly generating an ID from a name '2MASS' -&gt; '_2MASS'",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20250206/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:61:4: W06: Invalid UCD 'ID_MAIN': Unknown word 'ID_MAIN'",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20250206/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:152:4: W06: Invalid UCD 'obs.field': Secondary word 'obs.field' is not valid as a primary word",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20250206/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:161:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word",
+        "/var/www/astroconda.org/html/aux/vo_databases/daily_20250206/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:209:4: W06: Invalid UCD 'pos.cartesian;instr.det': Secondary word 'pos.cartesian' is not valid as a primary word"
     ],
     "validate_xmllint": false,
-    "validate_xmllint_content": "/var/www/astroconda.org/html/aux/vo_databases/daily_20241029/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:4: element VOTABLE: Schemas validity error : Element '{http://www.ivoa.net/xml/VOTable/v1.3}VOTABLE': No matching global declaration available for the validation root.\n/var/www/astroconda.org/html/aux/vo_databases/daily_20241029/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml fails to validate\n",
+    "validate_xmllint_content": "/var/www/astroconda.org/html/aux/vo_databases/daily_20250206/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml:4: element VOTABLE: Schemas validity error : Element '{http://www.ivoa.net/xml/VOTable/v1.3}VOTABLE': No matching global declaration available for the validation root.\n/var/www/astroconda.org/html/aux/vo_databases/daily_20250206/results/78/a8/966dc94b2099b663d5f839c4d89c/vo.xml fails to validate\n",
     "waveband": "infrared",
     "wsdl_url": ""
 }
@@ -8559,14 +8560,14 @@ Am I done? False
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>WARNING: NoResultsWarning: Catalog server 'http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=Galaxy' returned 0 result [astroquery.vo_conesearch.core]
 WARNING: NoResultsWarning: Catalog server 'http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=Star' returned 0 result [astroquery.vo_conesearch.core]
-WARNING: NoResultsWarning: Catalog server 'http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=PhotoObj' returned 0 result [astroquery.vo_conesearch.core]
 </pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>WARNING: NoResultsWarning: Catalog server 'http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=PhotoObjAll' returned 0 result [astroquery.vo_conesearch.core]
+<pre>WARNING: NoResultsWarning: Catalog server 'http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=PhotoObj' returned 0 result [astroquery.vo_conesearch.core]
+WARNING: NoResultsWarning: Catalog server 'http://wfaudata.roe.ac.uk/sdssdr7-dsa/DirectCone?DSACAT=SDSS_DR7&amp;DSATAB=PhotoObjAll' returned 0 result [astroquery.vo_conesearch.core]
 </pre>
 </div>
 </div>
@@ -8670,7 +8671,7 @@ http://wfaudata.roe.ac.uk/twomass-dsa/DirectCone?DSACAT=TWOMASS&amp;DSATAB=twoma
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Predicted run time is 0.4005479938593035 seconds
+<pre>Predicted run time is 0.3861108281025149 seconds
 Predicted number of rows is 2617
 </pre>
 </div>
@@ -8713,7 +8714,7 @@ Predicted number of rows is 2617
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>INFO: conesearch_timer took 0.652299165725708 s on AVERAGE for 1 call(s). [astroquery.utils.timer]
+<pre>INFO: conesearch_timer took 0.4941830635070801 s on AVERAGE for 1 call(s). [astroquery.utils.timer]
 </pre>
 </div>
 </div>
@@ -8741,7 +8742,7 @@ Predicted number of rows is 2617
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Actual run time is 0.652299165725708 seconds
+<pre>Actual run time is 0.4941830635070801 seconds
 Actual number of rows is 4028
 </pre>
 </div>
@@ -8750,6 +8751,6 @@ Actual number of rows is 4028
 </div>
 </div>
 </main>
-<footer class="at-tutorial-footer">Astropy footer</footer>
+<footer class="at-tutorial-footer"> </footer>
 </body>
 </html>

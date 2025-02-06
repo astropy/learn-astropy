@@ -7472,6 +7472,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7493,7 +7494,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="at-logotext__secondary">Tutorials</span>
 </a></p>
 <nav class="at-header-nav">
-<a download="" href="color-excess.ipynb">Download</a>
+<a download="" href="color-excess.ipynb">Download this notebook</a>
 </nav>
 </header>
 <aside class="at-notebook-sidebar">
@@ -7591,23 +7592,23 @@ synphot
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pathlib</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pathlib</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">astropy.units</span> <span class="k">as</span> <span class="nn">u</span>
-<span class="kn">from</span> <span class="nn">astropy.table</span> <span class="kn">import</span> <span class="n">Table</span>
-<span class="kn">from</span> <span class="nn">dust_extinction.parameter_averages</span> <span class="kn">import</span> <span class="n">CCM89</span><span class="p">,</span> <span class="n">F99</span>
-<span class="kn">from</span> <span class="nn">synphot</span> <span class="kn">import</span> <span class="n">units</span><span class="p">,</span> <span class="n">config</span>
-<span class="kn">from</span> <span class="nn">synphot</span> <span class="kn">import</span> <span class="n">SourceSpectrum</span><span class="p">,</span><span class="n">SpectralElement</span><span class="p">,</span><span class="n">Observation</span><span class="p">,</span><span class="n">ExtinctionModel1D</span>
-<span class="kn">from</span> <span class="nn">synphot.models</span> <span class="kn">import</span> <span class="n">BlackBodyNorm1D</span>
-<span class="kn">from</span> <span class="nn">synphot.spectrum</span> <span class="kn">import</span> <span class="n">BaseUnitlessSpectrum</span>
-<span class="kn">from</span> <span class="nn">synphot.reddening</span> <span class="kn">import</span> <span class="n">ExtinctionCurve</span>
-<span class="kn">from</span> <span class="nn">astroquery.simbad</span> <span class="kn">import</span> <span class="n">Simbad</span>
-<span class="kn">from</span> <span class="nn">astroquery.mast</span> <span class="kn">import</span> <span class="n">Observations</span>
-<span class="kn">import</span> <span class="nn">astropy.visualization</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">astropy.units</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">u</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.table</span><span class="w"> </span><span class="kn">import</span> <span class="n">Table</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dust_extinction.parameter_averages</span><span class="w"> </span><span class="kn">import</span> <span class="n">CCM89</span><span class="p">,</span> <span class="n">F99</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">synphot</span><span class="w"> </span><span class="kn">import</span> <span class="n">units</span><span class="p">,</span> <span class="n">config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">synphot</span><span class="w"> </span><span class="kn">import</span> <span class="n">SourceSpectrum</span><span class="p">,</span><span class="n">SpectralElement</span><span class="p">,</span><span class="n">Observation</span><span class="p">,</span><span class="n">ReddeningLaw</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">synphot.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlackBodyNorm1D</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">synphot.spectrum</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseUnitlessSpectrum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">synphot.reddening</span><span class="w"> </span><span class="kn">import</span> <span class="n">ExtinctionCurve</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.simbad</span><span class="w"> </span><span class="kn">import</span> <span class="n">Simbad</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astroquery.mast</span><span class="w"> </span><span class="kn">import</span> <span class="n">Observations</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">astropy.visualization</span>
 </pre></div>
 </div>
 </div>
@@ -7711,8 +7712,8 @@ $$</p>
         <span class="n">ext</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">Rv</span><span class="o">=</span><span class="n">R</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">wav</span><span class="p">,</span> <span class="n">ext</span><span class="p">(</span><span class="n">wav</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">name</span><span class="o">+</span><span class="s1">' R='</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">R</span><span class="p">))</span>
         
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'$\lambda^{-1}$ ($\mu$m$^{-1}$)'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'A($\lambda$) / A(V)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'$\lambda^{-1}$ ($\mu$m$^{-1}$)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'A($\lambda$) / A(V)'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">'best'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Some Extinction Laws'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -7727,22 +7728,8 @@ $$</p>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>&lt;&gt;:10: SyntaxWarning: invalid escape sequence '\l'
-&lt;&gt;:11: SyntaxWarning: invalid escape sequence '\l'
-&lt;&gt;:10: SyntaxWarning: invalid escape sequence '\l'
-&lt;&gt;:11: SyntaxWarning: invalid escape sequence '\l'
-/tmp/ipykernel_3968/1795187298.py:10: SyntaxWarning: invalid escape sequence '\l'
-  plt.xlabel('$\lambda^{-1}$ ($\mu$m$^{-1}$)')
-/tmp/ipykernel_3968/1795187298.py:11: SyntaxWarning: invalid escape sequence '\l'
-  plt.ylabel('A($\lambda$) / A(V)')
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/color-excess.ipynb_8_1.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/color-excess.ipynb_8_0.png"/>
 </div>
 </div>
 </div>
@@ -7808,7 +7795,7 @@ $$</p>
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[4]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div><i>Table masked=True length=199</i>
-<table class="table-striped table-bordered table-condensed" id="table139765031490176">
+<table class="table-striped table-bordered table-condensed" id="table139957728508528">
 <thead><tr><th>intentType</th><th>obs_collection</th><th>provenance_name</th><th>instrument_name</th><th>project</th><th>filters</th><th>wavelength_region</th><th>target_name</th><th>target_classification</th><th>obs_id</th><th>s_ra</th><th>s_dec</th><th>dataproduct_type</th><th>proposal_pi</th><th>calib_level</th><th>t_min</th><th>t_max</th><th>t_exptime</th><th>em_min</th><th>em_max</th><th>obs_title</th><th>t_obs_release</th><th>proposal_id</th><th>proposal_type</th><th>sequence_number</th><th>s_region</th><th>jpegURL</th><th>dataURL</th><th>dataRights</th><th>mtFlag</th><th>srcDen</th><th>obsid</th><th>distance</th></tr></thead>
 <thead><tr><th>str7</th><th>str11</th><th>str12</th><th>str13</th><th>str6</th><th>str16</th><th>str16</th><th>str21</th><th>str37</th><th>str35</th><th>float64</th><th>float64</th><th>str8</th><th>str22</th><th>int64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>float64</th><th>str117</th><th>float64</th><th>str25</th><th>str7</th><th>int64</th><th>str23309</th><th>str137</th><th>str137</th><th>str6</th><th>bool</th><th>float64</th><th>str9</th><th>float64</th></tr></thead>
 <tr><td>science</td><td>SPITZER_SHA</td><td>SSC Pipeline</td><td>IRS</td><td>--</td><td>IRS-LL</td><td>INFRARED</td><td>HD 147933</td><td>--</td><td>000000D8C900</td><td>246.39625</td><td>-23.446861</td><td>spectrum</td><td>Gordon, Karl</td><td>2</td><td>53594.2954061</td><td>53594.2955760074</td><td>14.68</td><td>14000.0</td><td>38000.0</td><td>Probing the Diffuse Interstellar Extinction Curve in the Spitzer Infrared</td><td>53988.04655094</td><td>KGORDON_IR_EXT_20146</td><td>Spitzer</td><td>14207232</td><td>POLYGON 246.429821 -23.450469 246.429288 -23.453401 246.32178 -23.43692 246.322315 -23.433988 246.429821 -23.450469</td><td>--</td><td>https://irsa.ipac.caltech.edu/data/SPITZER/SHA/archive/proc/IRSX007300/r14207232/ch2/bcd/SPITZER_S2_14207232_0008_0000_8_f2ap.fits</td><td>PUBLIC</td><td>False</td><td>nan</td><td>1711577</td><td>0.0</td></tr>
@@ -7969,6 +7956,7 @@ $$</p>
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>WARNING: UnitsWarning: 'erg/cm**2/s/angstrom' contains multiple slashes, which is discouraged by the FITS standard [astropy.units.format.generic]
+WARNING: UnitsWarning: 'erg/cm**2/s/angstrom' contains multiple slashes, which is discouraged by the FITS standard [astropy.units.format.generic]
 </pre>
 </div>
 </div>
@@ -8417,8 +8405,7 @@ for an excellent review of the issues and common misunderstandings in synthetic 
 <span class="n">wav</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span><span class="o">*</span><span class="n">u</span><span class="o">.</span><span class="n">micron</span>
 
 <span class="c1"># Make the extinction model in synphot using a lookup table.</span>
-<span class="n">ex</span> <span class="o">=</span> <span class="n">ExtinctionCurve</span><span class="p">(</span><span class="n">ExtinctionModel1D</span><span class="p">,</span> 
-                     <span class="n">points</span><span class="o">=</span><span class="n">wav</span><span class="p">,</span> <span class="n">lookup_table</span><span class="o">=</span><span class="n">ext</span><span class="o">.</span><span class="n">extinguish</span><span class="p">(</span><span class="n">wav</span><span class="p">,</span> <span class="n">Av</span><span class="o">=</span><span class="n">Av</span><span class="p">))</span>
+<span class="n">ex</span> <span class="o">=</span> <span class="n">ReddeningLaw</span><span class="p">(</span><span class="n">ext</span><span class="p">)</span><span class="o">.</span><span class="n">extinction_curve</span><span class="p">(</span><span class="n">Av</span> <span class="o">/</span> <span class="n">ext</span><span class="o">.</span><span class="n">Rv</span><span class="p">,</span> <span class="n">wavelengths</span><span class="o">=</span><span class="n">wav</span><span class="p">)</span>
 <span class="n">sp_ext</span> <span class="o">=</span> <span class="n">sp_norm</span><span class="o">*</span><span class="n">ex</span>
 <span class="n">sp_ext</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mi">15000</span><span class="p">,</span> <span class="n">flux_unit</span><span class="o">=</span><span class="s1">'flam'</span><span class="p">,</span>
             <span class="n">title</span><span class="o">=</span><span class="s1">'Normed Blackbody with Extinction'</span><span class="p">)</span>
@@ -8566,8 +8553,8 @@ $A_V$ =  2.0 mag
 <span class="c1"># Plot the model extinction curve for comparison </span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wav</span><span class="p">,</span><span class="n">Av</span><span class="o">*</span><span class="n">ext</span><span class="p">(</span><span class="n">wav</span><span class="p">)</span><span class="o">-</span><span class="n">Av</span><span class="p">,</span><span class="s1">'--k'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">'$\lambda$ (Angstrom)'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">'E($\lambda$-V)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'$\lambda$ (Angstrom)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">'E($\lambda$-V)'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">'Reddening of T=10,000K Background Source with Av=2'</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  
 </pre></div>
@@ -8592,20 +8579,6 @@ $A_V$ =  2.0 mag
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>&lt;&gt;:21: SyntaxWarning: invalid escape sequence '\l'
-&lt;&gt;:22: SyntaxWarning: invalid escape sequence '\l'
-&lt;&gt;:21: SyntaxWarning: invalid escape sequence '\l'
-&lt;&gt;:22: SyntaxWarning: invalid escape sequence '\l'
-/tmp/ipykernel_3968/326499545.py:21: SyntaxWarning: invalid escape sequence '\l'
-  plt.xlabel('$\lambda$ (Angstrom)')
-/tmp/ipykernel_3968/326499545.py:22: SyntaxWarning: invalid escape sequence '\l'
-  plt.ylabel('E($\lambda$-V)')
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>12266.5 Angstrom , -1.43 mag
 </pre>
@@ -8622,7 +8595,7 @@ $A_V$ =  2.0 mag
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="nboutput/color-excess.ipynb_48_4.png"/>
+<img alt="No description has been provided for this image" class="" src="nboutput/color-excess.ipynb_48_3.png"/>
 </div>
 </div>
 </div>
@@ -8655,6 +8628,6 @@ $A_V$ =  2.0 mag
 </div>
 </div>
 </main>
-<footer class="at-tutorial-footer">Astropy footer</footer>
+<footer class="at-tutorial-footer"> </footer>
 </body>
 </html>

@@ -7472,6 +7472,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7493,7 +7494,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="at-logotext__secondary">Tutorials</span>
 </a></p>
 <nav class="at-header-nav">
-<a download="" href="celestial_coords1.ipynb">Download</a>
+<a download="" href="celestial_coords1.ipynb">Download this notebook</a>
 </nav>
 </header>
 <aside class="at-notebook-sidebar">
@@ -7600,9 +7601,9 @@ matplotlib
 <div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">astropy.wcs</span> <span class="kn">import</span> <span class="n">WCS</span>
-<span class="kn">from</span> <span class="nn">astropy.io</span> <span class="kn">import</span> <span class="n">fits</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">astropy.wcs</span><span class="w"> </span><span class="kn">import</span> <span class="n">WCS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">astropy.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">fits</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
@@ -7715,11 +7716,11 @@ matplotlib
 
 Number of WCS axes: 2
 CTYPE : 'RA---TAN' 'DEC--TAN' 
-CRVAL : np.float64(337.5202808) np.float64(-20.833333059999998) 
-CRPIX : np.float64(1.0) np.float64(1.0) 
-PC1_1 PC1_2  : np.float64(1.0) np.float64(0.0) 
-PC2_1 PC2_2  : np.float64(0.0) np.float64(1.0) 
-CDELT : np.float64(-0.0002777777778) np.float64(0.0002777777778) 
+CRVAL : 337.5202808 -20.833333059999998 
+CRPIX : 1.0 1.0 
+PC1_1 PC1_2  : 1.0 0.0 
+PC2_1 PC2_2  : 0.0 1.0 
+CDELT : -0.0002777777778 0.0002777777778 
 NAXIS : 1024  1024</pre>
 </div>
 </div>
@@ -7802,11 +7803,11 @@ NAXIS : 1024  1024</pre>
 
 Number of WCS axes: 2
 CTYPE : 'RA---TAN' 'DEC--TAN' 
-CRVAL : np.float64(337.5202808) np.float64(-20.833333059999998) 
-CRPIX : np.float64(1.0) np.float64(1.0) 
-PC1_1 PC1_2  : np.float64(1.0) np.float64(0.0) 
-PC2_1 PC2_2  : np.float64(0.0) np.float64(1.0) 
-CDELT : np.float64(-0.0002777777778) np.float64(0.0002777777778) 
+CRVAL : 337.5202808 -20.833333059999998 
+CRPIX : 1.0 1.0 
+PC1_1 PC1_2  : 1.0 0.0 
+PC2_1 PC2_2  : 0.0 1.0 
+CDELT : -0.0002777777778 0.0002777777778 
 NAXIS : 0  0</pre>
 </div>
 </div>
@@ -7873,11 +7874,11 @@ NAXIS : 0  0</pre>
 
 Number of WCS axes: 2
 CTYPE : 'RA---TAN' 'DEC--TAN' 
-CRVAL : np.float64(337.5202808) np.float64(-20.833333059999998) 
-CRPIX : np.float64(1.0) np.float64(1.0) 
-PC1_1 PC1_2  : np.float64(1.0) np.float64(0.0) 
-PC2_1 PC2_2  : np.float64(0.0) np.float64(1.0) 
-CDELT : np.float64(-0.0002777777778) np.float64(0.0002777777778) 
+CRVAL : 337.5202808 -20.833333059999998 
+CRPIX : 1.0 1.0 
+PC1_1 PC1_2  : 1.0 0.0 
+PC2_1 PC2_2  : 0.0 1.0 
+CDELT : -0.0002777777778 0.0002777777778 
 NAXIS : 1024  1024</pre>
 </div>
 </div>
@@ -8217,11 +8218,11 @@ CD2_2   =  4.7224016024271E-04 /CD matrix                                       
 
 Number of WCS axes: 2
 CTYPE : 'RA---TAN' 'DEC--TAN' 
-CRVAL : np.float64(336.6811440416667) np.float64(-19.745016572222223) 
-CRPIX : np.float64(2499.6447489941065) np.float64(3378.9002584168584) 
-PC1_1 PC1_2  : np.float64(0.025282857855146917) np.float64(4.4684674035885186e-05) 
-PC2_1 PC2_2  : np.float64(-4.8420685266167345e-05) np.float64(0.0252859566668733) 
-CDELT : np.float64(-0.01867333422948538) np.float64(0.01867333422948538) 
+CRVAL : 336.6811440416667 -19.745016572222223 
+CRPIX : 2499.6447489941065 3378.9002584168584 
+PC1_1 PC1_2  : 0.025282857855146917 4.4684674035885186e-05 
+PC2_1 PC2_2  : -4.8420685266167345e-05 0.0252859566668733 
+CDELT : -0.01867333422948538 0.01867333422948538 
 NAXIS : 2119  2119</pre>
 </div>
 </div>
@@ -8260,7 +8261,7 @@ NAXIS : 2119  2119</pre>
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>&lt;matplotlib.image.AxesImage at 0x7f307c7ac380&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x7fdaf0821190&gt;</pre>
 </div>
 </div>
 <div class="jp-OutputArea-child">
@@ -8437,6 +8438,6 @@ NAXIS : 2119  2119</pre>
 </div>
 </div>
 </main>
-<footer class="at-tutorial-footer">Astropy footer</footer>
+<footer class="at-tutorial-footer"> </footer>
 </body>
 </html>
